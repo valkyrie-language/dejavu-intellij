@@ -2,3 +2,7 @@
 .idea
 .qodana
 build
+
+time-travel.*
+*.log
+.antlr/
