@@ -7,7 +7,7 @@ import com.intellij.openapi.actionSystem.ActionGroup
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.psi.PsiElement
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 
 
@@ -17,8 +17,8 @@ class RunClassGroup : ActionGroup() {
     init {
         templatePresentation.isPopupGroup = false
         templatePresentation.icon = AllIcons.RunConfigurations.TestState.Run_run
-        templatePresentation.text = ValkyrieBundle.message("action.run.class.group.name")
-        templatePresentation.description = ValkyrieBundle.message("action.run.class.group.help")
+        templatePresentation.text = NexusBundle.message("action.run.class.group.name")
+        templatePresentation.description = NexusBundle.message("action.run.class.group.help")
     }
 
     companion object {

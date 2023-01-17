@@ -8,8 +8,8 @@ import com.intellij.psi.FileViewProvider
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.SearchScope
 import valkyrie.ide.project.crate.NamespaceMapping
-import valkyrie.language.ValkyrieBundle
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusBundle
+import valkyrie.language.NexusLanguage
 import valkyrie.language.antlr.traversal
 import valkyrie.language.ast.ValkyrieNamespaceStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
@@ -19,11 +19,11 @@ import valkyrie.language.ast.classes.ValkyrieClassStatement
 ValkyrieFile 是个 PsiElement
  */
 @Suppress("UnstableApiUsage")
-class ValkyrieFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, ValkyrieLanguage) {
+class ValkyrieFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, NexusLanguage) {
     override fun getFileType(): FileType = ValkyrieFileType
 
 
-    override fun toString(): String = ValkyrieBundle.message("action.create_file")
+    override fun toString(): String = NexusBundle.message("action.create_file")
 
 
     val packageName: String

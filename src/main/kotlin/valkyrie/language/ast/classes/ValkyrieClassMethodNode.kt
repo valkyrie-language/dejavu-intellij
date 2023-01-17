@@ -16,7 +16,7 @@ import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.hint.ParameterInlayHint
 import valkyrie.ide.hint.TypeInlayHint
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.antlr.ValkyrieParser
+import valkyrie.language.antlr.NexusParser
 import valkyrie.language.ast.ValkyrieFunctionParameter
 import valkyrie.language.ast.ValkyrieModifiedNode
 import valkyrie.language.file.ValkyrieIconProvider
@@ -85,8 +85,8 @@ class ValkyrieClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node),
 
 
     override fun type_hint(inlay: TypeInlayHint): Boolean {
-        val typeHint = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_type_hint);
-        val argument = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_function_parameters)!!;
+        val typeHint = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_type_hint);
+        val argument = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_function_parameters)!!;
         if (typeHint == null) {
             inlay.inline(argument.endOffset, ": Any?")
         }
@@ -94,8 +94,8 @@ class ValkyrieClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node),
     }
 
     override fun parameter_hint(inlay: ParameterInlayHint): Boolean {
-        val argument = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_function_parameters)!!;
-        val parameter = ValkyrieParser.getChildrenOfType<ValkyrieFunctionParameter>(argument)
+        val argument = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_function_parameters)!!;
+        val parameter = NexusParser.getChildrenOfType<ValkyrieFunctionParameter>(argument)
         if (parameter.isEmpty()) {
             for (m in modifiers) {
                 if (m.name == "get") {

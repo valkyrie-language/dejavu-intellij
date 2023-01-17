@@ -8,7 +8,7 @@ import com.intellij.ide.util.treeView.smartTree.Filter
 import com.intellij.ide.util.treeView.smartTree.TreeElement
 import valkyrie.ide.view.ValkyrieStructureItem
 import valkyrie.ide.view.ValkyrieVisibility
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 
 
 class PublicElementsFilter : Filter {
@@ -17,7 +17,7 @@ class PublicElementsFilter : Filter {
 
     override fun isReverted() = false
     override fun getPresentation(): ActionPresentation = ActionPresentationData(
-        ValkyrieBundle.message(name),
+        NexusBundle.message(name),
         null,
         AllIcons.Nodes.Public
     )

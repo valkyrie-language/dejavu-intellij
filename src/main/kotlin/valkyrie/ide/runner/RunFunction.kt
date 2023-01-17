@@ -4,15 +4,15 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 
 
 class RunFunction : AnAction() {
     private var path: String = "";
 
     init {
-        templatePresentation.text = ValkyrieBundle.message("action.run.class.full.name")
-        templatePresentation.description = ValkyrieBundle.message("action.run.class.full.help")
+        templatePresentation.text = NexusBundle.message("action.run.class.full.name")
+        templatePresentation.description = NexusBundle.message("action.run.class.full.help")
     }
 
     companion object {

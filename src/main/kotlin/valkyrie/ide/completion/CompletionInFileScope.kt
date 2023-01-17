@@ -11,7 +11,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.util.ProcessingContext
 import valkyrie.ide.project.crate.NamespaceMapping
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 import valkyrie.language.file.ValkyrieIconProvider
 import javax.swing.Icon
 
@@ -155,5 +155,5 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
 
 
 private fun triggerCondition(): PsiElementPattern.Capture<LeafPsiElement> {
-    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(ValkyrieLanguage);
+    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(NexusLanguage);
 }

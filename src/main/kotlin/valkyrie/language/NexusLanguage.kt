@@ -2,11 +2,11 @@ package valkyrie.language
 
 import com.intellij.lang.Language
 
-private const val LANGUAGE_ID = "Valkyrie"
+private const val LANGUAGE_ID = "Nexus"
 
 
-object ValkyrieLanguage : Language(LANGUAGE_ID) {
-    private fun readResolve(): Any = ValkyrieLanguage
+object NexusLanguage : Language(LANGUAGE_ID) {
+    private fun readResolve(): Any = NexusLanguage
     override fun getDisplayName(): String {
         return super.getDisplayName()
     }

@@ -9,8 +9,8 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.util.elementType
 import com.intellij.refactoring.rename.RenameHandler
 import com.intellij.refactoring.util.CommonRefactoringUtil
-import valkyrie.language.ValkyrieBundle
-import valkyrie.language.antlr.ValkyrieLexer
+import valkyrie.language.NexusBundle
+import valkyrie.language.antlr.NexusLexer
 import valkyrie.language.file.ValkyrieFileNode
 
 //import valkyrie.language.psi.ValkyrieTypes
@@ -23,10 +23,10 @@ class ValkyrieRenameHandler : RenameHandler {
         val offset = editor.caretModel.offset
         editor.scrollingModel.scrollToCaret(ScrollType.MAKE_VISIBLE)
         val element = file.findElementAt(offset) ?: return
-        if (ValkyrieLexer.Keywords.contains(element.elementType)) {
-            val message = ValkyrieBundle.message("rename.invalid.keyword", element.elementType!!)
+        if (NexusLexer.Keywords.contains(element.elementType)) {
+            val message = NexusBundle.message("rename.invalid.keyword", element.elementType!!)
             CommonRefactoringUtil.showErrorHint(project, editor, message, "getTitle", "getHelpId")
-        } else if (ValkyrieLexer.Identifiers.contains(element.elementType)) {
+        } else if (NexusLexer.Identifiers.contains(element.elementType)) {
             invoke(project, arrayOf(element), dataContext)
         } else {
 

@@ -6,7 +6,7 @@ import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.psi.PsiElement
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 
 class RunNamespaceGroup(element: PsiElement) : ActionGroup() {
     init {
@@ -14,8 +14,8 @@ class RunNamespaceGroup(element: PsiElement) : ActionGroup() {
 //            throw IllegalArgumentException("element must be a ValkyrieNamespaceStatementNode")
 //        }
         templatePresentation.icon = AllIcons.RunConfigurations.TestState.Run_run
-        templatePresentation.text = ValkyrieBundle.message("action.run.namespace.group.name")
-        templatePresentation.description = ValkyrieBundle.message("action.run.namespace.group.help")
+        templatePresentation.text = NexusBundle.message("action.run.namespace.group.name")
+        templatePresentation.description = NexusBundle.message("action.run.namespace.group.help")
     }
 
     override fun actionPerformed(event: AnActionEvent) {

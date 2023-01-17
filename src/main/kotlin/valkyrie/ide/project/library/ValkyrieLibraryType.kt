@@ -10,7 +10,7 @@ import com.intellij.openapi.roots.libraries.ui.LibraryPropertiesEditor
 import com.intellij.openapi.roots.libraries.ui.LibraryRootsComponentDescriptor
 import com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditor
 import com.intellij.openapi.vfs.VirtualFile
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.file.ValkyrieIconProvider
 import javax.swing.Icon
 import javax.swing.JComponent
@@ -28,7 +28,7 @@ class ValkyrieLibraryType : LibraryType<ValkyrieLibraryProperty>(ValkyrieLibrary
         return ValkyrieIconProvider.Instance.Valkyrie
     }
 
-    override fun getCreateActionName() = ValkyrieBundle.message("library.create")
+    override fun getCreateActionName() = NexusBundle.message("library.create")
     override fun getDescription(properties: ValkyrieLibraryProperty): String? {
         return "ValkyrieLibraryType.getDescription"
     }

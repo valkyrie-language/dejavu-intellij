@@ -8,7 +8,7 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.impl.source.tree.SharedImplUtil
 import com.intellij.psi.util.parents
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 import valkyrie.language.file.ValkyrieFileNode
 import javax.swing.Icon
 
@@ -37,8 +37,8 @@ abstract class ValkyrieScopeNode(node: CompositeElement) : ASTWrapperPsiElement(
         return null;
     }
 
-    override fun getLanguage(): ValkyrieLanguage {
-        return ValkyrieLanguage
+    override fun getLanguage(): NexusLanguage {
+        return NexusLanguage
     }
 
     override fun getOwnDeclarations(): MutableCollection<out PsiSymbolDeclaration> {

@@ -7,37 +7,37 @@ import com.intellij.psi.tree.TokenSet
 import nexus.language.antlr.NexusAntlrLexer.*
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory.createTokenSet
 import valkyrie.ide.matcher.ValkyrieBracketMatch
-import valkyrie.language.ValkyrieLanguage
-import valkyrie.language.antlr.ValkyrieLexer
+import valkyrie.language.NexusLanguage
+import valkyrie.language.antlr.NexusLexer
 
 
 private val removeSpaceBefore = TokenSet.orSet(
-    createTokenSet(ValkyrieLanguage, DOT, OP_PROPORTION, COLON, GENERIC_L, GENERIC_R),
+    createTokenSet(NexusLanguage, DOT, OP_PROPORTION, COLON, GENERIC_L, GENERIC_R),
     ValkyrieBracketMatch.Instance.Right,
 
     )
 
 private val removeSpaceNewlineBefore = TokenSet.orSet(
-    createTokenSet(ValkyrieLanguage, COMMA, OP_PROPORTION)
+    createTokenSet(NexusLanguage, COMMA, OP_PROPORTION)
 
 )
 
 private val removeSpaceAfter = TokenSet.orSet(
-    createTokenSet(ValkyrieLanguage, DOT, OP_PROPORTION, GENERIC_L, GENERIC_R)
+    createTokenSet(NexusLanguage, DOT, OP_PROPORTION, GENERIC_L, GENERIC_R)
 )
 
 private val removeSpaceNewlineAfter = TokenSet.orSet(
-    createTokenSet(ValkyrieLanguage, DOT, OP_PROPORTION, OP_HASH, OP_AT)
+    createTokenSet(NexusLanguage, DOT, OP_PROPORTION, OP_HASH, OP_AT)
 )
 
 // 左右插入一个空格
 private val spaceAroundOperator = TokenSet.orSet(
-    createTokenSet(ValkyrieLanguage, KW_IN),
-    ValkyrieLexer.OperatorInfix
+    createTokenSet(NexusLanguage, KW_IN),
+    NexusLexer.OperatorInfix
 )
 
 private val addSpaceAfter = TokenSet.orSet(
-    createTokenSet(ValkyrieLanguage, COMMA, COLON)
+    createTokenSet(NexusLanguage, COMMA, COLON)
 )
 
 private val newlineIndentAfter = TokenSet.create()
@@ -45,7 +45,7 @@ private val newlineIndentAfter = TokenSet.create()
 data class FormatSpace(val commonSettings: CommonCodeStyleSettings, val spacingBuilder: SpacingBuilder) {
     companion object {
         fun create(settings: CodeStyleSettings): FormatSpace {
-            val commonSettings = settings.getCommonSettings(ValkyrieLanguage)
+            val commonSettings = settings.getCommonSettings(NexusLanguage)
             return FormatSpace(commonSettings, createSpacingBuilder(commonSettings))
         }
 

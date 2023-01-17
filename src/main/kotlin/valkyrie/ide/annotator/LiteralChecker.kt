@@ -10,7 +10,7 @@ import com.intellij.psi.PsiElement
 import valkyrie.ide.actions.ConvertNumberBase
 import valkyrie.ide.actions.ast_transform.DeleteThis
 import valkyrie.ide.highlight.ValkyrieColorParser
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.ast.ValkyrieNumberNode
 
 //import valkyrie.language.psi.ValkyrieTypes
@@ -30,8 +30,8 @@ class LiteralChecker : Annotator {
     private fun annotateLiteralColor(color: PsiElement, holder: AnnotationHolder) {
         if (ValkyrieColorParser().getColorFrom(color) == null) {
             val info = when {
-                color.text.startsWith('®') -> ValkyrieBundle.message("annotator.color.rgb")
-                color.text.startsWith('©') -> ValkyrieBundle.message("annotator.color.cmyk")
+                color.text.startsWith('®') -> NexusBundle.message("annotator.color.rgb")
+                color.text.startsWith('©') -> NexusBundle.message("annotator.color.cmyk")
                 else -> ""
             }
             holder.newAnnotation(HighlightSeverity.ERROR, info)

@@ -10,7 +10,7 @@ import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import valkyrie.ide.actions.ast_transform.CreateNamespace
 import valkyrie.ide.actions.ast_transform.DeleteThis
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.ast.ValkyrieNamespaceStatement
 import valkyrie.language.file.ValkyrieFileNode
 
@@ -34,7 +34,7 @@ class CheckNamespace : Annotator {
         if (child.count() > 1) {
             for (item in child) {
                 val fixer = DeleteThis(item, item.endSemicolon())
-                holder.newAnnotation(HighlightSeverity.ERROR, ValkyrieBundle.message("annotator.namespace.duplicated"))
+                holder.newAnnotation(HighlightSeverity.ERROR, NexusBundle.message("annotator.namespace.duplicated"))
                     .range(item.textRange)
                     .withFix(fixer)
                     .create()
@@ -56,7 +56,7 @@ class CheckNamespace : Annotator {
         }
 
         if (PsiTreeUtil.skipWhitespacesAndCommentsBackward(element) != null) {
-            holder.newAnnotation(HighlightSeverity.WARNING, ValkyrieBundle.message("annotator.namespace.non-first"))
+            holder.newAnnotation(HighlightSeverity.WARNING, NexusBundle.message("annotator.namespace.non-first"))
                 .range(element.textRange)
                 .create()
         }

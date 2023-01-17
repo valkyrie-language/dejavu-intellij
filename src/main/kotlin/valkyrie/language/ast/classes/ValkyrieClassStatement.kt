@@ -15,7 +15,7 @@ import valkyrie.ide.formatter.ValkyrieRewriter
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.antlr.ValkyrieParser
+import valkyrie.language.antlr.NexusParser
 import valkyrie.language.antlr.traversal
 import valkyrie.language.ast.ValkyrieIdentifierNode
 import valkyrie.language.ast.ValkyrieModifiedNode
@@ -33,7 +33,7 @@ class ValkyrieClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
     private val _identifier by lazy { ValkyrieIdentifierNode.find(this)!! }
     val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
     val inherits: Array<ValkyrieClassInheritItem> by lazy {
-        val inherit = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_class_inherit);
+        val inherit = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_class_inherit);
         PsiTreeUtil.getChildrenOfType(inherit, ValkyrieClassInheritItem::class.java) ?: emptyArray()
     }
 

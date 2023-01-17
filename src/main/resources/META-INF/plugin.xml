@@ -5,7 +5,7 @@
 	<depends>com.intellij.modules.platform</depends>
 	<depends optional="true" config-file="plugin-with-rust.xml">com.jetbrains.rust</depends>
 	<depends optional="true" config-file="plugin-with-markdown.xml">org.intellij.plugins.markdown</depends>
-	<resource-bundle>messages.ValkyrieBundle</resource-bundle>
+	<resource-bundle>messages.NexusBundle</resource-bundle>
 	<extensions defaultExtensionNs="com.intellij">
 		<fileType
 			name="Valkyrie"
@@ -15,7 +15,7 @@
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition
 			language="Valkyrie"
-			implementationClass="valkyrie.language.antlr.ValkyrieParserDefinition"/>
+			implementationClass="valkyrie.language.antlr.NexusParserDefinition"/>
 		<multiHostInjector implementation="valkyrie.ide.matcher.LanguageInjector"/>
 		<!-- Project -->
 		<projectNameProvider implementation="valkyrie.ide.project.ValkyrieProjectName"/>

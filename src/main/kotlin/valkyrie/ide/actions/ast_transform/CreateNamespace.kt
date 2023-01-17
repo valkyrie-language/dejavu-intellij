@@ -8,7 +8,7 @@ import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.CheckUtil
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.file.ValkyrieFileNode
 import valkyrie.language.file.ValkyrieIconProvider
 import javax.swing.Icon
@@ -23,11 +23,11 @@ class CreateNamespace(private val element: ValkyrieFileNode) : LocalQuickFixAndI
     }
 
     override fun getText(): String {
-        return ValkyrieBundle.message("action.create.namespace.name")
+        return NexusBundle.message("action.create.namespace.name")
     }
 
     fun getDescription(): String {
-        return ValkyrieBundle.message("action.create.namespace.help")
+        return NexusBundle.message("action.create.namespace.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

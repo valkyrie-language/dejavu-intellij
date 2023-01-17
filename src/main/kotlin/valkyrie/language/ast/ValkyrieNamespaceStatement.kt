@@ -12,7 +12,7 @@ import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
 import valkyrie.ide.codeStyle.ValkyrieCodeStyleSettings
 import valkyrie.ide.formatter.ValkyrieRewriter
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 import valkyrie.language.antlr.childrenWithLeaves
 import valkyrie.language.psi.ValkyrieRewritableElement
 import javax.swing.Icon
@@ -58,7 +58,7 @@ class ValkyrieNamespaceStatement(node: CompositeElement, type: IElementType) : A
 
     override fun on_rewrite(e: ValkyrieRewriter) {
         val split = PSIElementTypeFactory.createTokenSet(
-            ValkyrieLanguage,
+            NexusLanguage,
             NexusAntlrParser.DOT,
             NexusAntlrParser.OP_PROPORTION
         );

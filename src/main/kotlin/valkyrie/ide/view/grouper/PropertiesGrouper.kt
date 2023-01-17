@@ -4,17 +4,17 @@ package valkyrie.ide.view.grouper
 import com.intellij.ide.util.treeView.AbstractTreeNode
 import com.intellij.ide.util.treeView.smartTree.*
 import com.intellij.util.PlatformIcons
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 
 object PropertiesGrouper : Grouper {
     override fun getPresentation(): ActionPresentation = ActionPresentationData(
-        ValkyrieBundle.message("view.PropertiesGrouper"),
+        NexusBundle.message("view.PropertiesGrouper"),
         "GGGGG",
         PlatformIcons.ABSTRACT_CLASS_ICON
     )
 
     override fun getName(): String {
-        return ValkyrieBundle.message("view.PropertiesGrouper")
+        return NexusBundle.message("view.PropertiesGrouper")
     }
 
     override fun group(

@@ -7,13 +7,13 @@ import nexus.language.antlr.NexusAntlrLexer.BRACKET_L
 import nexus.language.antlr.NexusAntlrLexer.BRACKET_R
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 import valkyrie.language.antlr.childrenWithLeaves
 import valkyrie.language.psi.ValkyrieHighlightElement
 
 class ValkyrieAnnotation(node: CompositeElement) : ASTWrapperPsiElement(node), ValkyrieHighlightElement {
     override fun on_highlight(e: NodeHighlighter) {
-        val dye = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, BRACKET_L, BRACKET_R);
+        val dye = PSIElementTypeFactory.createTokenSet(NexusLanguage, BRACKET_L, BRACKET_R);
         for (child in this.childrenWithLeaves) {
             if (dye.contains(child.elementType)) {
                 e.register_macro(child)

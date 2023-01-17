@@ -9,14 +9,14 @@ import nexus.language.antlr.NexusAntlrLexer.*
 import org.antlr.intellij.adaptor.lexer.ANTLRLexerAdaptor
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.lexer.TokenIElementType
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 
-class ValkyrieLexer : Lexer() {
+class NexusLexer : Lexer() {
     private var adaptor: ANTLRLexerAdaptor
 
     init {
         val lexer = NexusAntlrLexer(null)
-        this.adaptor = ANTLRLexerAdaptor(ValkyrieLanguage, lexer)
+        this.adaptor = ANTLRLexerAdaptor(NexusLanguage, lexer)
     }
 
     override fun start(buffer: CharSequence, startOffset: Int, endOffset: Int, initialState: Int) {
@@ -61,7 +61,7 @@ class ValkyrieLexer : Lexer() {
 
     companion object {
         val Keywords: TokenSet = PSIElementTypeFactory.createTokenSet(
-            ValkyrieLanguage,
+            NexusLanguage,
             // declare keywords
             KW_NAMESPACE, KW_IMPORT, KW_AS,
             KW_CLASS, KW_TYPE,
@@ -91,11 +91,11 @@ class ValkyrieLexer : Lexer() {
             OP_AND_THEN, OP_OR_ELSE, OP_OR_DEFAULT, KW_NOT, KW_IS,
         )
         val OperatorPrefix: TokenSet = PSIElementTypeFactory.createTokenSet(
-            ValkyrieLanguage,
+            NexusLanguage,
             OP_NOT, OP_DECONSTRUCT, OP_REFERENCE, OP_INVERSE, OP_ROOT3, OP_ROOT4
         )
         val OperatorInfix: TokenSet = PSIElementTypeFactory.createTokenSet(
-            ValkyrieLanguage,
+            NexusLanguage,
             OP_ADD, OP_SUB,
             OP_MUL,
             OP_DIV, OP_REM, OP_DIV_REM,
@@ -112,26 +112,26 @@ class ValkyrieLexer : Lexer() {
             OP_MAP, OP_APPLY2, OP_APPLY3
         )
         val OperatorSuffix: TokenSet = PSIElementTypeFactory.createTokenSet(
-            ValkyrieLanguage,
+            NexusLanguage,
             OP_TEMPERATURE, OP_PERCENT, OP_TRANSPOSE
         )
         val Operators = TokenSet.orSet(OperatorPrefix, OperatorInfix, OperatorSuffix);
-        val MacroOperators = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, OP_HASH, OP_AT);
+        val MacroOperators = PSIElementTypeFactory.createTokenSet(NexusLanguage, OP_HASH, OP_AT);
 
-        val Comma: TokenSet = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, COMMA);
-        val Semicolon: TokenSet = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, SEMICOLON);
-        val Dot = TokenIElementType(DOT, ".", ValkyrieLanguage);
-        val Proportion = TokenIElementType(OP_PROPORTION, ".", ValkyrieLanguage);
-        val Integers: TokenSet = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, INTEGER);
-        val Decimals: TokenSet = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, DECIMAL);
-        val Strings: TokenSet = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, STRING_SINGLE, STRING_DOUBLE);
-        val Identifiers: TokenSet = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, UNICODE_ID);
+        val Comma: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, COMMA);
+        val Semicolon: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, SEMICOLON);
+        val Dot = TokenIElementType(DOT, ".", NexusLanguage);
+        val Proportion = TokenIElementType(OP_PROPORTION, ".", NexusLanguage);
+        val Integers: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, INTEGER);
+        val Decimals: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, DECIMAL);
+        val Strings: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, STRING_SINGLE, STRING_DOUBLE);
+        val Identifiers: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, UNICODE_ID);
 
-        val CommentLine = TokenIElementType(LINE_COMMENT, "CommentLine", ValkyrieLanguage);
-        val CommentBlock = TokenIElementType(BLOCK_COMMENT, "CommentBlock", ValkyrieLanguage);
-        val Comments: TokenSet = PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, LINE_COMMENT, BLOCK_COMMENT);
+        val CommentLine = TokenIElementType(LINE_COMMENT, "CommentLine", NexusLanguage);
+        val CommentBlock = TokenIElementType(BLOCK_COMMENT, "CommentBlock", NexusLanguage);
+        val Comments: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, LINE_COMMENT, BLOCK_COMMENT);
         val CompletionWords: TokenSet = PSIElementTypeFactory.createTokenSet(
-            ValkyrieLanguage,
+            NexusLanguage,
             KW_IF,
             KW_ELSE,
             KW_TRAIT,

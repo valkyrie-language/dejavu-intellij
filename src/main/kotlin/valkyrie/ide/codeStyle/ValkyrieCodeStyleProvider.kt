@@ -2,10 +2,10 @@ package valkyrie.ide.codeStyle
 
 import com.intellij.application.options.SmartIndentOptionsEditor
 import com.intellij.psi.codeStyle.*
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 
 class ValkyrieCodeStyleProvider : LanguageCodeStyleSettingsProvider() {
-    override fun getLanguage() = ValkyrieLanguage
+    override fun getLanguage() = NexusLanguage
     override fun getIndentOptionsEditor() = SmartIndentOptionsEditor()
     override fun createConfigurable(
         settings: CodeStyleSettings,

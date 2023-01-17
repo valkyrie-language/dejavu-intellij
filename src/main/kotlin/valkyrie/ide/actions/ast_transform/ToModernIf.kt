@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.ast.ValkyrieIfStatementNode
 //import valkyrie.language.psi_node.ValkyrieIfStatementNode
 import javax.swing.Icon
@@ -23,11 +23,11 @@ class ToModernIf(element: ValkyrieIfStatementNode) : LocalQuickFixAndIntentionAc
     }
 
     override fun getText(): String {
-        return ValkyrieBundle.message("action.convert.modern_if.name")
+        return NexusBundle.message("action.convert.modern_if.name")
     }
 
     fun getDescription(): String {
-        return ValkyrieBundle.message("action.convert.modern_if.help")
+        return NexusBundle.message("action.convert.modern_if.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

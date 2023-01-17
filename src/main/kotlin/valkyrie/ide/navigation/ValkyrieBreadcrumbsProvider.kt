@@ -6,14 +6,14 @@ import com.intellij.lang.Language
 import com.intellij.navigation.NavigationItem
 import com.intellij.psi.PsiElement
 import com.intellij.ui.breadcrumbs.BreadcrumbsProvider
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 import valkyrie.language.psi.ValkyrieScopeNode
 import javax.swing.Action
 import javax.swing.Icon
 
 class ValkyrieBreadcrumbsProvider : BreadcrumbsProvider {
     override fun getLanguages(): Array<Language> {
-        return arrayOf(ValkyrieLanguage)
+        return arrayOf(NexusLanguage)
     }
 
     override fun acceptElement(element: PsiElement): Boolean {

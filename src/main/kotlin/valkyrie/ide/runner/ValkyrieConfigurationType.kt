@@ -2,13 +2,13 @@ package valkyrie.ide.runner
 
 import com.intellij.execution.configurations.ConfigurationFactory
 import com.intellij.execution.configurations.ConfigurationType
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.file.ValkyrieIconProvider
 import javax.swing.Icon
 
 class ValkyrieConfigurationType : ConfigurationType {
     override fun getDisplayName(): String {
-        return ValkyrieBundle.message("running.group.name")
+        return NexusBundle.message("running.group.name")
     }
 
     override fun getConfigurationTypeDescription(): String {

@@ -16,7 +16,7 @@ import org.intellij.lang.regexp.RegExpLanguage
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.matcher.escaper.StringEscape
-import valkyrie.language.antlr.ValkyrieParser
+import valkyrie.language.antlr.NexusParser
 import valkyrie.language.psi.ValkyrieHighlightElement
 
 class ValkyrieStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguageInjectionHost, ValkyrieHighlightElement {
@@ -24,7 +24,7 @@ class ValkyrieStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguag
         PsiTreeUtil.getChildOfType(this, ValkyrieIdentifierNode::class.java)
     }
     private val _text by lazy {
-        ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_string)!!
+        NexusParser.getChildOfType(this, NexusAntlrParser.RULE_string)!!
     }
     private val injectLanguage = handler?.name?.lowercase();
 

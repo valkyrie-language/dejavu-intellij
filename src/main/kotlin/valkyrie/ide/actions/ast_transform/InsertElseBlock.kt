@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import javax.swing.Icon
 
 class InsertElseBlock(element: PsiElement) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
@@ -21,11 +21,11 @@ class InsertElseBlock(element: PsiElement) : LocalQuickFixAndIntentionActionOnPs
     }
 
     override fun getText(): String {
-        return ValkyrieBundle.message("action.insert.else.name")
+        return NexusBundle.message("action.insert.else.name")
     }
 
     fun getDescription(): String {
-        return ValkyrieBundle.message("action.insert.else.help")
+        return NexusBundle.message("action.insert.else.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

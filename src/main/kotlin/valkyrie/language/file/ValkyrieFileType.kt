@@ -1,14 +1,14 @@
 package valkyrie.language.file
 
 import com.intellij.openapi.fileTypes.LanguageFileType
-import valkyrie.language.ValkyrieBundle
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusBundle
+import valkyrie.language.NexusLanguage
 import javax.swing.Icon
 
-object ValkyrieFileType : LanguageFileType(ValkyrieLanguage) {
-    override fun getName(): String = ValkyrieLanguage.id
+object ValkyrieFileType : LanguageFileType(NexusLanguage) {
+    override fun getName(): String = NexusLanguage.id
 
-    override fun getDescription(): String = ValkyrieBundle.message("filetype.description")
+    override fun getDescription(): String = NexusBundle.message("filetype.description")
 
     override fun getDefaultExtension(): String = "vk;valkyrie;"
 

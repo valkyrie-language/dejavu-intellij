@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.ast.ValkyrieWhichStatement
 import javax.swing.Icon
 
@@ -22,11 +22,11 @@ class ToLegacyIf(element: ValkyrieWhichStatement) : LocalQuickFixAndIntentionAct
     }
 
     override fun getText(): String {
-        return ValkyrieBundle.message("action.convert.legacy_if.name")
+        return NexusBundle.message("action.convert.legacy_if.name")
     }
 
     fun getDescription(): String {
-        return ValkyrieBundle.message("action.convert.legacy_if.help")
+        return NexusBundle.message("action.convert.legacy_if.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

@@ -9,8 +9,8 @@ import com.intellij.psi.util.elementType
 import com.intellij.ui.ColorUtil
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.highlight.ValkyrieHighlightColor.*
-import valkyrie.language.ValkyrieLanguage
-import valkyrie.language.antlr.ValkyrieLexer
+import valkyrie.language.NexusLanguage
+import valkyrie.language.antlr.NexusLexer
 import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 import valkyrie.lsp.RequestDocument
@@ -19,8 +19,8 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
     private val doc = StringBuilder()
     fun onHover(): String {
         when {
-            ValkyrieLexer.Keywords.contains(element.elementType) -> return RequestDocument.keyword(element.text).send()
-            ValkyrieLexer.Operators.contains(element.elementType) -> return RequestDocument.operator(element.text).send()
+            NexusLexer.Keywords.contains(element.elementType) -> return RequestDocument.keyword(element.text).send()
+            NexusLexer.Operators.contains(element.elementType) -> return RequestDocument.operator(element.text).send()
             else -> {}
         }
         when (element) {
@@ -91,7 +91,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         HtmlSyntaxInfoUtil.appendHighlightedByLexerAndEncodedAsHtmlCodeSnippet(
             doc,
             element.project,
-            ValkyrieLanguage,
+            NexusLanguage,
             code.trimIndent(),
             1.0f,
         )

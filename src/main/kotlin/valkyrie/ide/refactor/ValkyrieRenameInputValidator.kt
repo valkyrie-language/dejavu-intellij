@@ -6,11 +6,11 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.refactoring.rename.RenameInputValidator
 import com.intellij.util.ProcessingContext
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 
 class ValkyrieRenameInputValidator : RenameInputValidator {
     override fun getPattern(): ElementPattern<out PsiElement> {
-        return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(ValkyrieLanguage);
+        return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(NexusLanguage);
     }
 
     override fun isInputValid(newName: String, element: PsiElement, context: ProcessingContext): Boolean {

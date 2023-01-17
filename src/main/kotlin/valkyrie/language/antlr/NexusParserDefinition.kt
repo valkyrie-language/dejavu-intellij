@@ -17,32 +17,32 @@ import nexus.language.antlr.NexusAntlrParser
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.parser.ANTLRParserAdaptor
 import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 import valkyrie.language.file.ValkyrieFileNode
 
-class ValkyrieParserDefinition : ParserDefinition {
+class NexusParserDefinition : ParserDefinition {
     override fun createLexer(project: Project): Lexer {
-        return ValkyrieLexer()
+        return NexusLexer()
     }
 
 
     override fun createParser(project: Project): PsiParser {
-        return ValkyrieParser(NexusAntlrParser(null))
+        return NexusParser(NexusAntlrParser(null))
     }
 
     /**
      * "Tokens of those types are automatically skipped by PsiBuilder."
      */
     override fun getWhitespaceTokens(): TokenSet {
-        return PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, NexusAntlrLexer.WHITE_SPACE)
+        return PSIElementTypeFactory.createTokenSet(NexusLanguage, NexusAntlrLexer.WHITE_SPACE)
     }
 
     override fun getCommentTokens(): TokenSet {
-        return ValkyrieLexer.Comments
+        return NexusLexer.Comments
     }
 
     override fun getStringLiteralElements(): TokenSet {
-        return ValkyrieLexer.Strings
+        return NexusLexer.Strings
     }
 
 
@@ -51,7 +51,7 @@ class ValkyrieParserDefinition : ParserDefinition {
      * is called from [.createFile] at least.
      */
     override fun getFileNodeType(): IFileElementType {
-        return IFileElementType(ValkyrieLanguage)
+        return IFileElementType(NexusLanguage)
     }
 
     /**
@@ -96,7 +96,7 @@ class ValkyrieParserDefinition : ParserDefinition {
      */
     override fun createElement(node: ASTNode): PsiElement {
         return if (node is CompositeElement) {
-            ValkyrieParser.extractCompositeNode(node)
+            NexusParser.extractCompositeNode(node)
         } else {
             println("create element of ${node.javaClass.name}: ${node.elementType}(${node.text})")
             ASTWrapperPsiElement(node)
@@ -111,7 +111,7 @@ class ValkyrieParserDefinition : ParserDefinition {
     companion object {
         init {
             PSIElementTypeFactory.defineLanguageIElementTypes(
-                ValkyrieLanguage, NexusAntlrParser.tokenNames, NexusAntlrParser.ruleNames
+                NexusLanguage, NexusAntlrParser.tokenNames, NexusAntlrParser.ruleNames
             )
         }
     }

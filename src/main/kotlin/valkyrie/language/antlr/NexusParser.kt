@@ -14,7 +14,7 @@ import org.antlr.intellij.adaptor.parser.ANTLRParseTreeToPSIConverter
 import org.antlr.intellij.adaptor.parser.ANTLRParserAdaptor
 import org.antlr.v4.runtime.Parser
 import org.antlr.v4.runtime.tree.ParseTree
-import valkyrie.language.ValkyrieLanguage
+import valkyrie.language.NexusLanguage
 import valkyrie.language.ast.*
 import valkyrie.language.ast.calls.ValkyrieAnnotation
 import valkyrie.language.ast.calls.ValkyrieAnnotationItem
@@ -29,7 +29,7 @@ import valkyrie.language.psi.types.ValkyrieBlockType
 import valkyrie.language.psi.types.ValkyrieModifiedType
 
 
-class ValkyrieParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(ValkyrieLanguage, parser) {
+class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(NexusLanguage, parser) {
     override fun parse(parser: Parser, root: IElementType): ParseTree {
         return (parser as NexusAntlrParser).program()
     }

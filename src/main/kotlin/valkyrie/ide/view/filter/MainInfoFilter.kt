@@ -7,7 +7,7 @@ import com.intellij.ide.util.treeView.smartTree.ActionPresentationData
 import com.intellij.ide.util.treeView.smartTree.Filter
 import com.intellij.ide.util.treeView.smartTree.TreeElement
 import valkyrie.ide.view.ValkyrieStructureItem
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import valkyrie.language.ast.ValkyrieExtendsStatement
 import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassFieldNode
@@ -22,7 +22,7 @@ class MainInfoFilter : Filter {
 
     override fun isReverted() = false
     override fun getPresentation(): ActionPresentation = ActionPresentationData(
-        ValkyrieBundle.message(this.name),
+        NexusBundle.message(this.name),
         null,
         AllIcons.Nodes.Favorite
     )

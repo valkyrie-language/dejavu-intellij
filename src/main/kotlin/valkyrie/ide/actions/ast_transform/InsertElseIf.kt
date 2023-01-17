@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.ValkyrieBundle
+import valkyrie.language.NexusBundle
 import javax.swing.Icon
 
 class InsertElseIf(element: PsiElement, private val above: Boolean) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction,
@@ -22,11 +22,11 @@ class InsertElseIf(element: PsiElement, private val above: Boolean) : LocalQuick
     }
 
     override fun getText(): String {
-        return if (above) ValkyrieBundle.message("action.insert.else_if.above.name") else ValkyrieBundle.message("action.insert.else_if.below.name")
+        return if (above) NexusBundle.message("action.insert.else_if.above.name") else NexusBundle.message("action.insert.else_if.below.name")
     }
 
     fun getDescription(): String {
-        return if (above) ValkyrieBundle.message("action.insert.else_if.above.help") else ValkyrieBundle.message("action.insert.else_if.below.help")
+        return if (above) NexusBundle.message("action.insert.else_if.above.help") else NexusBundle.message("action.insert.else_if.below.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

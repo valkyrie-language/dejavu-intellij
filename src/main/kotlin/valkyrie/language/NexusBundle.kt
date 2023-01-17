@@ -5,9 +5,9 @@ import org.jetbrains.annotations.PropertyKey
 import java.util.function.Supplier
 
 
-private const val Bundle = "messages.ValkyrieBundle"
+private const val Bundle = "messages.NexusBundle"
 
-object ValkyrieBundle : DynamicBundle(Bundle) {
+object NexusBundle : DynamicBundle(Bundle) {
 
     @Suppress("SpreadOperator")
     @JvmStatic
