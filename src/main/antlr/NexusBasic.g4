@@ -1,4 +1,4 @@
-lexer grammar ValkyrieBasic;
+lexer grammar NexusBasic;
 // $antlr-format useTab false, alignColons hanging, alignSemicolons hanging
 // $antlr-format alignFirstTokens true
 @lexer::members {

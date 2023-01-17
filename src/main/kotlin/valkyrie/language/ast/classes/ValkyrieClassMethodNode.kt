@@ -10,12 +10,12 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.refactoring.suggested.endOffset
+import nexus.language.antlr.NexusAntlrParser
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.hint.ParameterInlayHint
 import valkyrie.ide.hint.TypeInlayHint
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.antlr.ValkyrieAntlrParser
 import valkyrie.language.antlr.ValkyrieParser
 import valkyrie.language.ast.ValkyrieFunctionParameter
 import valkyrie.language.ast.ValkyrieModifiedNode
@@ -85,8 +85,8 @@ class ValkyrieClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node),
 
 
     override fun type_hint(inlay: TypeInlayHint): Boolean {
-        val typeHint = ValkyrieParser.getChildOfType(this, ValkyrieAntlrParser.RULE_type_hint);
-        val argument = ValkyrieParser.getChildOfType(this, ValkyrieAntlrParser.RULE_function_parameters)!!;
+        val typeHint = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_type_hint);
+        val argument = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_function_parameters)!!;
         if (typeHint == null) {
             inlay.inline(argument.endOffset, ": Any?")
         }
@@ -94,7 +94,7 @@ class ValkyrieClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node),
     }
 
     override fun parameter_hint(inlay: ParameterInlayHint): Boolean {
-        val argument = ValkyrieParser.getChildOfType(this, ValkyrieAntlrParser.RULE_function_parameters)!!;
+        val argument = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_function_parameters)!!;
         val parameter = ValkyrieParser.getChildrenOfType<ValkyrieFunctionParameter>(argument)
         if (parameter.isEmpty()) {
             for (m in modifiers) {

@@ -11,11 +11,11 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.LiteralTextEscaper
 import com.intellij.psi.PsiLanguageInjectionHost
 import com.intellij.psi.util.PsiTreeUtil
+import nexus.language.antlr.NexusAntlrParser
 import org.intellij.lang.regexp.RegExpLanguage
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.matcher.escaper.StringEscape
-import valkyrie.language.antlr.ValkyrieAntlrParser
 import valkyrie.language.antlr.ValkyrieParser
 import valkyrie.language.psi.ValkyrieHighlightElement
 
@@ -24,7 +24,7 @@ class ValkyrieStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguag
         PsiTreeUtil.getChildOfType(this, ValkyrieIdentifierNode::class.java)
     }
     private val _text by lazy {
-        ValkyrieParser.getChildOfType(this, ValkyrieAntlrParser.RULE_string)!!
+        ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_string)!!
     }
     private val injectLanguage = handler?.name?.lowercase();
 

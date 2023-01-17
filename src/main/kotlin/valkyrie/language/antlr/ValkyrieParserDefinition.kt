@@ -12,6 +12,8 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
+import nexus.language.antlr.NexusAntlrLexer
+import nexus.language.antlr.NexusAntlrParser
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.parser.ANTLRParserAdaptor
 import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
@@ -25,14 +27,14 @@ class ValkyrieParserDefinition : ParserDefinition {
 
 
     override fun createParser(project: Project): PsiParser {
-        return ValkyrieParser(ValkyrieAntlrParser(null))
+        return ValkyrieParser(NexusAntlrParser(null))
     }
 
     /**
      * "Tokens of those types are automatically skipped by PsiBuilder."
      */
     override fun getWhitespaceTokens(): TokenSet {
-        return PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, ValkyrieAntlrLexer.WHITE_SPACE)
+        return PSIElementTypeFactory.createTokenSet(ValkyrieLanguage, NexusAntlrLexer.WHITE_SPACE)
     }
 
     override fun getCommentTokens(): TokenSet {
@@ -109,7 +111,7 @@ class ValkyrieParserDefinition : ParserDefinition {
     companion object {
         init {
             PSIElementTypeFactory.defineLanguageIElementTypes(
-                ValkyrieLanguage, ValkyrieAntlrParser.tokenNames, ValkyrieAntlrParser.ruleNames
+                ValkyrieLanguage, NexusAntlrParser.tokenNames, NexusAntlrParser.ruleNames
             )
         }
     }

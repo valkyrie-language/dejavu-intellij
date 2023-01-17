@@ -4,17 +4,18 @@ import com.intellij.lexer.Lexer
 import com.intellij.lexer.LexerPosition
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
+import nexus.language.antlr.NexusAntlrLexer
+import nexus.language.antlr.NexusAntlrLexer.*
 import org.antlr.intellij.adaptor.lexer.ANTLRLexerAdaptor
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.lexer.TokenIElementType
 import valkyrie.language.ValkyrieLanguage
-import valkyrie.language.antlr.ValkyrieAntlrLexer.*
 
 class ValkyrieLexer : Lexer() {
     private var adaptor: ANTLRLexerAdaptor
 
     init {
-        val lexer = ValkyrieAntlrLexer(null)
+        val lexer = NexusAntlrLexer(null)
         this.adaptor = ANTLRLexerAdaptor(ValkyrieLanguage, lexer)
     }
 

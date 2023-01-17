@@ -10,11 +10,11 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.refactoring.suggested.endOffset
+import nexus.language.antlr.NexusAntlrParser
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.hint.TypeInlayHint
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.antlr.ValkyrieAntlrParser
 import valkyrie.language.antlr.ValkyrieParser
 import valkyrie.language.ast.ValkyrieIdentifierNode
 import valkyrie.language.ast.ValkyrieModifiedNode
@@ -79,8 +79,8 @@ class ValkyrieClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), 
     }
 
     override fun type_hint(inlay: TypeInlayHint): Boolean {
-        val hint = ValkyrieParser.getChildOfType(this, ValkyrieAntlrParser.RULE_type_hint);
-        val default = ValkyrieParser.getChildOfType(this, ValkyrieAntlrParser.RULE_parameter_default)
+        val hint = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_type_hint);
+        val default = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_parameter_default)
 
         if (hint == null && default == null) {
             inlay.inline(field.endOffset, ": Any? = null")

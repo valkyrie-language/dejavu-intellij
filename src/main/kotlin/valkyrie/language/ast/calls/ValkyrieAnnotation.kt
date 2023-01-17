@@ -3,11 +3,11 @@ package valkyrie.language.ast.calls
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.util.elementType
+import nexus.language.antlr.NexusAntlrLexer.BRACKET_L
+import nexus.language.antlr.NexusAntlrLexer.BRACKET_R
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.language.ValkyrieLanguage
-import valkyrie.language.antlr.ValkyrieAntlrLexer.BRACKET_L
-import valkyrie.language.antlr.ValkyrieAntlrLexer.BRACKET_R
 import valkyrie.language.antlr.childrenWithLeaves
 import valkyrie.language.psi.ValkyrieHighlightElement
 

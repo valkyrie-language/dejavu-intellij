@@ -72,7 +72,7 @@ tasks {
             "-visitor",
             "-long-messages",
             "-encoding", "utf8",
-            "-package", "valkyrie.language.antlr"
+            "-package", "nexus.language.antlr"
         )
     }
     patchPluginXml {

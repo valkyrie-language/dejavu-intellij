@@ -1,5 +1,5 @@
-grammar ValkyrieAntlr;
-import ValkyrieBasic;
+grammar NexusAntlr;
+import NexusBasic;
 options {
 	language = Java;
 }

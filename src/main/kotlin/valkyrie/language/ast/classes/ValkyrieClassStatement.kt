@@ -10,11 +10,11 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.util.PsiTreeUtil
+import nexus.language.antlr.NexusAntlrParser
 import valkyrie.ide.formatter.ValkyrieRewriter
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.antlr.ValkyrieAntlrParser
 import valkyrie.language.antlr.ValkyrieParser
 import valkyrie.language.antlr.traversal
 import valkyrie.language.ast.ValkyrieIdentifierNode
@@ -33,7 +33,7 @@ class ValkyrieClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
     private val _identifier by lazy { ValkyrieIdentifierNode.find(this)!! }
     val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
     val inherits: Array<ValkyrieClassInheritItem> by lazy {
-        val inherit = ValkyrieParser.getChildOfType(this, ValkyrieAntlrParser.RULE_class_inherit);
+        val inherit = ValkyrieParser.getChildOfType(this, NexusAntlrParser.RULE_class_inherit);
         PsiTreeUtil.getChildrenOfType(inherit, ValkyrieClassInheritItem::class.java) ?: emptyArray()
     }
 

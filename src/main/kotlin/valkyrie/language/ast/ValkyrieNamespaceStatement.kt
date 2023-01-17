@@ -7,12 +7,12 @@ import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.elementType
+import nexus.language.antlr.NexusAntlrParser
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
 import valkyrie.ide.codeStyle.ValkyrieCodeStyleSettings
 import valkyrie.ide.formatter.ValkyrieRewriter
 import valkyrie.language.ValkyrieLanguage
-import valkyrie.language.antlr.ValkyrieAntlrParser
 import valkyrie.language.antlr.childrenWithLeaves
 import valkyrie.language.psi.ValkyrieRewritableElement
 import javax.swing.Icon
@@ -59,8 +59,8 @@ class ValkyrieNamespaceStatement(node: CompositeElement, type: IElementType) : A
     override fun on_rewrite(e: ValkyrieRewriter) {
         val split = PSIElementTypeFactory.createTokenSet(
             ValkyrieLanguage,
-            ValkyrieAntlrParser.DOT,
-            ValkyrieAntlrParser.OP_PROPORTION
+            NexusAntlrParser.DOT,
+            NexusAntlrParser.OP_PROPORTION
         );
         for (leaf in namepath.childrenWithLeaves) {
             if (split.contains(leaf.elementType)) {
