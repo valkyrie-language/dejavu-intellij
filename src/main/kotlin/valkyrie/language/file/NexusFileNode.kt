@@ -19,8 +19,8 @@ import valkyrie.language.ast.classes.ValkyrieClassStatement
 ValkyrieFile 是个 PsiElement
  */
 @Suppress("UnstableApiUsage")
-class ValkyrieFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, NexusLanguage) {
-    override fun getFileType(): FileType = ValkyrieFileType
+class NexusFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, NexusLanguage) {
+    override fun getFileType(): FileType = NexusFileType
 
 
     override fun toString(): String = NexusBundle.message("action.create_file")

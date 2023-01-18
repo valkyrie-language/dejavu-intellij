@@ -11,13 +11,13 @@ import com.intellij.refactoring.rename.RenameHandler
 import com.intellij.refactoring.util.CommonRefactoringUtil
 import valkyrie.language.NexusBundle
 import valkyrie.language.antlr.NexusLexer
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 
 //import valkyrie.language.psi.ValkyrieTypes
 
 class ValkyrieRenameHandler : RenameHandler {
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?, dataContext: DataContext?) {
-        if (file !is ValkyrieFileNode || editor == null) {
+        if (file !is NexusFileNode || editor == null) {
             return
         }
         val offset = editor.caretModel.offset

@@ -3,7 +3,7 @@ package valkyrie.ide.highlight
 import com.intellij.openapi.options.colors.ColorDescriptor
 import com.intellij.openapi.options.colors.ColorSettingsPage
 import valkyrie.language.NexusBundle
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 
 class HighlightSetting : ColorSettingsPage {
     private val annotatorTags = ValkyrieHighlightColor
@@ -19,7 +19,7 @@ class HighlightSetting : ColorSettingsPage {
 
     override fun getDisplayName() = NexusBundle.message("filetype.name")
 
-    override fun getIcon() = ValkyrieIconProvider.Instance.Valkyrie
+    override fun getIcon() = NexusIconProvider.Instance.Valkyrie
 
     override fun getHighlighter() = TokenHighlighter()
 

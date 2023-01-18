@@ -11,7 +11,7 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.util.ProcessingContext
 import valkyrie.ide.completion.TemplateReplaceElement.Companion.snippetFromPath
 import valkyrie.language.NexusLanguage
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 
 
 class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
@@ -31,8 +31,8 @@ class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
 
     private fun CompletionResultSet.addLinkedTraitMethod(kind: String, trait: String, args: String = "") {
         val element = LookupElementBuilder.create(kind)
-            .withIcon(ValkyrieIconProvider.Instance.Function)
-            .withTypeText(trait, ValkyrieIconProvider.Instance.TRAIT, false)
+            .withIcon(NexusIconProvider.Instance.Function)
+            .withTypeText(trait, NexusIconProvider.Instance.TRAIT, false)
             .withInsertHandler { context, _ ->
                 val document = context.document
                 document.replaceString(context.startOffset, context.tailOffset, "$kind($args) {}")
@@ -64,7 +64,7 @@ class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
                 "OPERATOR" to show
             )
         )
-            .withIcon(ValkyrieIconProvider.Instance.Operator)
+            .withIcon(NexusIconProvider.Instance.Operator)
             .withLookupStrings(lookup)
         addElement(item)
     }

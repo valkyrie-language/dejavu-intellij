@@ -5,10 +5,10 @@ import com.intellij.ide.actions.CreateFileFromTemplateDialog.Builder
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
 import valkyrie.language.NexusBundle
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 
 class ValkyrieCreateFile :
-    CreateFileFromTemplateAction(name, description, ValkyrieIconProvider.Instance.Valkyrie) {
+    CreateFileFromTemplateAction(name, description, NexusIconProvider.Instance.Valkyrie) {
     companion object {
         private val name = NexusBundle.message("action.create_file")
         private val description = NexusBundle.message("action.create_file.description")
@@ -18,7 +18,7 @@ class ValkyrieCreateFile :
     }
 
     override fun buildDialog(project: Project, directory: PsiDirectory, builder: Builder) {
-        builder.setTitle(name).addKind("Empty file", ValkyrieIconProvider.Instance.Valkyrie, templatePath)
+        builder.setTitle(name).addKind("Empty file", NexusIconProvider.Instance.Valkyrie, templatePath)
     }
 
     override fun getActionName(directory: PsiDirectory, newName: String, templateName: String): String = name

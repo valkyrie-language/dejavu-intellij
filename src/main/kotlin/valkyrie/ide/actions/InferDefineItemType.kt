@@ -8,7 +8,7 @@ import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import valkyrie.language.ast.ValkyrieFunctionParameter
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 //import valkyrie.language.psi_node.ValkyrieDefineItemNode
 import javax.swing.Icon
 
@@ -30,7 +30,7 @@ class InferDefineItemType(element: ValkyrieFunctionParameter) : LocalQuickFixAnd
     }
 
     override fun getIcon(flags: Int): Icon {
-        return ValkyrieIconProvider.Instance.TYPE
+        return NexusIconProvider.Instance.TYPE
     }
 
     override fun getPriority(): PriorityAction.Priority {

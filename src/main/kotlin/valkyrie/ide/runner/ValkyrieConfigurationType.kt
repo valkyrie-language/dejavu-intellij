@@ -3,7 +3,7 @@ package valkyrie.ide.runner
 import com.intellij.execution.configurations.ConfigurationFactory
 import com.intellij.execution.configurations.ConfigurationType
 import valkyrie.language.NexusBundle
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class ValkyrieConfigurationType : ConfigurationType {
@@ -16,7 +16,7 @@ class ValkyrieConfigurationType : ConfigurationType {
     }
 
     override fun getIcon(): Icon {
-        return ValkyrieIconProvider.Instance.Valkyrie
+        return NexusIconProvider.Instance.Valkyrie
     }
 
     override fun getId(): String {

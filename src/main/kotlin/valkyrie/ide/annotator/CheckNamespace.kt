@@ -12,17 +12,17 @@ import valkyrie.ide.actions.ast_transform.CreateNamespace
 import valkyrie.ide.actions.ast_transform.DeleteThis
 import valkyrie.language.NexusBundle
 import valkyrie.language.ast.ValkyrieNamespaceStatement
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 
 class CheckNamespace : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         when (element) {
-            is ValkyrieFileNode -> annotateFile(element, holder)
+            is NexusFileNode -> annotateFile(element, holder)
             is ValkyrieNamespaceStatement -> annotateNamespace(element, holder)
         }
     }
 
-    private fun annotateFile(element: ValkyrieFileNode, holder: AnnotationHolder) {
+    private fun annotateFile(element: NexusFileNode, holder: AnnotationHolder) {
         val child = PsiTreeUtil.getChildrenOfTypeAsList(element, ValkyrieNamespaceStatement::class.java);
         if (child.isEmpty()) {
             val fixer = CreateNamespace(element)
@@ -44,7 +44,7 @@ class CheckNamespace : Annotator {
 
     private fun annotateNamespace(element: ValkyrieNamespaceStatement, holder: AnnotationHolder) {
         for (parent in element.parents(false)) {
-            if (parent is ValkyrieFileNode) {
+            if (parent is NexusFileNode) {
                 break;
             } else {
 //                holder.newAnnotation(HighlightSeverity.ERROR, ValkyrieBundle.message("annotator.namespace.non-top"))

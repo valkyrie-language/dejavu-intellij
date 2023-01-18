@@ -6,7 +6,7 @@ import com.intellij.openapi.util.IconLoader
 import com.intellij.psi.PsiElement
 import javax.swing.Icon
 
-class ValkyrieIconProvider : IconProvider() {
+class NexusIconProvider : IconProvider() {
     override fun getIcon(psiElement: PsiElement, flags: Int): Icon? {
         val file = psiElement.containingFile
         return when {
@@ -21,12 +21,12 @@ class ValkyrieIconProvider : IconProvider() {
     }
 
     object Instance {
-        val Valkyrie = IconLoader.getIcon("/icons/vk.svg", ValkyrieIconProvider::class.java)
+        val Valkyrie = IconLoader.getIcon("/icons/vk.svg", NexusIconProvider::class.java)
 
         //
         val NAMESPACE = AllIcons.Nodes.Artifact
         val SNIPPET = AllIcons.Actions.MoreHorizontal
-        val Operator = IconLoader.getIcon("/icons/operator.svg", ValkyrieIconProvider::class.java)
+        val Operator = IconLoader.getIcon("/icons/operator.svg", NexusIconProvider::class.java)
 
         // val IMPORT = AllIcons.Welcome.Import
         val IMPORT = AllIcons.Nodes.EntryPoints

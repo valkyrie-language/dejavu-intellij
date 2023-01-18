@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
 import valkyrie.language.ast.classes.ValkyrieClassFieldNode
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class InferClassFieldType(private val element: ValkyrieClassFieldNode) : HintAction, Iconable {
@@ -36,7 +36,7 @@ class InferClassFieldType(private val element: ValkyrieClassFieldNode) : HintAct
     }
 
     override fun getIcon(flags: Int): Icon {
-        return ValkyrieIconProvider.Instance.TYPE
+        return NexusIconProvider.Instance.TYPE
     }
 }
 

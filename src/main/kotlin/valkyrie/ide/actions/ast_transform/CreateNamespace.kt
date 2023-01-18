@@ -9,11 +9,11 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.CheckUtil
 import valkyrie.language.NexusBundle
-import valkyrie.language.file.ValkyrieFileNode
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusFileNode
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
-class CreateNamespace(private val element: ValkyrieFileNode) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
+class CreateNamespace(private val element: NexusFileNode) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
     override fun startInWriteAction(): Boolean {
         return true
     }
@@ -36,7 +36,7 @@ class CreateNamespace(private val element: ValkyrieFileNode) : LocalQuickFixAndI
     }
 
     override fun getIcon(flags: Int): Icon {
-        return ValkyrieIconProvider.Instance.NAMESPACE
+        return NexusIconProvider.Instance.NAMESPACE
     }
 
     override fun getPriority(): PriorityAction.Priority {

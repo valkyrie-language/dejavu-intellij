@@ -11,7 +11,7 @@ import com.intellij.openapi.roots.libraries.ui.LibraryRootsComponentDescriptor
 import com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditor
 import com.intellij.openapi.vfs.VirtualFile
 import valkyrie.language.NexusBundle
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 import javax.swing.JComponent
 
@@ -25,7 +25,7 @@ class ValkyrieLibraryType : LibraryType<ValkyrieLibraryProperty>(ValkyrieLibrary
     }
 
     override fun getIcon(properties: ValkyrieLibraryProperty?): Icon? {
-        return ValkyrieIconProvider.Instance.Valkyrie
+        return NexusIconProvider.Instance.Valkyrie
     }
 
     override fun getCreateActionName() = NexusBundle.message("library.create")

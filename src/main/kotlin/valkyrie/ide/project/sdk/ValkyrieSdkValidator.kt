@@ -8,12 +8,12 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiFile
 import com.intellij.ui.EditorNotificationPanel
 import com.intellij.ui.EditorNotificationPanel.ActionHandler
-import valkyrie.language.file.ValkyrieFileType
+import valkyrie.language.file.NexusFileType
 import javax.swing.event.HyperlinkEvent
 
 class ValkyrieSdkValidator : ProjectSdkSetupValidator {
     override fun isApplicableFor(project: Project, file: VirtualFile): Boolean {
-        return file.fileType is ValkyrieFileType
+        return file.fileType is NexusFileType
     }
 
     override fun getErrorMessage(project: Project, file: VirtualFile): String? {

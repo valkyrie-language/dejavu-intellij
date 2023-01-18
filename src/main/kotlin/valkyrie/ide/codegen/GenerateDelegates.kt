@@ -9,7 +9,7 @@ import valkyrie.language.antlr.caretElement
 import valkyrie.language.ast.ValkyrieExtendsStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 import valkyrie.language.ast.unions.ValkyrieUnionStatement
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class GenerateDelegates : LanguageCodeInsightActionHandler, ItemPresentation {
@@ -29,6 +29,6 @@ class GenerateDelegates : LanguageCodeInsightActionHandler, ItemPresentation {
     }
 
     override fun getIcon(unused: Boolean): Icon? {
-        return ValkyrieIconProvider.Instance.Field
+        return NexusIconProvider.Instance.Field
     }
 }

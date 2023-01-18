@@ -9,7 +9,7 @@ import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.impl.source.tree.SharedImplUtil
 import com.intellij.psi.util.parents
 import valkyrie.language.NexusLanguage
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 import javax.swing.Icon
 
 /**
@@ -24,8 +24,8 @@ import javax.swing.Icon
  * implements ScopeNode.
  */
 abstract class ValkyrieScopeNode(node: CompositeElement) : ASTWrapperPsiElement(node) {
-    override fun getContainingFile(): ValkyrieFileNode {
-        return SharedImplUtil.getContainingFile(node) as ValkyrieFileNode
+    override fun getContainingFile(): NexusFileNode {
+        return SharedImplUtil.getContainingFile(node) as NexusFileNode
     }
 
     override fun getContext(): ValkyrieScopeNode? {

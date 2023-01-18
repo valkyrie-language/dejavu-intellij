@@ -8,7 +8,7 @@ import com.intellij.psi.tree.IElementType
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import valkyrie.language.psi.ValkyrieHighlightElement
 import valkyrie.language.psi.ValkyrieScopeNode
 import javax.swing.Icon
@@ -30,7 +30,7 @@ class ValkyrieTraitStatement(node: CompositeElement, type: IElementType) : Valky
     }
 
     override fun getBaseIcon(): Icon {
-        return ValkyrieIconProvider.Instance.TRAIT
+        return NexusIconProvider.Instance.TRAIT
     }
 
     override fun getPresentation(): ItemPresentation {

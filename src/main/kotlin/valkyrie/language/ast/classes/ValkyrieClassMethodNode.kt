@@ -19,7 +19,7 @@ import valkyrie.ide.view.IdentifierPresentation
 import valkyrie.language.antlr.NexusParser
 import valkyrie.language.ast.ValkyrieFunctionParameter
 import valkyrie.language.ast.ValkyrieModifiedNode
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import valkyrie.language.psi.ValkyrieHighlightElement
 import valkyrie.language.psi.ValkyrieInlayElement
 import valkyrie.language.psi.ValkyrieLineMarkElement
@@ -49,7 +49,7 @@ class ValkyrieClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node),
                 return AllIcons.Nodes.Property
             }
         }
-        return ValkyrieIconProvider.Instance.Method
+        return NexusIconProvider.Instance.Method
     }
 
 

@@ -10,7 +10,7 @@ import com.intellij.facet.ui.FacetValidatorsManager
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.module.ModuleType
 import valkyrie.ide.project.crate.ValkyrieModuleType
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 const val ID = "VALKYRIE_FACET_TYPE"
@@ -27,7 +27,7 @@ class ValkyrieFacetType : FacetType<ValkyrieFacetInfo, ValkyrieFacet>(Facet_ID, 
     }
 
     override fun getIcon(): Icon {
-        return ValkyrieIconProvider.Instance.Valkyrie
+        return NexusIconProvider.Instance.Valkyrie
     }
 
     override fun getDefaultFacetName(): String {

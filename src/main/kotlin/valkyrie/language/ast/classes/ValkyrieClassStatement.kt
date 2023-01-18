@@ -19,8 +19,8 @@ import valkyrie.language.antlr.NexusParser
 import valkyrie.language.antlr.traversal
 import valkyrie.language.ast.ValkyrieIdentifierNode
 import valkyrie.language.ast.ValkyrieModifiedNode
-import valkyrie.language.file.ValkyrieFileNode
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusFileNode
+import valkyrie.language.file.NexusIconProvider
 import valkyrie.language.psi.ValkyrieHighlightElement
 import valkyrie.language.psi.ValkyrieLineMarkElement
 import valkyrie.language.psi.ValkyrieRewritableElement
@@ -50,11 +50,11 @@ class ValkyrieClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
     }
 
     override fun getBaseIcon(): Icon {
-        return ValkyrieIconProvider.Instance.CLASS
+        return NexusIconProvider.Instance.CLASS
     }
 
-    override fun getContainingFile(): ValkyrieFileNode {
-        return super.getContainingFile() as ValkyrieFileNode
+    override fun getContainingFile(): NexusFileNode {
+        return super.getContainingFile() as NexusFileNode
     }
 
     override fun getPresentation(): ItemPresentation {

@@ -8,12 +8,12 @@ import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import valkyrie.language.antlr.traversal
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 import valkyrie.language.psi.ValkyrieFoldableElement
 
 class ValkyrieFoldingBuilder : CustomFoldingBuilder(), DumbAware {
     override fun buildLanguageFoldRegions(descriptors: MutableList<FoldingDescriptor>, root: PsiElement, document: Document, quick: Boolean) {
-        if (root !is ValkyrieFileNode) return
+        if (root !is NexusFileNode) return
         val visitor = ValkyrieNodeFolder(descriptors)
         root.traversal {
             if (it is ValkyrieFoldableElement) {

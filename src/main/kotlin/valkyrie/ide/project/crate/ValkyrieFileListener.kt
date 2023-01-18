@@ -3,11 +3,11 @@ package valkyrie.ide.project.crate
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiTreeChangeEvent
 import com.intellij.psi.PsiTreeChangeListener
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 
 
 class ValkyrieFileListener : PsiTreeChangeListener {
-    private val _cache: MutableMap<String, MutableList<ValkyrieFileNode>> = mutableMapOf()
+    private val _cache: MutableMap<String, MutableList<NexusFileNode>> = mutableMapOf()
 
     init {
         // 初始化缓存, 遍历所有文件
@@ -71,7 +71,7 @@ class ValkyrieFileListener : PsiTreeChangeListener {
         // 不需要在此处执行任何操作
     }
 
-    private fun handlePsiFileChange(file: ValkyrieFileNode) {
+    private fun handlePsiFileChange(file: NexusFileNode) {
 //        if (file is PsiFile) {
 //            val namespace = getNamespace(file)
 //            if (namespace != null) {

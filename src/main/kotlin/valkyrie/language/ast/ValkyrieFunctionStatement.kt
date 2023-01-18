@@ -8,7 +8,7 @@ import com.intellij.psi.impl.source.tree.CompositeElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import valkyrie.language.psi.ValkyrieHighlightElement
 import valkyrie.language.psi.ValkyrieScopeNode
 import javax.swing.Icon
@@ -29,7 +29,7 @@ class ValkyrieFunctionStatement(node: CompositeElement) : ValkyrieScopeNode(node
     }
 
     override fun getBaseIcon(): Icon {
-        return ValkyrieIconProvider.Instance.Function
+        return NexusIconProvider.Instance.Function
     }
 
     override fun getPresentation(): ItemPresentation {

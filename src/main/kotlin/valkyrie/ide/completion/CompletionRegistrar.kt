@@ -10,7 +10,7 @@ import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
 import valkyrie.language.antlr.NexusLexer
 import valkyrie.language.ast.classes.ValkyrieClassStatement
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 
 
 class CompletionRegistrar : CompletionContributor() {
@@ -36,7 +36,7 @@ class CompletionRegistrar : CompletionContributor() {
                     return
                 }
                 when (node) {
-                    is ValkyrieFileNode -> {
+                    is NexusFileNode -> {
                         println("ValkyrieFileNode: ${result.hashCode()}")
                         CompletionInFileScope().addCompletionVariants(parameters, context, result)
                         return

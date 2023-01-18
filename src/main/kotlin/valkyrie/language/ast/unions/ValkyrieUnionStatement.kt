@@ -8,7 +8,7 @@ import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
 import valkyrie.language.ast.ValkyrieIdentifierNode
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import valkyrie.language.psi.ValkyrieHighlightElement
 import valkyrie.language.psi.ValkyrieScopeNode
 import javax.swing.Icon
@@ -29,7 +29,7 @@ class ValkyrieUnionStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
     }
 
     override fun getBaseIcon(): Icon {
-        return ValkyrieIconProvider.Instance.UNION
+        return NexusIconProvider.Instance.UNION
     }
 
     override fun getPresentation(): ItemPresentation {

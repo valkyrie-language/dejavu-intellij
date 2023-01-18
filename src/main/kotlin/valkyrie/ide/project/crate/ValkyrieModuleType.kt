@@ -11,7 +11,7 @@ import com.intellij.openapi.projectRoots.Sdk
 import com.intellij.openapi.roots.ui.configuration.ModulesProvider
 import org.jetbrains.jps.model.module.JpsModuleSourceRootType
 import valkyrie.ide.project.ValkyrieCreatePackage
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 
@@ -31,7 +31,7 @@ class ValkyrieModuleType : ModuleType<ValkyrieCreatePackage>(ID) {
     }
 
     override fun getNodeIcon(isOpened: Boolean): Icon {
-        return ValkyrieIconProvider.Instance.Valkyrie
+        return NexusIconProvider.Instance.Valkyrie
     }
 
     override fun getDefaultAcceptableRole(): FrameworkRole {

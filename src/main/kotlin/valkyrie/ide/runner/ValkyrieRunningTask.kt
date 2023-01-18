@@ -10,7 +10,7 @@ import com.intellij.openapi.options.SettingsEditor
 import com.intellij.openapi.project.Project
 import com.intellij.ui.dsl.builder.panel
 import org.jdom.Element
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class ValkyrieRunningTask(project: Project, factory: ValkyrieConfigurationFactory) : PersistentAwareRunConfiguration {
@@ -37,7 +37,7 @@ class ValkyrieRunningTask(project: Project, factory: ValkyrieConfigurationFactor
     }
 
     override fun getIcon(): Icon {
-        return ValkyrieIconProvider.Instance.Valkyrie
+        return NexusIconProvider.Instance.Valkyrie
     }
 
     override fun clone(): RunConfiguration {

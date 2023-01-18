@@ -12,7 +12,7 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.util.ProcessingContext
 import valkyrie.ide.project.crate.NamespaceMapping
 import valkyrie.language.NexusLanguage
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
@@ -28,7 +28,7 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
             for (path in classes.value) {
                 result.addElement(
                     LookupElementBuilder.create(path)
-                        .withIcon(ValkyrieIconProvider.Instance.CLASS)
+                        .withIcon(NexusIconProvider.Instance.CLASS)
                         .withLookupString(classes.key)
                 )
 
@@ -121,7 +121,7 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
         val item = TemplateReplaceElement.snippetFromPath(element!!, id, file)
             .bold()
             .withLookupStrings(lookup)
-            .withIcon(ValkyrieIconProvider.Instance.SNIPPET)
+            .withIcon(NexusIconProvider.Instance.SNIPPET)
         addElement(item)
     }
 
@@ -141,8 +141,8 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
 
         private fun CompletionResultSet.addLinkedTraitMethod(kind: String, trait: String, args: String = "") {
             val element = LookupElementBuilder.create(kind)
-                .withIcon(ValkyrieIconProvider.Instance.Function)
-                .withTypeText(trait, ValkyrieIconProvider.Instance.TRAIT, false)
+                .withIcon(NexusIconProvider.Instance.Function)
+                .withTypeText(trait, NexusIconProvider.Instance.TRAIT, false)
                 .withInsertHandler { context, _ ->
                     val document = context.document
                     document.replaceString(context.startOffset, context.tailOffset, "$kind($args) {}")

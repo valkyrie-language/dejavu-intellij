@@ -18,7 +18,7 @@ import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.parser.ANTLRParserAdaptor
 import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
 import valkyrie.language.NexusLanguage
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 
 class NexusParserDefinition : ParserDefinition {
     override fun createLexer(project: Project): Lexer {
@@ -69,7 +69,7 @@ class NexusParserDefinition : ParserDefinition {
      * it back via: [PsiFile.getNode].
      */
     override fun createFile(viewProvider: FileViewProvider): PsiFile {
-        return ValkyrieFileNode(viewProvider)
+        return NexusFileNode(viewProvider)
     }
 
     /**

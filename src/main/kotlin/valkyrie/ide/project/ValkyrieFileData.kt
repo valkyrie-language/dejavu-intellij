@@ -1,7 +1,7 @@
 package valkyrie.ide.project
 
 import valkyrie.language.ast.ValkyrieNamespaceStatement
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 import java.io.DataInput
 import java.io.DataOutput
 
@@ -13,7 +13,7 @@ class ValkyrieFileData {
     var errors: List<String> = listOf();
 
 
-    constructor(file: ValkyrieFileNode) {
+    constructor(file: NexusFileNode) {
         path = file.virtualFile.path;
         for (child in file.children) {
             if (child is ValkyrieNamespaceStatement) {

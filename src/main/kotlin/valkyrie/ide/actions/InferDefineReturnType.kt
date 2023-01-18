@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
 import valkyrie.language.ast.ValkyrieFunctionParameter
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 //import valkyrie.language.psi_node.ValkyrieDefineItemNode
 import javax.swing.Icon
 
@@ -37,7 +37,7 @@ class InferDefineReturnType(private val element: ValkyrieFunctionParameter) : Hi
     }
 
     override fun getIcon(flags: Int): Icon {
-        return ValkyrieIconProvider.Instance.IMPORT
+        return NexusIconProvider.Instance.IMPORT
     }
 }
 

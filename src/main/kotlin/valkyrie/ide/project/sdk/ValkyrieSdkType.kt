@@ -5,7 +5,7 @@ import com.intellij.openapi.roots.OrderRootType
 import com.intellij.ui.dsl.builder.panel
 import org.jdom.Element
 import valkyrie.ide.project.sdk.ValkyrieSdk
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import java.io.File
 import javax.swing.JComponent
 
@@ -14,7 +14,7 @@ class ValkyrieSdkType : SdkType(ID) {
         const val ID = "sdk.valkyrie"
     }
 
-    override fun getIcon() = ValkyrieIconProvider.Instance.Valkyrie
+    override fun getIcon() = NexusIconProvider.Instance.Valkyrie
     override fun getPresentableName() = "Valkyrie SDK"
 
     override fun saveAdditionalData(additionalData: SdkAdditionalData, additional: Element) {

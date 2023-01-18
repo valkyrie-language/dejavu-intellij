@@ -11,7 +11,7 @@
 			name="Valkyrie"
 			language="Valkyrie"
 			extensions="vk;"
-			implementationClass="valkyrie.language.file.ValkyrieFileType"
+			implementationClass="valkyrie.language.file.NexusFileType"
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition
 			language="Valkyrie"
@@ -42,14 +42,13 @@
 		<module.workingDirectoryProvider implementation="valkyrie.ide.project.crate.ValkyrieWorkingDirectory"/>
 		<moduleContextProvider implementation="valkyrie.ide.project.crate.ValkyriePackageContext"/>
 		<!-- Project Namespace -->
-		<fileBasedIndex implementation="valkyrie.ide.project.ValkyrieFileIndex"/>
 		<indexedRootsProvider implementation="valkyrie.ide.project.ExtraIndexContributor"/>
 		<!--				<generatedSourcesFilter implementation="valkyrie.ide.project.package.ValkyrieGeneratedSource"/>-->
 		<!-- Project Facet -->
 		<!--		<facetType implementation="valkyrie.ide.project.facet.ValkyrieFacetType"/>-->
 		<!-- StructureView -->
-		<iconProvider implementation="valkyrie.language.file.ValkyrieIconProvider"/>
-		<projectViewNestingRulesProvider implementation="valkyrie.language.file.ValkyrieFileGroup"/>
+		<iconProvider implementation="valkyrie.language.file.NexusIconProvider"/>
+		<projectViewNestingRulesProvider implementation="valkyrie.language.file.NexusFileGroup"/>
 		<treeStructureProvider implementation="valkyrie.ide.view.VStructureProvider"/>
 		<!--		<lang.structureViewExtension implementation="valkyrie.ide.view.VStructureViewExtension"/>-->
 		<lang.psiStructureViewFactory

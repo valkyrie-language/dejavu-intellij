@@ -6,7 +6,7 @@ import com.intellij.psi.PsiFileFactory
 import valkyrie.language.NexusLanguage
 import valkyrie.language.ast.ValkyrieNamespaceStatement
 import valkyrie.language.ast.ValkyrieNumberNode
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 
 class ValkyrieFactory {
     private val project: Project
@@ -20,9 +20,9 @@ class ValkyrieFactory {
         this.project = element.project
     }
 
-    fun createFile(text: String): ValkyrieFileNode {
+    fun createFile(text: String): NexusFileNode {
         val factory = PsiFileFactory.getInstance(project)
-        return factory.createFileFromText("factory.vk", NexusLanguage, text) as ValkyrieFileNode
+        return factory.createFileFromText("factory.vk", NexusLanguage, text) as NexusFileNode
     }
 
     fun createNamespace(text: String, kind: String = ""): ValkyrieNamespaceStatement {

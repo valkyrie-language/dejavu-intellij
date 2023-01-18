@@ -7,9 +7,9 @@ import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import valkyrie.language.NexusBundle
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 
-class FluentConvertMo : CreateFileAction(name, description, ValkyrieIconProvider.Instance.Valkyrie) {
+class FluentConvertMo : CreateFileAction(name, description, NexusIconProvider.Instance.Valkyrie) {
     companion object {
         private val name = NexusBundle.message("action.convert_prop")
         private val description = NexusBundle.message("action.convert_prop.description")

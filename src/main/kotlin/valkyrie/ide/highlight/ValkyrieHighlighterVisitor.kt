@@ -8,13 +8,13 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import valkyrie.language.antlr.traversal
-import valkyrie.language.file.ValkyrieFileNode
+import valkyrie.language.file.NexusFileNode
 import valkyrie.language.psi.ValkyrieHighlightElement
 
 class ValkyrieHighlighterVisitor : HighlightVisitor {
     private var _info: HighlightInfoHolder? = null
     override fun suitableForFile(file: PsiFile): Boolean {
-        return file is ValkyrieFileNode
+        return file is NexusFileNode
     }
 
     override fun visit(element: PsiElement) {

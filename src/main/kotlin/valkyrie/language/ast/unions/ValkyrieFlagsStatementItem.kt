@@ -13,7 +13,7 @@ import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
 import valkyrie.language.ast.ValkyrieIdentifierNode
-import valkyrie.language.file.ValkyrieIconProvider
+import valkyrie.language.file.NexusIconProvider
 import valkyrie.language.psi.ValkyrieAlignmentElement
 import valkyrie.language.psi.ValkyrieHighlightElement
 import valkyrie.language.psi.ValkyrieRewritableElement
@@ -37,7 +37,7 @@ class ValkyrieFlagsStatementItem(node: CompositeElement, type: IElementType) : A
     }
 
     override fun getBaseIcon(): Icon {
-        return ValkyrieIconProvider.Instance.Field
+        return NexusIconProvider.Instance.Field
     }
 
     override fun getPresentation(): ItemPresentation {
