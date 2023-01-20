@@ -8,13 +8,13 @@
 	<resource-bundle>messages.NexusBundle</resource-bundle>
 	<extensions defaultExtensionNs="com.intellij">
 		<fileType
-			name="Valkyrie"
-			language="Valkyrie"
+			name="Nexus"
+			language="Nexus"
 			extensions="vk;"
 			implementationClass="valkyrie.language.file.NexusFileType"
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.language.antlr.NexusParserDefinition"/>
 		<multiHostInjector implementation="valkyrie.ide.matcher.LanguageInjector"/>
 		<!-- Project -->
@@ -31,7 +31,7 @@
 		<library.type implementation="valkyrie.ide.project.library.ValkyrieLibraryType"/>
 		<librarySettingsProvider implementation="valkyrie.ide.project.library.ValkyrieLibrarySettings"/>
 		<packageDependencies.visitor
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.project.ValkyrieDependencyResolver"/>
 		<additionalLibraryRootsProvider implementation="valkyrie.ide.project.library.LibraryRootsProvider"/>
 		<!-- Project Package, aka. Module in JetBrain's SDK -->
@@ -52,22 +52,22 @@
 		<treeStructureProvider implementation="valkyrie.ide.view.VStructureProvider"/>
 		<!--		<lang.structureViewExtension implementation="valkyrie.ide.view.VStructureViewExtension"/>-->
 		<lang.psiStructureViewFactory
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.view.ValkyrieStructureView"/>
 		<typeHierarchyProvider
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.view.hierarchy.TypeHierarchyProvider"/>
 		<methodHierarchyProvider
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.view.hierarchy.MethodHierarchyProvider"/>
 		<callHierarchyProvider
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.view.hierarchy.CallHierarchyProvider"/>
 		<!-- Highlight -->
 		<colorSettingsPage implementation="valkyrie.ide.highlight.HighlightSetting"/>
 		<highlightVisitor implementation="valkyrie.ide.highlight.ValkyrieHighlighterVisitor"/>
 		<lang.syntaxHighlighter
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.highlight.TokenHighlighter"
 		/>
 		<colorProvider implementation="valkyrie.ide.highlight.ValkyrieColorParser"/>
@@ -75,9 +75,9 @@
 		<langCodeStyleSettingsProvider implementation="valkyrie.ide.codeStyle.ValkyrieCodeStyleProvider"/>
 		<formattingService implementation="valkyrie.ide.formatter.ValkyrieNativeFormat"/>
 		<preFormatProcessor implementation="valkyrie.ide.formatter.ValkyrieBeforeFormat"/>
-		<lang.formatter language="Valkyrie" implementationClass="valkyrie.ide.formatter.FormatBuilder"/>
+		<lang.formatter language="Nexus" implementationClass="valkyrie.ide.formatter.FormatBuilder"/>
 		<postFormatProcessor implementation="valkyrie.ide.formatter.ValkyrieAfterFormat"/>
-		<lang.smartEnterProcessor language="Valkyrie" implementationClass="valkyrie.ide.formatter.SmartEnter"/>
+		<lang.smartEnterProcessor language="Nexus" implementationClass="valkyrie.ide.formatter.SmartEnter"/>
 		<!-- Tests -->
 		<!--		<configurationType implementation="valkyrie.ide.runner.ValkyrieConfigurationType"/>-->
 		<runConfigurationsSettings implementation="valkyrie.ide.runner.ValkyrieRunnerSettings"/>
@@ -88,7 +88,7 @@
 		<testFinder implementation="valkyrie.ide.runner.ValkyrieFindTests"/>
 		<testActionProvider implementation="valkyrie.ide.runner.VTestActionProvider"/>
 		<testStatusListener implementation="valkyrie.ide.runner.VTestStatusListener"/>
-		<testDiffProvider language="Valkyrie" implementationClass="valkyrie.ide.runner.VTestDiffProvider"/>
+		<testDiffProvider language="Nexus" implementationClass="valkyrie.ide.runner.VTestDiffProvider"/>
 		<!-- Debugger -->
 		<!--		<xdebugger.breakpointType implementation="valkyrie.ide.runner.breakpointType"/>-->
 		<!--		<xdebugger.breakpointGroupingRule implementation="valkyrie.ide.runner.breakpointGroupingRule"/>-->
@@ -104,34 +104,34 @@
 		<symbolNavigation
 			forClass="valkyrie.language.symbol.ValkyrieSymbolTemplate"
 			implementationClass="valkyrie.ide.goto.VSymbolNavigationProvider"/>
-		<codeInsight.gotoSuper language="Valkyrie" implementationClass="valkyrie.ide.navigation.GotoSuper"/>
+		<codeInsight.gotoSuper language="Nexus" implementationClass="valkyrie.ide.navigation.GotoSuper"/>
 		<importFilteringRule implementation="valkyrie.ide.navigation.ValkyrieImportFilter"/>
 		<usageFilteringRuleProvider implementation="valkyrie.ide.navigation.usageFiltering"/>
 		<!--		<bookmarkProvider implementation="valkyrie.ide.goto.ValkyrieBookmark"/>-->
 		<!--		<bookmarksListProvider implementation="valkyrie.ide.goto.ValkyrieBookmarkList"/>-->
 		<!-- Hint -->
 		<codeInsight.inlayProvider
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.hint.TypeInlayProvider"/>
-		<codeInsight.typeInfo language="Valkyrie" implementationClass="valkyrie.ide.hint.TypeInfoHint"/>
-		<codeInsight.parameterInfo language="Valkyrie" implementationClass="valkyrie.ide.hint.ParameterInfoHint"/>
+		<codeInsight.typeInfo language="Nexus" implementationClass="valkyrie.ide.hint.TypeInfoHint"/>
+		<codeInsight.parameterInfo language="Nexus" implementationClass="valkyrie.ide.hint.ParameterInfoHint"/>
 		<codeInsight.parameterInfo.listener implementation="valkyrie.ide.hint.ParameterInfoListener"/>
-		<codeInsight.parameterNameHints language="Valkyrie"
+		<codeInsight.parameterNameHints language="Nexus"
 		                                implementationClass="valkyrie.ide.hint.ParameterInlayProvider"/>
 		<codeInsight.lineMarkerProvider
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.hint.ValkyrieLineMarkerProvider"/>
 		<runLineMarkerContributor
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.runner.ValkyrieRunner"/>
 		<vcs.codeVisionLanguageContext
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.hint.AuthorAbove"/>
 
 		<!--		<psi.fileReferenceHelper implementation="valkyrie.ide.reference.ValkyrieFileReference"/>-->
 		<psi.treeChangeListener implementation="valkyrie.ide.project.crate.ValkyrieFileListener"/>
 		<psi.referenceContributor
-			language="Valkyrie"
+			language="Nexus"
 			implementation="valkyrie.ide.reference.ValkyrieReferenceContributor"/>
 		<!--		<psi.referenceProvider language="Valkyrie" providerClass="valkyrie.ide.reference.ValkyrieReferenceProvider"/>-->
 		<!--		<psi.symbolReferenceProvider-->
@@ -141,13 +141,13 @@
 		<!--			hostElementClass="com.intellij.psi.xml.XmlAttributeValue"-->
 		<!--			targetClass="valkyrie.language.symbol.ValkyrieSymbolTemplate"/>-->
 		<!-- Lint -->
-		<lang.namesValidator language="Valkyrie" implementationClass="valkyrie.ide.lint.ValkyrieNameValidator"/>
+		<lang.namesValidator language="Nexus" implementationClass="valkyrie.ide.lint.ValkyrieNameValidator"/>
 		<qualifiedNameProvider implementation="valkyrie.ide.lint.ValkyrieNameQualifier"/>
-		<annotator language="Valkyrie" implementationClass="valkyrie.ide.annotator.CheckNamespace"/>
-		<annotator language="Valkyrie" implementationClass="valkyrie.ide.annotator.NamepathChecker"/>
-		<annotator language="Valkyrie" implementationClass="valkyrie.ide.annotator.LiteralChecker"/>
-		<annotator language="Valkyrie" implementationClass="valkyrie.ide.annotator.MarkImplicitTypes"/>
-		<annotator language="Valkyrie" implementationClass="valkyrie.ide.annotator.MarkLegacyExpression"/>
+		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.CheckNamespace"/>
+		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.NamepathChecker"/>
+		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.LiteralChecker"/>
+		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.MarkImplicitTypes"/>
+		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.MarkLegacyExpression"/>
 		<!-- Declaration -->
 		<typeDeclarationProvider implementation="valkyrie.ide.reference.declaration.TypeDeclarationProvider"/>
 		<psi.declarationProvider implementation="valkyrie.ide.reference.declaration.SymbolDeclarationProvider"/>
@@ -156,7 +156,7 @@
 		<!--			implementationClass="valkyrie.ide.reference.declaration.ClassDeclarationHandler"/>-->
 		<findUsagesHandlerFactory implementation="valkyrie.ide.usages.ValkyrieUsagesFactory"/>
 		<lang.findUsagesProvider
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.usages.ValkyrieUsagesProvider"/>
 		<!-- Rename -->
 		<!--		<renameHandler implementation="valkyrie.ide.refactor.ValkyrieRenameHandler"/>-->
@@ -169,36 +169,36 @@
 		<typedHandler implementation="valkyrie.ide.completion.AutoInsertBrace"/>
 		<backspaceHandlerDelegate implementation="valkyrie.ide.completion.AutoDeleteBrace"/>
 		<!--		<lookup.charFilter implementation="valkyrie.ide.completion.CompletionInterrupter"/>-->
-		<lang.commenter language="Valkyrie" implementationClass="valkyrie.ide.formatter.ValkyrieCommenter"/>
+		<lang.commenter language="Nexus" implementationClass="valkyrie.ide.formatter.ValkyrieCommenter"/>
 		<!--		<lang.braceMatcher-->
 		<!--			language="Valkyrie"-->
 		<!--			implementationClass="valkyrie.ide.matcher.BraceMatchAdapter"/>-->
 		<lang.quoteHandler
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.matcher.ValkyrieQuoteHandler"/>
 		<codeCompletionConfigurable instance="valkyrie.ide.completion.CompletionConfig"/>
 		<completion.contributor
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.completion.CompletionRegistrar"/>
 		<nameSuggestionProvider implementation="valkyrie.ide.completion.CompletionSuggestion"/>
 		<lang.foldingBuilder
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.folding.ValkyrieFoldingBuilder"/>
-		<codeBlockProvider language="Valkyrie" implementationClass="valkyrie.ide.matcher.ValkyrieCodeBlockProvider"/>
+		<codeBlockProvider language="Nexus" implementationClass="valkyrie.ide.matcher.ValkyrieCodeBlockProvider"/>
 		<codeFoldingOptionsProvider instance="valkyrie.ide.folding.ValkyrieFoldingOptions"/>
 		<referenceImporter implementation="valkyrie.ide.completion.ValkyrieImportInsert"/>
 		<lang.importOptimizer
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.completion.ValkyrieImportOptimizer"/>
 
 		<!-- Codegen -->
-		<codeInsight.implementMethod language="Valkyrie" implementationClass="valkyrie.ide.codegen.GenerateImplements"/>
-		<codeInsight.overrideMethod language="Valkyrie" implementationClass="valkyrie.ide.codegen.GenerateOverrides"/>
-		<codeInsight.delegateMethods language="Valkyrie" implementationClass="valkyrie.ide.codegen.GenerateDelegates"/>
-		<testCreator language="Valkyrie" implementationClass="valkyrie.ide.codegen.GenerateTests"/>
+		<codeInsight.implementMethod language="Nexus" implementationClass="valkyrie.ide.codegen.GenerateImplements"/>
+		<codeInsight.overrideMethod language="Nexus" implementationClass="valkyrie.ide.codegen.GenerateOverrides"/>
+		<codeInsight.delegateMethods language="Nexus" implementationClass="valkyrie.ide.codegen.GenerateDelegates"/>
+		<testCreator language="Nexus" implementationClass="valkyrie.ide.codegen.GenerateTests"/>
 		<!-- Document -->
 		<lang.documentationProvider
-			language="Valkyrie"
+			language="Nexus"
 			implementationClass="valkyrie.ide.doc.DocumentationProvider"/>
 		<!--		<indexPatternBuilder-->
 		<!--				implementation="valkyrie.ide.lint.VomlTodoIndexPatternBuilder"-->

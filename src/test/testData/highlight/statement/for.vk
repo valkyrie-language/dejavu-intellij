@@ -1,15 +1,15 @@
-for i in 0..<100 {
-
-}
+<% for c in s if c.is_ascii %>
 
 
-for mut i, j in 0..=100 if i != 50 {
-
-}
+<% end %>
 
 
 
-for c in s if c.is_ascii {
+<% for c in s if c.is_ascii %>
 
-}
+<% else %>
 
+<% end %>
+
+
+<%#@ bind  @#%>

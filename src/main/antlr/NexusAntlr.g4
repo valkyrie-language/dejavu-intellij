@@ -157,13 +157,13 @@ guard_statement
 else_if_statement: KW_ELSE KW_IF inline_expression function_block;
 // ===========================================================================
 loop_statement
-    : annotation* KW_WHILE cond = inline_expression function_block                       # WhileLoop
-    | annotation* KW_WHILE KW_LET let_pattern OP_ASSIGN inline_expression function_block # WhileLet
-    | annotation* KW_FOR let_pattern infix_in cond = inline_expression (
-        KW_IF guard = inline_expression
-    )? function_block # ForLoop
+    : KW_WHILE cond = inline_expression function_block                       # WhileLoop
+    | KW_WHILE KW_LET let_pattern OP_ASSIGN inline_expression function_block # WhileLet
+    | for_begin otherwise? end # ForLoop
     ;
-if_guard: KW_IF inline_expression;
+for_begin: TEMPLATE_L KW_FOR let_pattern infix_in cond = inline_expression ( KW_IF guard=inline_expression)? TEMPLATE_R;
+otherwise: TEMPLATE_L KW_ELSE TEMPLATE_R;
+end: TEMPLATE_L KW_END identifier? TEMPLATE_R;
 // ==========================================================================
 expression_root: annotation* expression OP_AND_THEN? eos?;
 expression
@@ -183,14 +183,14 @@ expression
     | lhs = expression op_plus rhs = expression                   # EPlus
     | lhs = expression op_logic rhs = expression                  # ELogic
     | lhs = expression op_compare rhs = expression                # ECompare
-    | lhs = expression infix_range rhs = expression                  # EUntil
+    | lhs = expression infix_range rhs = expression               # EUntil
     | lhs = expression infix_map rhs = expression                 # EMap
     | lhs = expression infix_is rhs = type_expression             # EIsA
     | lhs = expression infix_as rhs = type_expression             # EAs
     | lhs = expression infix_in rhs = expression                  # EIn
-    | lhs = expression OP_OR_ELSE rhs = op_assign           # EOrElse
+    | lhs = expression OP_OR_ELSE rhs = op_assign                 # EOrElse
     | lhs = expression op_pipeline rhs = expression               # EPipe
-    | lhs = expression op_assign rhs = expression            # EAssign
+    | lhs = expression op_assign rhs = expression                 # EAssign
     | PARENTHESES_L expression PARENTHESES_R                      # EGroup
     // term
     | control_expression # EControl
@@ -221,9 +221,9 @@ inline_expression
     | lhs = inline_expression op_logic rhs = inline_expression    # ILogic
     | lhs = inline_expression infix_map rhs = inline_expression   # IMap
     | lhs = inline_expression op_compare rhs = inline_expression  # ICompare
-    | lhs = inline_expression infix_is rhs = type_expression    # IIs
-        | lhs = inline_expression infix_as rhs = type_expression       # IAs
-    | lhs = inline_expression infix_range rhs = inline_expression    # IRange
+    | lhs = inline_expression infix_is rhs = type_expression      # IIs
+    | lhs = inline_expression infix_as rhs = type_expression      # IAs
+    | lhs = inline_expression infix_range rhs = inline_expression # IRange
     // term
     | tuple_literal # ITuple
     | range_literal # IRange
@@ -250,13 +250,9 @@ atomic
     ;
 // ===========================================================================
 control_expression
-    : (RETURN | RESUME expression?)            # CReturn
+    : (RETURN expression?)            # CReturn
     | BREAK (OP_LABEL identifier)?             # CBreak
     | CONTINUE (OP_LABEL identifier)?          # CContinue
-    | RAISE expression                         # CRaise
-    | YIELD (OP_LABEL identifier)? expression? # CYield
-    | YIELD BREAK                              # CBreak
-    | YIELD KW_WITH expression                 # CWith
     ;
 op_prefix
     : OP_NOT
@@ -286,7 +282,7 @@ op_compare:   OP_LT | OP_LEQ | OP_GT | OP_GEQ | OP_EQ | OP_NE | OP_EEE | OP_NEE;
 op_pattern:   OP_AND | OP_OR;
 infix_map:    OP_MAP | OP_APPLY2 | OP_APPLY3;
 infix_pow:    OP_POW | OP_ROOT2;
-infix_range: OP_UNTIL;
+infix_range:  OP_UNTIL;
 infix_arrows: OP_ARROW | OP_ARROW2;
 op_multiple:  OP_MUL | OP_DIV | OP_REM | OP_DIV_REM;
 op_plus:      OP_ADD | OP_SUB;

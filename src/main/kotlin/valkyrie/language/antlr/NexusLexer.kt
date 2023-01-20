@@ -81,10 +81,8 @@ class NexusLexer : Lexer() {
             KW_WITH, KW_WHEN, KW_CASE,
             KW_TRY,
             // control keywords
-            RETURN, RESUME,
-            YIELD,
+            RETURN,
             BREAK, CONTINUE,
-            RAISE,
             //
             KW_NEW, KW_OBJECT,
             SPECIAL,
@@ -92,7 +90,8 @@ class NexusLexer : Lexer() {
         )
         val OperatorPrefix: TokenSet = PSIElementTypeFactory.createTokenSet(
             NexusLanguage,
-            OP_NOT, OP_DECONSTRUCT, OP_REFERENCE, OP_INVERSE, OP_ROOT3, OP_ROOT4
+            OP_NOT, OP_DECONSTRUCT, OP_REFERENCE, OP_INVERSE, OP_ROOT3, OP_ROOT4, TEMPLATE_L
+
         )
         val OperatorInfix: TokenSet = PSIElementTypeFactory.createTokenSet(
             NexusLanguage,
@@ -113,7 +112,7 @@ class NexusLexer : Lexer() {
         )
         val OperatorSuffix: TokenSet = PSIElementTypeFactory.createTokenSet(
             NexusLanguage,
-            OP_TEMPERATURE, OP_PERCENT, OP_TRANSPOSE
+            OP_TEMPERATURE, OP_PERCENT, OP_TRANSPOSE, TEMPLATE_R
         )
         val Operators = TokenSet.orSet(OperatorPrefix, OperatorInfix, OperatorSuffix);
         val MacroOperators = PSIElementTypeFactory.createTokenSet(NexusLanguage, OP_HASH, OP_AT);
@@ -127,9 +126,7 @@ class NexusLexer : Lexer() {
         val Strings: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, STRING_SINGLE, STRING_DOUBLE);
         val Identifiers: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, UNICODE_ID);
 
-        val CommentLine = TokenIElementType(LINE_COMMENT, "CommentLine", NexusLanguage);
-        val CommentBlock = TokenIElementType(BLOCK_COMMENT, "CommentBlock", NexusLanguage);
-        val Comments: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, LINE_COMMENT, BLOCK_COMMENT);
+        val Comments: TokenSet = PSIElementTypeFactory.createTokenSet(NexusLanguage, BLOCK_COMMENT);
         val CompletionWords: TokenSet = PSIElementTypeFactory.createTokenSet(
             NexusLanguage,
             KW_IF,

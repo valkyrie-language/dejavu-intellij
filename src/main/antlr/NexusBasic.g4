@@ -34,12 +34,17 @@ FLOOR_R:       '⌋';
 COLLECTION_L:  '⦃';
 COLLECTION_R:  '⦄';
 
+TEMPLATE_L:  '<%' ('_' | '-' | '=')?;
+TEMPLATE_LX: '<<%';
+TEMPLATE_R:  ('_' | '-' | '=')? '%>';
+TEMPLATE_RX: '%>>';
+
 // add
-OP_ADD:     '+';
-OP_SUB:     '-';
+OP_ADD: '+';
+OP_SUB: '-';
 // append
-OP_INC:     '++';
-OP_DEC:     '--';
+OP_INC: '++';
+OP_DEC: '--';
 // mul
 OP_MUL:     '*';
 OP_DIV:     '⁄' | '∕' | '/';
@@ -56,12 +61,12 @@ OP_LEQ: '⩽' | '≤' | '<=';
 OP_LLE: '<<=';
 OP_LLL: '⋘' | '<' '<' '<';
 OP_LL:  '≪' | '<' '<';
-OP_LT:  '<';
+OP_LT:  '<|';
 OP_GEQ: '⩾' | '≥' | '>=';
 OP_GGE: '>>=';
 OP_GGG: '⋙' | '>' '>' '>';
 OP_GG:  '≫' | '>' '>';
-OP_GT:  '>';
+OP_GT:  '|>';
 // arrow
 OP_LEFT:   '←' | '<-';
 OP_ARROW:  '⟶' | '->';
@@ -124,18 +129,6 @@ KW_AS: 'as' | 'as!' | 'as*';
 OP_DECONSTRUCT: '...' | '..';
 OP_UNTIL:       '..<' | '..=';
 OP_POW:         '^';
-// prefix
-OP_INVERSE: '⅟';
-OP_ROOT2:   '√';
-OP_ROOT3:   '∛';
-OP_ROOT4:   '∜';
-// suffix
-OP_TEMPERATURE: '℃' | '℉';
-OP_TRANSPOSE:   'ᵀ' | 'ᴴ';
-OP_PERCENT:     '‰' | '‱';
-// standalone
-OP_REFERENCE: '※';
-OP_LABEL:     '¶';
 
 // keywords
 KW_NAMESPACE: 'namespace' ('!' | '*' | '?')?;
@@ -155,6 +148,7 @@ KW_WHERE:      'where';
 //
 KW_WHILE: 'while' | 'until';
 KW_FOR:   'for';
+KW_END: 'end';
 //
 KW_LET:      'let';
 KW_WITCH:    'which';
@@ -184,14 +178,10 @@ STRING_BLOCK:  '"""' .*? '"""' | '\'\'\'' .*? '\'\'\'';
 // conditional
 KW_IF:        'if';
 KW_ELSE:      'else';
-KW_OTHERWISE: 'otherwise';
 // control goto FROM: 'from';
 RETURN:   'return';
-RESUME:   'resume';
-YIELD:    'yield';
 BREAK:    'break';
 CONTINUE: 'continue';
-RAISE:    'raise';
 // atom
 SPECIAL: 'true' | 'false' | 'null' | 'nil' | '∅';
 // atom
@@ -199,8 +189,7 @@ RAW_ID:     '`' ~[`]+ '`';
 UNICODE_ID: [_\p{XID_start}] [\p{XID_continue}]*;
 
 // comment
-LINE_COMMENT:  '//' ~[\r\n]* -> channel(HIDDEN);
-BLOCK_COMMENT: '/*' .*? '*/' -> channel(HIDDEN);
+BLOCK_COMMENT: '<%#' .*? '%>' -> channel(HIDDEN);
 
 WHITE_SPACE:     [\p{White_Space}]+ -> channel(HIDDEN);
 ERROR_CHARACTAR: . -> channel(HIDDEN);

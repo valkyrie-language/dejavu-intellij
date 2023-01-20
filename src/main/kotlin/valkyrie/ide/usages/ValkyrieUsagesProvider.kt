@@ -15,7 +15,7 @@ class ValkyrieUsagesProvider : FindUsagesProvider {
             NexusLexer(),
             NexusLexer.Identifiers,
             NexusLexer.Identifiers,
-            TokenSet.create(NexusLexer.CommentLine, NexusLexer.CommentBlock),
+            NexusLexer.Comments,
             TokenSet.EMPTY
         )
     }

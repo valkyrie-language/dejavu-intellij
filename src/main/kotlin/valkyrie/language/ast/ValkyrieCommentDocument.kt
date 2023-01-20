@@ -7,13 +7,17 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import valkyrie.language.antlr.NexusLexer
+import nexus.language.antlr.NexusAntlrLexer
+import org.antlr.intellij.adaptor.lexer.TokenIElementType
+import valkyrie.language.NexusLanguage
 
 
 class ValkyrieCommentDocument(node: CompositeElement) : ASTWrapperPsiElement(node), PsiDocCommentBase {
     private val documentText: String = node.text;
 
-    override fun getTokenType(): IElementType = NexusLexer.CommentBlock
+    override fun getTokenType(): IElementType {
+        return TokenIElementType(NexusAntlrLexer.BLOCK_COMMENT, "CommentBlock", NexusLanguage)
+    }
     override fun getOwner(): PsiElement? {
         return PsiTreeUtil.skipWhitespacesAndCommentsForward(this)
     }
