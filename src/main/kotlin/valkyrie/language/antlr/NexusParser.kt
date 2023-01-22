@@ -21,10 +21,6 @@ import valkyrie.language.ast.calls.ValkyrieAnnotationItem
 import valkyrie.language.ast.calls.ValkyrieCallMacro
 import valkyrie.language.ast.classes.*
 import valkyrie.language.ast.pattern_match.ValkyrieMatchStatement
-import valkyrie.language.ast.unions.ValkyrieFlagsStatement
-import valkyrie.language.ast.unions.ValkyrieFlagsStatementItem
-import valkyrie.language.ast.unions.ValkyrieUnionStatement
-import valkyrie.language.ast.unions.ValkyrieUnionStatementItem
 import valkyrie.language.psi.types.ValkyrieBlockType
 import valkyrie.language.psi.types.ValkyrieModifiedType
 
@@ -67,19 +63,6 @@ class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(NexusLanguage, 
                 RULE_class_field -> ValkyrieClassFieldNode(node)
                 RULE_class_method -> ValkyrieClassMethodNode(node)
                 RULE_class_dsl -> ValkyrieClassCustomNode(node)
-                // flags
-                RULE_define_bitflags -> ValkyrieFlagsStatement(node)
-                RULE_bitflags_item -> ValkyrieFlagsStatementItem(node, type)
-                RULE_bitflags_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
-                // union
-                RULE_define_union -> ValkyrieUnionStatement(node)
-                RULE_union_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
-                RULE_define_variant -> ValkyrieUnionStatementItem(node)
-                RULE_variant_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
-                // trait
-                RULE_define_trait -> ValkyrieTraitStatement(node, type)
-                RULE_define_extends -> ValkyrieExtendsStatement(node)
-                RULE_trait_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
                 // function
                 RULE_define_function -> ValkyrieFunctionStatement(node)
                 RULE_function_parameters -> ValkyrieBlockNode(node, ValkyrieBlockType.Parenthesis)

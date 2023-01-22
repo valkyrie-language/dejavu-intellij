@@ -12,10 +12,6 @@ program
         | import_statement
         | define_extension
         | define_class
-        | define_union
-        | define_bitflags
-        | define_trait
-        | define_extends
         | define_function
         | define_type
         // same as function
@@ -64,29 +60,6 @@ class_method
     : annotation* modified_namepath define_generic? function_parameters type_hint? effect_hint? function_block?
     ;
 class_dsl: annotation* modified_identifier class_block;
-// ===========================================================================
-define_trait
-    : template_call? annotation* modifiers KW_TRAIT identifier define_generic? with_implements? trait_block eos?
-    ;
-trait_block:       BRACE_L (define_trait_type | class_method | class_field | eos_free)* BRACE_R;
-define_trait_type: KW_TYPE identifier (OP_ASSIGN type_expression)?;
-// ===========================================================================
-define_extends
-    : template_call? annotation* modifiers KW_EXTENDS namepath define_generic? with_implements? trait_block
-    ;
-with_implements: (COLON | KW_IMPLEMENTS) type_expression;
-// ===========================================================================
-define_union:   annotation* modifiers KW_UNION identifier base_layout? type_hint? union_block;
-base_layout:    PARENTHESES_L type_expression? PARENTHESES_R;
-union_block:    BRACE_L (class_method | define_variant | eos_free)* BRACE_R;
-define_variant: identifier variant_block?;
-variant_block:  BRACE_L (class_field | eos_free)* BRACE_R;
-// ===========================================================================
-define_bitflags
-    : annotation* modifiers KW_BITFLAGS identifier base_layout? type_hint? bitflags_block
-    ;
-bitflags_block: BRACE_L (class_method | bitflags_item | eos_free)* BRACE_R;
-bitflags_item:  annotation* identifier (OP_ASSIGN expression)?;
 // ===========================================================================
 define_function
     : template_call? annotation* modifiers KW_FUNCTION namepath define_generic? function_parameters type_hint? effect_hint? function_block
@@ -201,7 +174,6 @@ expression
     | object_statement   # EObject
     | macro_call         # EMacro
     | function_block     # ELambda
-    | define_label       # EDefine
     | tuple_literal      # ETuple
     | range_literal      # ERange
     | atomic             # EAtom
@@ -251,27 +223,19 @@ atomic
 // ===========================================================================
 control_expression
     : (RETURN expression?)            # CReturn
-    | BREAK (OP_LABEL identifier)?             # CBreak
-    | CONTINUE (OP_LABEL identifier)?          # CContinue
+    | BREAK              # CBreak
+    | CONTINUE           # CContinue
     ;
 op_prefix
     : OP_NOT
     | OP_ADD
     | OP_SUB
     | OP_AND
-    | OP_REFERENCE
     | OP_DECONSTRUCT
-    | OP_INVERSE
-    | OP_ROOT2
-    | OP_ROOT3
-    | OP_ROOT4
     | OP_MUL
     ;
 op_suffix
     : OP_NOT
-    | OP_TEMPERATURE
-    | OP_TRANSPOSE
-    | OP_PERCENT
     | OP_REM
     | OP_OR_DEFAULT
     | OP_INC
@@ -281,7 +245,7 @@ op_suffix
 op_compare:   OP_LT | OP_LEQ | OP_GT | OP_GEQ | OP_EQ | OP_NE | OP_EEE | OP_NEE;
 op_pattern:   OP_AND | OP_OR;
 infix_map:    OP_MAP | OP_APPLY2 | OP_APPLY3;
-infix_pow:    OP_POW | OP_ROOT2;
+infix_pow:    OP_POW;
 infix_range:  OP_UNTIL;
 infix_arrows: OP_ARROW | OP_ARROW2;
 op_multiple:  OP_MUL | OP_DIV | OP_REM | OP_DIV_REM;
@@ -319,8 +283,6 @@ generic_call_in_type
     | GENERIC_L generic_pair (COMMA generic_pair)* GENERIC_R
     ;
 generic_pair: (identifier COLON)? type_expression;
-define_label: OP_LABEL identifier;
-
 // ===========================================================================
 template_call
     : annotation* modifiers KW_TEMPLATE template_block

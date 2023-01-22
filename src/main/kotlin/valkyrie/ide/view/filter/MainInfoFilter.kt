@@ -13,8 +13,6 @@ import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassFieldNode
 import valkyrie.language.ast.classes.ValkyrieClassMethodNode
 import valkyrie.language.ast.classes.ValkyrieClassStatement
-import valkyrie.language.ast.unions.ValkyrieUnionStatement
-import valkyrie.language.ast.unions.ValkyrieUnionStatementItem
 
 
 class MainInfoFilter : Filter {
@@ -34,9 +32,6 @@ class MainInfoFilter : Filter {
                 is ValkyrieClassStatement -> return true
                 is ValkyrieClassFieldNode -> return true
                 is ValkyrieClassMethodNode -> return true
-                // union
-                is ValkyrieUnionStatement -> return true
-                is ValkyrieUnionStatementItem -> return true
                 // trait
                 is ValkyrieTraitStatement -> return true
                 is ValkyrieExtendsStatement -> return true

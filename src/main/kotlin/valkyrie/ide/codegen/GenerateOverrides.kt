@@ -11,7 +11,6 @@ import com.intellij.psi.util.parents
 import valkyrie.language.antlr.caretElement
 import valkyrie.language.ast.ValkyrieExtendsStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
-import valkyrie.language.ast.unions.ValkyrieUnionStatement
 
 
 class GenerateOverrides : LanguageCodeInsightActionHandler {
@@ -22,7 +21,6 @@ class GenerateOverrides : LanguageCodeInsightActionHandler {
         for (parent in here.parents(true)) {
             when (parent) {
                 is ValkyrieClassStatement,
-                is ValkyrieUnionStatement,
                 is ValkyrieExtendsStatement,
                 -> {
                     _current = parent;

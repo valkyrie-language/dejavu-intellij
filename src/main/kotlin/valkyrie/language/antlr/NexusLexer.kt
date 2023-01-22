@@ -90,7 +90,7 @@ class NexusLexer : Lexer() {
         )
         val OperatorPrefix: TokenSet = PSIElementTypeFactory.createTokenSet(
             NexusLanguage,
-            OP_NOT, OP_DECONSTRUCT, OP_REFERENCE, OP_INVERSE, OP_ROOT3, OP_ROOT4, TEMPLATE_L
+            OP_NOT, OP_DECONSTRUCT, TEMPLATE_L
 
         )
         val OperatorInfix: TokenSet = PSIElementTypeFactory.createTokenSet(
@@ -112,7 +112,7 @@ class NexusLexer : Lexer() {
         )
         val OperatorSuffix: TokenSet = PSIElementTypeFactory.createTokenSet(
             NexusLanguage,
-            OP_TEMPERATURE, OP_PERCENT, OP_TRANSPOSE, TEMPLATE_R
+            TEMPLATE_R
         )
         val Operators = TokenSet.orSet(OperatorPrefix, OperatorInfix, OperatorSuffix);
         val MacroOperators = PSIElementTypeFactory.createTokenSet(NexusLanguage, OP_HASH, OP_AT);

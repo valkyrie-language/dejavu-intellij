@@ -12,8 +12,6 @@ import valkyrie.language.ast.ValkyrieFunctionStatement
 import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassMethodNode
 import valkyrie.language.ast.classes.ValkyrieClassStatement
-import valkyrie.language.ast.unions.ValkyrieFlagsStatement
-import valkyrie.language.ast.unions.ValkyrieUnionStatement
 import java.awt.event.MouseEvent
 
 @Suppress("UnstableApiUsage")
@@ -25,9 +23,8 @@ class AuthorAbove : VcsCodeVisionLanguageContext {
     }
 
     override fun isAccepted(element: PsiElement): Boolean {
-        return element is ValkyrieFlagsStatement
-            || element is ValkyrieClassStatement
-            || element is ValkyrieUnionStatement
+        return element is ValkyrieClassStatement
+
             || element is ValkyrieTraitStatement
             || element is ValkyrieExtendsStatement
             || element is ValkyrieFunctionStatement

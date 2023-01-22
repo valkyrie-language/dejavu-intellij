@@ -7,7 +7,6 @@ import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.psi.PsiElement
 import valkyrie.language.ast.ValkyrieIdentifierNode
 import valkyrie.language.ast.classes.ValkyrieClassStatement
-import valkyrie.language.ast.unions.ValkyrieUnionStatement
 
 //import valkyrie.language.psi_node.ValkyrieUnionStatementNode
 
@@ -15,7 +14,6 @@ class NamepathChecker : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         when (element) {
             is ValkyrieClassStatement -> checkValidClassName(element, holder)
-            is ValkyrieUnionStatement -> checkValidUnionName(element, holder)
         }
     }
 
@@ -26,10 +24,6 @@ class NamepathChecker : Annotator {
         checkCamelCase(id, holder)
     }
 
-    private fun checkValidUnionName(element: ValkyrieUnionStatement, holder: AnnotationHolder) {
-        checkNeedEscape(element.nameIdentifier, holder)
-        checkCamelCase(element.nameIdentifier, holder)
-    }
 
     private fun checkCamelCase(element: ValkyrieIdentifierNode, holder: AnnotationHolder) {
 
