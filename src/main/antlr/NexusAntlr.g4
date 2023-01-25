@@ -118,25 +118,27 @@ define_type: KW_TYPE identifier OP_ASSIGN identifier;
 type_hint:   (COLON | OP_ARROW) type_expression;
 effect_hint: OP_DIV type_expression;
 // ===========================================================================
-if_statement
-    : annotation* KW_IF inline_expression then_block = function_block else_if_statement* (
-        KW_ELSE else_block = function_block
-    )?
-    ;
+if_statement: if_begin ef_begin* otherwise? end;
+if_begin:     TEMPLATE_L KW_IF expression TEMPLATE_R;
+ef_begin:     TEMPLATE_L KW_ELSE KW_IF expression TEMPLATE_R;
+
 guard_statement
-    : annotation* KW_IF (KW_LET | KW_NOT) (let_pattern_tuple | identifier | SPECIAL) OP_ASSIGN inline_expression then = function_block
-    | annotation* KW_IF (KW_LET | KW_NOT) inline_expression then = function_block
+    : annotation* KW_IF (KW_LET | KW_NOT) (let_pattern_tuple | identifier | SPECIAL) OP_ASSIGN expression then = function_block
+    | annotation* KW_IF (KW_LET | KW_NOT) expression then = function_block
     ;
-else_if_statement: KW_ELSE KW_IF inline_expression function_block;
 // ===========================================================================
 loop_statement
-    : KW_WHILE cond = inline_expression function_block                       # WhileLoop
-    | KW_WHILE KW_LET let_pattern OP_ASSIGN inline_expression function_block # WhileLet
-    | for_begin otherwise? end # ForLoop
+    : KW_WHILE cond = expression function_block                       # WhileLoop
+    | KW_WHILE KW_LET let_pattern OP_ASSIGN expression function_block # WhileLet
+    | for_begin otherwise? end                                               # ForLoop
     ;
-for_begin: TEMPLATE_L KW_FOR let_pattern infix_in cond = inline_expression ( KW_IF guard=inline_expression)? TEMPLATE_R;
+for_begin
+    : TEMPLATE_L KW_FOR let_pattern infix_in cond = expression (
+        KW_IF guard = expression
+    )? TEMPLATE_R
+    ;
 otherwise: TEMPLATE_L KW_ELSE TEMPLATE_R;
-end: TEMPLATE_L KW_END identifier? TEMPLATE_R;
+end:       TEMPLATE_L KW_END identifier? TEMPLATE_R;
 // ==========================================================================
 expression_root: annotation* expression OP_AND_THEN? eos?;
 expression
@@ -178,29 +180,6 @@ expression
     | range_literal      # ERange
     | atomic             # EAtom
     ;
-// statement with return type
-inline_expression
-    :
-    // prefix
-    op_prefix inline_expression # IPrefix
-    // suffix
-    | inline_expression function_call # IFunction
-    | inline_expression generic_call  # IGeneric
-    | inline_expression slice_call    # ISlice
-    // infix
-    | lhs = inline_expression op_multiple rhs = inline_expression # IMul
-    | lhs = inline_expression op_plus rhs = inline_expression     # IPlus
-    | lhs = inline_expression op_logic rhs = inline_expression    # ILogic
-    | lhs = inline_expression infix_map rhs = inline_expression   # IMap
-    | lhs = inline_expression op_compare rhs = inline_expression  # ICompare
-    | lhs = inline_expression infix_is rhs = type_expression      # IIs
-    | lhs = inline_expression infix_as rhs = type_expression      # IAs
-    | lhs = inline_expression infix_range rhs = inline_expression # IRange
-    // term
-    | tuple_literal # ITuple
-    | range_literal # IRange
-    | atomic        # IAtom
-    ;
 type_expression
     : type_expression op_pattern type_expression   # TPattern
     | type_expression infix_arrows type_expression # TArrows
@@ -221,26 +200,9 @@ atomic
     | SPECIAL        # ASpecial
     ;
 // ===========================================================================
-control_expression
-    : (RETURN expression?)            # CReturn
-    | BREAK              # CBreak
-    | CONTINUE           # CContinue
-    ;
-op_prefix
-    : OP_NOT
-    | OP_ADD
-    | OP_SUB
-    | OP_AND
-    | OP_DECONSTRUCT
-    | OP_MUL
-    ;
-op_suffix
-    : OP_NOT
-    | OP_REM
-    | OP_OR_DEFAULT
-    | OP_INC
-    | OP_DEC
-    ;
+control_expression: (RETURN expression?) # CReturn | BREAK # CBreak | CONTINUE # CContinue;
+op_prefix:          OP_NOT | OP_ADD | OP_SUB | OP_AND | OP_DECONSTRUCT | OP_MUL;
+op_suffix:          OP_NOT | OP_REM | OP_OR_DEFAULT | OP_INC | OP_DEC;
 // 中缀运算符
 op_compare:   OP_LT | OP_LEQ | OP_GT | OP_GEQ | OP_EQ | OP_NE | OP_EEE | OP_NEE;
 op_pattern:   OP_AND | OP_OR;
@@ -305,17 +267,17 @@ annotation_call_item: namepath tuple_call_body? class_block?;
 // ===========================================================================
 try_statement: annotation* KW_TRY type_expression? function_block;
 match_statement
-    : annotation* (KW_MATCH | KW_CATCH) (identifier OP_BIND)? inline_expression match_block
+    : annotation* (KW_MATCH | KW_CATCH) (identifier OP_BIND)? expression match_block
     ;
 // ===========================================================================
 match_block: BRACE_L (match_terms | eos_free)* BRACE_R;
 match_terms
     : annotation* KW_WITH identifier                                                   # MatchWith
     | annotation* KW_WITH BRACKET_L (identifier (COMMA identifier)* COMMA?)? BRACKET_R # MatchWithMany
-    | annotation* KW_TYPE type_expression (KW_IF inline_expression)? match_case_block  # MatchType
-    | annotation* KW_WHEN inline_expression match_case_block                           # MatchWhen
+    | annotation* KW_TYPE type_expression (KW_IF expression)? match_case_block  # MatchType
+    | annotation* KW_WHEN expression match_case_block                           # MatchWhen
     | annotation* KW_ELSE match_case_block                                             # MatchElse
-    | annotation* KW_CASE case_pattern (KW_IF inline_expression)? match_case_block     # MatchCase
+    | annotation* KW_CASE case_pattern (KW_IF expression)? match_case_block     # MatchCase
     ;
 match_case_block: COLON expression*;
 case_pattern
@@ -372,9 +334,9 @@ range_axis
     | OP_PROPORTION // [::]
     | range_start (COLON range_end)? (COLON range_step)?
     ;
-range_start: inline_expression;
-range_end:   inline_expression;
-range_step:  inline_expression;
+range_start: expression;
+range_end:   expression;
+range_step:  expression;
 // ===========================================================================
 modifiers:           identifier*;
 modified_identifier: (mods += identifier)* id = identifier;

@@ -72,7 +72,7 @@ class NexusLexer : Lexer() {
             //
             KW_TEMPLATE, KW_WHERE,
             // conditional
-            KW_IF, KW_ELSE,
+            KW_IF, KW_ELSE, KW_END,
             // control flow
             KW_WHILE,
             KW_FOR, KW_IN,
