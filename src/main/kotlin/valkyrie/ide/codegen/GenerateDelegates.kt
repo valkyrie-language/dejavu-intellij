@@ -6,7 +6,6 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import valkyrie.language.antlr.caretElement
-import valkyrie.language.ast.ValkyrieExtendsStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
@@ -14,7 +13,6 @@ import javax.swing.Icon
 class GenerateDelegates : LanguageCodeInsightActionHandler, ItemPresentation {
     override fun isValidFor(editor: Editor?, file: PsiFile?) = when (file.caretElement(editor)?.context) {
         is ValkyrieClassStatement -> true
-        is ValkyrieExtendsStatement -> true
         else -> false
     }
 

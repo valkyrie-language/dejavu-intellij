@@ -7,9 +7,7 @@ import com.intellij.codeInsight.hints.VcsCodeVisionLanguageContext
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.ast.ValkyrieExtendsStatement
 import valkyrie.language.ast.ValkyrieFunctionStatement
-import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassMethodNode
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 import java.awt.event.MouseEvent
@@ -24,9 +22,6 @@ class AuthorAbove : VcsCodeVisionLanguageContext {
 
     override fun isAccepted(element: PsiElement): Boolean {
         return element is ValkyrieClassStatement
-
-            || element is ValkyrieTraitStatement
-            || element is ValkyrieExtendsStatement
             || element is ValkyrieFunctionStatement
             || element is ValkyrieClassMethodNode
     }

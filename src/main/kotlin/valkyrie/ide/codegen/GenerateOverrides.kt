@@ -9,7 +9,6 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.parents
 import valkyrie.language.antlr.caretElement
-import valkyrie.language.ast.ValkyrieExtendsStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 
 
@@ -21,7 +20,6 @@ class GenerateOverrides : LanguageCodeInsightActionHandler {
         for (parent in here.parents(true)) {
             when (parent) {
                 is ValkyrieClassStatement,
-                is ValkyrieExtendsStatement,
                 -> {
                     _current = parent;
                     return true

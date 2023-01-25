@@ -8,10 +8,10 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
 import com.intellij.ui.ColorUtil
 import valkyrie.ide.highlight.ValkyrieHighlightColor
-import valkyrie.ide.highlight.ValkyrieHighlightColor.*
+import valkyrie.ide.highlight.ValkyrieHighlightColor.KEYWORD
+import valkyrie.ide.highlight.ValkyrieHighlightColor.SYM_CLASS
 import valkyrie.language.NexusLanguage
 import valkyrie.language.antlr.NexusLexer
-import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 import valkyrie.lsp.RequestDocument
 
@@ -24,7 +24,6 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
             else -> {}
         }
         when (element) {
-            is ValkyrieTraitStatement -> buildDetail(element as ValkyrieTraitStatement)
             is ValkyrieClassStatement -> buildShort(element as ValkyrieClassStatement)
             else -> {
                 doc.append(element)
@@ -36,21 +35,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         }
         return doc.toString()
     }
-
-    private fun buildShort(element: ValkyrieTraitStatement) {
-        append(KEYWORD, "crate ")
-        appendNamespace()
-        doc.append("<br/>")
-        append(KEYWORD, "public ")
-        append(KEYWORD, "native ")
-        append(KEYWORD, "trait ")
-        append(SYM_TRAIT, element.name)
-    }
-
-    private fun buildDetail(element: ValkyrieTraitStatement) {
-        this.buildShort(element)
-    }
-
+    
     private fun buildShort(element: ValkyrieClassStatement) {
         append(KEYWORD, "crate ")
         appendNamespace()

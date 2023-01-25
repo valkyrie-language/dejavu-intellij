@@ -8,8 +8,6 @@ import com.intellij.ide.util.treeView.smartTree.Filter
 import com.intellij.ide.util.treeView.smartTree.TreeElement
 import valkyrie.ide.view.ValkyrieStructureItem
 import valkyrie.language.NexusBundle
-import valkyrie.language.ast.ValkyrieExtendsStatement
-import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassFieldNode
 import valkyrie.language.ast.classes.ValkyrieClassMethodNode
 import valkyrie.language.ast.classes.ValkyrieClassStatement

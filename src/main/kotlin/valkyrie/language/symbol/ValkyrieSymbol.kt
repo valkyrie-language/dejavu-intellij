@@ -6,8 +6,6 @@ import com.intellij.model.Symbol
 import com.intellij.model.psi.PsiSymbolDeclaration
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import valkyrie.language.ast.ValkyrieExtendsStatement
-import valkyrie.language.ast.ValkyrieTraitStatement
 import valkyrie.language.ast.classes.ValkyrieClassStatement
 
 //import valkyrie.language.psi_node.ValkyrieExtendsStatementNode

@@ -8,8 +8,7 @@ options {
 // $antlr-format alignColons hanging, alignSemicolons hanging, alignFirstTokens true
 program
     : (
-        define_namespace
-        | import_statement
+         import_statement
         | define_extension
         | define_class
         | define_function
@@ -17,6 +16,7 @@ program
         // same as function
         | define_lambda
         | let_binding
+        | if_statement
         | loop_statement
         | guard_statement
         | expression_root
@@ -26,8 +26,6 @@ program
 
 eos:      SEMICOLON;
 eos_free: COMMA | SEMICOLON;
-// ===========================================================================
-define_namespace: KW_NAMESPACE namepath_free eos?;
 // ===========================================================================
 import_statement: KW_IMPORT import_term;
 import_as:        KW_AS (OP_AT | OP_HASH)? identifier;
@@ -88,9 +86,11 @@ function_block
         define_type
         | define_lambda
         | let_binding
+        | if_statement
         | loop_statement
         | guard_statement
         | expression_root
+
         | eos
     )* BRACE_R
     ;
@@ -169,11 +169,8 @@ expression
     | PARENTHESES_L expression PARENTHESES_R                      # EGroup
     // term
     | control_expression # EControl
-    | if_statement       # EIf
-    | new_statement      # ENew
-    | try_statement      # ETry
+
     | match_statement    # EMatch
-    | object_statement   # EObject
     | macro_call         # EMacro
     | function_block     # ELambda
     | tuple_literal      # ETuple
@@ -265,7 +262,6 @@ annotation
     ;
 annotation_call_item: namepath tuple_call_body? class_block?;
 // ===========================================================================
-try_statement: annotation* KW_TRY type_expression? function_block;
 match_statement
     : annotation* (KW_MATCH | KW_CATCH) (identifier OP_BIND)? expression match_block
     ;
@@ -305,17 +301,6 @@ case_pattern_tuple
     | namepath? BRACKET_L case_pattern_item (COMMA case_pattern_item)* COMMA? BRACKET_R
     | namepath? BRACE_L case_pattern_item (COMMA case_pattern_item)* COMMA? BRACE_R
     ;
-// ===========================================================================
-object_statement: KW_OBJECT define_generic? class_inherit? type_hint? class_block;
-new_statement
-    : KW_NEW modified_namepath generic_call_in_type? tuple_call_body? new_block
-    | KW_NEW modified_namepath generic_call_in_type? tuple_call_body
-    ;
-new_body
-    : tuple_call_body? new_block // 可选
-    | tuple_call_body // 必选
-    ;
-new_block: BRACE_L (tuple_call_item | eos_free)* BRACE_R;
 // ===========================================================================
 tuple_literal
     : PARENTHESES_L PARENTHESES_R

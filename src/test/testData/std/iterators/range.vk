@@ -18,11 +18,3 @@ class Range {
     step: Integer,
     _current: Integer,
 }
-
-extends Range: Iterator<Integer> {
-    next() {}
-}
-
-extends Range: RandomIterator {
-
-}

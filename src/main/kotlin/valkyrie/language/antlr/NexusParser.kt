@@ -98,14 +98,8 @@ class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(NexusLanguage, 
                 RULE_tuple_call_body -> ValkyrieBlockNode(node, ValkyrieBlockType.Parenthesis)
                 // operators
                 RULE_infix_map -> ValkyrieOperatorNode(node, ValkyrieOperatorKind.Infix)
-
-//                RULE_collection_literal -> ValkyrieBlockNode(node, ValkyrieBlockType.Parenthesis)
                 RULE_expression -> extractExpression(node)
                 RULE_function_call -> ValkyrieCallFunction(node)
-                // new
-                RULE_object_statement -> ValkyrieObjectStatement(node)
-                RULE_new_statement -> ValkyrieNewStatement(node)
-                RULE_new_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
                 // atomic
                 RULE_namepath_free -> ValkyrieNamepathNode(node, type, true)
                 RULE_namepath -> ValkyrieNamepathNode(node, type)
