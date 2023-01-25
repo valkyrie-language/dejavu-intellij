@@ -44,7 +44,6 @@ class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(NexusLanguage, 
             val type: RuleIElementType = node.elementType as RuleIElementType;
             return when (type.ruleIndex) {
 //                RULE_program -> ValkyrieProgramNode(node, type)
-                RULE_define_namespace -> ValkyrieNamespaceStatement(node, type)
                 RULE_import_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
                 // annotations
                 RULE_template_call -> ValkyrieTemplateStatement(node)

@@ -36,10 +36,6 @@ object WorkspaceManager {
         val namespaceManager = packageManager.namespace.getOrPut(namespace) { NamespaceManager() }
         val define = namespaceManager.classes[target.name];
         val insert = ValkyrieClassDeclare(target, packageName, namespace);
-        if (define != null) {
-            insert.myExtends.addAll(define.myExtends)
-        }
-//        namespaceManager.classes[target.name] = insert
     }
 
 }
@@ -54,16 +50,11 @@ class PackageManager {
 
 class NamespaceManager {
     val classes = mutableMapOf<String, ValkyrieClassDeclare>()
-    val traits = mutableMapOf<String, ValkyrieTraitStatement>()
 
     fun findDefinition(symbol: ValkyrieSymbol): PsiElement? {
         val findClass = classes[symbol.name];
         if (findClass != null) {
             return findClass.myDefine
-        }
-        val findTrait = traits[symbol.name];
-        if (findTrait != null) {
-            return findTrait
         }
         return null
     }
@@ -73,19 +64,12 @@ class NamespaceManager {
 class ValkyrieClassDeclare : PsiSymbolDeclaration {
     var mySymbol: ValkyrieSymbol;
     var myDefine: PsiElement;
-    var myExtends: MutableList<ValkyrieExtendsStatement>;
 
     constructor(classNode: ValkyrieClassStatement, packageName: String, namespace: String) {
         mySymbol = ValkyrieSymbol(packageName, namespace, classNode.name ?: "[Missing]")
         myDefine = classNode
-        myExtends = mutableListOf()
     }
 
-    constructor(extendNode: ValkyrieExtendsStatement, packageName: String, namespace: String) {
-        mySymbol = ValkyrieSymbol(packageName, namespace, extendNode.name)
-        myDefine = extendNode
-        myExtends = mutableListOf(extendNode)
-    }
 
     override fun getDeclaringElement(): ValkyrieClassStatement {
         return myDefine as ValkyrieClassStatement

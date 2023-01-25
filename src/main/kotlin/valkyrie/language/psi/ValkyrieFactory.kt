@@ -2,11 +2,7 @@ package valkyrie.language.psi
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiFileFactory
-import valkyrie.language.NexusLanguage
-import valkyrie.language.ast.ValkyrieNamespaceStatement
 import valkyrie.language.ast.ValkyrieNumberNode
-import valkyrie.language.file.NexusFileNode
 
 class ValkyrieFactory {
     private val project: Project
@@ -18,21 +14,6 @@ class ValkyrieFactory {
 
     constructor(element: PsiElement) {
         this.project = element.project
-    }
-
-    fun createFile(text: String): NexusFileNode {
-        val factory = PsiFileFactory.getInstance(project)
-        return factory.createFileFromText("factory.vk", NexusLanguage, text) as NexusFileNode
-    }
-
-    fun createNamespace(text: String, kind: String = ""): ValkyrieNamespaceStatement {
-        val file = createFile("namespace${kind} $text;");
-        for (child in file.children) {
-            if (child is ValkyrieNamespaceStatement) {
-                return child
-            }
-        }
-        throw Exception("unreachable: ValkyrieFactory::createNamespace")
     }
 
     fun createNumberLiteral(number: String, unit: String?): ValkyrieNumberNode {

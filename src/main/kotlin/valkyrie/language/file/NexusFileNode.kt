@@ -7,12 +7,8 @@ import com.intellij.openapi.fileTypes.FileType
 import com.intellij.psi.FileViewProvider
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.SearchScope
-import valkyrie.ide.project.crate.NamespaceMapping
 import valkyrie.language.NexusBundle
 import valkyrie.language.NexusLanguage
-import valkyrie.language.antlr.traversal
-import valkyrie.language.ast.ValkyrieNamespaceStatement
-import valkyrie.language.ast.classes.ValkyrieClassStatement
 
 
 /**
@@ -22,40 +18,10 @@ ValkyrieFile 是个 PsiElement
 class NexusFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, NexusLanguage) {
     override fun getFileType(): FileType = NexusFileType
 
-
     override fun toString(): String = NexusBundle.message("action.create_file")
 
-
-    val packageName: String
-        get() {
-            for (child in this.children) {
-                if (child is ValkyrieNamespaceStatement) {
-                    return child.name
-                }
-            }
-            return ""
-        }
-    val namespace: ValkyrieNamespaceStatement?
-        get() {
-            for (child in this.children) {
-                if (child is ValkyrieNamespaceStatement) {
-                    return child
-                }
-            }
-            return null
-        }
-
-    val namepath: String = namespace?.name ?: ""
-
     fun updateCache() {
-        this.traversal {
-            if (it is ValkyrieClassStatement) {
-                NamespaceMapping.Instance.ClassCache.getOrPut(it.name ?: "") { mutableSetOf() }.add(namepath)
-                false
-            } else {
-                true
-            }
-        }
+
     }
 
     override fun getOwnDeclarations(): MutableCollection<out PsiSymbolDeclaration> {

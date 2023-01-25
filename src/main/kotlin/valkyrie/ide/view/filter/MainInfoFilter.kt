@@ -30,9 +30,6 @@ class MainInfoFilter : Filter {
                 is ValkyrieClassStatement -> return true
                 is ValkyrieClassFieldNode -> return true
                 is ValkyrieClassMethodNode -> return true
-                // trait
-                is ValkyrieTraitStatement -> return true
-                is ValkyrieExtendsStatement -> return true
             }
         }
         return false;

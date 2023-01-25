@@ -7,7 +7,7 @@ class NamespaceMapping(private val changes: Array<NexusFileNode>) : AsyncFileLis
     override fun afterVfsChange() {
         for (change in changes) {
             // 根据命名空间查文件
-            Instance.Cache.getOrPut(change.namepath) { mutableSetOf() }.add(change)
+//            Instance.Cache.getOrPut(change) { mutableSetOf() }.add(change)
             // 根据类名查命名空间
             change.updateCache()
 

@@ -71,10 +71,6 @@ private class TypeHierarchyBrowser : TypeHierarchyBrowserBase {
                 is ValkyrieClassStatement -> {
                     return TypeHierarchyTree(HierarchyClassNode(node))
                 }
-
-                is ValkyrieTraitStatement -> {
-                    return TypeHierarchyTree(HierarchyTraitNode(node))
-                }
             }
         }
         return null
@@ -84,10 +80,6 @@ private class TypeHierarchyBrowser : TypeHierarchyBrowserBase {
         for (node in element.parents(true)) {
             when (node) {
                 is ValkyrieClassStatement -> {
-                    return MessageFormat.format(typeName, node.name)
-                }
-
-                is ValkyrieTraitStatement -> {
                     return MessageFormat.format(typeName, node.name)
                 }
             }
