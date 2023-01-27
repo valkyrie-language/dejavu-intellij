@@ -57,7 +57,6 @@ class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(NexusLanguage, 
                 // class
                 RULE_define_class -> ValkyrieClassStatement(node)
                 RULE_define_generic -> ValkyrieGenericStatement(node)
-                RULE_class_inherit_item -> ValkyrieClassInheritItem(node)
                 RULE_class_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
                 RULE_class_field -> ValkyrieClassFieldNode(node)
                 RULE_class_method -> ValkyrieClassMethodNode(node)

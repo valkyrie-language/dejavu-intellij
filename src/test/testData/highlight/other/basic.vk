@@ -1,3 +1,7 @@
+<% class std.name.path<lifetime> in Rust %>
+<% using std.name.uppercase as A in Rust %>
+
+
 <% for c in s if c.is_ascii %>
     <% if condition %>
 

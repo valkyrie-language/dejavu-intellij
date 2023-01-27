@@ -45,14 +45,9 @@ import_block: BRACE_L BRACE_R | BRACE_L import_term* BRACE_R;
 define_extension: KW_EXTENSION;
 // ===========================================================================
 define_class
-    : template_call? annotation* modifiers KW_CLASS identifier define_generic? class_inherit? type_hint? class_block eos?
+    : TEMPLATE_L KW_CLASS namepath_free define_generic? (KW_IN identifier) TEMPLATE_R
     ;
 class_block: BRACE_L (class_dsl | class_method | class_field | eos_free)* BRACE_R;
-class_inherit
-    : PARENTHESES_L PARENTHESES_R
-    | PARENTHESES_L class_inherit_item (COMMA class_inherit_item)* COMMA? PARENTHESES_R
-    ;
-class_inherit_item: modified_namepath;
 class_field:        annotation* modified_identifier type_hint? parameter_default?;
 class_method
     : annotation* modified_namepath define_generic? function_parameters type_hint? effect_hint? function_block?
@@ -201,7 +196,7 @@ control_expression: (RETURN expression?) # CReturn | BREAK # CBreak | CONTINUE #
 op_prefix:          OP_NOT | OP_ADD | OP_SUB | OP_AND | OP_DECONSTRUCT | OP_MUL;
 op_suffix:          OP_NOT | OP_REM | OP_OR_DEFAULT | OP_INC | OP_DEC;
 // 中缀运算符
-op_compare:   OP_LT | OP_LEQ | OP_GT | OP_GEQ | OP_EQ | OP_NE | OP_EEE | OP_NEE;
+op_compare:   OP_LEQ | OP_GEQ | OP_EQ | OP_NE | OP_EEE | OP_NEE;
 op_pattern:   OP_AND | OP_OR;
 infix_map:    OP_MAP | OP_APPLY2 | OP_APPLY3;
 infix_pow:    OP_POW;

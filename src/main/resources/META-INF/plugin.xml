@@ -27,11 +27,6 @@
 			implementationClass="valkyrie.ide.project.ValkyrieDependencyResolver"/>
 		<additionalLibraryRootsProvider implementation="valkyrie.ide.project.library.LibraryRootsProvider"/>
 		<!-- Project Namespace -->
-		<indexedRootsProvider implementation="valkyrie.ide.project.ExtraIndexContributor"/>
-		<!--				<generatedSourcesFilter implementation="valkyrie.ide.project.package.ValkyrieGeneratedSource"/>-->
-		<!-- Project Facet -->
-		<!--		<facetType implementation="valkyrie.ide.project.facet.ValkyrieFacetType"/>-->
-		<!-- StructureView -->
 		<iconProvider implementation="valkyrie.language.file.NexusIconProvider"/>
 		<projectViewNestingRulesProvider implementation="valkyrie.language.file.NexusFileGroup"/>
 		<treeStructureProvider implementation="valkyrie.ide.view.VStructureProvider"/>
@@ -68,11 +63,6 @@
 		<runConfigurationsSettings implementation="valkyrie.ide.runner.ValkyrieRunnerSettings"/>
 		<runConfigurationProducer implementation="valkyrie.ide.runner.ValkyrieRunConfigurationProducer"/>
 		<runConfigurationTemplateProvider implementation="valkyrie.ide.runner.ValkyrieRunningTemplateProvider"/>
-		<importTestOutput implementation="valkyrie.ide.runner.TestOutput"/>
-
-		<testActionProvider implementation="valkyrie.ide.runner.VTestActionProvider"/>
-		<testStatusListener implementation="valkyrie.ide.runner.VTestStatusListener"/>
-		<testDiffProvider language="Nexus" implementationClass="valkyrie.ide.runner.VTestDiffProvider"/>
 		<!-- Debugger -->
 		<!--		<xdebugger.breakpointType implementation="valkyrie.ide.runner.breakpointType"/>-->
 		<!--		<xdebugger.breakpointGroupingRule implementation="valkyrie.ide.runner.breakpointGroupingRule"/>-->
@@ -80,8 +70,6 @@
 		<xdebugger.attachHostProvider implementation="valkyrie.ide.runner.ValkyrieAttachProvider"/>
 		<xdebugger.attachHostSettingsProvider implementation="valkyrie.ide.runner.attachHostSettingsProvider"/>
 		<!-- Goto -->
-		<navbar implementation="valkyrie.ide.goto.VNavigationBarExtension"/>
-		<lang.directNavigationProvider implementation="valkyrie.ide.navigation.VDirectNavigationProvider"/>
 		<breadcrumbsInfoProvider implementation="valkyrie.ide.navigation.ValkyrieBreadcrumbsProvider"/>
 		<breadcrumbsPresentationProvider implementation="valkyrie.ide.navigation.ValkyrieBreadcrumbsPresentation"/>
 		<symbolNavigation
@@ -131,30 +119,18 @@
 		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.MarkImplicitTypes"/>
 		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.MarkLegacyExpression"/>
 		<!-- Declaration -->
-		<typeDeclarationProvider implementation="valkyrie.ide.reference.declaration.TypeDeclarationProvider"/>
-		<psi.declarationProvider implementation="valkyrie.ide.reference.declaration.SymbolDeclarationProvider"/>
-		<!--		<declarationRangeHandler-->
-		<!--			key="org.rust.lang.core.psi.ValkyrieClass"-->
-		<!--			implementationClass="valkyrie.ide.reference.declaration.ClassDeclarationHandler"/>-->
 		<findUsagesHandlerFactory implementation="valkyrie.ide.usages.ValkyrieUsagesFactory"/>
 		<lang.findUsagesProvider
 			language="Nexus"
 			implementationClass="valkyrie.ide.usages.ValkyrieUsagesProvider"/>
-		<!-- Rename -->
-		<!--		<renameHandler implementation="valkyrie.ide.refactor.ValkyrieRenameHandler"/>-->
-		<!--		<rename.inplace.resolveSnapshotProvider-->
-		<!--			language="Valkyrie"-->
-		<!--			implementationClass="valkyrie.ide.refactor.ValkyrieRenameInplace"/>-->
-		<renameInputValidator implementation="valkyrie.ide.refactor.ValkyrieRenameInputValidator"/>
-		<!--		<renameRefactoringDialogProvider implementation="valkyrie.ide.refactor.ValkyrieRenameDialog"/>-->
 		<!-- Completion -->
 		<typedHandler implementation="valkyrie.ide.completion.AutoInsertBrace"/>
 		<backspaceHandlerDelegate implementation="valkyrie.ide.completion.AutoDeleteBrace"/>
 		<!--		<lookup.charFilter implementation="valkyrie.ide.completion.CompletionInterrupter"/>-->
 		<lang.commenter language="Nexus" implementationClass="valkyrie.ide.formatter.ValkyrieCommenter"/>
-		<!--		<lang.braceMatcher-->
-		<!--			language="Valkyrie"-->
-		<!--			implementationClass="valkyrie.ide.matcher.BraceMatchAdapter"/>-->
+		<lang.braceMatcher
+			language="Nexus"
+			implementationClass="valkyrie.ide.matcher.BraceMatchAdapter"/>
 		<lang.quoteHandler
 			language="Nexus"
 			implementationClass="valkyrie.ide.matcher.ValkyrieQuoteHandler"/>
@@ -195,7 +171,5 @@
 		<action id="valkyrie.macro.expand" class="valkyrie.ide.codegen.ExpandMacro">
 			<add-to-group group-id="GenerateGroup" anchor="last"/>
 		</action>
-
-
 	</actions>
 </idea-plugin>
