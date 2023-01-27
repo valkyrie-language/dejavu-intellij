@@ -11,21 +11,20 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.LiteralTextEscaper
 import com.intellij.psi.PsiLanguageInjectionHost
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.antlr.NexusAntlrParser
 import org.intellij.lang.regexp.RegExpLanguage
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.matcher.escaper.StringEscape
-import valkyrie.language.antlr.NexusParser
 import valkyrie.language.psi.ValkyrieHighlightElement
 
 class ValkyrieStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguageInjectionHost, ValkyrieHighlightElement {
     val handler by lazy {
         PsiTreeUtil.getChildOfType(this, ValkyrieIdentifierNode::class.java)
     }
-    private val _text by lazy {
-        NexusParser.getChildOfType(this, NexusAntlrParser.RULE_string)!!
-    }
+
+    //    private val _text by lazy {
+//        NexusParser.getChildOfType(this, NexusAntlrParser.RULE_string)!!
+//    }
     private val injectLanguage = handler?.name?.lowercase();
 
     override fun isValidHost(): Boolean {
@@ -69,9 +68,10 @@ class ValkyrieStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguag
 
 
     private fun innerRange(): TextRange {
-        val start = _text.textRange.startOffset - textRange.startOffset + 1;
-        val end = _text.textRange.endOffset - textRange.startOffset - 1;
-        return TextRange(start, end)
+//        val start = _text.textRange.startOffset - textRange.startOffset + 1;
+//        val end = _text.textRange.endOffset - textRange.startOffset - 1;
+//        return TextRange(start, end)
+        return TextRange(0, 0)
     }
 
 

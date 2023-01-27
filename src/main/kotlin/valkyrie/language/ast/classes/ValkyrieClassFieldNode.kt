@@ -9,13 +9,10 @@ import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
-import com.intellij.refactoring.suggested.endOffset
-import nexus.language.antlr.NexusAntlrParser
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.hint.TypeInlayHint
 import valkyrie.ide.view.IdentifierPresentation
-import valkyrie.language.antlr.NexusParser
 import valkyrie.language.ast.ValkyrieIdentifierNode
 import valkyrie.language.ast.ValkyrieModifiedNode
 import valkyrie.language.file.NexusIconProvider
@@ -79,19 +76,19 @@ class ValkyrieClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), 
     }
 
     override fun type_hint(inlay: TypeInlayHint): Boolean {
-        val hint = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_type_hint);
-        val default = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_parameter_default)
-
-        if (hint == null && default == null) {
-            inlay.inline(field.endOffset, ": Any? = null")
-            return true;
-        } else if (hint == null) {
-            inlay.inline(field.endOffset, ": Any?")
-            return true;
-        } else if (default == null) {
-            inlay.inline(hint.endOffset, " = default")
-            return true;
-        }
+//        val hint = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_type_hint);
+//        val default = NexusParser.getChildOfType(this, NexusAntlrParser.RULE_parameter_default)
+//
+//        if (hint == null && default == null) {
+//            inlay.inline(field.endOffset, ": Any? = null")
+//            return true;
+//        } else if (hint == null) {
+//            inlay.inline(field.endOffset, ": Any?")
+//            return true;
+//        } else if (default == null) {
+//            inlay.inline(hint.endOffset, " = default")
+//            return true;
+//        }
         return false;
     }
 }

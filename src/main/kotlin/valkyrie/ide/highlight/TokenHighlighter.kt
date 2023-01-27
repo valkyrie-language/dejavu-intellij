@@ -7,7 +7,6 @@ import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
-import nexus.language.antlr.NexusAntlrLexer
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import valkyrie.ide.matcher.ValkyrieBracketMatch
 import valkyrie.language.NexusLanguage
@@ -29,7 +28,7 @@ class TokenHighlighter : SyntaxHighlighter {
     }
 
     private fun getTokenColor(tokenType: IElementType): TextAttributesKey? {
-        val hash = PSIElementTypeFactory.createTokenSet(NexusLanguage, NexusAntlrLexer.OP_HASH, NexusAntlrLexer.OP_AT);
+        val hash = PSIElementTypeFactory.createTokenSet(NexusLanguage);
         return when {
             NexusLexer.Keywords.contains(tokenType) -> ValkyrieHighlightColor.KEYWORD.textAttributesKey
             NexusLexer.Operators.contains(tokenType) -> DefaultLanguageHighlighterColors.OPERATION_SIGN

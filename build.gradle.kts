@@ -65,16 +65,16 @@ tasks {
         gradleVersion = properties("gradleVersion")
     }
 
-    generateGrammarSource {
-        maxHeapSize = "64m"
-        arguments = arguments + listOf(
-            "-listener",
-            "-visitor",
-            "-long-messages",
-            "-encoding", "utf8",
-            "-package", "nexus.language.antlr"
-        )
-    }
+//    generateGrammarSource {
+//        maxHeapSize = "64m"
+//        arguments = arguments + listOf(
+//            "-listener",
+//            "-visitor",
+//            "-long-messages",
+//            "-encoding", "utf8",
+//            "-package", "nexus.language.antlr"
+//        )
+//    }
     patchPluginXml {
         version.set(properties("pluginVersion"))
         sinceBuild.set(properties("pluginSinceBuild"))
