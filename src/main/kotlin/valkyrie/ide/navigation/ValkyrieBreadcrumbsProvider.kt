@@ -1,19 +1,18 @@
 package valkyrie.ide.navigation
 
-//import valkyrie.language.psi_node.ValkyrieClassStatementNode
-//import valkyrie.language.psi_node.ValkyrieTraitStatementNode
+//import nexus.language.psi_node.ValkyrieClassStatementNode
+//import nexus.language.psi_node.ValkyrieTraitStatementNode
 import com.intellij.lang.Language
 import com.intellij.navigation.NavigationItem
 import com.intellij.psi.PsiElement
 import com.intellij.ui.breadcrumbs.BreadcrumbsProvider
-import valkyrie.language.NexusLanguage
-import valkyrie.language.psi.ValkyrieScopeNode
+import nexus.language.psi.ValkyrieScopeNode
 import javax.swing.Action
 import javax.swing.Icon
 
 class ValkyrieBreadcrumbsProvider : BreadcrumbsProvider {
     override fun getLanguages(): Array<Language> {
-        return arrayOf(NexusLanguage)
+        return arrayOf(nexus.language.NexusLanguage)
     }
 
     override fun acceptElement(element: PsiElement): Boolean {

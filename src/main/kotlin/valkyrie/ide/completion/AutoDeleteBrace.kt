@@ -3,7 +3,7 @@ package valkyrie.ide.completion
 import com.intellij.codeInsight.editorActions.BackspaceHandlerDelegate
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiFile
-import valkyrie.language.file.NexusFileType
+import nexus.language.file.NexusFileType
 
 class AutoDeleteBrace : BackspaceHandlerDelegate() {
     override fun beforeCharDeleted(c: Char, file: PsiFile, editor: Editor) {

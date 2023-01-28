@@ -4,7 +4,7 @@ import com.intellij.formatting.service.AsyncDocumentFormattingService
 import com.intellij.formatting.service.AsyncFormattingRequest
 import com.intellij.formatting.service.FormattingService
 import com.intellij.psi.PsiFile
-import valkyrie.language.file.NexusFileNode
+import nexus.language.file.NexusFileNode
 
 class ValkyrieNativeFormat : AsyncDocumentFormattingService() {
     override fun getFeatures(): MutableSet<FormattingService.Feature> {

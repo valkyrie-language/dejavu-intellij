@@ -8,9 +8,8 @@ import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.CheckUtil
-import valkyrie.language.NexusBundle
-import valkyrie.language.file.NexusFileNode
-import valkyrie.language.file.NexusIconProvider
+import nexus.language.file.NexusFileNode
+import nexus.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class CreateNamespace(private val element: NexusFileNode) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
@@ -23,11 +22,11 @@ class CreateNamespace(private val element: NexusFileNode) : LocalQuickFixAndInte
     }
 
     override fun getText(): String {
-        return NexusBundle.message("action.create.namespace.name")
+        return nexus.language.NexusBundle.message("action.create.namespace.name")
     }
 
     fun getDescription(): String {
-        return NexusBundle.message("action.create.namespace.help")
+        return nexus.language.NexusBundle.message("action.create.namespace.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

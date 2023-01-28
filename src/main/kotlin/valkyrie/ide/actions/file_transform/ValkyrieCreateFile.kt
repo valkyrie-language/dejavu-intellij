@@ -4,14 +4,13 @@ import com.intellij.ide.actions.CreateFileFromTemplateAction
 import com.intellij.ide.actions.CreateFileFromTemplateDialog.Builder
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
-import valkyrie.language.NexusBundle
-import valkyrie.language.file.NexusIconProvider
+import nexus.language.file.NexusIconProvider
 
 class ValkyrieCreateFile :
     CreateFileFromTemplateAction(name, description, NexusIconProvider.Instance.Valkyrie) {
     companion object {
-        private val name = NexusBundle.message("action.create_file")
-        private val description = NexusBundle.message("action.create_file.description")
+        private val name = nexus.language.NexusBundle.message("action.create_file")
+        private val description = nexus.language.NexusBundle.message("action.create_file.description")
 
         // See [resources/colors/fileTemplate]
         private const val templatePath = "Valkyrie File";

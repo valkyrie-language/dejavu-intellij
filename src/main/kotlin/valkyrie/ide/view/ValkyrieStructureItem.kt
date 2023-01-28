@@ -6,7 +6,7 @@ import com.intellij.ide.util.treeView.smartTree.SortableTreeElement
 import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
-import valkyrie.language.antlr.traversal
+import nexus.language.antlr.traversal
 import javax.swing.Icon
 
 class ValkyrieStructureItem : StructureViewTreeElement, SortableTreeElement {

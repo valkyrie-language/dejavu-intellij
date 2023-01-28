@@ -5,10 +5,10 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.elementType
 
-//import valkyrie.language.psi.ValkyrieTypes
-//import valkyrie.language.psi_node.ValkyrieClassMethodNode
-//import valkyrie.language.psi_node.ValkyrieDefineStatementNode
-//import valkyrie.language.psi_node.ValkyrieIdentifierNode
+//import nexus.language.psi.ValkyrieTypes
+//import nexus.language.psi_node.ValkyrieClassMethodNode
+//import nexus.language.psi_node.ValkyrieDefineStatementNode
+//import nexus.language.psi_node.ValkyrieIdentifierNode
 
 class ValkyrieRunner : RunLineMarkerContributor() {
     override fun getInfo(element: PsiElement): Info? {

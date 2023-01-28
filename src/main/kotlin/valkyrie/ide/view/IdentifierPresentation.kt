@@ -2,8 +2,8 @@ package valkyrie.ide.view
 
 import com.intellij.navigation.ColoredItemPresentation
 import com.intellij.openapi.editor.colors.TextAttributesKey
+import nexus.language.ast.ValkyrieIdentifierNode
 import valkyrie.ide.highlight.ValkyrieHighlightColor
-import valkyrie.language.ast.ValkyrieIdentifierNode
 import javax.swing.Icon
 
 class IdentifierPresentation(val name: ValkyrieIdentifierNode?, private val icon: Icon) : ColoredItemPresentation {

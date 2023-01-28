@@ -6,13 +6,12 @@ import com.intellij.openapi.actionSystem.LangDataKeys
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.NexusBundle
-import valkyrie.language.file.NexusIconProvider
+import nexus.language.file.NexusIconProvider
 
 class FluentConvertMo : CreateFileAction(name, description, NexusIconProvider.Instance.Valkyrie) {
     companion object {
-        private val name = NexusBundle.message("action.convert_prop")
-        private val description = NexusBundle.message("action.convert_prop.description")
+        private val name = nexus.language.NexusBundle.message("action.convert_prop")
+        private val description = nexus.language.NexusBundle.message("action.convert_prop.description")
     }
 
     private var sourceFile: PsiFile? = null;

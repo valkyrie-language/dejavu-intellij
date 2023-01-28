@@ -1,12 +1,12 @@
 package valkyrie.ide.highlight
 
-import valkyrie.language.ast.ValkyrieIdentifierNode
-import valkyrie.language.ast.classes.ValkyrieClassFieldNode
-import valkyrie.language.ast.classes.ValkyrieClassMethodNode
-import valkyrie.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.ValkyrieIdentifierNode
+import nexus.language.ast.classes.ValkyrieClassFieldNode
+import nexus.language.ast.classes.ValkyrieClassMethodNode
+import nexus.language.ast.classes.ValkyrieClassStatement
 
-//import valkyrie.language.psi_node.ValkyrieClassStatementNode
-//import valkyrie.language.psi_node.ValkyrieTraitStatementNode
+//import nexus.language.psi_node.ValkyrieClassStatementNode
+//import nexus.language.psi_node.ValkyrieTraitStatementNode
 
 enum class IdentifierKind {
     Trait,

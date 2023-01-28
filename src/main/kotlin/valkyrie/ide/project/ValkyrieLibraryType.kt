@@ -1,6 +1,6 @@
 package valkyrie.ide.project.`package`
 
-import valkyrie.language.file.NexusIconProvider
+import nexus.language.file.NexusIconProvider
 import javax.swing.Icon
 
 enum class ValkyrieLibraryType {

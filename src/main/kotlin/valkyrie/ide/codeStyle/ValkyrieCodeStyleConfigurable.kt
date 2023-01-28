@@ -5,11 +5,10 @@ import com.intellij.application.options.CodeStyleAbstractPanel
 import com.intellij.application.options.GenerationCodeStylePanel
 import com.intellij.application.options.TabbedLanguageCodeStylePanel
 import com.intellij.psi.codeStyle.CodeStyleSettings
-import valkyrie.language.NexusLanguage
 import javax.swing.JComponent
 
 class ValkyrieCodeStyleConfigurable(settings: CodeStyleSettings, modelSettings: CodeStyleSettings) :
-    CodeStyleAbstractConfigurable(settings, modelSettings, NexusLanguage.displayName) {
+    CodeStyleAbstractConfigurable(settings, modelSettings, nexus.language.NexusLanguage.displayName) {
     override fun getDisplayName(): String {
         return super.getDisplayName()
     }
@@ -24,10 +23,10 @@ class ValkyrieCodeStyleConfigurable(settings: CodeStyleSettings, modelSettings: 
 }
 
 private class ValkyrieCodeStyleMainPanel(currentSettings: CodeStyleSettings?, settings: CodeStyleSettings) :
-    TabbedLanguageCodeStylePanel(NexusLanguage, currentSettings, settings) {
+    TabbedLanguageCodeStylePanel(nexus.language.NexusLanguage, currentSettings, settings) {
     override fun initTabs(settings: CodeStyleSettings) {
 //        addIndentOptionsTab(settings)
 //        addWrappingAndBracesTab(settings)
-        addTab(GenerationCodeStylePanel(settings, NexusLanguage))
+        addTab(GenerationCodeStylePanel(settings, nexus.language.NexusLanguage))
     }
 }

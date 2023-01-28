@@ -1,26 +1,24 @@
 package valkyrie.ide.doc
 
-//import valkyrie.language.psi_node.ValkyrieClassStatementNode
-//import valkyrie.language.psi_node.ValkyrieTraitStatementNode
+//import nexus.language.psi_node.ValkyrieClassStatementNode
+//import nexus.language.psi_node.ValkyrieTraitStatementNode
 import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.editor.richcopy.HtmlSyntaxInfoUtil
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
 import com.intellij.ui.ColorUtil
+import nexus.language.ast.classes.ValkyrieClassStatement
 import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.highlight.ValkyrieHighlightColor.KEYWORD
 import valkyrie.ide.highlight.ValkyrieHighlightColor.SYM_CLASS
-import valkyrie.language.NexusLanguage
-import valkyrie.language.antlr.NexusLexer
-import valkyrie.language.ast.classes.ValkyrieClassStatement
 import valkyrie.lsp.RequestDocument
 
 class DocumentationRenderer(var element: PsiElement, private var original: PsiElement?) {
     private val doc = StringBuilder()
     fun onHover(): String {
         when {
-            NexusLexer.Keywords.contains(element.elementType) -> return RequestDocument.keyword(element.text).send()
-            NexusLexer.Operators.contains(element.elementType) -> return RequestDocument.operator(element.text).send()
+            nexus.language.antlr.NexusLexer.Keywords.contains(element.elementType) -> return RequestDocument.keyword(element.text).send()
+            nexus.language.antlr.NexusLexer.Operators.contains(element.elementType) -> return RequestDocument.operator(element.text).send()
             else -> {}
         }
         when (element) {
@@ -76,7 +74,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         HtmlSyntaxInfoUtil.appendHighlightedByLexerAndEncodedAsHtmlCodeSnippet(
             doc,
             element.project,
-            NexusLanguage,
+            nexus.language.NexusLanguage,
             code.trimIndent(),
             1.0f,
         )

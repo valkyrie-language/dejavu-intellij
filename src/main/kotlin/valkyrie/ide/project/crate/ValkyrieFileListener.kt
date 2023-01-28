@@ -3,7 +3,7 @@ package valkyrie.ide.project.crate
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiTreeChangeEvent
 import com.intellij.psi.PsiTreeChangeListener
-import valkyrie.language.file.NexusFileNode
+import nexus.language.file.NexusFileNode
 
 
 class ValkyrieFileListener : PsiTreeChangeListener {

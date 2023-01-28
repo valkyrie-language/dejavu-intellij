@@ -9,13 +9,11 @@ import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import valkyrie.ide.matcher.ValkyrieBracketMatch
-import valkyrie.language.NexusLanguage
-import valkyrie.language.antlr.NexusLexer
 
 
 class TokenHighlighter : SyntaxHighlighter {
     override fun getHighlightingLexer(): Lexer {
-        return NexusLexer()
+        return nexus.language.antlr.NexusLexer()
     }
 
     override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> {
@@ -28,18 +26,18 @@ class TokenHighlighter : SyntaxHighlighter {
     }
 
     private fun getTokenColor(tokenType: IElementType): TextAttributesKey? {
-        val hash = PSIElementTypeFactory.createTokenSet(NexusLanguage);
+        val hash = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage);
         return when {
-            NexusLexer.Keywords.contains(tokenType) -> ValkyrieHighlightColor.KEYWORD.textAttributesKey
-            NexusLexer.Operators.contains(tokenType) -> DefaultLanguageHighlighterColors.OPERATION_SIGN
-            NexusLexer.MacroOperators.contains(tokenType) -> ValkyrieHighlightColor.SYM_MACRO.textAttributesKey
-            NexusLexer.Integers.contains(tokenType) -> ValkyrieHighlightColor.INTEGER.textAttributesKey
-            NexusLexer.Decimals.contains(tokenType) -> ValkyrieHighlightColor.DECIMAL.textAttributesKey
-            NexusLexer.Strings.contains(tokenType) -> ValkyrieHighlightColor.STRING.textAttributesKey
-            NexusLexer.Comments.contains(tokenType) -> DefaultLanguageHighlighterColors.LINE_COMMENT
+            nexus.language.antlr.NexusLexer.Keywords.contains(tokenType) -> ValkyrieHighlightColor.KEYWORD.textAttributesKey
+            nexus.language.antlr.NexusLexer.Operators.contains(tokenType) -> DefaultLanguageHighlighterColors.OPERATION_SIGN
+            nexus.language.antlr.NexusLexer.MacroOperators.contains(tokenType) -> ValkyrieHighlightColor.SYM_MACRO.textAttributesKey
+            nexus.language.antlr.NexusLexer.Integers.contains(tokenType) -> ValkyrieHighlightColor.INTEGER.textAttributesKey
+            nexus.language.antlr.NexusLexer.Decimals.contains(tokenType) -> ValkyrieHighlightColor.DECIMAL.textAttributesKey
+            nexus.language.antlr.NexusLexer.Strings.contains(tokenType) -> ValkyrieHighlightColor.STRING.textAttributesKey
+            nexus.language.antlr.NexusLexer.Comments.contains(tokenType) -> DefaultLanguageHighlighterColors.LINE_COMMENT
             // inherit
-            NexusLexer.Comma.contains(tokenType) -> DefaultLanguageHighlighterColors.COMMA
-            NexusLexer.Semicolon.contains(tokenType) -> DefaultLanguageHighlighterColors.SEMICOLON
+            nexus.language.antlr.NexusLexer.Comma.contains(tokenType) -> DefaultLanguageHighlighterColors.COMMA
+            nexus.language.antlr.NexusLexer.Semicolon.contains(tokenType) -> DefaultLanguageHighlighterColors.SEMICOLON
 
             else -> {
                 when (tokenType) {

@@ -1,14 +1,13 @@
 package valkyrie.ide.runner
 
-//import valkyrie.language.psi_node.ValkyrieClassStatementNode
+//import nexus.language.psi_node.ValkyrieClassStatementNode
 import com.intellij.execution.lineMarker.RunLineMarkerContributor.Info
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.ActionGroup
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.psi.PsiElement
-import valkyrie.language.NexusBundle
-import valkyrie.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.ValkyrieClassStatement
 
 
 class RunClassGroup : ActionGroup() {
@@ -17,8 +16,8 @@ class RunClassGroup : ActionGroup() {
     init {
         templatePresentation.isPopupGroup = false
         templatePresentation.icon = AllIcons.RunConfigurations.TestState.Run_run
-        templatePresentation.text = NexusBundle.message("action.run.class.group.name")
-        templatePresentation.description = NexusBundle.message("action.run.class.group.help")
+        templatePresentation.text = nexus.language.NexusBundle.message("action.run.class.group.name")
+        templatePresentation.description = nexus.language.NexusBundle.message("action.run.class.group.help")
     }
 
     companion object {

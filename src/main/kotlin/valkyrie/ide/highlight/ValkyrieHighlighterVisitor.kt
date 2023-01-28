@@ -1,15 +1,15 @@
 package valkyrie.ide.highlight
 
 
-//import valkyrie.language.psi_node.ValkyrieIdentifierNode
+//import nexus.language.psi_node.ValkyrieIdentifierNode
 import com.intellij.codeInsight.daemon.impl.HighlightVisitor
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.antlr.traversal
-import valkyrie.language.file.NexusFileNode
-import valkyrie.language.psi.ValkyrieHighlightElement
+import nexus.language.antlr.traversal
+import nexus.language.file.NexusFileNode
+import nexus.language.psi.ValkyrieHighlightElement
 
 class ValkyrieHighlighterVisitor : HighlightVisitor {
     private var _info: HighlightInfoHolder? = null

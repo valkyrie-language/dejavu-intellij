@@ -1,5 +1,6 @@
 package valkyrie.ide.actions.ast_transform
 
+//import nexus.language.psi_node.ValkyrieIfStatementNode
 import com.intellij.codeInsight.intention.PriorityAction
 import com.intellij.codeInspection.LocalQuickFixAndIntentionActionOnPsiElement
 import com.intellij.icons.AllIcons
@@ -8,9 +9,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.NexusBundle
-import valkyrie.language.ast.ValkyrieIfStatementNode
-//import valkyrie.language.psi_node.ValkyrieIfStatementNode
+import nexus.language.ast.ValkyrieIfStatementNode
 import javax.swing.Icon
 
 class ToModernIf(element: ValkyrieIfStatementNode) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
@@ -23,11 +22,11 @@ class ToModernIf(element: ValkyrieIfStatementNode) : LocalQuickFixAndIntentionAc
     }
 
     override fun getText(): String {
-        return NexusBundle.message("action.convert.modern_if.name")
+        return nexus.language.NexusBundle.message("action.convert.modern_if.name")
     }
 
     fun getDescription(): String {
-        return NexusBundle.message("action.convert.modern_if.help")
+        return nexus.language.NexusBundle.message("action.convert.modern_if.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

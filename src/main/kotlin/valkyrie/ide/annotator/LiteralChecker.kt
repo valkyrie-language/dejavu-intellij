@@ -7,14 +7,13 @@ import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
+import nexus.language.ast.ValkyrieNumberNode
 import valkyrie.ide.actions.ConvertNumberBase
 import valkyrie.ide.actions.ast_transform.DeleteThis
 import valkyrie.ide.highlight.ValkyrieColorParser
-import valkyrie.language.NexusBundle
-import valkyrie.language.ast.ValkyrieNumberNode
 
-//import valkyrie.language.psi.ValkyrieTypes
-//import valkyrie.language.psi_node.ValkyrieNumberNode
+//import nexus.language.psi.ValkyrieTypes
+//import nexus.language.psi_node.ValkyrieNumberNode
 
 class LiteralChecker : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
@@ -30,8 +29,8 @@ class LiteralChecker : Annotator {
     private fun annotateLiteralColor(color: PsiElement, holder: AnnotationHolder) {
         if (ValkyrieColorParser().getColorFrom(color) == null) {
             val info = when {
-                color.text.startsWith('®') -> NexusBundle.message("annotator.color.rgb")
-                color.text.startsWith('©') -> NexusBundle.message("annotator.color.cmyk")
+                color.text.startsWith('®') -> nexus.language.NexusBundle.message("annotator.color.rgb")
+                color.text.startsWith('©') -> nexus.language.NexusBundle.message("annotator.color.cmyk")
                 else -> ""
             }
             holder.newAnnotation(HighlightSeverity.ERROR, info)

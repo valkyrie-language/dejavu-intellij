@@ -4,8 +4,8 @@ import com.intellij.codeInsight.intention.numeric.AbstractNumberConversionIntent
 import com.intellij.codeInsight.intention.numeric.NumberConverter
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import nexus.language.psi.ValkyrieFactory
 import valkyrie.ide.formatter.ValkyrieNumberConverter
-import valkyrie.language.psi.ValkyrieFactory
 
 class ConvertNumberBase(private val base: Int) : AbstractNumberConversionIntention() {
     override fun extract(element: PsiElement): NumberConversionContext? {

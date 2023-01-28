@@ -5,8 +5,8 @@ import com.intellij.codeInsight.hints.InlayHintsSink
 import com.intellij.codeInsight.hints.presentation.PresentationFactory
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
+import nexus.language.psi.ValkyrieInlayElement
 import valkyrie.ide.hint.TypeInlayProvider.InlayTypeSetting
-import valkyrie.language.psi.ValkyrieInlayElement
 
 @Suppress("UnstableApiUsage")
 class TypeInlayHint(val settings: InlayTypeSetting) : InlayHintsCollector {

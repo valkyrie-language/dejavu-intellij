@@ -9,9 +9,8 @@ import com.intellij.patterns.PsiElementPattern
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.util.ProcessingContext
+import nexus.language.file.NexusIconProvider
 import valkyrie.ide.completion.TemplateReplaceElement.Companion.snippetFromPath
-import valkyrie.language.NexusLanguage
-import valkyrie.language.file.NexusIconProvider
 
 
 class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
@@ -76,5 +75,5 @@ class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
 }
 
 private fun triggerCondition(): PsiElementPattern.Capture<LeafPsiElement> {
-    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(NexusLanguage);
+    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(nexus.language.NexusLanguage);
 }

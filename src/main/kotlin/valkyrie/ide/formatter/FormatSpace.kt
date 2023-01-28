@@ -7,37 +7,35 @@ import com.intellij.psi.tree.TokenSet
 import nexus.language.antlr.NexusAntlrLexer.KW_IN
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory.createTokenSet
 import valkyrie.ide.matcher.ValkyrieBracketMatch
-import valkyrie.language.NexusLanguage
-import valkyrie.language.antlr.NexusLexer
 
 
 private val removeSpaceBefore = TokenSet.orSet(
-    createTokenSet(NexusLanguage),
+    createTokenSet(nexus.language.NexusLanguage),
     ValkyrieBracketMatch.Instance.Right,
 
     )
 
 private val removeSpaceNewlineBefore = TokenSet.orSet(
-    createTokenSet(NexusLanguage)
+    createTokenSet(nexus.language.NexusLanguage)
 
 )
 
 private val removeSpaceAfter = TokenSet.orSet(
-    createTokenSet(NexusLanguage)
+    createTokenSet(nexus.language.NexusLanguage)
 )
 
 private val removeSpaceNewlineAfter = TokenSet.orSet(
-    createTokenSet(NexusLanguage)
+    createTokenSet(nexus.language.NexusLanguage)
 )
 
 // 左右插入一个空格
 private val spaceAroundOperator = TokenSet.orSet(
-    createTokenSet(NexusLanguage, KW_IN),
-    NexusLexer.OperatorInfix
+    createTokenSet(nexus.language.NexusLanguage, KW_IN),
+    nexus.language.antlr.NexusLexer.OperatorInfix
 )
 
 private val addSpaceAfter = TokenSet.orSet(
-    createTokenSet(NexusLanguage)
+    createTokenSet(nexus.language.NexusLanguage)
 )
 
 private val newlineIndentAfter = TokenSet.create()
@@ -45,7 +43,7 @@ private val newlineIndentAfter = TokenSet.create()
 data class FormatSpace(val commonSettings: CommonCodeStyleSettings, val spacingBuilder: SpacingBuilder) {
     companion object {
         fun create(settings: CodeStyleSettings): FormatSpace {
-            val commonSettings = settings.getCommonSettings(NexusLanguage)
+            val commonSettings = settings.getCommonSettings(nexus.language.NexusLanguage)
             return FormatSpace(commonSettings, createSpacingBuilder(commonSettings))
         }
 

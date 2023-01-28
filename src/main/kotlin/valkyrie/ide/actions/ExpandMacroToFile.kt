@@ -6,11 +6,9 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiFileFactory
-import valkyrie.language.NexusBundle
-import valkyrie.language.NexusLanguage
 
-private val name = NexusBundle.message("action.macro.expand_file")
-private val description = NexusBundle.message("action.convert_prop.description")
+private val name = nexus.language.NexusBundle.message("action.macro.expand_file")
+private val description = nexus.language.NexusBundle.message("action.convert_prop.description")
 
 class ExpandMacroToFile : AnAction(name, description, AllIcons.Actions.Preview) {
     override fun actionPerformed(e: AnActionEvent) {
@@ -38,7 +36,7 @@ class ExpandMacroToFile : AnAction(name, description, AllIcons.Actions.Preview) 
                 break
             }
         }
-        val file = builder.createFileFromText(fileName, NexusLanguage, text)
+        val file = builder.createFileFromText(fileName, nexus.language.NexusLanguage, text)
         dir.add(file)
         return file;
     }

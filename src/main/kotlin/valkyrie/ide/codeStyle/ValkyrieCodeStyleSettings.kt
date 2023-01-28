@@ -2,10 +2,9 @@ package valkyrie.ide.codeStyle
 
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.CustomCodeStyleSettings
-import valkyrie.language.NexusLanguage
 
 @Suppress("PropertyName")
-class ValkyrieCodeStyleSettings(container: CodeStyleSettings) : CustomCodeStyleSettings(NexusLanguage.id, container) {
+class ValkyrieCodeStyleSettings(container: CodeStyleSettings) : CustomCodeStyleSettings(nexus.language.NexusLanguage.id, container) {
     val class_field_trailing: CommaOrSemicolon = CommaOrSemicolon.Comma
     val flags_trailing: CommaOrSemicolon = CommaOrSemicolon.Comma
     val variant_trailing: CommaOrSemicolon = CommaOrSemicolon.Comma

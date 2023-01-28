@@ -1,13 +1,13 @@
 package valkyrie.ide.actions
 
-//import valkyrie.language.psi_node.ValkyrieClassFieldNode
+//import nexus.language.psi_node.ValkyrieClassFieldNode
 import com.intellij.codeInspection.HintAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
-import valkyrie.language.ast.classes.ValkyrieClassFieldNode
-import valkyrie.language.file.NexusIconProvider
+import nexus.language.ast.classes.ValkyrieClassFieldNode
+import nexus.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class InferClassFieldType(private val element: ValkyrieClassFieldNode) : HintAction, Iconable {

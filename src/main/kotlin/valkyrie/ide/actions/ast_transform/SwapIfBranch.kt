@@ -8,7 +8,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.NexusBundle
 import javax.swing.Icon
 
 class SwapIfBranch(element: PsiElement, private val above: Boolean) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction,
@@ -22,11 +21,11 @@ class SwapIfBranch(element: PsiElement, private val above: Boolean) : LocalQuick
     }
 
     override fun getText(): String {
-        return NexusBundle.message("action.if_swap_branch.name")
+        return nexus.language.NexusBundle.message("action.if_swap_branch.name")
     }
 
     fun getDescription(): String {
-        return NexusBundle.message("action.if_swap_branch.help")
+        return nexus.language.NexusBundle.message("action.if_swap_branch.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

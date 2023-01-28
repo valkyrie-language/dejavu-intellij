@@ -7,9 +7,9 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.ast.ValkyrieFunctionParameter
-import valkyrie.language.file.NexusIconProvider
-//import valkyrie.language.psi_node.ValkyrieDefineItemNode
+import nexus.language.ast.ValkyrieFunctionParameter
+import nexus.language.file.NexusIconProvider
+//import nexus.language.psi_node.ValkyrieDefineItemNode
 import javax.swing.Icon
 
 class InferDefineItemType(element: ValkyrieFunctionParameter) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {

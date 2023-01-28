@@ -1,15 +1,15 @@
 package valkyrie.ide.actions
 
-//import valkyrie.language.psi.ValkyrieTypes
+//import nexus.language.psi.ValkyrieTypes
 import com.intellij.codeInspection.HintAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.elementType
-import valkyrie.language.antlr.childrenWithLeaves
-import valkyrie.language.ast.ValkyrieLetStatement
+import nexus.language.antlr.childrenWithLeaves
+import nexus.language.ast.ValkyrieLetStatement
 
-//import valkyrie.language.psi_node.ValkyrieLetStatementNode
+//import nexus.language.psi_node.ValkyrieLetStatementNode
 
 class InferLetType(private val element: ValkyrieLetStatement, private val action: Boolean) : HintAction {
     override fun startInWriteAction(): Boolean {

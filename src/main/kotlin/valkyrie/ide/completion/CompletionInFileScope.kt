@@ -10,9 +10,8 @@ import com.intellij.patterns.PsiElementPattern
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.util.ProcessingContext
+import nexus.language.file.NexusIconProvider
 import valkyrie.ide.project.crate.NamespaceMapping
-import valkyrie.language.NexusLanguage
-import valkyrie.language.file.NexusIconProvider
 import javax.swing.Icon
 
 class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
@@ -155,5 +154,5 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
 
 
 private fun triggerCondition(): PsiElementPattern.Capture<LeafPsiElement> {
-    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(NexusLanguage);
+    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(nexus.language.NexusLanguage);
 }

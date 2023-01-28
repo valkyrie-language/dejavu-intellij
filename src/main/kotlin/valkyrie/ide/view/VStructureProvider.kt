@@ -12,7 +12,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiWhiteSpace
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.impl.source.tree.PsiWhiteSpaceImpl
-import valkyrie.language.file.NexusFileNode
+import nexus.language.file.NexusFileNode
 
 
 class VStructureProvider : SelectableTreeStructureProvider, DumbAware {

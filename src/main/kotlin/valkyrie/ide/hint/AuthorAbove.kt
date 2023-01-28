@@ -1,15 +1,15 @@
 package valkyrie.ide.hint
 
-//import valkyrie.language.psi_node.ValkyrieDefineStatementNode
-//import valkyrie.language.psi_node.ValkyrieExtendsStatementNode
-//import valkyrie.language.psi_node.ValkyrieUnionStatementNode
+//import nexus.language.psi_node.ValkyrieDefineStatementNode
+//import nexus.language.psi_node.ValkyrieExtendsStatementNode
+//import nexus.language.psi_node.ValkyrieUnionStatementNode
 import com.intellij.codeInsight.hints.VcsCodeVisionLanguageContext
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import valkyrie.language.ast.ValkyrieFunctionStatement
-import valkyrie.language.ast.classes.ValkyrieClassMethodNode
-import valkyrie.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.ValkyrieFunctionStatement
+import nexus.language.ast.classes.ValkyrieClassMethodNode
+import nexus.language.ast.classes.ValkyrieClassStatement
 import java.awt.event.MouseEvent
 
 @Suppress("UnstableApiUsage")
