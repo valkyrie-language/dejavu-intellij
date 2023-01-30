@@ -1,6 +1,7 @@
 lexer grammar NexusAntlrLexer;
 
-
+// $antlr-format useTab false, columnLimit 144
+// $antlr-format alignColons hanging, alignSemicolons hanging, alignFirstTokens true
 TEMPLATE_LX: '<<%';
 TEMPLATE_L:  '<%' -> mode(TEMPLATE_MODE);
 TEXT_SPACE:  [\p{White_Space}]+;
@@ -10,22 +11,34 @@ mode TEMPLATE_MODE
     ;
 TEMPLATE_R: '%>' -> mode(DEFAULT_MODE);
 
+KW_IMPORT: 'using';
+KW_CLASS:  'class';
+KW_AS:     'as';
+KW_IN:     'in';
+
+// conditional
+KW_If:   'if';
+KW_ELSE: 'else';
+KW_END:  'end';
+// loop
 KW_FOR: 'for';
-KW_AS:  'as';
-KW_IN:  'in';
+
+OP_PROPORTION: '::';
+DOT:        '.';
 
 PARENTHESES_L: '(';
 PARENTHESES_R: ')';
-BRACKET_L: '[';
-BRACKET_R: ']';
-BRACE_L: '{';
-BRACE_R: '}';
-GENERIC_L: '<';
-GENERIC_R: '>';
+BRACKET_L:     '[';
+BRACKET_R:     ']';
+BRACE_L:       '{';
+BRACE_R:       '}';
+GENERIC_L:     '⟨';
+GENERIC_R:     '⟩';
 
-
-
+// identifier
+RAW_ID:     '`' ~[`]+ '`';
+UNICODE_ID: [_\p{XID_start}] [\p{XID_continue}]*;
 // skip
 WHITE_SPACE:     [\p{White_Space}]+ -> channel(HIDDEN);
-BLOCK_COMMENT : '#' [^%]+?;
+BLOCK_COMMENT:   '#' [^%]+?;
 ERROR_CHARACTAR: . -> channel(HIDDEN);

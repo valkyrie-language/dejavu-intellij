@@ -60,7 +60,8 @@ class NexusLexer : Lexer() {
         val Keywords: TokenSet = PSIElementTypeFactory.createTokenSet(
             nexus.language.NexusLanguage,
             // declare keywords
-            KW_AS,
+            KW_IMPORT, KW_AS, KW_IN,
+            KW_CLASS,
             //
 
             // conditional

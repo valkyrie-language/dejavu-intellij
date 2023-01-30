@@ -36,7 +36,7 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterTemplate(NexusAntlrParser.TemplateContext ctx) {
+    public void enterDefine_import(NexusAntlrParser.Define_importContext ctx) {
     }
 
     /**
@@ -45,7 +45,79 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitTemplate(NexusAntlrParser.TemplateContext ctx) {
+    public void exitDefine_import(NexusAntlrParser.Define_importContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterDefine_class(NexusAntlrParser.Define_classContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitDefine_class(NexusAntlrParser.Define_classContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterNamepath_free(NexusAntlrParser.Namepath_freeContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitNamepath_free(NexusAntlrParser.Namepath_freeContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterNamepath(NexusAntlrParser.NamepathContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitNamepath(NexusAntlrParser.NamepathContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterIdentifier(NexusAntlrParser.IdentifierContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitIdentifier(NexusAntlrParser.IdentifierContext ctx) {
     }
 
     /**
@@ -72,15 +144,11 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void visitTerminal(TerminalNode node) {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void visitErrorNode(ErrorNode node) {
-    }
+    public void visitTerminal(TerminalNode node) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void visitErrorNode(ErrorNode node) { }
 }
