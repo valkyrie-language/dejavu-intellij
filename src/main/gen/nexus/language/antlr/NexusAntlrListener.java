@@ -22,6 +22,20 @@ public interface NexusAntlrListener extends ParseTreeListener {
     void exitProgram(NexusAntlrParser.ProgramContext ctx);
 
     /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#any_text}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterAny_text(NexusAntlrParser.Any_textContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#any_text}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitAny_text(NexusAntlrParser.Any_textContext ctx);
+
+    /**
      * Enter a parse tree produced by {@link NexusAntlrParser#define_import}.
      *
      * @param ctx the parse tree
@@ -48,6 +62,118 @@ public interface NexusAntlrListener extends ParseTreeListener {
      * @param ctx the parse tree
      */
     void exitDefine_class(NexusAntlrParser.Define_classContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#if_statement}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterIf_statement(NexusAntlrParser.If_statementContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#if_statement}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitIf_statement(NexusAntlrParser.If_statementContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#if_begin}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterIf_begin(NexusAntlrParser.If_beginContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#if_begin}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitIf_begin(NexusAntlrParser.If_beginContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#else}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterElse(NexusAntlrParser.ElseContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#else}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitElse(NexusAntlrParser.ElseContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#if_end}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterIf_end(NexusAntlrParser.If_endContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#if_end}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitIf_end(NexusAntlrParser.If_endContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#for_statement}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterFor_statement(NexusAntlrParser.For_statementContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#for_statement}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitFor_statement(NexusAntlrParser.For_statementContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#for_begin}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterFor_begin(NexusAntlrParser.For_beginContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#for_begin}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitFor_begin(NexusAntlrParser.For_beginContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#for_end}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterFor_end(NexusAntlrParser.For_endContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#for_end}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitFor_end(NexusAntlrParser.For_endContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link NexusAntlrParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterExpression(NexusAntlrParser.ExpressionContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link NexusAntlrParser#expression}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitExpression(NexusAntlrParser.ExpressionContext ctx);
 
     /**
      * Enter a parse tree produced by {@link NexusAntlrParser#namepath_free}.

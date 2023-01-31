@@ -65,7 +65,7 @@ class NexusLexer : Lexer() {
             //
 
             // conditional
-
+            KW_IF, KW_ELSE, KW_END,
             // control flow
 
             KW_FOR, KW_IN,

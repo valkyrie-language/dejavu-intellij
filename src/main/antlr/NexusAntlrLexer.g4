@@ -17,7 +17,7 @@ KW_AS:     'as';
 KW_IN:     'in';
 
 // conditional
-KW_If:   'if';
+KW_IF:   'if';
 KW_ELSE: 'else';
 KW_END:  'end';
 // loop

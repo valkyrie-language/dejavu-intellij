@@ -19,7 +19,7 @@ public class NexusAntlrLexer extends Lexer {
             new PredictionContextCache();
     public static final int
             TEMPLATE_LX = 1, TEMPLATE_L = 2, TEXT_SPACE = 3, TEXT = 4, TEMPLATE_R = 5, KW_IMPORT = 6,
-            KW_CLASS = 7, KW_AS = 8, KW_IN = 9, KW_If = 10, KW_ELSE = 11, KW_END = 12, KW_FOR = 13,
+            KW_CLASS = 7, KW_AS = 8, KW_IN = 9, KW_IF = 10, KW_ELSE = 11, KW_END = 12, KW_FOR = 13,
             OP_PROPORTION = 14, DOT = 15, PARENTHESES_L = 16, PARENTHESES_R = 17, BRACKET_L = 18,
             BRACKET_R = 19, BRACE_L = 20, BRACE_R = 21, GENERIC_L = 22, GENERIC_R = 23, RAW_ID = 24,
             UNICODE_ID = 25, WHITE_SPACE = 26, BLOCK_COMMENT = 27, ERROR_CHARACTAR = 28;
@@ -36,7 +36,7 @@ public class NexusAntlrLexer extends Lexer {
     private static String[] makeRuleNames() {
         return new String[]{
                 "TEMPLATE_LX", "TEMPLATE_L", "TEXT_SPACE", "TEXT", "TEMPLATE_R", "KW_IMPORT",
-                "KW_CLASS", "KW_AS", "KW_IN", "KW_If", "KW_ELSE", "KW_END", "KW_FOR",
+                "KW_CLASS", "KW_AS", "KW_IN", "KW_IF", "KW_ELSE", "KW_END", "KW_FOR",
                 "OP_PROPORTION", "DOT", "PARENTHESES_L", "PARENTHESES_R", "BRACKET_L",
                 "BRACKET_R", "BRACE_L", "BRACE_R", "GENERIC_L", "GENERIC_R", "RAW_ID",
                 "UNICODE_ID", "WHITE_SPACE", "BLOCK_COMMENT", "ERROR_CHARACTAR"
@@ -58,7 +58,7 @@ public class NexusAntlrLexer extends Lexer {
     private static String[] makeSymbolicNames() {
         return new String[]{
                 null, "TEMPLATE_LX", "TEMPLATE_L", "TEXT_SPACE", "TEXT", "TEMPLATE_R",
-                "KW_IMPORT", "KW_CLASS", "KW_AS", "KW_IN", "KW_If", "KW_ELSE", "KW_END",
+                "KW_IMPORT", "KW_CLASS", "KW_AS", "KW_IN", "KW_IF", "KW_ELSE", "KW_END",
                 "KW_FOR", "OP_PROPORTION", "DOT", "PARENTHESES_L", "PARENTHESES_R", "BRACKET_L",
                 "BRACKET_R", "BRACE_L", "BRACE_R", "GENERIC_L", "GENERIC_R", "RAW_ID",
                 "UNICODE_ID", "WHITE_SPACE", "BLOCK_COMMENT", "ERROR_CHARACTAR"
@@ -620,6 +620,6 @@ public class NexusAntlrLexer extends Lexer {
         _decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];
         for (int i = 0; i < _ATN.getNumberOfDecisions(); i++) {
             _decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
-        }
+		}
 	}
 }
