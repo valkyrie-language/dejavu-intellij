@@ -8,7 +8,7 @@ object NexusFileType : LanguageFileType(nexus.language.NexusLanguage) {
 
     override fun getDescription(): String = nexus.language.NexusBundle.message("filetype.description")
 
-    override fun getDefaultExtension(): String = "vk;valkyrie;"
+    override fun getDefaultExtension(): String = "ne;nexus;"
 
     override fun getIcon(): Icon = NexusIconProvider.Instance.Valkyrie
 

@@ -58,6 +58,6 @@ class ValkyrieCodeStyleProvider : LanguageCodeStyleSettingsProvider() {
     }
 
 
-    override fun getCodeSample(settingsType: SettingsType) = javaClass.getResource("/templates/code-style.vk")!!.readText()
+    override fun getCodeSample(settingsType: SettingsType) = javaClass.getResource("/templates/code-style.ne")!!.readText()
 }
 

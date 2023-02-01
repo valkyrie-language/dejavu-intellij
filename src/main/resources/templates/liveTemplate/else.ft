@@ -1,3 +1,2 @@
-else {
-    $block$
-}
+<% else %>
+$body$

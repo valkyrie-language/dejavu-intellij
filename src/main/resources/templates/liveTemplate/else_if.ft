@@ -1,3 +1,2 @@
-else if $condition$ {
-    $block$
-}
+<% else if $condition$ %>
+$body$

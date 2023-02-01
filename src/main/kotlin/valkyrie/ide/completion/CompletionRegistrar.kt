@@ -8,15 +8,12 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
-import nexus.language.ast.classes.NexusClassStatement
 import nexus.language.file.NexusFileNode
 
 
 class CompletionRegistrar : CompletionContributor() {
     init {
         extend(CompletionType.BASIC, CompletionInFileScope.Condition, CompletionInFileScope())
-        extend(CompletionType.BASIC, CompletionInClassScope.Condition, CompletionInClassScope())
-        extend(CompletionType.BASIC, CompletionInOperators.Condition, CompletionInClassScope())
     }
 
     override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
@@ -40,34 +37,8 @@ class CompletionRegistrar : CompletionContributor() {
                         CompletionInFileScope().addCompletionVariants(parameters, context, result)
                         return
                     }
-
-                    is NexusClassStatement -> {
-                        println("ValkyrieClassStatement: ${result.hashCode()}")
-                        CompletionInClassScope().addCompletionVariants(parameters, context, result)
-                        return
-                    }
                 }
             }
-        } else if (nexus.language.antlr.NexusLexer.Operators.contains(element.elementType)) {
-            println("Operators: ${result.hashCode()}")
-            CompletionInOperators().addCompletionVariants(parameters, context, result)
         }
     }
-
-
-//    override fun beforeCompletion(context: CompletionInitializationContext) {
-////        ActionManager.getInstance().getAction(IdeActions.ACTION_CODE_COMPLETION).actionPerformed()
-//        when (context.file.findElementAt(context.startOffset)) {
-////            ValkyrieTypes.KW_ESCAPING -> {
-////                context.dummyIdentifier = "\\"
-////                context.replacementOffset = context.startOffset
-////            }
-//
-////            ValkyrieTypes.AT -> {
-////                context.dummyIdentifier = "@"
-////                context.replacementOffset = context.startOffset
-////            }
-//        }
-//    }
-
 }

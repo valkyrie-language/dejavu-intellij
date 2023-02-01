@@ -85,7 +85,7 @@ public class NexusAntlrBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
-    public T visitIf_begin(NexusAntlrParser.If_beginContext ctx) {
+    public T visitIf_then(NexusAntlrParser.If_thenContext ctx) {
         return visitChildren(ctx);
     }
 
@@ -96,7 +96,7 @@ public class NexusAntlrBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
-    public T visitElse(NexusAntlrParser.ElseContext ctx) {
+    public T visitElse_then(NexusAntlrParser.Else_thenContext ctx) {
         return visitChildren(ctx);
     }
 

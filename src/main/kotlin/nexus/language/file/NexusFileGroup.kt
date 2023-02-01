@@ -6,7 +6,8 @@ import org.jetbrains.annotations.NotNull
 
 class NexusFileGroup : ProjectViewNestingRulesProvider {
     override fun addFileNestingRules(@NotNull consumer: Consumer) {
-        consumer.addNestingRule(".vk", ".g.vk")
-        consumer.addNestingRule(".vk", ".md")
+        consumer.addNestingRule(".ne", ".js")
+        consumer.addNestingRule(".ne", ".cs")
+        consumer.addNestingRule(".ne", ".md")
     }
 }

@@ -91,9 +91,9 @@ class NexusLexer : Lexer() {
             TEMPLATE_R
         )
         val Operators = TokenSet.orSet(
-            nexus.language.antlr.NexusLexer.Companion.OperatorPrefix,
-            nexus.language.antlr.NexusLexer.Companion.OperatorInfix,
-            nexus.language.antlr.NexusLexer.Companion.OperatorSuffix
+            OperatorPrefix,
+            OperatorInfix,
+            OperatorSuffix
         );
         val MacroOperators = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage);
         val Escapes: TokenSet = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage, TEMPLATE_E);

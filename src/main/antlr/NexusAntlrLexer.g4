@@ -3,9 +3,10 @@ lexer grammar NexusAntlrLexer;
 // $antlr-format useTab false, columnLimit 144
 // $antlr-format alignColons hanging, alignSemicolons hanging, alignFirstTokens true
 TEMPLATE_E: '<<%';
-TEMPLATE_L:  '<%' -> mode(TEMPLATE_MODE);
-TEXT_SPACE:  [\p{White_Space}]+;
-TEXT:        .+?;
+TEMPLATE_L: '<%' -> mode(TEMPLATE_MODE);
+TEXT_SPACE: [\p{White_Space}]+;
+TEXT_WORD:  [\p{XID_start}] [\p{XID_continue}]*;
+TEXT:       .+?;
 
 mode TEMPLATE_MODE
     ;

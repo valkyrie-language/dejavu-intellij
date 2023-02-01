@@ -126,7 +126,7 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterIf_begin(NexusAntlrParser.If_beginContext ctx) {
+    public void enterIf_then(NexusAntlrParser.If_thenContext ctx) {
     }
 
     /**
@@ -135,7 +135,7 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitIf_begin(NexusAntlrParser.If_beginContext ctx) {
+    public void exitIf_then(NexusAntlrParser.If_thenContext ctx) {
     }
 
     /**
@@ -144,7 +144,7 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterElse(NexusAntlrParser.ElseContext ctx) {
+    public void enterElse_then(NexusAntlrParser.Else_thenContext ctx) {
     }
 
     /**
@@ -153,7 +153,7 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitElse(NexusAntlrParser.ElseContext ctx) {
+    public void exitElse_then(NexusAntlrParser.Else_thenContext ctx) {
     }
 
     /**

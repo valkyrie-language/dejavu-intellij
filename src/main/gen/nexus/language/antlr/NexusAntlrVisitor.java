@@ -59,20 +59,20 @@ public interface NexusAntlrVisitor<T> extends ParseTreeVisitor<T> {
     T visitIf_statement(NexusAntlrParser.If_statementContext ctx);
 
     /**
-     * Visit a parse tree produced by {@link NexusAntlrParser#if_begin}.
+     * Visit a parse tree produced by {@link NexusAntlrParser#if_then}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
-    T visitIf_begin(NexusAntlrParser.If_beginContext ctx);
+    T visitIf_then(NexusAntlrParser.If_thenContext ctx);
 
     /**
-     * Visit a parse tree produced by {@link NexusAntlrParser#else}.
+     * Visit a parse tree produced by {@link NexusAntlrParser#else_then}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
-    T visitElse(NexusAntlrParser.ElseContext ctx);
+    T visitElse_then(NexusAntlrParser.Else_thenContext ctx);
 
     /**
      * Visit a parse tree produced by {@link NexusAntlrParser#else_if}.

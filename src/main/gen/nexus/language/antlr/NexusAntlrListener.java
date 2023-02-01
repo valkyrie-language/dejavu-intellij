@@ -92,32 +92,32 @@ public interface NexusAntlrListener extends ParseTreeListener {
     void exitIf_statement(NexusAntlrParser.If_statementContext ctx);
 
     /**
-     * Enter a parse tree produced by {@link NexusAntlrParser#if_begin}.
+     * Enter a parse tree produced by {@link NexusAntlrParser#if_then}.
      *
      * @param ctx the parse tree
      */
-    void enterIf_begin(NexusAntlrParser.If_beginContext ctx);
+    void enterIf_then(NexusAntlrParser.If_thenContext ctx);
 
     /**
-     * Exit a parse tree produced by {@link NexusAntlrParser#if_begin}.
+     * Exit a parse tree produced by {@link NexusAntlrParser#if_then}.
      *
      * @param ctx the parse tree
      */
-    void exitIf_begin(NexusAntlrParser.If_beginContext ctx);
+    void exitIf_then(NexusAntlrParser.If_thenContext ctx);
 
     /**
-     * Enter a parse tree produced by {@link NexusAntlrParser#else}.
+     * Enter a parse tree produced by {@link NexusAntlrParser#else_then}.
      *
      * @param ctx the parse tree
      */
-    void enterElse(NexusAntlrParser.ElseContext ctx);
+    void enterElse_then(NexusAntlrParser.Else_thenContext ctx);
 
     /**
-     * Exit a parse tree produced by {@link NexusAntlrParser#else}.
+     * Exit a parse tree produced by {@link NexusAntlrParser#else_then}.
      *
      * @param ctx the parse tree
      */
-    void exitElse(NexusAntlrParser.ElseContext ctx);
+    void exitElse_then(NexusAntlrParser.Else_thenContext ctx);
 
     /**
      * Enter a parse tree produced by {@link NexusAntlrParser#else_if}.

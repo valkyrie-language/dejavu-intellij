@@ -19,12 +19,12 @@ import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
 
 class NexusParserDefinition : ParserDefinition {
     override fun createLexer(project: Project): Lexer {
-        return nexus.language.antlr.NexusLexer()
+        return NexusLexer()
     }
 
 
     override fun createParser(project: Project): PsiParser {
-        return nexus.language.antlr.NexusParser(NexusAntlrParser(null))
+        return NexusParser(NexusAntlrParser(null))
     }
 
     /**
@@ -35,11 +35,11 @@ class NexusParserDefinition : ParserDefinition {
     }
 
     override fun getCommentTokens(): TokenSet {
-        return nexus.language.antlr.NexusLexer.Comments
+        return NexusLexer.Comments
     }
 
     override fun getStringLiteralElements(): TokenSet {
-        return nexus.language.antlr.NexusLexer.Strings
+        return NexusLexer.Strings
     }
 
 
@@ -93,7 +93,7 @@ class NexusParserDefinition : ParserDefinition {
      */
     override fun createElement(node: ASTNode): PsiElement {
         return if (node is CompositeElement) {
-            nexus.language.antlr.NexusParser.extractCompositeNode(node)
+            NexusParser.extractCompositeNode(node)
         } else {
             println("create element of ${node.javaClass.name}: ${node.elementType}(${node.text})")
             ASTWrapperPsiElement(node)

@@ -10,7 +10,7 @@
 		<fileType
 			name="Nexus"
 			language="Nexus"
-			extensions="vk;"
+			extensions="ne;nexus;"
 			implementationClass="nexus.language.file.NexusFileType"
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition
