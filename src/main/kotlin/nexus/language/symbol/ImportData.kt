@@ -9,21 +9,21 @@ import com.intellij.model.psi.PsiCompletableReference
 import com.intellij.model.psi.PsiSymbolDeclaration
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import nexus.language.ast.ValkyrieIdentifierNode
+import nexus.language.ast.NexusIdentifierNode
 
 
 class ImportData : Symbol, Pointer<ImportData>, PsiSymbolDeclaration, PsiCompletableReference {
-    val nav: ValkyrieIdentifierNode
+    val nav: NexusIdentifierNode
     var name: String
     var namepath: Array<String>
 
-    constructor(nav: ValkyrieIdentifierNode, name: String) {
+    constructor(nav: NexusIdentifierNode, name: String) {
         this.nav = nav
         this.name = name
         this.namepath = arrayOf()
     }
 
-    constructor(nav: ValkyrieIdentifierNode, name: String, namepath: Array<String>) {
+    constructor(nav: NexusIdentifierNode, name: String, namepath: Array<String>) {
         this.nav = nav
         this.name = name
         this.namepath = namepath

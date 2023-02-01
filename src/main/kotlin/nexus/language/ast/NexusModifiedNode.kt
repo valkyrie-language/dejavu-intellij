@@ -10,12 +10,12 @@ import nexus.language.antlr.childrenWithLeaves
 import nexus.language.psi.types.ValkyrieModifiedType
 import org.jetbrains.annotations.Unmodifiable
 
-class ValkyrieModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedType) : ASTWrapperPsiElement(node) {
-    private fun filterAll(): @Unmodifiable MutableList<ValkyrieIdentifierNode> {
-        return PsiTreeUtil.getChildrenOfTypeAsList(this, ValkyrieIdentifierNode::class.java)
+class NexusModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedType) : ASTWrapperPsiElement(node) {
+    private fun filterAll(): @Unmodifiable MutableList<NexusIdentifierNode> {
+        return PsiTreeUtil.getChildrenOfTypeAsList(this, NexusIdentifierNode::class.java)
     }
 
-    fun findModifiers(): List<ValkyrieIdentifierNode> {
+    fun findModifiers(): List<NexusIdentifierNode> {
         return when (kind) {
             ValkyrieModifiedType.Pure -> {
                 filterAll()
@@ -26,11 +26,11 @@ class ValkyrieModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedTyp
             }
 
             ValkyrieModifiedType.ModifiedNamepath -> {
-                val items = mutableListOf<ValkyrieIdentifierNode>();
+                val items = mutableListOf<NexusIdentifierNode>();
                 for (child in this.childrenWithLeaves) {
                     if (child is PsiWhiteSpace) {
                         continue;
-                    } else if (child is ValkyrieIdentifierNode) {
+                    } else if (child is NexusIdentifierNode) {
                         items.add(child)
                     } else {
                         break;
@@ -41,7 +41,7 @@ class ValkyrieModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedTyp
         }
     }
 
-    fun findIdentifier(): ValkyrieIdentifierNode? {
+    fun findIdentifier(): NexusIdentifierNode? {
         return if (kind == ValkyrieModifiedType.Pure) {
             null
         } else {
@@ -49,26 +49,26 @@ class ValkyrieModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedTyp
         }
     }
 
-    fun findNamepath(): List<ValkyrieIdentifierNode> {
+    fun findNamepath(): List<NexusIdentifierNode> {
         return emptyList()
     }
 
 
     companion object {
         // Need to be lazy, otherwise it will be an infinite loop
-        fun findModifiers(node: PsiElement): List<ValkyrieIdentifierNode> {
-            val proxy = PsiTreeUtil.getChildOfType(node, ValkyrieModifiedNode::class.java)
+        fun findModifiers(node: PsiElement): List<NexusIdentifierNode> {
+            val proxy = PsiTreeUtil.getChildOfType(node, NexusModifiedNode::class.java)
             return proxy?.findModifiers() ?: listOf()
         }
 
-        fun findNamepath(node: PsiElement): List<ValkyrieIdentifierNode> {
-            val proxy = PsiTreeUtil.getChildOfType(node, ValkyrieModifiedNode::class.java)
+        fun findNamepath(node: PsiElement): List<NexusIdentifierNode> {
+            val proxy = PsiTreeUtil.getChildOfType(node, NexusModifiedNode::class.java)
             return proxy?.findNamepath() ?: listOf()
         }
 
         // Need to be lazy, otherwise it will be an infinite loop
-        fun findIdentifier(node: PsiElement): ValkyrieIdentifierNode? {
-            val proxy = PsiTreeUtil.getChildOfType(node, ValkyrieModifiedNode::class.java)
+        fun findIdentifier(node: PsiElement): NexusIdentifierNode? {
+            val proxy = PsiTreeUtil.getChildOfType(node, NexusModifiedNode::class.java)
             return proxy?.findIdentifier()
         }
 

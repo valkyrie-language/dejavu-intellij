@@ -1,9 +1,9 @@
 package nexus.language.symbol
 
-import nexus.language.ast.ValkyrieIdentifierNode
+import nexus.language.ast.NexusIdentifierNode
 import valkyrie.ide.highlight.NexusHighlightColor
 
 data class ValkyrieVariableKind(
-    val identifier: ValkyrieIdentifierNode,
+    val identifier: NexusIdentifierNode,
     val color: NexusHighlightColor,
 )

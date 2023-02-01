@@ -1,5 +1,5 @@
-<% class std.name.path in Rust %>
-   class std.name.path in Rust
+<% class std.name.Class in Rust %>
+   class std.name.Class in Rust
 
 <% using std.name.uppercase as A in Rust %>
    using std.name.uppercase as A in Rust

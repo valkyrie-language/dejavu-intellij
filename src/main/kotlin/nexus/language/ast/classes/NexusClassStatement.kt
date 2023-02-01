@@ -9,37 +9,33 @@ import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
-import nexus.language.antlr.traversal
-import nexus.language.ast.ValkyrieIdentifierNode
-import nexus.language.ast.ValkyrieModifiedNode
+import nexus.language.ast.NexusIdentifierNode
+import nexus.language.ast.NexusNamepathNode
 import nexus.language.file.NexusFileNode
 import nexus.language.file.NexusIconProvider
 import nexus.language.psi.ValkyrieLineMarkElement
-import nexus.language.psi.ValkyrieRewritableElement
 import nexus.language.psi.ValkyrieScopeNode
-import valkyrie.ide.formatter.ValkyrieRewriter
 import valkyrie.ide.highlight.NexusHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.view.IdentifierPresentation
+import valkyrie.ide.view.NamepathPresentation
 import javax.swing.Icon
 
 
 class NexusClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, ValkyrieLineMarkElement,
-    NexusHighlightElement, ValkyrieRewritableElement {
-    private val _identifier by lazy { ValkyrieIdentifierNode.find(this)!! }
-    val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
+    NexusHighlightElement {
+    private val _path by lazy { NexusNamepathNode.find(this)!! }
 
     override fun getName(): String {
-        return _identifier.text;
+        return nameIdentifier.text;
     }
 
     override fun setName(name: String): PsiElement {
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): ValkyrieIdentifierNode {
-        return _identifier;
+    override fun getNameIdentifier(): NexusIdentifierNode {
+        return _path.nameIdentifier;
     }
 
     override fun getBaseIcon(): Icon {
@@ -51,32 +47,16 @@ class NexusClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), Psi
     }
 
     override fun getPresentation(): ItemPresentation {
-        return IdentifierPresentation(_identifier, this.baseIcon)
-    }
-
-
-    fun getFields(): Array<NexusClassFieldNode> {
-        val output = mutableListOf<NexusClassFieldNode>();
-        this.traversal {
-            if (it is NexusClassFieldNode) {
-                output.add(it);
-                false
-            } else {
-                true
-            }
-        }
-        return output.toTypedArray()
+        return NamepathPresentation(_path, this.baseIcon)
     }
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(nameIdentifier, NexusHighlightColor.SYM_CLASS)
-        e.register_modifiers(modifiers)
-    }
-
-    override fun on_rewrite(e: ValkyrieRewriter) {
-        for (field in getFields()) {
-            e.fixDelimiter(field, e.settings.class_field_trailing)
+        val lang = NexusIdentifierNode.find(this)
+        if (lang != null) {
+            e.register(lang, NexusHighlightColor.SYM_LANGUAGE)
         }
+
+        e.register(nameIdentifier, NexusHighlightColor.SYM_CLASS)
     }
 
     override fun on_line_mark(e: MutableCollection<in LineMarkerInfo<*>>) {

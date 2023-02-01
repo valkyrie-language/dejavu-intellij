@@ -50,7 +50,6 @@
 			language="Nexus"
 			implementationClass="valkyrie.ide.highlight.TokenHighlighter"
 		/>
-		<colorProvider implementation="valkyrie.ide.highlight.ValkyrieColorParser"/>
 		<!-- Formatter -->
 		<langCodeStyleSettingsProvider implementation="valkyrie.ide.codeStyle.ValkyrieCodeStyleProvider"/>
 		<formattingService implementation="valkyrie.ide.formatter.ValkyrieNativeFormat"/>
@@ -115,7 +114,6 @@
 		<lang.namesValidator language="Nexus" implementationClass="valkyrie.ide.lint.ValkyrieNameValidator"/>
 		<qualifiedNameProvider implementation="valkyrie.ide.lint.ValkyrieNameQualifier"/>
 		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.NamepathChecker"/>
-		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.LiteralChecker"/>
 		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.MarkImplicitTypes"/>
 		<annotator language="Nexus" implementationClass="valkyrie.ide.annotator.MarkLegacyExpression"/>
 		<!-- Declaration -->
@@ -162,13 +160,7 @@
 			<keyboard-shortcut keymap="$default" first-keystroke="control shift G"/>
 		</action>
 		<!-- Generated	-->
-		<action id="valkyrie.generate.operators" class="valkyrie.ide.codegen.GenerateOperators">
-			<add-to-group group-id="GenerateGroup" anchor="first"/>
-		</action>
-		<action id="valkyrie.generate.properties" class="valkyrie.ide.codegen.GenerateProperties">
-			<add-to-group group-id="GenerateGroup"/>
-		</action>
-		<action id="valkyrie.macro.expand" class="valkyrie.ide.codegen.ExpandMacro">
+		<action id="valkyrie.macro.expand" class="valkyrie.ide.codegen.ExpandTemplate">
 			<add-to-group group-id="GenerateGroup" anchor="last"/>
 		</action>
 	</actions>

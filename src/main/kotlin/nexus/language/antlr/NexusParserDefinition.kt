@@ -31,7 +31,7 @@ class NexusParserDefinition : ParserDefinition {
      * "Tokens of those types are automatically skipped by PsiBuilder."
      */
     override fun getWhitespaceTokens(): TokenSet {
-        return PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage, NexusAntlrLexer.WHITE_SPACE, NexusAntlrLexer.TEXT_SPACE)
+        return PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage, NexusAntlrLexer.WHITE_SPACE)
     }
 
     override fun getCommentTokens(): TokenSet {

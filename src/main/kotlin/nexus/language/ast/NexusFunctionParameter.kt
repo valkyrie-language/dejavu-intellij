@@ -10,8 +10,8 @@ import valkyrie.ide.highlight.NodeHighlighter
 
 
 class NexusFunctionParameter(node: ASTNode) : ASTWrapperPsiElement(node), PsiNameIdentifierOwner, NexusHighlightElement {
-    val parameter by lazy { ValkyrieModifiedNode.findIdentifier(this)!! }
-    val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
+    val parameter by lazy { NexusModifiedNode.findIdentifier(this)!! }
+    val modifiers by lazy { NexusModifiedNode.findModifiers(this) };
 
     override fun getName(): String {
         return this.parameter.text
@@ -21,7 +21,7 @@ class NexusFunctionParameter(node: ASTNode) : ASTWrapperPsiElement(node), PsiNam
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): ValkyrieIdentifierNode {
+    override fun getNameIdentifier(): NexusIdentifierNode {
         return this.parameter
     }
 

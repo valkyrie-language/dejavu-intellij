@@ -550,8 +550,8 @@ public class NexusAntlrParser extends Parser {
             return getToken(NexusAntlrParser.KW_IN, 0);
         }
 
-        public ExpressionContext expression() {
-            return getRuleContext(ExpressionContext.class, 0);
+        public IdentifierContext identifier() {
+            return getRuleContext(IdentifierContext.class, 0);
         }
 
         public Define_classContext(ParserRuleContext parent, int invokingState) {
@@ -602,7 +602,7 @@ public class NexusAntlrParser extends Parser {
                         setState(78);
                         match(KW_IN);
                         setState(79);
-                        expression();
+                        identifier();
                     }
                 }
 
@@ -2129,14 +2129,14 @@ public class NexusAntlrParser extends Parser {
                     "\u0000GE\u0001\u0000\u0000\u0000GH\u0001\u0000\u0000\u0000HI\u0001\u0000" +
                     "\u0000\u0000IJ\u0005\u0005\u0000\u0000J\u0007\u0001\u0000\u0000\u0000" +
                     "KL\u0005\u0002\u0000\u0000LM\u0005\t\u0000\u0000MP\u0003$\u0012\u0000" +
-                    "NO\u0005\u000b\u0000\u0000OQ\u0003\u001c\u000e\u0000PN\u0001\u0000\u0000" +
-                    "\u0000PQ\u0001\u0000\u0000\u0000QR\u0001\u0000\u0000\u0000RS\u0005\u0005" +
-                    "\u0000\u0000S\t\u0001\u0000\u0000\u0000TX\u0003\f\u0006\u0000UW\u0003" +
-                    "\u0010\b\u0000VU\u0001\u0000\u0000\u0000WZ\u0001\u0000\u0000\u0000XV\u0001" +
-                    "\u0000\u0000\u0000XY\u0001\u0000\u0000\u0000Y\\\u0001\u0000\u0000\u0000" +
-                    "ZX\u0001\u0000\u0000\u0000[]\u0003\u000e\u0007\u0000\\[\u0001\u0000\u0000" +
-                    "\u0000\\]\u0001\u0000\u0000\u0000]^\u0001\u0000\u0000\u0000^_\u0003\u0012" +
-                    "\t\u0000_\u000b\u0001\u0000\u0000\u0000`a\u0005\u0002\u0000\u0000ab\u0005" +
+                    "NO\u0005\u000b\u0000\u0000OQ\u0003(\u0014\u0000PN\u0001\u0000\u0000\u0000" +
+                    "PQ\u0001\u0000\u0000\u0000QR\u0001\u0000\u0000\u0000RS\u0005\u0005\u0000" +
+                    "\u0000S\t\u0001\u0000\u0000\u0000TX\u0003\f\u0006\u0000UW\u0003\u0010" +
+                    "\b\u0000VU\u0001\u0000\u0000\u0000WZ\u0001\u0000\u0000\u0000XV\u0001\u0000" +
+                    "\u0000\u0000XY\u0001\u0000\u0000\u0000Y\\\u0001\u0000\u0000\u0000ZX\u0001" +
+                    "\u0000\u0000\u0000[]\u0003\u000e\u0007\u0000\\[\u0001\u0000\u0000\u0000" +
+                    "\\]\u0001\u0000\u0000\u0000]^\u0001\u0000\u0000\u0000^_\u0003\u0012\t" +
+                    "\u0000_\u000b\u0001\u0000\u0000\u0000`a\u0005\u0002\u0000\u0000ab\u0005" +
                     "\f\u0000\u0000bc\u0003\u001c\u000e\u0000cg\u0005\u0005\u0000\u0000df\u0003" +
                     "\u0002\u0001\u0000ed\u0001\u0000\u0000\u0000fi\u0001\u0000\u0000\u0000" +
                     "ge\u0001\u0000\u0000\u0000gh\u0001\u0000\u0000\u0000h\r\u0001\u0000\u0000" +

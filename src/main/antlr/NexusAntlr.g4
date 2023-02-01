@@ -14,9 +14,9 @@ any_text:   (TEXT_SPACE | TEXT);
 
 // import
 define_import
-    : TEMPLATE_L KW_IMPORT namepath_free (KW_AS identifier)? (KW_IN expression)? TEMPLATE_R
+    : TEMPLATE_L KW_IMPORT namepath_free (KW_AS identifier)? (KW_IN identifier)? TEMPLATE_R
     ;
-define_class: TEMPLATE_L KW_CLASS namepath_free (KW_IN expression)? TEMPLATE_R;
+define_class: TEMPLATE_L KW_CLASS namepath_free (KW_IN identifier)? TEMPLATE_R;
 // if
 if_statement: if_begin else_if* else? if_end;
 if_begin:     TEMPLATE_L KW_IF expression TEMPLATE_R statements*;

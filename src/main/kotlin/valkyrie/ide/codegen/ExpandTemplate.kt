@@ -10,7 +10,7 @@ import com.intellij.psi.PsiFileFactory
 private val name = nexus.language.NexusBundle.message("action.macro.expand_file")
 private val description = nexus.language.NexusBundle.message("action.convert_prop.description")
 
-class ExpandMacro : AnAction(name, description, ExpUiIcons.Actions.GroupByMethod) {
+class ExpandTemplate : AnAction(name, description, ExpUiIcons.Actions.GroupByMethod) {
     override fun actionPerformed(e: AnActionEvent) {
 //        val src = LangDataKeys.PSI_FILE.getData(e.dataContext) ?: return
 //        if (isValidFile(src)) {

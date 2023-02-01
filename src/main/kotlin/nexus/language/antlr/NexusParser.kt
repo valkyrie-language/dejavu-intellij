@@ -7,6 +7,12 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
+import nexus.language.antlr.NexusAntlrParser.*
+import nexus.language.ast.NexusIdentifierNode
+import nexus.language.ast.NexusModifiedNode
+import nexus.language.ast.NexusNamepathNode
+import nexus.language.ast.classes.NexusClassStatement
+import nexus.language.psi.types.ValkyrieModifiedType
 import org.antlr.intellij.adaptor.lexer.RuleIElementType
 import org.antlr.intellij.adaptor.parser.ANTLRParseTreeToPSIConverter
 import org.antlr.intellij.adaptor.parser.ANTLRParserAdaptor
@@ -34,15 +40,15 @@ class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(nexus.language.
             return when (type.ruleIndex) {
 //                RULE_import_statement -> ValkyrieImportStatement(node)
 //                // annotations
-//                RULE_modifiers -> ValkyrieModifiedNode(node, ValkyrieModifiedType.Pure)
-//                RULE_modified_identifier -> ValkyrieModifiedNode(node, ValkyrieModifiedType.ModifiedIdentifier)
-//                RULE_modified_namepath -> ValkyrieModifiedNode(node, ValkyrieModifiedType.ModifiedNamepath)
+                RULE_modifiers -> NexusModifiedNode(node, ValkyrieModifiedType.Pure)
+                RULE_modified_identifier -> NexusModifiedNode(node, ValkyrieModifiedType.ModifiedIdentifier)
+                RULE_modified_namepath -> NexusModifiedNode(node, ValkyrieModifiedType.ModifiedNamepath)
 //                RULE_template_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
 //                RULE_where_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
 //                RULE_annotation -> ValkyrieAnnotation(node)
 //                RULE_annotation_call_item -> ValkyrieAnnotationItem(node)
 //                // class
-//                RULE_define_class -> ValkyrieClassStatement(node)
+                RULE_define_class -> NexusClassStatement(node)
 //                RULE_define_generic -> ValkyrieGenericStatement(node)
 //                RULE_class_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
 //                RULE_class_field -> ValkyrieClassFieldNode(node)
@@ -86,9 +92,9 @@ class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(nexus.language.
 //                RULE_expression -> extractExpression(node)
 //                RULE_function_call -> ValkyrieCallFunction(node)
 //                // atomic
-//                RULE_namepath_free -> ValkyrieNamepathNode(node, type, true)
-//                RULE_namepath -> ValkyrieNamepathNode(node, type)
-//                RULE_identifier -> ValkyrieIdentifierNode(node)
+                RULE_namepath_free -> NexusNamepathNode(node, type, true)
+                RULE_namepath -> NexusNamepathNode(node, type)
+                RULE_identifier -> NexusIdentifierNode(node)
 //                RULE_string_literal -> ValkyrieStringNode(node)
 //                RULE_number -> ValkyrieNumberNode(node)
                 // comment

@@ -15,7 +15,7 @@ import javax.swing.Icon
 
 class NexusFunctionStatement(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, NexusHighlightElement {
     val namepath by lazy { NexusNamepathNode.find(this) }
-    val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
+    val modifiers by lazy { NexusModifiedNode.findModifiers(this) };
     override fun getName(): String {
         return namepath?.nameIdentifier?.name ?: "[Unknown Function]"
     }
@@ -24,7 +24,7 @@ class NexusFunctionStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): ValkyrieIdentifierNode? {
+    override fun getNameIdentifier(): NexusIdentifierNode? {
         return namepath?.nameIdentifier
     }
 

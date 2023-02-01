@@ -9,7 +9,7 @@ import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
-import nexus.language.ast.ValkyrieModifiedNode
+import nexus.language.ast.NexusModifiedNode
 import nexus.language.file.NexusIconProvider
 import nexus.language.psi.ValkyrieInlayElement
 import nexus.language.psi.ValkyrieLineMarkElement
@@ -25,8 +25,8 @@ import javax.swing.Icon
 
 class NexusClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, ValkyrieLineMarkElement,
     NexusHighlightElement, ValkyrieInlayElement {
-    val method by lazy { ValkyrieModifiedNode.findIdentifier(this)!! }
-    val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
+    val method by lazy { NexusModifiedNode.findIdentifier(this)!! }
+    val modifiers by lazy { NexusModifiedNode.findModifiers(this) };
     override fun getName(): String {
         return method.name
     }

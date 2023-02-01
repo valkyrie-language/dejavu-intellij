@@ -8,7 +8,7 @@ import com.intellij.navigation.GotoRelatedItem
 import com.intellij.navigation.ItemPresentation
 import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.impl.source.tree.CompositeElement
-import nexus.language.ast.ValkyrieModifiedNode
+import nexus.language.ast.NexusModifiedNode
 import nexus.language.psi.ValkyrieLineMarkElement
 import valkyrie.ide.highlight.NexusHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
@@ -17,8 +17,8 @@ import valkyrie.ide.view.IdentifierPresentation
 import javax.swing.Icon
 
 class NexusClassCustomNode(node: CompositeElement) : ASTWrapperPsiElement(node), NexusHighlightElement, ValkyrieLineMarkElement {
-    val custom by lazy { ValkyrieModifiedNode.findIdentifier(this)!! };
-    val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
+    val custom by lazy { NexusModifiedNode.findIdentifier(this)!! };
+    val modifiers by lazy { NexusModifiedNode.findModifiers(this) };
     override fun on_highlight(e: NodeHighlighter) {
         e.register(custom, NexusHighlightColor.SYM_MACRO)
         e.register_modifiers(modifiers)

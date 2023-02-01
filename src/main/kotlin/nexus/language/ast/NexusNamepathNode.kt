@@ -13,15 +13,15 @@ import valkyrie.ide.highlight.NodeHighlighter
 
 class NexusNamepathNode(node: ASTNode, type: IElementType, val free: Boolean = false) : IdentifierDefSubtree(node, type),
     NexusHighlightElement {
-    val identifiers = findChildrenByClass(ValkyrieIdentifierNode::class.java)
-    val parentIdentifier: Array<ValkyrieIdentifierNode> = identifiers.dropLast(1).toTypedArray()
+    val identifiers = findChildrenByClass(NexusIdentifierNode::class.java)
+    val parentIdentifier: Array<NexusIdentifierNode> = identifiers.dropLast(1).toTypedArray()
     val namespace: String = parentIdentifier.joinToString(".") { it.text }
 
     override fun getName(): String {
         return nameIdentifier.name
     }
 
-    override fun getNameIdentifier(): ValkyrieIdentifierNode {
+    override fun getNameIdentifier(): NexusIdentifierNode {
         return identifiers.last()
     }
 
@@ -33,20 +33,15 @@ class NexusNamepathNode(node: ASTNode, type: IElementType, val free: Boolean = f
     }
 
     override fun on_highlight(e: NodeHighlighter) {
-        fakeTypeColor(e, nameIdentifier)
+//        fakeTypeColor(e, nameIdentifier)
     }
-
 }
 
 
-private fun fakeTypeColor(info: NodeHighlighter, psi: ValkyrieIdentifierNode) {
+private fun fakeTypeColor(info: NodeHighlighter, psi: NexusIdentifierNode) {
     val name = psi.name
     if (keywords.contains(name)) {
         info.register(psi, NexusHighlightColor.KEYWORD)
-    } else if (traits.contains(name)) {
-        info.register(psi, NexusHighlightColor.SYM_TRAIT)
-    } else if (variants.contains(name)) {
-        info.register(psi, NexusHighlightColor.SYM_VARIANT)
     } else if (functions.contains(name)) {
         info.register(psi, NexusHighlightColor.SYM_FUNCTION_FREE)
     } else if (name.startsWith('_')) {
@@ -76,12 +71,3 @@ private val keywords = setOf(
     "self", "Self",
     "violate", "value"
 )
-
-private val traits = setOf(
-    "Iterator", "Iterable", "Sequence",
-    "Debug", "Display", "Default",
-    "Encode", "Decode"
-)
-
-private val variants = setOf("Some", "None", "Success", "Failure", "Left", "Riht")
-

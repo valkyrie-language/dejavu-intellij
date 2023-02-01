@@ -7,7 +7,7 @@ import com.intellij.psi.PsiNamedElement
 import com.intellij.psi.PsiReference
 import com.intellij.psi.util.PsiTreeUtil
 
-class ValkyrieIdentifierNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiNamedElement {
+class NexusIdentifierNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiNamedElement {
     override fun getName(): String {
         return text.trim('`')
     }
@@ -34,12 +34,12 @@ class ValkyrieIdentifierNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiNam
     }
 
     companion object {
-        fun find(node: PsiElement): ValkyrieIdentifierNode? {
-            return PsiTreeUtil.getChildOfType(node, ValkyrieIdentifierNode::class.java)
+        fun find(node: PsiElement): NexusIdentifierNode? {
+            return PsiTreeUtil.getChildOfType(node, NexusIdentifierNode::class.java)
         }
 
-        fun findMany(node: PsiElement): Array<ValkyrieIdentifierNode> {
-            return PsiTreeUtil.getChildrenOfType(node, ValkyrieIdentifierNode::class.java) ?: arrayOf()
+        fun findMany(node: PsiElement): Array<NexusIdentifierNode> {
+            return PsiTreeUtil.getChildrenOfType(node, NexusIdentifierNode::class.java) ?: arrayOf()
         }
     }
 }
