@@ -14,19 +14,19 @@ import nexus.language.ast.ValkyrieIdentifierNode
 import nexus.language.ast.ValkyrieModifiedNode
 import nexus.language.file.NexusFileNode
 import nexus.language.file.NexusIconProvider
-import nexus.language.psi.ValkyrieHighlightElement
 import nexus.language.psi.ValkyrieLineMarkElement
 import nexus.language.psi.ValkyrieRewritableElement
 import nexus.language.psi.ValkyrieScopeNode
 import valkyrie.ide.formatter.ValkyrieRewriter
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
 import javax.swing.Icon
 
 
-class ValkyrieClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, ValkyrieLineMarkElement,
-    ValkyrieHighlightElement, ValkyrieRewritableElement {
+class NexusClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, ValkyrieLineMarkElement,
+    NexusHighlightElement, ValkyrieRewritableElement {
     private val _identifier by lazy { ValkyrieIdentifierNode.find(this)!! }
     val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
 
@@ -55,10 +55,10 @@ class ValkyrieClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
     }
 
 
-    fun getFields(): Array<ValkyrieClassFieldNode> {
-        val output = mutableListOf<ValkyrieClassFieldNode>();
+    fun getFields(): Array<NexusClassFieldNode> {
+        val output = mutableListOf<NexusClassFieldNode>();
         this.traversal {
-            if (it is ValkyrieClassFieldNode) {
+            if (it is NexusClassFieldNode) {
                 output.add(it);
                 false
             } else {
@@ -69,7 +69,7 @@ class ValkyrieClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
     }
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(nameIdentifier, ValkyrieHighlightColor.SYM_CLASS)
+        e.register(nameIdentifier, NexusHighlightColor.SYM_CLASS)
         e.register_modifiers(modifiers)
     }
 

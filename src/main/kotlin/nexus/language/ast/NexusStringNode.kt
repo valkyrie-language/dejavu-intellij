@@ -11,13 +11,13 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.LiteralTextEscaper
 import com.intellij.psi.PsiLanguageInjectionHost
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.psi.ValkyrieHighlightElement
 import org.intellij.lang.regexp.RegExpLanguage
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.matcher.escaper.StringEscape
 
-class ValkyrieStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguageInjectionHost, ValkyrieHighlightElement {
+class NexusStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguageInjectionHost, NexusHighlightElement {
     val handler by lazy {
         PsiTreeUtil.getChildOfType(this, ValkyrieIdentifierNode::class.java)
     }
@@ -76,6 +76,6 @@ class ValkyrieStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguag
 
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(handler, ValkyrieHighlightColor.SYM_MACRO)
+        e.register(handler, NexusHighlightColor.SYM_MACRO)
     }
 }

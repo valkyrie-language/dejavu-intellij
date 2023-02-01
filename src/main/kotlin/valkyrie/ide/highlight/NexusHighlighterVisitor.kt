@@ -9,9 +9,8 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import nexus.language.antlr.traversal
 import nexus.language.file.NexusFileNode
-import nexus.language.psi.ValkyrieHighlightElement
 
-class ValkyrieHighlighterVisitor : HighlightVisitor {
+class NexusHighlighterVisitor : HighlightVisitor {
     private var _info: HighlightInfoHolder? = null
     override fun suitableForFile(file: PsiFile): Boolean {
         return file is NexusFileNode
@@ -20,7 +19,7 @@ class ValkyrieHighlighterVisitor : HighlightVisitor {
     override fun visit(element: PsiElement) {
         val writer = NodeHighlighter(_info);
         element.traversal {
-            if (it is ValkyrieHighlightElement) {
+            if (it is NexusHighlightElement) {
                 it.on_highlight(writer)
             }
             ProgressManager.checkCanceled()
@@ -34,6 +33,6 @@ class ValkyrieHighlighterVisitor : HighlightVisitor {
         return true
     }
 
-    override fun clone(): HighlightVisitor = ValkyrieHighlighterVisitor()
+    override fun clone(): HighlightVisitor = NexusHighlighterVisitor()
 }
 

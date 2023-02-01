@@ -30,6 +30,17 @@ public class NexusAntlrBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
+    public T visitStatements(NexusAntlrParser.StatementsContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
     public T visitAny_text(NexusAntlrParser.Any_textContext ctx) {
         return visitChildren(ctx);
     }
@@ -96,6 +107,17 @@ public class NexusAntlrBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
+    public T visitElse_if(NexusAntlrParser.Else_ifContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
     public T visitIf_end(NexusAntlrParser.If_endContext ctx) {
         return visitChildren(ctx);
     }
@@ -129,6 +151,17 @@ public class NexusAntlrBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
+    public T visitFor_pattern(NexusAntlrParser.For_patternContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
     public T visitFor_end(NexusAntlrParser.For_endContext ctx) {
         return visitChildren(ctx);
     }
@@ -141,6 +174,39 @@ public class NexusAntlrBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
      */
     @Override
     public T visitExpression(NexusAntlrParser.ExpressionContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitModifiers(NexusAntlrParser.ModifiersContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitModified_identifier(NexusAntlrParser.Modified_identifierContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
+    public T visitModified_namepath(NexusAntlrParser.Modified_namepathContext ctx) {
         return visitChildren(ctx);
     }
 

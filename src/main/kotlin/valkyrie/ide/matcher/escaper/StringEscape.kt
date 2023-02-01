@@ -3,9 +3,9 @@ package valkyrie.ide.matcher.escaper
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.LiteralTextEscaper
 import com.intellij.psi.PsiLanguageInjectionHost
-import nexus.language.ast.ValkyrieStringNode
+import nexus.language.ast.NexusStringNode
 
-class StringEscape(private val host: ValkyrieStringNode) : LiteralTextEscaper<PsiLanguageInjectionHost>(host) {
+class StringEscape(private val host: NexusStringNode) : LiteralTextEscaper<PsiLanguageInjectionHost>(host) {
     override fun decode(rangeInsideHost: TextRange, outChars: StringBuilder): Boolean {
         outChars.append(myHost!!.text, rangeInsideHost.startOffset, rangeInsideHost.endOffset)
         return true

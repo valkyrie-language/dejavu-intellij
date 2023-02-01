@@ -6,9 +6,9 @@ import com.intellij.ide.util.treeView.smartTree.ActionPresentation
 import com.intellij.ide.util.treeView.smartTree.ActionPresentationData
 import com.intellij.ide.util.treeView.smartTree.Filter
 import com.intellij.ide.util.treeView.smartTree.TreeElement
-import nexus.language.ast.classes.ValkyrieClassFieldNode
-import nexus.language.ast.classes.ValkyrieClassMethodNode
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassFieldNode
+import nexus.language.ast.classes.NexusClassMethodNode
+import nexus.language.ast.classes.NexusClassStatement
 import valkyrie.ide.view.ValkyrieStructureItem
 
 
@@ -26,9 +26,9 @@ class MainInfoFilter : Filter {
         if (node is ValkyrieStructureItem) {
             when (node.node) {
                 // class
-                is ValkyrieClassStatement -> return true
-                is ValkyrieClassFieldNode -> return true
-                is ValkyrieClassMethodNode -> return true
+                is NexusClassStatement -> return true
+                is NexusClassFieldNode -> return true
+                is NexusClassMethodNode -> return true
             }
         }
         return false;

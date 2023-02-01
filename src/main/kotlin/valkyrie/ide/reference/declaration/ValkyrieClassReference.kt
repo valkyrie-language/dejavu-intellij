@@ -1,9 +1,9 @@
 package valkyrie.ide.reference.declaration
 
 import nexus.language.ast.ValkyrieIdentifierNode
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassStatement
 
-class ValkyrieClassReference(definition: ValkyrieClassStatement, element: ValkyrieIdentifierNode) : ValkyrieReference(element, definition) {
+class ValkyrieClassReference(definition: NexusClassStatement, element: ValkyrieIdentifierNode) : ValkyrieReference(element, definition) {
 
 }
 

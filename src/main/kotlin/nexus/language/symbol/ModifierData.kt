@@ -5,7 +5,7 @@ package nexus.language.symbol
 
 import com.intellij.psi.PsiElement
 import valkyrie.ide.doc.DocumentationRenderer
-import valkyrie.ide.highlight.ValkyrieHighlightColor
+import valkyrie.ide.highlight.NexusHighlightColor
 
 
 class ModifierData(
@@ -14,12 +14,12 @@ class ModifierData(
     val detail: String = "",
 ) {
     fun documentation(doc: DocumentationRenderer) {
-        doc.append(ValkyrieHighlightColor.KEYWORD, "modifier ")
+        doc.append(NexusHighlightColor.KEYWORD, "modifier ")
         for (item in namespace) {
             doc.append(item)
             doc.append("::")
         }
-        doc.append(ValkyrieHighlightColor.SYM_MACRO, name)
+        doc.append(NexusHighlightColor.SYM_MACRO, name)
         doc.append("<hr/>")
         doc.append(detail)
     }

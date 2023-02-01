@@ -5,14 +5,14 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.psi.ValkyrieHighlightElement
 import org.antlr.intellij.adaptor.psi.IdentifierDefSubtree
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 
 
-class ValkyrieNamepathNode(node: ASTNode, type: IElementType, val free: Boolean = false) : IdentifierDefSubtree(node, type),
-    ValkyrieHighlightElement {
+class NexusNamepathNode(node: ASTNode, type: IElementType, val free: Boolean = false) : IdentifierDefSubtree(node, type),
+    NexusHighlightElement {
     val identifiers = findChildrenByClass(ValkyrieIdentifierNode::class.java)
     val parentIdentifier: Array<ValkyrieIdentifierNode> = identifiers.dropLast(1).toTypedArray()
     val namespace: String = parentIdentifier.joinToString(".") { it.text }
@@ -27,8 +27,8 @@ class ValkyrieNamepathNode(node: ASTNode, type: IElementType, val free: Boolean 
 
 
     companion object {
-        fun find(node: PsiElement): ValkyrieNamepathNode? {
-            return PsiTreeUtil.getChildOfType(node, ValkyrieNamepathNode::class.java)
+        fun find(node: PsiElement): NexusNamepathNode? {
+            return PsiTreeUtil.getChildOfType(node, NexusNamepathNode::class.java)
         }
     }
 
@@ -42,21 +42,21 @@ class ValkyrieNamepathNode(node: ASTNode, type: IElementType, val free: Boolean 
 private fun fakeTypeColor(info: NodeHighlighter, psi: ValkyrieIdentifierNode) {
     val name = psi.name
     if (keywords.contains(name)) {
-        info.register(psi, ValkyrieHighlightColor.KEYWORD)
+        info.register(psi, NexusHighlightColor.KEYWORD)
     } else if (traits.contains(name)) {
-        info.register(psi, ValkyrieHighlightColor.SYM_TRAIT)
+        info.register(psi, NexusHighlightColor.SYM_TRAIT)
     } else if (variants.contains(name)) {
-        info.register(psi, ValkyrieHighlightColor.SYM_VARIANT)
+        info.register(psi, NexusHighlightColor.SYM_VARIANT)
     } else if (functions.contains(name)) {
-        info.register(psi, ValkyrieHighlightColor.SYM_FUNCTION_FREE)
+        info.register(psi, NexusHighlightColor.SYM_FUNCTION_FREE)
     } else if (name.startsWith('_')) {
-        info.register(psi, ValkyrieHighlightColor.SYM_ARG)
+        info.register(psi, NexusHighlightColor.SYM_ARG)
     } else if (name.isUppercase()) {
-        info.register(psi, ValkyrieHighlightColor.SYM_GENERIC)
+        info.register(psi, NexusHighlightColor.SYM_GENERIC)
     } else {
         val first = name.firstOrNull();
         if (first != null && first.isUpperCase()) {
-            info.register(psi, ValkyrieHighlightColor.SYM_CLASS)
+            info.register(psi, NexusHighlightColor.SYM_CLASS)
         }
     }
 }

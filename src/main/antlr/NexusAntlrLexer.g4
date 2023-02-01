@@ -2,7 +2,7 @@ lexer grammar NexusAntlrLexer;
 
 // $antlr-format useTab false, columnLimit 144
 // $antlr-format alignColons hanging, alignSemicolons hanging, alignFirstTokens true
-TEMPLATE_LX: '<<%';
+TEMPLATE_E: '<<%';
 TEMPLATE_L:  '<%' -> mode(TEMPLATE_MODE);
 TEXT_SPACE:  [\p{White_Space}]+;
 TEXT:        .+?;
@@ -10,6 +10,9 @@ TEXT:        .+?;
 mode TEMPLATE_MODE
     ;
 TEMPLATE_R: '%>' -> mode(DEFAULT_MODE);
+
+DOT:   '.';
+COMMA: ',';
 
 KW_IMPORT: 'using';
 KW_CLASS:  'class';
@@ -24,7 +27,6 @@ KW_END:  'end';
 KW_FOR: 'for';
 
 OP_PROPORTION: '::';
-DOT:        '.';
 
 PARENTHESES_L: '(';
 PARENTHESES_R: ')';

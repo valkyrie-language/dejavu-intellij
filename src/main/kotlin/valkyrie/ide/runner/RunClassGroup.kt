@@ -7,7 +7,7 @@ import com.intellij.openapi.actionSystem.ActionGroup
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.psi.PsiElement
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassStatement
 
 
 class RunClassGroup : ActionGroup() {
@@ -22,7 +22,7 @@ class RunClassGroup : ActionGroup() {
 
     companion object {
         fun markClass(element: PsiElement): Info? {
-            if (element !is ValkyrieClassStatement) return null;
+            if (element !is NexusClassStatement) return null;
             return Info(RunClass(listOf("element"), false))
         }
 

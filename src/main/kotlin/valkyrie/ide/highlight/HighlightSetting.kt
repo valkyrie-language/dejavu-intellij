@@ -5,11 +5,11 @@ import com.intellij.openapi.options.colors.ColorSettingsPage
 import nexus.language.file.NexusIconProvider
 
 class HighlightSetting : ColorSettingsPage {
-    private val annotatorTags = ValkyrieHighlightColor
+    private val annotatorTags = NexusHighlightColor
         .values()
         .associateBy({ it.name }, { it.textAttributesKey })
 
-    override fun getAttributeDescriptors() = ValkyrieHighlightColor
+    override fun getAttributeDescriptors() = NexusHighlightColor
         .values()
         .map { it.attributesDescriptor }
         .toTypedArray()

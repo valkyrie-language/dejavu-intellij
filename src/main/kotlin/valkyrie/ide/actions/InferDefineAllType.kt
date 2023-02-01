@@ -5,12 +5,12 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
-import nexus.language.ast.ValkyrieFunctionParameter
+import nexus.language.ast.NexusFunctionParameter
 import nexus.language.file.NexusIconProvider
 //import nexus.language.psi_node.ValkyrieDefineItemNode
 import javax.swing.Icon
 
-class InferDefineAllType(private val element: ValkyrieFunctionParameter) : HintAction, Iconable {
+class InferDefineAllType(private val element: NexusFunctionParameter) : HintAction, Iconable {
     override fun startInWriteAction(): Boolean {
         return true
     }

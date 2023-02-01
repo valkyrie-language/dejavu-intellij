@@ -3,7 +3,7 @@ package valkyrie.ide.view
 import com.intellij.navigation.ColoredItemPresentation
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import nexus.language.ast.ValkyrieIdentifierNode
-import valkyrie.ide.highlight.ValkyrieHighlightColor
+import valkyrie.ide.highlight.NexusHighlightColor
 import javax.swing.Icon
 
 class IdentifierPresentation(val name: ValkyrieIdentifierNode?, private val icon: Icon) : ColoredItemPresentation {
@@ -16,7 +16,7 @@ class IdentifierPresentation(val name: ValkyrieIdentifierNode?, private val icon
     }
 
     override fun getTextAttributesKey(): TextAttributesKey {
-        return ValkyrieHighlightColor.IDENTIFIER.textAttributesKey
+        return NexusHighlightColor.IDENTIFIER.textAttributesKey
     }
 
 }

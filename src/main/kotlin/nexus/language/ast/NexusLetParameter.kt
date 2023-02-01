@@ -7,13 +7,13 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.psi.ValkyrieHighlightElement
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.view.IdentifierPresentation
 import javax.swing.Icon
 
-class ValkyrieLetParameter(node: CompositeElement) : ASTWrapperPsiElement(node), PsiNameIdentifierOwner, ValkyrieHighlightElement {
+class NexusLetParameter(node: CompositeElement) : ASTWrapperPsiElement(node), PsiNameIdentifierOwner, NexusHighlightElement {
     private val _identifier by lazy { findIdentifier() }
     val modifiers by lazy { findModifiers() };
     val mutable by lazy { isMutable() };
@@ -60,9 +60,9 @@ class ValkyrieLetParameter(node: CompositeElement) : ASTWrapperPsiElement(node),
 
     override fun on_highlight(e: NodeHighlighter) {
         if (mutable) {
-            e.register(nameIdentifier, ValkyrieHighlightColor.SYM_LOCAL_MUT)
+            e.register(nameIdentifier, NexusHighlightColor.SYM_LOCAL_MUT)
         } else {
-            e.register(nameIdentifier, ValkyrieHighlightColor.SYM_LOCAL)
+            e.register(nameIdentifier, NexusHighlightColor.SYM_LOCAL)
         }
         e.register_modifiers(modifiers)
     }

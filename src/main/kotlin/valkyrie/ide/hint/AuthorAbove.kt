@@ -7,9 +7,9 @@ import com.intellij.codeInsight.hints.VcsCodeVisionLanguageContext
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import nexus.language.ast.ValkyrieFunctionStatement
-import nexus.language.ast.classes.ValkyrieClassMethodNode
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.NexusFunctionStatement
+import nexus.language.ast.classes.NexusClassMethodNode
+import nexus.language.ast.classes.NexusClassStatement
 import java.awt.event.MouseEvent
 
 @Suppress("UnstableApiUsage")
@@ -21,9 +21,9 @@ class AuthorAbove : VcsCodeVisionLanguageContext {
     }
 
     override fun isAccepted(element: PsiElement): Boolean {
-        return element is ValkyrieClassStatement
-            || element is ValkyrieFunctionStatement
-            || element is ValkyrieClassMethodNode
+        return element is NexusClassStatement
+            || element is NexusFunctionStatement
+            || element is NexusClassMethodNode
     }
 
     override fun isCustomFileAccepted(file: PsiFile): Boolean {

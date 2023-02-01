@@ -5,11 +5,11 @@ import com.intellij.codeInsight.generation.MemberChooserObject
 import com.intellij.ui.SimpleColoredComponent
 import com.intellij.ui.SimpleTextAttributes
 import com.intellij.ui.speedSearch.SpeedSearchUtil
-import nexus.language.ast.classes.ValkyrieClassFieldNode
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassFieldNode
+import nexus.language.ast.classes.NexusClassStatement
 import javax.swing.JTree
 
-class GenerateClassFieldMember(val field: ValkyrieClassFieldNode, val parent: ValkyrieClassStatement) :
+class GenerateClassFieldMember(val field: NexusClassFieldNode, val parent: NexusClassStatement) :
     ClassMemberWithElement {
     override fun renderTreeNode(component: SimpleColoredComponent, tree: JTree) {
         SpeedSearchUtil.appendFragmentsForSpeedSearch(
@@ -30,7 +30,7 @@ class GenerateClassFieldMember(val field: ValkyrieClassFieldNode, val parent: Va
         return GenerateClassMember(parent)
     }
 
-    override fun getElement(): ValkyrieClassStatement {
+    override fun getElement(): NexusClassStatement {
         return parent
     }
 }

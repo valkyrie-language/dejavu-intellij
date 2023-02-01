@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassStatement
 
 //import nexus.language.psi_node.ValkyrieClassStatementNode
 //import nexus.language.psi_node.ValkyrieTraitStatementNode
@@ -21,13 +21,13 @@ class GotoSuper : GotoTargetHandler() {
     }
 
     override fun getChooserTitle(sourceElement: PsiElement, name: String?, length: Int, finished: Boolean) = when (sourceElement) {
-        is ValkyrieClassStatement -> "ValkyrieClassStatementNode"
+        is NexusClassStatement -> "ValkyrieClassStatementNode"
         else -> "???????"
         // EditorConfigBundle.get("goto.super.select.parent")
     }
 
     override fun getNotFoundMessage(project: Project, editor: Editor, file: PsiFile) = when (findSource(editor, file)) {
-        is ValkyrieClassStatement -> "ValkyrieClassStatementNode not found"
+        is NexusClassStatement -> "ValkyrieClassStatementNode not found"
         else -> "???? not found"
     }
 }
@@ -36,13 +36,13 @@ private fun findSource(editor: Editor, file: PsiFile): PsiElement? {
     val element = file.findElementAt(editor.caretModel.offset) ?: return null
     return PsiTreeUtil.getParentOfType(
         element,
-        ValkyrieClassStatement::class.java,
+        NexusClassStatement::class.java,
     )
 }
 
 private fun findTargets(element: PsiElement): List<PsiElement?> = listOf(
     PsiTreeUtil.getParentOfType(
         element,
-        ValkyrieClassStatement::class.java,
+        NexusClassStatement::class.java,
     )
 )

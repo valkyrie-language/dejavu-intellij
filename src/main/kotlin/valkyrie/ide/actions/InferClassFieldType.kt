@@ -6,11 +6,11 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
-import nexus.language.ast.classes.ValkyrieClassFieldNode
+import nexus.language.ast.classes.NexusClassFieldNode
 import nexus.language.file.NexusIconProvider
 import javax.swing.Icon
 
-class InferClassFieldType(private val element: ValkyrieClassFieldNode) : HintAction, Iconable {
+class InferClassFieldType(private val element: NexusClassFieldNode) : HintAction, Iconable {
     override fun startInWriteAction(): Boolean {
         return true
     }

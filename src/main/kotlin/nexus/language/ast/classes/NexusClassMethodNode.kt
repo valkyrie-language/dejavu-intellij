@@ -11,20 +11,20 @@ import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import nexus.language.ast.ValkyrieModifiedNode
 import nexus.language.file.NexusIconProvider
-import nexus.language.psi.ValkyrieHighlightElement
 import nexus.language.psi.ValkyrieInlayElement
 import nexus.language.psi.ValkyrieLineMarkElement
 import nexus.language.psi.ValkyrieScopeNode
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.hint.ParameterInlayHint
 import valkyrie.ide.hint.TypeInlayHint
 import valkyrie.ide.view.IdentifierPresentation
 import javax.swing.Icon
 
 
-class ValkyrieClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, ValkyrieLineMarkElement,
-    ValkyrieHighlightElement, ValkyrieInlayElement {
+class NexusClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, ValkyrieLineMarkElement,
+    NexusHighlightElement, ValkyrieInlayElement {
     val method by lazy { ValkyrieModifiedNode.findIdentifier(this)!! }
     val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
     override fun getName(): String {
@@ -60,9 +60,9 @@ class ValkyrieClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node),
 
     override fun on_highlight(e: NodeHighlighter) {
         if (method.name == "constructor") {
-            e.register(nameIdentifier, ValkyrieHighlightColor.KEYWORD)
+            e.register(nameIdentifier, NexusHighlightColor.KEYWORD)
         } else {
-            e.register(nameIdentifier, ValkyrieHighlightColor.SYM_FUNCTION_SELF)
+            e.register(nameIdentifier, NexusHighlightColor.SYM_FUNCTION_SELF)
         }
         e.register_modifiers(modifiers)
     }

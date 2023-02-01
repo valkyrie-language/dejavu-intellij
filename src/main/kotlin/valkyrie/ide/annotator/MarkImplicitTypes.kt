@@ -4,9 +4,9 @@ import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.psi.PsiElement
-import nexus.language.ast.ValkyrieFunctionParameter
-import nexus.language.ast.ValkyrieLetStatement
-import nexus.language.ast.classes.ValkyrieClassFieldNode
+import nexus.language.ast.NexusFunctionParameter
+import nexus.language.ast.NexusLetStatement
+import nexus.language.ast.classes.NexusClassFieldNode
 import valkyrie.ide.actions.InferClassFieldType
 import valkyrie.ide.actions.InferDefineItemType
 
@@ -17,7 +17,7 @@ import valkyrie.ide.actions.InferDefineItemType
 class MarkImplicitTypes : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         when (element) {
-            is ValkyrieLetStatement -> {
+            is NexusLetStatement -> {
 //                if (element.typeExpressionList.isEmpty()) {
 //                    holder.newAnnotation(HighlightSeverity.INFORMATION, "Infer type")
 //                        .range(element.firstChild.textRange)
@@ -31,7 +31,7 @@ class MarkImplicitTypes : Annotator {
 //                }
             }
 
-            is ValkyrieClassFieldNode -> {
+            is NexusClassFieldNode -> {
 //                if (element.typeExpression == null) {
                 holder.newAnnotation(HighlightSeverity.INFORMATION, "Infer type")
                     .range(element.firstChild.textRange)
@@ -40,7 +40,7 @@ class MarkImplicitTypes : Annotator {
 //                }
             }
 
-            is ValkyrieFunctionParameter -> {
+            is NexusFunctionParameter -> {
 //                if (element.typeExpression == null) {
                 holder.newAnnotation(HighlightSeverity.INFORMATION, "Infer type")
                     .range(element.firstChild.textRange)

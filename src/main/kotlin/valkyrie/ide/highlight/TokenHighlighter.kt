@@ -28,16 +28,17 @@ class TokenHighlighter : SyntaxHighlighter {
     private fun getTokenColor(tokenType: IElementType): TextAttributesKey? {
         val hash = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage);
         return when {
-            nexus.language.antlr.NexusLexer.Keywords.contains(tokenType) -> ValkyrieHighlightColor.KEYWORD.textAttributesKey
+            nexus.language.antlr.NexusLexer.Keywords.contains(tokenType) -> NexusHighlightColor.KEYWORD.textAttributesKey
             nexus.language.antlr.NexusLexer.Operators.contains(tokenType) -> DefaultLanguageHighlighterColors.OPERATION_SIGN
-            nexus.language.antlr.NexusLexer.MacroOperators.contains(tokenType) -> ValkyrieHighlightColor.SYM_MACRO.textAttributesKey
-            nexus.language.antlr.NexusLexer.Integers.contains(tokenType) -> ValkyrieHighlightColor.INTEGER.textAttributesKey
-            nexus.language.antlr.NexusLexer.Decimals.contains(tokenType) -> ValkyrieHighlightColor.DECIMAL.textAttributesKey
-            nexus.language.antlr.NexusLexer.Strings.contains(tokenType) -> ValkyrieHighlightColor.STRING.textAttributesKey
+            nexus.language.antlr.NexusLexer.MacroOperators.contains(tokenType) -> NexusHighlightColor.SYM_MACRO.textAttributesKey
+            nexus.language.antlr.NexusLexer.Integers.contains(tokenType) -> NexusHighlightColor.INTEGER.textAttributesKey
+            nexus.language.antlr.NexusLexer.Decimals.contains(tokenType) -> NexusHighlightColor.DECIMAL.textAttributesKey
+            nexus.language.antlr.NexusLexer.Strings.contains(tokenType) -> NexusHighlightColor.STRING.textAttributesKey
             nexus.language.antlr.NexusLexer.Comments.contains(tokenType) -> DefaultLanguageHighlighterColors.LINE_COMMENT
             // inherit
             nexus.language.antlr.NexusLexer.Comma.contains(tokenType) -> DefaultLanguageHighlighterColors.COMMA
             nexus.language.antlr.NexusLexer.Semicolon.contains(tokenType) -> DefaultLanguageHighlighterColors.SEMICOLON
+            nexus.language.antlr.NexusLexer.Escapes.contains(tokenType) -> NexusHighlightColor.STRING_ESCAPED.textAttributesKey
 
             else -> {
                 when (tokenType) {

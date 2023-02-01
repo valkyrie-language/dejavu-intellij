@@ -6,19 +6,19 @@ import com.intellij.lang.annotation.Annotator
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.psi.PsiElement
 import nexus.language.ast.ValkyrieIdentifierNode
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassStatement
 
 //import nexus.language.psi_node.ValkyrieUnionStatementNode
 
 class NamepathChecker : Annotator {
     override fun annotate(element: PsiElement, holder: AnnotationHolder) {
         when (element) {
-            is ValkyrieClassStatement -> checkValidClassName(element, holder)
+            is NexusClassStatement -> checkValidClassName(element, holder)
         }
     }
 
     // element.text can't start with lowercase
-    private fun checkValidClassName(element: ValkyrieClassStatement, holder: AnnotationHolder) {
+    private fun checkValidClassName(element: NexusClassStatement, holder: AnnotationHolder) {
         val id = element.nameIdentifier ?: return;
         checkNeedEscape(id, holder)
         checkCamelCase(id, holder)

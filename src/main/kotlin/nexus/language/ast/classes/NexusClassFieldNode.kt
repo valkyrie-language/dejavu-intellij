@@ -12,18 +12,18 @@ import com.intellij.psi.impl.source.tree.CompositeElement
 import nexus.language.ast.ValkyrieIdentifierNode
 import nexus.language.ast.ValkyrieModifiedNode
 import nexus.language.file.NexusIconProvider
-import nexus.language.psi.ValkyrieHighlightElement
 import nexus.language.psi.ValkyrieInlayElement
 import nexus.language.psi.ValkyrieLineMarkElement
 import nexus.language.psi.ValkyrieScopeNode
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 import valkyrie.ide.hint.TypeInlayHint
 import valkyrie.ide.view.IdentifierPresentation
 import javax.swing.Icon
 
 
-class ValkyrieClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, ValkyrieHighlightElement,
+class NexusClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), PsiNameIdentifierOwner, NexusHighlightElement,
     ValkyrieLineMarkElement, ValkyrieInlayElement {
     val field by lazy { ValkyrieModifiedNode.findIdentifier(this)!! }
     val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
@@ -59,7 +59,7 @@ class ValkyrieClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), 
 
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(nameIdentifier, ValkyrieHighlightColor.SYM_FIELD)
+        e.register(nameIdentifier, NexusHighlightColor.SYM_FIELD)
         e.register_modifiers(modifiers)
     }
 

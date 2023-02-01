@@ -2,7 +2,7 @@ package nexus.language.psi
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
-import nexus.language.ast.ValkyrieNumberNode
+import nexus.language.ast.NexusNumberNode
 
 class ValkyrieFactory {
     private val project: Project
@@ -16,7 +16,7 @@ class ValkyrieFactory {
         this.project = element.project
     }
 
-    fun createNumberLiteral(number: String, unit: String?): ValkyrieNumberNode {
+    fun createNumberLiteral(number: String, unit: String?): NexusNumberNode {
 //        return letDefineAtom(number)!!.number as ValkyrieNumberNode
         throw Exception("unreachable: ValkyrieFactory::createNumberLiteral")
     }

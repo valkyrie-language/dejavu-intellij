@@ -45,7 +45,7 @@
 			implementationClass="valkyrie.ide.view.hierarchy.CallHierarchyProvider"/>
 		<!-- Highlight -->
 		<colorSettingsPage implementation="valkyrie.ide.highlight.HighlightSetting"/>
-		<highlightVisitor implementation="valkyrie.ide.highlight.ValkyrieHighlighterVisitor"/>
+		<highlightVisitor implementation="valkyrie.ide.highlight.NexusHighlighterVisitor"/>
 		<lang.syntaxHighlighter
 			language="Nexus"
 			implementationClass="valkyrie.ide.highlight.TokenHighlighter"

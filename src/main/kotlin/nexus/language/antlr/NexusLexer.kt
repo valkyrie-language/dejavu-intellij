@@ -96,7 +96,7 @@ class NexusLexer : Lexer() {
             nexus.language.antlr.NexusLexer.Companion.OperatorSuffix
         );
         val MacroOperators = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage);
-
+        val Escapes: TokenSet = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage, TEMPLATE_E);
         val Comma: TokenSet = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage);
         val Semicolon: TokenSet = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage);
         val Integers: TokenSet = PSIElementTypeFactory.createTokenSet(nexus.language.NexusLanguage);

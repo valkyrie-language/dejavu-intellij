@@ -19,6 +19,14 @@ public interface NexusAntlrVisitor<T> extends ParseTreeVisitor<T> {
     T visitProgram(NexusAntlrParser.ProgramContext ctx);
 
     /**
+     * Visit a parse tree produced by {@link NexusAntlrParser#statements}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitStatements(NexusAntlrParser.StatementsContext ctx);
+
+    /**
      * Visit a parse tree produced by {@link NexusAntlrParser#any_text}.
      *
      * @param ctx the parse tree
@@ -67,6 +75,14 @@ public interface NexusAntlrVisitor<T> extends ParseTreeVisitor<T> {
     T visitElse(NexusAntlrParser.ElseContext ctx);
 
     /**
+     * Visit a parse tree produced by {@link NexusAntlrParser#else_if}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitElse_if(NexusAntlrParser.Else_ifContext ctx);
+
+    /**
      * Visit a parse tree produced by {@link NexusAntlrParser#if_end}.
      *
      * @param ctx the parse tree
@@ -91,6 +107,14 @@ public interface NexusAntlrVisitor<T> extends ParseTreeVisitor<T> {
     T visitFor_begin(NexusAntlrParser.For_beginContext ctx);
 
     /**
+     * Visit a parse tree produced by {@link NexusAntlrParser#for_pattern}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitFor_pattern(NexusAntlrParser.For_patternContext ctx);
+
+    /**
      * Visit a parse tree produced by {@link NexusAntlrParser#for_end}.
      *
      * @param ctx the parse tree
@@ -105,6 +129,30 @@ public interface NexusAntlrVisitor<T> extends ParseTreeVisitor<T> {
      * @return the visitor result
      */
     T visitExpression(NexusAntlrParser.ExpressionContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link NexusAntlrParser#modifiers}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitModifiers(NexusAntlrParser.ModifiersContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link NexusAntlrParser#modified_identifier}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitModified_identifier(NexusAntlrParser.Modified_identifierContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link NexusAntlrParser#modified_namepath}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitModified_namepath(NexusAntlrParser.Modified_namepathContext ctx);
 
     /**
      * Visit a parse tree produced by {@link NexusAntlrParser#namepath_free}.

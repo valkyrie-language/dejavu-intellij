@@ -7,10 +7,10 @@ import com.intellij.openapi.editor.richcopy.HtmlSyntaxInfoUtil
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
 import com.intellij.ui.ColorUtil
-import nexus.language.ast.classes.ValkyrieClassStatement
-import valkyrie.ide.highlight.ValkyrieHighlightColor
-import valkyrie.ide.highlight.ValkyrieHighlightColor.KEYWORD
-import valkyrie.ide.highlight.ValkyrieHighlightColor.SYM_CLASS
+import nexus.language.ast.classes.NexusClassStatement
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightColor.KEYWORD
+import valkyrie.ide.highlight.NexusHighlightColor.SYM_CLASS
 import valkyrie.lsp.RequestDocument
 
 class DocumentationRenderer(var element: PsiElement, private var original: PsiElement?) {
@@ -22,7 +22,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
             else -> {}
         }
         when (element) {
-            is ValkyrieClassStatement -> buildShort(element as ValkyrieClassStatement)
+            is NexusClassStatement -> buildShort(element as NexusClassStatement)
             else -> {
                 doc.append(element)
                 doc.append("<br/>")
@@ -33,8 +33,8 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         }
         return doc.toString()
     }
-    
-    private fun buildShort(element: ValkyrieClassStatement) {
+
+    private fun buildShort(element: NexusClassStatement) {
         append(KEYWORD, "crate ")
         appendNamespace()
         doc.append("<br/>")
@@ -63,7 +63,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         doc.append("<span>${text}</span>")
     }
 
-    fun append(key: ValkyrieHighlightColor, text: String) {
+    fun append(key: NexusHighlightColor, text: String) {
         // HtmlSyntaxInfoUtil.getStyledSpan(key.textAttributesKey, text, 1.0f)
         val attr = EditorColorsManager.getInstance().globalScheme.getAttributes(key.textAttributesKey)
         val color = ColorUtil.toHtmlColor(attr.foregroundColor)

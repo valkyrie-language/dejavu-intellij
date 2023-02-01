@@ -4,12 +4,12 @@ import com.intellij.ide.hierarchy.HierarchyNodeDescriptor
 import com.intellij.ide.util.treeView.NodeDescriptor
 import com.intellij.openapi.roots.ui.util.CompositeAppearance
 import com.intellij.ui.SimpleTextAttributes
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassStatement
 
 class HierarchyClassNode : HierarchyNodeDescriptor {
-    val node: ValkyrieClassStatement
+    val node: NexusClassStatement
 
-    constructor(node: ValkyrieClassStatement) : super(node.project, null, node, false) {
+    constructor(node: NexusClassStatement) : super(node.project, null, node, false) {
         this.node = node
         cachedChildren = arrayOf(this, this)
     }

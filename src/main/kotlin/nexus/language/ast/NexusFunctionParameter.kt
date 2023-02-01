@@ -4,12 +4,12 @@ import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
-import nexus.language.psi.ValkyrieHighlightElement
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 
 
-class ValkyrieFunctionParameter(node: ASTNode) : ASTWrapperPsiElement(node), PsiNameIdentifierOwner, ValkyrieHighlightElement {
+class NexusFunctionParameter(node: ASTNode) : ASTWrapperPsiElement(node), PsiNameIdentifierOwner, NexusHighlightElement {
     val parameter by lazy { ValkyrieModifiedNode.findIdentifier(this)!! }
     val modifiers by lazy { ValkyrieModifiedNode.findModifiers(this) };
 
@@ -26,7 +26,7 @@ class ValkyrieFunctionParameter(node: ASTNode) : ASTWrapperPsiElement(node), Psi
     }
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(nameIdentifier, ValkyrieHighlightColor.SYM_ARG)
+        e.register(nameIdentifier, NexusHighlightColor.SYM_ARG)
         e.register_modifiers(modifiers)
     }
 

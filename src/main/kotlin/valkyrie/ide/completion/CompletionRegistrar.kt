@@ -8,7 +8,7 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
-import nexus.language.ast.classes.ValkyrieClassStatement
+import nexus.language.ast.classes.NexusClassStatement
 import nexus.language.file.NexusFileNode
 
 
@@ -41,7 +41,7 @@ class CompletionRegistrar : CompletionContributor() {
                         return
                     }
 
-                    is ValkyrieClassStatement -> {
+                    is NexusClassStatement -> {
                         println("ValkyrieClassStatement: ${result.hashCode()}")
                         CompletionInClassScope().addCompletionVariants(parameters, context, result)
                         return

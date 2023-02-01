@@ -36,6 +36,24 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
+    public void enterStatements(NexusAntlrParser.StatementsContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitStatements(NexusAntlrParser.StatementsContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
     public void enterAny_text(NexusAntlrParser.Any_textContext ctx) {
     }
 
@@ -144,6 +162,24 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
+    public void enterElse_if(NexusAntlrParser.Else_ifContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitElse_if(NexusAntlrParser.Else_ifContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
     public void enterIf_end(NexusAntlrParser.If_endContext ctx) {
     }
 
@@ -198,6 +234,24 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
+    public void enterFor_pattern(NexusAntlrParser.For_patternContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitFor_pattern(NexusAntlrParser.For_patternContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
     public void enterFor_end(NexusAntlrParser.For_endContext ctx) {
     }
 
@@ -226,6 +280,60 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
      */
     @Override
     public void exitExpression(NexusAntlrParser.ExpressionContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterModifiers(NexusAntlrParser.ModifiersContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitModifiers(NexusAntlrParser.ModifiersContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterModified_identifier(NexusAntlrParser.Modified_identifierContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitModified_identifier(NexusAntlrParser.Modified_identifierContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterModified_namepath(NexusAntlrParser.Modified_namepathContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitModified_namepath(NexusAntlrParser.Modified_namepathContext ctx) {
     }
 
     /**
@@ -282,32 +390,24 @@ public class NexusAntlrBaseListener implements NexusAntlrListener {
     public void exitIdentifier(NexusAntlrParser.IdentifierContext ctx) {
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterEveryRule(ParserRuleContext ctx) {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitEveryRule(ParserRuleContext ctx) {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void visitTerminal(TerminalNode node) {
-    }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEveryRule(ParserRuleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEveryRule(ParserRuleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void visitTerminal(TerminalNode node) { }
 	/**
 	 * {@inheritDoc}
 	 *

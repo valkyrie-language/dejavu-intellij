@@ -5,18 +5,18 @@ import com.intellij.ide.projectView.PresentationData
 import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.impl.source.tree.CompositeElement
 import nexus.language.ast.ValkyrieIdentifierNode
-import nexus.language.psi.ValkyrieHighlightElement
 import nexus.language.psi.ValkyrieScopeNode
+import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
-import valkyrie.ide.highlight.ValkyrieHighlightColor
 import javax.swing.Icon
 
-class ValkyrieMatchStatement(node: CompositeElement) : ValkyrieScopeNode(node), ValkyrieHighlightElement {
+class NexusMatchStatement(node: CompositeElement) : ValkyrieScopeNode(node), NexusHighlightElement {
     val bind by lazy { ValkyrieIdentifierNode.find(this) }
     override fun on_highlight(e: NodeHighlighter) {
         if (bind != null) {
             // maybe mutable
-            e.register(bind, ValkyrieHighlightColor.SYM_LOCAL)
+            e.register(bind, NexusHighlightColor.SYM_LOCAL)
         }
     }
 

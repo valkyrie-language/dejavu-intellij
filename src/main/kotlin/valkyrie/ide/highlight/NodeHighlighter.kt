@@ -8,7 +8,7 @@ import nexus.language.ast.ValkyrieIdentifierNode
 
 @Suppress("FunctionName")
 class NodeHighlighter(private val info: HighlightInfoHolder?) {
-    fun register(element: PsiElement?, color: ValkyrieHighlightColor) {
+    fun register(element: PsiElement?, color: NexusHighlightColor) {
         if (element == null) return
         val builder = HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION)
         builder.textAttributes(color.textAttributesKey)
@@ -18,11 +18,11 @@ class NodeHighlighter(private val info: HighlightInfoHolder?) {
 
     fun register_modifiers(modifiers: Collection<ValkyrieIdentifierNode>) {
         for (mod in modifiers) {
-            this.register(mod, ValkyrieHighlightColor.MODIFIER)
+            this.register(mod, NexusHighlightColor.MODIFIER)
         }
     }
 
     fun register_macro(annotation: PsiElement) {
-        this.register(annotation, ValkyrieHighlightColor.SYM_MACRO)
+        this.register(annotation, NexusHighlightColor.SYM_MACRO)
     }
 }

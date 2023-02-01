@@ -7,11 +7,11 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.elementType
 import nexus.language.antlr.childrenWithLeaves
-import nexus.language.ast.ValkyrieLetStatement
+import nexus.language.ast.NexusLetStatement
 
 //import nexus.language.psi_node.ValkyrieLetStatementNode
 
-class InferLetType(private val element: ValkyrieLetStatement, private val action: Boolean) : HintAction {
+class InferLetType(private val element: NexusLetStatement, private val action: Boolean) : HintAction {
     override fun startInWriteAction(): Boolean {
         return true
     }
