@@ -10,7 +10,7 @@
    end case
 
 
-My name is <% per.name %> and I am <% per.age %>
+My name is <%# per.name #%> and I am <% per.age %>
 
 
 <% block content %>

@@ -72,7 +72,7 @@ class NexusLexer : Lexer() {
             // which/match/catch
             KW_MATCH, KW_CASE,
             // control keywords
-
+            KW_SLOT,
             //
 
         )

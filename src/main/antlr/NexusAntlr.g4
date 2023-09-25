@@ -13,6 +13,7 @@ program
         | define_class
         | if_statement
         | for_statement
+        | slot_statement
         | match_statement
         | any_expression
         | any_text
@@ -44,6 +45,11 @@ for_pattern
     | modified_identifier (COMMA modified_identifier)* COMMA?
     ;
 for_end: TEMPLATE_L KW_END KW_FOR? TEMPLATE_R;
+// slot position
+slot_statement: slot_begin slot_end;
+slot_begin: TEMPLATE_L KW_SLOT identifier TEMPLATE_R statements*;
+slot_end: TEMPLATE_L KW_END KW_SLOT? TEMPLATE_R;
+
 // match
 match_statement: match_begin case_branch* match_end;
 match_begin:     TEMPLATE_L KW_MATCH expression TEMPLATE_R statements*;

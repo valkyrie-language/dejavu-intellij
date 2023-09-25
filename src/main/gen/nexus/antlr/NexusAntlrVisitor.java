@@ -95,6 +95,24 @@ public interface NexusAntlrVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFor_end(NexusAntlrParser.For_endContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link NexusAntlrParser#slot_statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSlot_statement(NexusAntlrParser.Slot_statementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link NexusAntlrParser#slot_begin}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSlot_begin(NexusAntlrParser.Slot_beginContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link NexusAntlrParser#slot_end}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSlot_end(NexusAntlrParser.Slot_endContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link NexusAntlrParser#match_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

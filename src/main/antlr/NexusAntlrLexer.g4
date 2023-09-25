@@ -29,6 +29,8 @@ KW_FOR: 'for';
 // loop
 KW_MATCH: 'match';
 KW_CASE: 'case';
+// slot
+KW_SLOT: 'block';
 
 OP_PROPORTION: '::';
 
