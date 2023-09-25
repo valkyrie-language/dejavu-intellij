@@ -8,6 +8,7 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
+import nexus.antlr.NexusLexer
 import nexus.language.file.NexusFileNode
 
 
@@ -26,7 +27,7 @@ class CompletionRegistrar : CompletionContributor() {
         val context = ProcessingContext()
         val element = parameters.originalPosition ?: return
         println("CompletionRegistrar: ${element.elementType}")
-        if (nexus.language.antlr.NexusLexer.CompletionWords.contains(element.elementType)) {
+        if (NexusLexer.CompletionWords.contains(element.elementType)) {
             for (node in element.parents(false)) {
                 if (result.isStopped) {
                     return

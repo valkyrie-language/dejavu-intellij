@@ -6,7 +6,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.impl.source.codeStyle.PreFormatProcessor
 import com.intellij.util.DocumentUtil
-import nexus.language.antlr.traversal
+import nexus.antlr.traversal
 import nexus.language.psi.ValkyrieRewritableElement
 import valkyrie.ide.codeStyle.ValkyrieCodeStyleSettings
 

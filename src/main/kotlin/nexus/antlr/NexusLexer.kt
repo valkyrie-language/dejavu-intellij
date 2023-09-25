@@ -1,10 +1,10 @@
-package nexus.language.antlr
+package nexus.antlr
 
 import com.intellij.lexer.Lexer
 import com.intellij.lexer.LexerPosition
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
-import nexus.language.antlr.NexusAntlrLexer.*
+import nexus.antlr.NexusAntlrLexer.*
 import org.antlr.intellij.adaptor.lexer.ANTLRLexerAdaptor
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 
@@ -70,7 +70,7 @@ class NexusLexer : Lexer() {
 
             KW_FOR, KW_IN,
             // which/match/catch
-
+            KW_MATCH, KW_CASE,
             // control keywords
 
             //

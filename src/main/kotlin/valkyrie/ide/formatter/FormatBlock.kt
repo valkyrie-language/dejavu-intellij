@@ -5,7 +5,7 @@ import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiErrorElement
 import com.intellij.psi.formatter.FormatterUtil
-import nexus.language.antlr.isWhitespaceOrEmpty
+import nexus.antlr.isWhitespaceOrEmpty
 import nexus.language.psi.ValkyrieAlignmentElement
 import nexus.language.psi.ValkyrieIndentElement
 

@@ -6,7 +6,8 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
-import nexus.language.antlr.NexusAntlrLexer
+import nexus.antlr.NexusAntlrLexer
+import nexus.antlr.NexusLexer
 import org.antlr.intellij.adaptor.lexer.TokenIElementType
 
 
@@ -21,7 +22,7 @@ class ValkyrieBracketMatch : PairedBraceMatcher {
 
     override fun isPairedBracesAllowedBeforeType(lbraceType: IElementType, next: IElementType?): Boolean {
         val insertPairBraceBefore = TokenSet.orSet(
-            nexus.language.antlr.NexusLexer.Comments, TokenSet.orSet(
+            NexusLexer.Comments, TokenSet.orSet(
                 TokenSet.create(TokenType.WHITE_SPACE),
 //                COMMA,
                 Instance.Right

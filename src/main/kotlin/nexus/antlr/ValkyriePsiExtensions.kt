@@ -1,4 +1,4 @@
-package nexus.language.antlr
+package nexus.antlr
 
 
 import com.intellij.extapi.psi.StubBasedPsiElementBase

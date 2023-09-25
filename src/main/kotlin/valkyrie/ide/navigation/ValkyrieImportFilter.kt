@@ -4,7 +4,7 @@ import com.intellij.usages.Usage
 import com.intellij.usages.UsageTarget
 import com.intellij.usages.rules.ImportFilteringRule
 import com.intellij.usages.rules.PsiElementUsage
-import nexus.language.antlr.ancestors
+import nexus.antlr.ancestors
 import nexus.language.ast.NexusIdentifierNode
 
 //import nexus.language.psi_node.ValkyrieIdentifierNode

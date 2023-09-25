@@ -15,7 +15,7 @@
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition
 			language="Nexus"
-			implementationClass="nexus.language.antlr.NexusParserDefinition"/>
+			implementationClass="nexus.antlr.NexusParserDefinition"/>
 		<multiHostInjector implementation="valkyrie.ide.matcher.LanguageInjector"/>
 		<!-- Project -->
 		<projectNameProvider implementation="valkyrie.ide.project.ValkyrieProjectName"/>

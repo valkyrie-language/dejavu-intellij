@@ -1,4 +1,4 @@
-package nexus.language.antlr
+package nexus.antlr
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode
@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.antlr.NexusAntlrParser.*
+import nexus.antlr.NexusAntlrParser.*
 import nexus.language.ast.NexusIdentifierNode
 import nexus.language.ast.NexusModifiedNode
 import nexus.language.ast.NexusNamepathNode

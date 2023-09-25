@@ -4,7 +4,8 @@ import com.intellij.formatting.SpacingBuilder
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.tree.TokenSet
-import nexus.language.antlr.NexusAntlrLexer.KW_IN
+import nexus.antlr.NexusAntlrLexer.KW_IN
+import nexus.antlr.NexusLexer
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory.createTokenSet
 import valkyrie.ide.matcher.ValkyrieBracketMatch
 
@@ -31,7 +32,7 @@ private val removeSpaceNewlineAfter = TokenSet.orSet(
 // 左右插入一个空格
 private val spaceAroundOperator = TokenSet.orSet(
     createTokenSet(nexus.language.NexusLanguage, KW_IN),
-    nexus.language.antlr.NexusLexer.OperatorInfix
+    NexusLexer.OperatorInfix
 )
 
 private val addSpaceAfter = TokenSet.orSet(

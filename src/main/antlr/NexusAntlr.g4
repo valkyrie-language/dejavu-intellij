@@ -7,7 +7,16 @@ options {
 // $antlr-format useTab false, columnLimit 144
 // $antlr-format alignColons hanging, alignSemicolons hanging, alignFirstTokens true
 program
-    : (TEMPLATE_E | define_import | define_class | if_statement | for_statement | any_text)* EOF
+    : (
+        TEMPLATE_E
+        | define_import
+        | define_class
+        | if_statement
+        | for_statement
+        | match_statement
+        | any_expression
+        | any_text
+    )* EOF
     ;
 statements: if_statement | for_statement | any_text;
 any_text:   (TEXT_SPACE | TEXT_WORD | TEXT);
@@ -35,9 +44,15 @@ for_pattern
     | modified_identifier (COMMA modified_identifier)* COMMA?
     ;
 for_end: TEMPLATE_L KW_END KW_FOR? TEMPLATE_R;
+// match
+match_statement: match_begin case_branch* match_end;
+match_begin:     TEMPLATE_L KW_MATCH expression TEMPLATE_R statements*;
+case_branch:     TEMPLATE_L KW_CASE expression TEMPLATE_R statements*;
+match_end:       TEMPLATE_L KW_END KW_MATCH? TEMPLATE_R;
 
 // expression
-expression: namepath;
+any_expression: TEMPLATE_L expression TEMPLATE_R;
+expression:     namepath;
 
 // modifiers
 modifiers:           (mods += identifier)*;

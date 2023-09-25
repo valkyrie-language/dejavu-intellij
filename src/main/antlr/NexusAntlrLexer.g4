@@ -26,6 +26,9 @@ KW_ELSE: 'else';
 KW_END:  'end';
 // loop
 KW_FOR: 'for';
+// loop
+KW_MATCH: 'match';
+KW_CASE: 'case';
 
 OP_PROPORTION: '::';
 

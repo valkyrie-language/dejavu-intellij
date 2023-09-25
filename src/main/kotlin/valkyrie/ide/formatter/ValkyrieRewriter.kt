@@ -8,7 +8,8 @@ import com.intellij.psi.util.elementType
 import com.intellij.psi.util.nextLeaf
 import com.intellij.refactoring.suggested.endOffset
 import com.intellij.refactoring.suggested.startOffset
-import nexus.language.antlr.childrenWithLeaves
+import nexus.antlr.NexusLexer
+import nexus.antlr.childrenWithLeaves
 import valkyrie.ide.codeStyle.ValkyrieCodeStyleSettings
 
 class ValkyrieRewriter {
@@ -42,7 +43,7 @@ class ValkyrieRewriter {
     }
 
     fun deleteDelimiterAfter(node: PsiElement) {
-        val both = TokenSet.orSet(nexus.language.antlr.NexusLexer.Comma, nexus.language.antlr.NexusLexer.Semicolon);
+        val both = TokenSet.orSet(NexusLexer.Comma, NexusLexer.Semicolon);
         var leaf = PsiTreeUtil.skipWhitespacesForward(node)
         while (true) {
             when {
@@ -85,7 +86,7 @@ class ValkyrieRewriter {
 
     fun fixDelimiter(element: PsiElement, config: ValkyrieCodeStyleSettings.CommaOrSemicolon) {
         val delimiter = element.nextLeaf(true) ?: return;
-        val both = TokenSet.orSet(nexus.language.antlr.NexusLexer.Comma, nexus.language.antlr.NexusLexer.Semicolon);
+        val both = TokenSet.orSet(NexusLexer.Comma, NexusLexer.Semicolon);
 
         when (config) {
             ValkyrieCodeStyleSettings.CommaOrSemicolon.Ignore -> return
@@ -96,13 +97,13 @@ class ValkyrieRewriter {
             }
 
             ValkyrieCodeStyleSettings.CommaOrSemicolon.Comma -> when {
-                nexus.language.antlr.NexusLexer.Semicolon.contains(delimiter.elementType) -> replaceNode(delimiter, ",")
-                !nexus.language.antlr.NexusLexer.Comma.contains(delimiter.elementType) -> insertAfter(element, ",")
+                NexusLexer.Semicolon.contains(delimiter.elementType) -> replaceNode(delimiter, ",")
+                !NexusLexer.Comma.contains(delimiter.elementType) -> insertAfter(element, ",")
             }
 
             ValkyrieCodeStyleSettings.CommaOrSemicolon.Semicolon -> when {
-                nexus.language.antlr.NexusLexer.Comma.contains(delimiter.elementType) -> replaceNode(delimiter, ";")
-                !nexus.language.antlr.NexusLexer.Semicolon.contains(delimiter.elementType) -> insertAfter(element, ";")
+                NexusLexer.Comma.contains(delimiter.elementType) -> replaceNode(delimiter, ";")
+                !NexusLexer.Semicolon.contains(delimiter.elementType) -> insertAfter(element, ";")
             }
         }
         deleteDelimiterAfter(delimiter)

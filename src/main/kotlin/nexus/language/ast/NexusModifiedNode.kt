@@ -6,7 +6,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiWhiteSpace
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.antlr.childrenWithLeaves
+import nexus.antlr.childrenWithLeaves
 import nexus.language.psi.types.ValkyrieModifiedType
 import org.jetbrains.annotations.Unmodifiable
 

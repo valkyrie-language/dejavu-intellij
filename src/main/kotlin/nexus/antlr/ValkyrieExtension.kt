@@ -1,4 +1,4 @@
-package nexus.language.antlr
+package nexus.antlr
 
 
 import com.intellij.codeInsight.daemon.impl.HighlightInfo
@@ -18,7 +18,7 @@ fun ASTNode?.isWhitespaceOrEmpty(): Boolean {
 }
 
 fun extractExpression(node: CompositeElement): ASTWrapperPsiElement {
-    val infix = node.findPsiChildByType(nexus.language.antlr.NexusLexer.OperatorInfix);
+    val infix = node.findPsiChildByType(NexusLexer.OperatorInfix);
     return if (infix == null) {
 //        println("extractExpression: ${node.elementType} ${node.text}")
         ASTWrapperPsiElement(node)

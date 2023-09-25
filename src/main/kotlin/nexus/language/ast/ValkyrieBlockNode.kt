@@ -6,7 +6,7 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.refactoring.suggested.endOffset
 import com.intellij.refactoring.suggested.startOffset
-import nexus.language.antlr.childrenWithLeaves
+import nexus.antlr.childrenWithLeaves
 import nexus.language.psi.ValkyrieFoldableElement
 import nexus.language.psi.ValkyrieIndentElement
 import nexus.language.psi.types.ValkyrieBlockType

@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import nexus.language.antlr.NexusAntlrLexer
+import nexus.antlr.NexusAntlrLexer
 import org.antlr.intellij.adaptor.lexer.TokenIElementType
 
 

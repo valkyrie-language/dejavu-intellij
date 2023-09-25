@@ -6,6 +6,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.elementType
+import nexus.antlr.NexusLexer
 import nexus.language.ast.ValkyrieCommentDocument
 import java.net.ConnectException
 import java.util.function.Consumer
@@ -62,8 +63,8 @@ class DocumentationProvider : DocumentationProvider {
 
     override fun getCustomDocumentationElement(editor: Editor, file: PsiFile, contextElement: PsiElement?, targetOffset: Int): PsiElement? {
         return when {
-            nexus.language.antlr.NexusLexer.Keywords.contains(contextElement.elementType) -> contextElement
-            nexus.language.antlr.NexusLexer.Operators.contains(contextElement.elementType) -> contextElement
+            NexusLexer.Keywords.contains(contextElement.elementType) -> contextElement
+            NexusLexer.Operators.contains(contextElement.elementType) -> contextElement
             contextElement.elementType == TokenType.WHITE_SPACE -> null
             else -> null
         }

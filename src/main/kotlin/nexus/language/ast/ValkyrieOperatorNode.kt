@@ -2,7 +2,7 @@ package nexus.language.ast
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
-import nexus.language.antlr.childrenWithLeaves
+import nexus.antlr.childrenWithLeaves
 import nexus.language.psi.ValkyrieRewritableElement
 import valkyrie.ide.formatter.ValkyrieRewriter
 

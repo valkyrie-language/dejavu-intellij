@@ -7,7 +7,7 @@ import com.intellij.openapi.editor.Document
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import nexus.language.antlr.traversal
+import nexus.antlr.traversal
 import nexus.language.file.NexusFileNode
 import nexus.language.psi.ValkyrieFoldableElement
 
