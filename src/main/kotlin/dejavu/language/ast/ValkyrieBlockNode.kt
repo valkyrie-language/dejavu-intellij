@@ -6,7 +6,7 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.refactoring.suggested.endOffset
 import com.intellij.refactoring.suggested.startOffset
-import dejavu.antlr.childrenWithLeaves
+import dejavu.language.antlr.childrenWithLeaves
 import dejavu.language.psi.ValkyrieFoldableElement
 import dejavu.language.psi.ValkyrieIndentElement
 import dejavu.language.psi.types.ValkyrieBlockType

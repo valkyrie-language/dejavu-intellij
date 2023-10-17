@@ -3,9 +3,9 @@ package dejavu.language.ast.calls
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.util.elementType
-import dejavu.antlr.NexusAntlrLexer.BRACKET_L
-import dejavu.antlr.NexusAntlrLexer.BRACKET_R
-import dejavu.antlr.childrenWithLeaves
+import dejavu.language.antlr.DejavuAntlrLexer.BRACKET_L
+import dejavu.language.antlr.DejavuAntlrLexer.BRACKET_R
+import dejavu.language.antlr.childrenWithLeaves
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter

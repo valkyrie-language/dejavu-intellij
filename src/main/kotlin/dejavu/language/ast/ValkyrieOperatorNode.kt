@@ -2,7 +2,7 @@ package dejavu.language.ast
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
-import dejavu.antlr.childrenWithLeaves
+import dejavu.language.antlr.childrenWithLeaves
 import dejavu.language.psi.ValkyrieRewritableElement
 import valkyrie.ide.formatter.ValkyrieRewriter
 

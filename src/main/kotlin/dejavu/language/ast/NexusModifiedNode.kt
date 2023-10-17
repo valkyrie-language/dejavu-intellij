@@ -6,7 +6,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiWhiteSpace
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.util.PsiTreeUtil
-import dejavu.antlr.childrenWithLeaves
+import dejavu.language.antlr.childrenWithLeaves
 import dejavu.language.psi.types.ValkyrieModifiedType
 import org.jetbrains.annotations.Unmodifiable
 

@@ -15,7 +15,7 @@
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition
 			language="Dejavu"
-			implementationClass="dejavu.antlr.NexusParserDefinition"/>
+			implementationClass="dejavu.language.antlr.DejavuParserDefinition"/>
 		<multiHostInjector implementation="valkyrie.ide.matcher.LanguageInjector"/>
 		<!-- Project -->
 		<projectNameProvider implementation="valkyrie.ide.project.ValkyrieProjectName"/>

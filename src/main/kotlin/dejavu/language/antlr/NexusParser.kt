@@ -1,4 +1,4 @@
-package dejavu.antlr
+package dejavu.language.antlr
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode
@@ -7,11 +7,11 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
-import dejavu.antlr.NexusAntlrParser.*
+import dejavu.language.DejavuLanguage
+import dejavu.language.antlr.DejavuAntlrParser.*
 import dejavu.language.ast.NexusIdentifierNode
 import dejavu.language.ast.NexusModifiedNode
 import dejavu.language.ast.NexusNamepathNode
-import dejavu.language.ast.classes.NexusClassStatement
 import dejavu.language.psi.types.ValkyrieModifiedType
 import org.antlr.intellij.adaptor.lexer.RuleIElementType
 import org.antlr.intellij.adaptor.parser.ANTLRParseTreeToPSIConverter
@@ -20,9 +20,9 @@ import org.antlr.v4.runtime.Parser
 import org.antlr.v4.runtime.tree.ParseTree
 
 
-class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(dejavu.language.DejavuLanguage, parser) {
+class NexusParser(parser: DejavuAntlrParser) : ANTLRParserAdaptor(DejavuLanguage, parser) {
     override fun parse(parser: Parser, root: IElementType): ParseTree {
-        return (parser as NexusAntlrParser).program()
+        return (parser as DejavuAntlrParser).program()
     }
 
 
@@ -48,7 +48,7 @@ class NexusParser(parser: NexusAntlrParser) : ANTLRParserAdaptor(dejavu.language
 //                RULE_annotation -> ValkyrieAnnotation(node)
 //                RULE_annotation_call_item -> ValkyrieAnnotationItem(node)
 //                // class
-                RULE_define_class -> NexusClassStatement(node)
+//                RULE_define_class -> NexusClassStatement(node)
 //                RULE_define_generic -> ValkyrieGenericStatement(node)
 //                RULE_class_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
 //                RULE_class_field -> ValkyrieClassFieldNode(node)

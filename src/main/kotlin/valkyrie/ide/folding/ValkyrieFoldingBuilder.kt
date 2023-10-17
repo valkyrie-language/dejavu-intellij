@@ -7,7 +7,7 @@ import com.intellij.openapi.editor.Document
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import dejavu.antlr.traversal
+import dejavu.language.antlr.traversal
 import dejavu.language.file.DejavuFileNode
 import dejavu.language.psi.ValkyrieFoldableElement
 

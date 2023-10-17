@@ -5,7 +5,7 @@ import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiErrorElement
 import com.intellij.psi.formatter.FormatterUtil
-import dejavu.antlr.isWhitespaceOrEmpty
+import dejavu.language.antlr.isWhitespaceOrEmpty
 import dejavu.language.psi.ValkyrieAlignmentElement
 import dejavu.language.psi.ValkyrieIndentElement
 

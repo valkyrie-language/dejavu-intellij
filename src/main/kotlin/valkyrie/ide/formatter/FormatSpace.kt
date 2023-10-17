@@ -4,39 +4,40 @@ import com.intellij.formatting.SpacingBuilder
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.tree.TokenSet
-import dejavu.antlr.NexusAntlrLexer.KW_IN
-import dejavu.antlr.NexusLexer
+import dejavu.language.DejavuLanguage
+import dejavu.language.antlr.DejavuAntlrLexer.KW_IN
+import dejavu.language.antlr.NexusLexer
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory.createTokenSet
 import valkyrie.ide.matcher.ValkyrieBracketMatch
 
 
 private val removeSpaceBefore = TokenSet.orSet(
-    createTokenSet(dejavu.language.DejavuLanguage),
+    createTokenSet(DejavuLanguage),
     ValkyrieBracketMatch.Instance.Right,
 
     )
 
 private val removeSpaceNewlineBefore = TokenSet.orSet(
-    createTokenSet(dejavu.language.DejavuLanguage)
+    createTokenSet(DejavuLanguage)
 
 )
 
 private val removeSpaceAfter = TokenSet.orSet(
-    createTokenSet(dejavu.language.DejavuLanguage)
+    createTokenSet(DejavuLanguage)
 )
 
 private val removeSpaceNewlineAfter = TokenSet.orSet(
-    createTokenSet(dejavu.language.DejavuLanguage)
+    createTokenSet(DejavuLanguage)
 )
 
 // 左右插入一个空格
 private val spaceAroundOperator = TokenSet.orSet(
-    createTokenSet(dejavu.language.DejavuLanguage, KW_IN),
+    createTokenSet(DejavuLanguage, KW_IN),
     NexusLexer.OperatorInfix
 )
 
 private val addSpaceAfter = TokenSet.orSet(
-    createTokenSet(dejavu.language.DejavuLanguage)
+    createTokenSet(DejavuLanguage)
 )
 
 private val newlineIndentAfter = TokenSet.create()
@@ -44,7 +45,7 @@ private val newlineIndentAfter = TokenSet.create()
 data class FormatSpace(val commonSettings: CommonCodeStyleSettings, val spacingBuilder: SpacingBuilder) {
     companion object {
         fun create(settings: CodeStyleSettings): FormatSpace {
-            val commonSettings = settings.getCommonSettings(dejavu.language.DejavuLanguage)
+            val commonSettings = settings.getCommonSettings(DejavuLanguage)
             return FormatSpace(commonSettings, createSpacingBuilder(commonSettings))
         }
 

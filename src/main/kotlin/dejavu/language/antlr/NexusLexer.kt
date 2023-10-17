@@ -1,10 +1,11 @@
-package dejavu.antlr
+package dejavu.language.antlr
 
 import com.intellij.lexer.Lexer
 import com.intellij.lexer.LexerPosition
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
-import dejavu.antlr.NexusAntlrLexer.*
+import dejavu.language.DejavuLanguage
+import dejavu.language.antlr.DejavuAntlrLexer.*
 import org.antlr.intellij.adaptor.lexer.ANTLRLexerAdaptor
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 
@@ -12,8 +13,8 @@ class NexusLexer : Lexer() {
     private var adaptor: ANTLRLexerAdaptor
 
     init {
-        val lexer = NexusAntlrLexer(null)
-        this.adaptor = ANTLRLexerAdaptor(dejavu.language.DejavuLanguage, lexer)
+        val lexer = DejavuAntlrLexer(null)
+        this.adaptor = ANTLRLexerAdaptor(DejavuLanguage, lexer)
     }
 
     override fun start(buffer: CharSequence, startOffset: Int, endOffset: Int, initialState: Int) {
@@ -58,10 +59,10 @@ class NexusLexer : Lexer() {
 
     companion object {
         val Keywords: TokenSet = PSIElementTypeFactory.createTokenSet(
-            dejavu.language.DejavuLanguage,
+            DejavuLanguage,
             // declare keywords
             KW_IMPORT, KW_AS, KW_IN,
-            KW_CLASS,
+
             //
 
             // conditional
@@ -77,17 +78,17 @@ class NexusLexer : Lexer() {
 
         )
         val OperatorPrefix: TokenSet = PSIElementTypeFactory.createTokenSet(
-            dejavu.language.DejavuLanguage,
+            DejavuLanguage,
             TEMPLATE_L
 
         )
         val OperatorInfix: TokenSet = PSIElementTypeFactory.createTokenSet(
-            dejavu.language.DejavuLanguage,
+            DejavuLanguage,
 
 
             )
         val OperatorSuffix: TokenSet = PSIElementTypeFactory.createTokenSet(
-            dejavu.language.DejavuLanguage,
+            DejavuLanguage,
             TEMPLATE_R
         )
         val Operators = TokenSet.orSet(
@@ -95,18 +96,18 @@ class NexusLexer : Lexer() {
             OperatorInfix,
             OperatorSuffix
         );
-        val MacroOperators = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
-        val Escapes: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage, TEMPLATE_E);
-        val Comma: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
-        val Semicolon: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
-        val Integers: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
-        val Decimals: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
-        val Strings: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
-        val Identifiers: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
+        val MacroOperators = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
+        val Escapes: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage, TEMPLATE_E);
+        val Comma: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
+        val Semicolon: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
+        val Integers: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
+        val Decimals: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
+        val Strings: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
+        val Identifiers: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
 
-        val Comments: TokenSet = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
+        val Comments: TokenSet = PSIElementTypeFactory.createTokenSet(DejavuLanguage);
         val CompletionWords: TokenSet = PSIElementTypeFactory.createTokenSet(
-            dejavu.language.DejavuLanguage,
+            DejavuLanguage,
 
             )
     }

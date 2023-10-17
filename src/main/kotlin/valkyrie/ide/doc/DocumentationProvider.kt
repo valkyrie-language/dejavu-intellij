@@ -6,7 +6,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.*
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.elementType
-import dejavu.antlr.NexusLexer
+import dejavu.language.antlr.NexusLexer
 import dejavu.language.ast.ValkyrieCommentDocument
 import java.net.ConnectException
 import java.util.function.Consumer

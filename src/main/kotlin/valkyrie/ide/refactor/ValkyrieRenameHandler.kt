@@ -9,7 +9,7 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.util.elementType
 import com.intellij.refactoring.rename.RenameHandler
 import com.intellij.refactoring.util.CommonRefactoringUtil
-import dejavu.antlr.NexusLexer
+import dejavu.language.antlr.NexusLexer
 import dejavu.language.file.DejavuFileNode
 
 //import nexus.language.psi.ValkyrieTypes

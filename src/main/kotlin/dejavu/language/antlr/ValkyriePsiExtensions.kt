@@ -1,4 +1,4 @@
-package dejavu.antlr
+package dejavu.language.antlr
 
 
 import com.intellij.extapi.psi.StubBasedPsiElementBase

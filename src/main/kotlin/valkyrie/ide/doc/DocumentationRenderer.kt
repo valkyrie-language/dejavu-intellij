@@ -7,7 +7,7 @@ import com.intellij.openapi.editor.richcopy.HtmlSyntaxInfoUtil
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
 import com.intellij.ui.ColorUtil
-import dejavu.antlr.NexusLexer
+import dejavu.language.antlr.NexusLexer
 import dejavu.language.ast.classes.NexusClassStatement
 import valkyrie.ide.highlight.NexusHighlightColor
 import valkyrie.ide.highlight.NexusHighlightColor.KEYWORD

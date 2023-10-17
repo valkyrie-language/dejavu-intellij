@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.elementType
-import dejavu.antlr.childrenWithLeaves
+import dejavu.language.antlr.childrenWithLeaves
 import dejavu.language.ast.NexusLetStatement
 
 //import nexus.language.psi_node.ValkyrieLetStatementNode

@@ -1,4 +1,4 @@
-package dejavu.antlr
+package dejavu.language.antlr
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode
@@ -17,21 +17,21 @@ import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import org.antlr.intellij.adaptor.parser.ANTLRParserAdaptor
 import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
 
-class NexusParserDefinition : ParserDefinition {
+class DejavuParserDefinition : ParserDefinition {
     override fun createLexer(project: Project): Lexer {
         return NexusLexer()
     }
 
 
     override fun createParser(project: Project): PsiParser {
-        return NexusParser(NexusAntlrParser(null))
+        return NexusParser(DejavuAntlrParser(null))
     }
 
     /**
      * "Tokens of those types are automatically skipped by PsiBuilder."
      */
     override fun getWhitespaceTokens(): TokenSet {
-        return PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage, NexusAntlrLexer.WHITE_SPACE)
+        return PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage, DejavuAntlrLexer.WHITE_SPACE)
     }
 
     override fun getCommentTokens(): TokenSet {
@@ -108,7 +108,7 @@ class NexusParserDefinition : ParserDefinition {
     companion object {
         init {
             PSIElementTypeFactory.defineLanguageIElementTypes(
-                dejavu.language.DejavuLanguage, NexusAntlrParser.tokenNames, NexusAntlrParser.ruleNames
+                dejavu.language.DejavuLanguage, DejavuAntlrParser.tokenNames, DejavuAntlrParser.ruleNames
             )
         }
     }

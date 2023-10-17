@@ -7,7 +7,7 @@ import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import dejavu.antlr.traversal
+import dejavu.language.antlr.traversal
 import dejavu.language.file.DejavuFileNode
 
 class NexusHighlighterVisitor : HighlightVisitor {

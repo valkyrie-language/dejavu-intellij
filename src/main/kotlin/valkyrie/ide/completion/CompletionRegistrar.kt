@@ -8,7 +8,7 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
-import dejavu.antlr.NexusLexer
+import dejavu.language.antlr.NexusLexer
 import dejavu.language.file.DejavuFileNode
 
 

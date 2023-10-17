@@ -6,7 +6,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.impl.source.codeStyle.PreFormatProcessor
 import com.intellij.util.DocumentUtil
-import dejavu.antlr.traversal
+import dejavu.language.antlr.traversal
 import dejavu.language.psi.ValkyrieRewritableElement
 import valkyrie.ide.codeStyle.ValkyrieCodeStyleSettings
 

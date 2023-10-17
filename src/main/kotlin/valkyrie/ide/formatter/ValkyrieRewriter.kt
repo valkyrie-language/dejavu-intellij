@@ -8,8 +8,8 @@ import com.intellij.psi.util.elementType
 import com.intellij.psi.util.nextLeaf
 import com.intellij.refactoring.suggested.endOffset
 import com.intellij.refactoring.suggested.startOffset
-import dejavu.antlr.NexusLexer
-import dejavu.antlr.childrenWithLeaves
+import dejavu.language.antlr.NexusLexer
+import dejavu.language.antlr.childrenWithLeaves
 import valkyrie.ide.codeStyle.ValkyrieCodeStyleSettings
 
 class ValkyrieRewriter {

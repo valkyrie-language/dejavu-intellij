@@ -2,7 +2,7 @@ package dejavu.language.ast.calls
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.psi.impl.source.tree.CompositeElement
-import dejavu.antlr.childrenWithLeaves
+import dejavu.language.antlr.childrenWithLeaves
 import dejavu.language.ast.NexusNamepathNode
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
