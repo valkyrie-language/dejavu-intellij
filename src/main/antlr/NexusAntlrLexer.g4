@@ -3,14 +3,13 @@ lexer grammar NexusAntlrLexer;
 // $antlr-format useTab false, columnLimit 144
 // $antlr-format alignColons hanging, alignSemicolons hanging, alignFirstTokens true
 TEMPLATE_E: '<<%';
-TEMPLATE_L: '<%' -> mode(TEMPLATE_MODE);
+TEMPLATE_L: '<%' WHITE_CONTROL? -> mode(TEMPLATE_MODE);
 TEXT_SPACE: [\p{White_Space}]+;
 TEXT_WORD:  [\p{XID_start}] [\p{XID_continue}]*;
 TEXT:       .+?;
 
-mode TEMPLATE_MODE
-    ;
-TEMPLATE_R: '%>' -> mode(DEFAULT_MODE);
+mode TEMPLATE_MODE;
+TEMPLATE_R: WHITE_CONTROL? '%>' -> mode(DEFAULT_MODE);
 
 DOT:   '.';
 COMMA: ',';
@@ -31,6 +30,7 @@ KW_MATCH: 'match';
 KW_CASE: 'case';
 // slot
 KW_SLOT: 'block';
+KW_APPLY: 'apply';
 
 OP_PROPORTION: '::';
 
@@ -47,6 +47,8 @@ GENERIC_R:     '⟩';
 RAW_ID:     '`' ~[`]+ '`';
 UNICODE_ID: [_\p{XID_start}] [\p{XID_continue}]*;
 // skip
+fragment WHITE_CONTROL: [_\-=];
 WHITE_SPACE:     [\p{White_Space}]+ -> channel(HIDDEN);
-BLOCK_COMMENT:   '#' [^%]+?;
+BLOCK_COMMENT:   '/*' .*? '*/';
 ERROR_CHARACTAR: . -> channel(HIDDEN);
+

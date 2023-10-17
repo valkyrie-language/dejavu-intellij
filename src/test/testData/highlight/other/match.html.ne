@@ -1,3 +1,8 @@
+<% include "path" %>
+<% extends "path" if condition %>
+
+<% %>
+
 <% match expression %>
    match expression
 <% case condition %>
@@ -9,8 +14,12 @@
 <% end match %>
    end case
 
+<% apply upper %>
+    This text becomes uppercase
+<% end apply %>
 
-My name is <%# per.name #%> and I am <% per.age %>
+
+My name is <%/* per.name */%> and I am <% per.age %>
 
 
 <% block content %>
@@ -19,3 +28,11 @@ My name is <%# per.name #%> and I am <% per.age %>
     This is about page
 </p>
 <% end block %>
+
+<% macro input(name, value='', type='text', size=20) -%>
+    <input type="<% type %>"
+           name="<% name %>"
+           value="<% value|e %>"
+           size="<% size %>">
+<%- end macro %>
+

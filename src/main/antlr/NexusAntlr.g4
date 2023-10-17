@@ -14,6 +14,7 @@ program
         | if_statement
         | for_statement
         | slot_statement
+        | apply_statement
         | match_statement
         | any_expression
         | any_text
@@ -49,7 +50,10 @@ for_end: TEMPLATE_L KW_END KW_FOR? TEMPLATE_R;
 slot_statement: slot_begin slot_end;
 slot_begin: TEMPLATE_L KW_SLOT identifier TEMPLATE_R statements*;
 slot_end: TEMPLATE_L KW_END KW_SLOT? TEMPLATE_R;
-
+// apply
+apply_statement: apply_begin apply_end;
+apply_begin: TEMPLATE_L KW_APPLY identifier TEMPLATE_R statements*;
+apply_end: TEMPLATE_L KW_END KW_APPLY? TEMPLATE_R;
 // match
 match_statement: match_begin case_branch* match_end;
 match_begin:     TEMPLATE_L KW_MATCH expression TEMPLATE_R statements*;
@@ -57,7 +61,7 @@ case_branch:     TEMPLATE_L KW_CASE expression TEMPLATE_R statements*;
 match_end:       TEMPLATE_L KW_END KW_MATCH? TEMPLATE_R;
 
 // expression
-any_expression: TEMPLATE_L expression TEMPLATE_R;
+any_expression: TEMPLATE_L expression? TEMPLATE_R;
 expression:     namepath;
 
 // modifiers

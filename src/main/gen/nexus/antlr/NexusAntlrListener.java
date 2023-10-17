@@ -178,6 +178,36 @@ public interface NexusAntlrListener extends ParseTreeListener {
 	 */
 	void exitSlot_end(NexusAntlrParser.Slot_endContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link NexusAntlrParser#apply_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterApply_statement(NexusAntlrParser.Apply_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link NexusAntlrParser#apply_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitApply_statement(NexusAntlrParser.Apply_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link NexusAntlrParser#apply_begin}.
+	 * @param ctx the parse tree
+	 */
+	void enterApply_begin(NexusAntlrParser.Apply_beginContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link NexusAntlrParser#apply_begin}.
+	 * @param ctx the parse tree
+	 */
+	void exitApply_begin(NexusAntlrParser.Apply_beginContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link NexusAntlrParser#apply_end}.
+	 * @param ctx the parse tree
+	 */
+	void enterApply_end(NexusAntlrParser.Apply_endContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link NexusAntlrParser#apply_end}.
+	 * @param ctx the parse tree
+	 */
+	void exitApply_end(NexusAntlrParser.Apply_endContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link NexusAntlrParser#match_statement}.
 	 * @param ctx the parse tree
 	 */
