@@ -9,21 +9,21 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.util.elementType
 import com.intellij.refactoring.rename.RenameHandler
 import com.intellij.refactoring.util.CommonRefactoringUtil
-import nexus.antlr.NexusLexer
-import nexus.language.file.NexusFileNode
+import dejavu.antlr.NexusLexer
+import dejavu.language.file.DejavuFileNode
 
 //import nexus.language.psi.ValkyrieTypes
 
 class ValkyrieRenameHandler : RenameHandler {
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?, dataContext: DataContext?) {
-        if (file !is NexusFileNode || editor == null) {
+        if (file !is DejavuFileNode || editor == null) {
             return
         }
         val offset = editor.caretModel.offset
         editor.scrollingModel.scrollToCaret(ScrollType.MAKE_VISIBLE)
         val element = file.findElementAt(offset) ?: return
         if (NexusLexer.Keywords.contains(element.elementType)) {
-            val message = nexus.language.NexusBundle.message("rename.invalid.keyword", element.elementType!!)
+            val message = dejavu.language.NexusBundle.message("rename.invalid.keyword", element.elementType!!)
             CommonRefactoringUtil.showErrorHint(project, editor, message, "getTitle", "getHelpId")
         } else if (NexusLexer.Identifiers.contains(element.elementType)) {
             invoke(project, arrayOf(element), dataContext)

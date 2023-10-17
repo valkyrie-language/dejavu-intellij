@@ -10,8 +10,8 @@ class RunFunction : AnAction() {
     private var path: String = "";
 
     init {
-        templatePresentation.text = nexus.language.NexusBundle.message("action.run.class.full.name")
-        templatePresentation.description = nexus.language.NexusBundle.message("action.run.class.full.help")
+        templatePresentation.text = dejavu.language.NexusBundle.message("action.run.class.full.name")
+        templatePresentation.description = dejavu.language.NexusBundle.message("action.run.class.full.help")
     }
 
     companion object {

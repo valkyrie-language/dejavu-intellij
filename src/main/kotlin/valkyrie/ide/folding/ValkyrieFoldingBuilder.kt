@@ -7,13 +7,13 @@ import com.intellij.openapi.editor.Document
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import nexus.antlr.traversal
-import nexus.language.file.NexusFileNode
-import nexus.language.psi.ValkyrieFoldableElement
+import dejavu.antlr.traversal
+import dejavu.language.file.DejavuFileNode
+import dejavu.language.psi.ValkyrieFoldableElement
 
 class ValkyrieFoldingBuilder : CustomFoldingBuilder(), DumbAware {
     override fun buildLanguageFoldRegions(descriptors: MutableList<FoldingDescriptor>, root: PsiElement, document: Document, quick: Boolean) {
-        if (root !is NexusFileNode) return
+        if (root !is DejavuFileNode) return
         val visitor = ValkyrieNodeFolder(descriptors)
         root.traversal {
             if (it is ValkyrieFoldableElement) {

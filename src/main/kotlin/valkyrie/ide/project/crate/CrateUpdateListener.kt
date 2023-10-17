@@ -5,16 +5,16 @@ import com.intellij.openapi.vfs.AsyncFileListener
 import com.intellij.openapi.vfs.AsyncFileListener.ChangeApplier
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 import com.intellij.psi.PsiManager
-import nexus.language.file.NexusFileNode
+import dejavu.language.file.DejavuFileNode
 
 
 class CrateUpdateListener : AsyncFileListener {
     override fun prepareChange(events: MutableList<out VFileEvent>): ChangeApplier {
         val project = ProjectManager.getInstance().defaultProject;
         val finder = PsiManager.getInstance(project);
-        val changes = mutableListOf<NexusFileNode>()
+        val changes = mutableListOf<DejavuFileNode>()
         for (event in events) {
-            val file = event.file?.let { finder.findFile(it) } as? NexusFileNode
+            val file = event.file?.let { finder.findFile(it) } as? DejavuFileNode
             if (file != null) {
                 changes.add(file)
             }

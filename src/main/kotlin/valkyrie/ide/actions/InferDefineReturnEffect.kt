@@ -5,8 +5,8 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
-import nexus.language.ast.NexusFunctionParameter
-import nexus.language.file.NexusIconProvider
+import dejavu.language.ast.NexusFunctionParameter
+import dejavu.language.file.NexusIconProvider
 //import nexus.language.psi_node.ValkyrieDefineItemNode
 import javax.swing.Icon
 

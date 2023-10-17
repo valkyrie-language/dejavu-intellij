@@ -7,13 +7,13 @@ import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import nexus.antlr.traversal
-import nexus.language.file.NexusFileNode
+import dejavu.antlr.traversal
+import dejavu.language.file.DejavuFileNode
 
 class NexusHighlighterVisitor : HighlightVisitor {
     private var _info: HighlightInfoHolder? = null
     override fun suitableForFile(file: PsiFile): Boolean {
-        return file is NexusFileNode
+        return file is DejavuFileNode
     }
 
     override fun visit(element: PsiElement) {

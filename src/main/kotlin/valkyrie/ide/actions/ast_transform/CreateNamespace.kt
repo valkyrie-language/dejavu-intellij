@@ -8,11 +8,11 @@ import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.CheckUtil
-import nexus.language.file.NexusFileNode
-import nexus.language.file.NexusIconProvider
+import dejavu.language.file.DejavuFileNode
+import dejavu.language.file.NexusIconProvider
 import javax.swing.Icon
 
-class CreateNamespace(private val element: NexusFileNode) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
+class CreateNamespace(private val element: DejavuFileNode) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
     override fun startInWriteAction(): Boolean {
         return true
     }
@@ -22,11 +22,11 @@ class CreateNamespace(private val element: NexusFileNode) : LocalQuickFixAndInte
     }
 
     override fun getText(): String {
-        return nexus.language.NexusBundle.message("action.create.namespace.name")
+        return dejavu.language.NexusBundle.message("action.create.namespace.name")
     }
 
     fun getDescription(): String {
-        return nexus.language.NexusBundle.message("action.create.namespace.help")
+        return dejavu.language.NexusBundle.message("action.create.namespace.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

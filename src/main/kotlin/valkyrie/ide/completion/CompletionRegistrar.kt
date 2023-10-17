@@ -8,8 +8,8 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
-import nexus.antlr.NexusLexer
-import nexus.language.file.NexusFileNode
+import dejavu.antlr.NexusLexer
+import dejavu.language.file.DejavuFileNode
 
 
 class CompletionRegistrar : CompletionContributor() {
@@ -33,7 +33,7 @@ class CompletionRegistrar : CompletionContributor() {
                     return
                 }
                 when (node) {
-                    is NexusFileNode -> {
+                    is DejavuFileNode -> {
                         println("ValkyrieFileNode: ${result.hashCode()}")
                         CompletionInFileScope().addCompletionVariants(parameters, context, result)
                         return

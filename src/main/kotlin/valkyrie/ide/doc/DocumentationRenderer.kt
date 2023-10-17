@@ -7,8 +7,8 @@ import com.intellij.openapi.editor.richcopy.HtmlSyntaxInfoUtil
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
 import com.intellij.ui.ColorUtil
-import nexus.antlr.NexusLexer
-import nexus.language.ast.classes.NexusClassStatement
+import dejavu.antlr.NexusLexer
+import dejavu.language.ast.classes.NexusClassStatement
 import valkyrie.ide.highlight.NexusHighlightColor
 import valkyrie.ide.highlight.NexusHighlightColor.KEYWORD
 import valkyrie.ide.highlight.NexusHighlightColor.SYM_CLASS
@@ -75,7 +75,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         HtmlSyntaxInfoUtil.appendHighlightedByLexerAndEncodedAsHtmlCodeSnippet(
             doc,
             element.project,
-            nexus.language.NexusLanguage,
+            dejavu.language.DejavuLanguage,
             code.trimIndent(),
             1.0f,
         )

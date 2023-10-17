@@ -1,9 +1,9 @@
 package valkyrie.ide.project.crate
 
 import com.intellij.openapi.vfs.AsyncFileListener
-import nexus.language.file.NexusFileNode
+import dejavu.language.file.DejavuFileNode
 
-class NamespaceMapping(private val changes: Array<NexusFileNode>) : AsyncFileListener.ChangeApplier {
+class NamespaceMapping(private val changes: Array<DejavuFileNode>) : AsyncFileListener.ChangeApplier {
     override fun afterVfsChange() {
         for (change in changes) {
             // 根据命名空间查文件
@@ -16,7 +16,7 @@ class NamespaceMapping(private val changes: Array<NexusFileNode>) : AsyncFileLis
 
     object Instance {
         // namespace -> file[]
-        val Cache: MutableMap<String, MutableSet<NexusFileNode>> = mutableMapOf()
+        val Cache: MutableMap<String, MutableSet<DejavuFileNode>> = mutableMapOf()
 
         // class -> namespace[]
         val ClassCache: MutableMap<String, MutableSet<String>> = mutableMapOf();

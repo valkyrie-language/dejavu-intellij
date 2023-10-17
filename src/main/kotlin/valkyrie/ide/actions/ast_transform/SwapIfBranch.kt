@@ -21,11 +21,11 @@ class SwapIfBranch(element: PsiElement, private val above: Boolean) : LocalQuick
     }
 
     override fun getText(): String {
-        return nexus.language.NexusBundle.message("action.if_swap_branch.name")
+        return dejavu.language.NexusBundle.message("action.if_swap_branch.name")
     }
 
     fun getDescription(): String {
-        return nexus.language.NexusBundle.message("action.if_swap_branch.help")
+        return dejavu.language.NexusBundle.message("action.if_swap_branch.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

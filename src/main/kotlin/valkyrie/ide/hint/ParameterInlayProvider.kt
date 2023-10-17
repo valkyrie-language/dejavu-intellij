@@ -5,7 +5,7 @@ import com.intellij.codeInsight.hints.InlayInfo
 import com.intellij.codeInsight.hints.InlayParameterHintsProvider
 import com.intellij.codeInsight.hints.Option
 import com.intellij.psi.PsiElement
-import nexus.language.psi.ValkyrieInlayElement
+import dejavu.language.psi.ValkyrieInlayElement
 
 
 @Suppress("UnstableApiUsage")
@@ -56,8 +56,8 @@ class ParameterInlayProvider : InlayParameterHintsProvider {
     /// Editor > Inlay Hints > Parameter Names > Valkyrie
     override fun getSupportedOptions(): MutableList<Option> {
         return mutableListOf(
-            Option("getSupportedOptions1", nexus.language.NexusBundle.messagePointer("color.token.null"), true),
-            Option("getSupportedOptions2", nexus.language.NexusBundle.messagePointer("color.token.boolean"), true)
+            Option("getSupportedOptions1", dejavu.language.NexusBundle.messagePointer("color.token.null"), true),
+            Option("getSupportedOptions2", dejavu.language.NexusBundle.messagePointer("color.token.boolean"), true)
         )
     }
 }

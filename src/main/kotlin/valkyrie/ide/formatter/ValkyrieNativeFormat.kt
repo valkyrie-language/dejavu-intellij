@@ -4,7 +4,7 @@ import com.intellij.formatting.service.AsyncDocumentFormattingService
 import com.intellij.formatting.service.AsyncFormattingRequest
 import com.intellij.formatting.service.FormattingService
 import com.intellij.psi.PsiFile
-import nexus.language.file.NexusFileNode
+import dejavu.language.file.DejavuFileNode
 
 class ValkyrieNativeFormat : AsyncDocumentFormattingService() {
     override fun getFeatures(): MutableSet<FormattingService.Feature> {
@@ -12,7 +12,7 @@ class ValkyrieNativeFormat : AsyncDocumentFormattingService() {
     }
 
     override fun canFormat(file: PsiFile): Boolean {
-        if (file is NexusFileNode) {
+        if (file is DejavuFileNode) {
             // TODO: Check if config is true
             return false
         }

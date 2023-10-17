@@ -4,39 +4,39 @@ import com.intellij.formatting.SpacingBuilder
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.tree.TokenSet
-import nexus.antlr.NexusAntlrLexer.KW_IN
-import nexus.antlr.NexusLexer
+import dejavu.antlr.NexusAntlrLexer.KW_IN
+import dejavu.antlr.NexusLexer
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory.createTokenSet
 import valkyrie.ide.matcher.ValkyrieBracketMatch
 
 
 private val removeSpaceBefore = TokenSet.orSet(
-    createTokenSet(nexus.language.NexusLanguage),
+    createTokenSet(dejavu.language.DejavuLanguage),
     ValkyrieBracketMatch.Instance.Right,
 
     )
 
 private val removeSpaceNewlineBefore = TokenSet.orSet(
-    createTokenSet(nexus.language.NexusLanguage)
+    createTokenSet(dejavu.language.DejavuLanguage)
 
 )
 
 private val removeSpaceAfter = TokenSet.orSet(
-    createTokenSet(nexus.language.NexusLanguage)
+    createTokenSet(dejavu.language.DejavuLanguage)
 )
 
 private val removeSpaceNewlineAfter = TokenSet.orSet(
-    createTokenSet(nexus.language.NexusLanguage)
+    createTokenSet(dejavu.language.DejavuLanguage)
 )
 
 // 左右插入一个空格
 private val spaceAroundOperator = TokenSet.orSet(
-    createTokenSet(nexus.language.NexusLanguage, KW_IN),
+    createTokenSet(dejavu.language.DejavuLanguage, KW_IN),
     NexusLexer.OperatorInfix
 )
 
 private val addSpaceAfter = TokenSet.orSet(
-    createTokenSet(nexus.language.NexusLanguage)
+    createTokenSet(dejavu.language.DejavuLanguage)
 )
 
 private val newlineIndentAfter = TokenSet.create()
@@ -44,7 +44,7 @@ private val newlineIndentAfter = TokenSet.create()
 data class FormatSpace(val commonSettings: CommonCodeStyleSettings, val spacingBuilder: SpacingBuilder) {
     companion object {
         fun create(settings: CodeStyleSettings): FormatSpace {
-            val commonSettings = settings.getCommonSettings(nexus.language.NexusLanguage)
+            val commonSettings = settings.getCommonSettings(dejavu.language.DejavuLanguage)
             return FormatSpace(commonSettings, createSpacingBuilder(commonSettings))
         }
 

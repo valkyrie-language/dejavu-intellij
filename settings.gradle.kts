@@ -1,1 +1,1 @@
-rootProject.name = "Nexus Intellij"
+rootProject.name = "Dejavu Intellij"

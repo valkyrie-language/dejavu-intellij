@@ -12,7 +12,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiWhiteSpace
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.impl.source.tree.PsiWhiteSpaceImpl
-import nexus.language.file.NexusFileNode
+import dejavu.language.file.DejavuFileNode
 
 
 class VStructureProvider : SelectableTreeStructureProvider, DumbAware {
@@ -34,7 +34,7 @@ class VStructureProvider : SelectableTreeStructureProvider, DumbAware {
             null
         }
 
-        is NexusFileNode -> {
+        is DejavuFileNode -> {
             null
         }
 
@@ -50,7 +50,7 @@ class VStructureProvider : SelectableTreeStructureProvider, DumbAware {
                     -9
                 }
 
-                file is NexusFileNode && file.isIndexFile() -> {
+                file is DejavuFileNode && file.isIndexFile() -> {
                     -8
                 }
 

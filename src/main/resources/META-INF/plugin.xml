@@ -10,12 +10,12 @@
 		<fileType
 			name="Nexus"
 			language="Nexus"
-			extensions="ne;nexus;"
-			implementationClass="nexus.language.file.NexusFileType"
+			extensions="dj;dejavu;"
+			implementationClass="dejavu.language.file.NexusFileType"
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition
 			language="Nexus"
-			implementationClass="nexus.antlr.NexusParserDefinition"/>
+			implementationClass="dejavu.antlr.NexusParserDefinition"/>
 		<multiHostInjector implementation="valkyrie.ide.matcher.LanguageInjector"/>
 		<!-- Project -->
 		<projectNameProvider implementation="valkyrie.ide.project.ValkyrieProjectName"/>
@@ -27,8 +27,8 @@
 			implementationClass="valkyrie.ide.project.ValkyrieDependencyResolver"/>
 		<additionalLibraryRootsProvider implementation="valkyrie.ide.project.library.LibraryRootsProvider"/>
 		<!-- Project Namespace -->
-		<iconProvider implementation="nexus.language.file.NexusIconProvider"/>
-		<projectViewNestingRulesProvider implementation="nexus.language.file.NexusFileGroup"/>
+		<iconProvider implementation="dejavu.language.file.NexusIconProvider"/>
+		<projectViewNestingRulesProvider implementation="dejavu.language.file.DejavuFileGroup"/>
 		<treeStructureProvider implementation="valkyrie.ide.view.VStructureProvider"/>
 		<!--		<lang.structureViewExtension implementation="valkyrie.ide.view.VStructureViewExtension"/>-->
 		<lang.psiStructureViewFactory
@@ -72,7 +72,7 @@
 		<breadcrumbsInfoProvider implementation="valkyrie.ide.navigation.ValkyrieBreadcrumbsProvider"/>
 		<breadcrumbsPresentationProvider implementation="valkyrie.ide.navigation.ValkyrieBreadcrumbsPresentation"/>
 		<symbolNavigation
-			forClass="nexus.language.symbol.ValkyrieSymbolTemplate"
+			forClass="dejavu.language.symbol.ValkyrieSymbolTemplate"
 			implementationClass="valkyrie.ide.goto.VSymbolNavigationProvider"/>
 		<codeInsight.gotoSuper language="Nexus" implementationClass="valkyrie.ide.navigation.GotoSuper"/>
 		<importFilteringRule implementation="valkyrie.ide.navigation.ValkyrieImportFilter"/>
