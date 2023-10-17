@@ -11,7 +11,7 @@ import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import dejavu.language.ast.NexusIdentifierNode
 import dejavu.language.ast.NexusModifiedNode
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieInlayElement
 import dejavu.language.psi.ValkyrieLineMarkElement
 import dejavu.language.psi.ValkyrieScopeNode
@@ -50,7 +50,7 @@ class NexusClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), Psi
                 return AllIcons.Gutter.OverridingMethod
             }
         }
-        return NexusIconProvider.Instance.Field
+        return DejavuIconProvider.Instance.Field
     }
 
     override fun getPresentation(): ItemPresentation {

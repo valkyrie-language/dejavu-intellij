@@ -1,21 +1,21 @@
-lexer grammar NexusAntlrLexer;
+lexer grammar DejavuAntlrLexer;
 
 // $antlr-format useTab false, columnLimit 144
 // $antlr-format alignColons hanging, alignSemicolons hanging, alignFirstTokens true
 TEMPLATE_E: '<%!';
-TEMPLATE_L: '<%' WHITE_CONTROL? -> mode(TEMPLATE_MODE);
+TEMPLATE_L: '<%' SPACE_CONTROL? -> mode(TEMPLATE_MODE);
 TEXT_SPACE: [\p{White_Space}]+;
 TEXT_WORD:  [\p{XID_start}] [\p{XID_continue}]*;
 TEXT:       .+?;
 
 mode TEMPLATE_MODE;
-TEMPLATE_R: WHITE_CONTROL? '%>' -> mode(DEFAULT_MODE);
+TEMPLATE_R: SPACE_CONTROL? '%>' -> mode(DEFAULT_MODE);
 
 DOT:   '.';
 COMMA: ',';
 
-KW_IMPORT: 'using';
-KW_CLASS:  'class';
+KW_EXPORT: 'export';
+KW_IMPORT: 'import';
 KW_AS:     'as';
 KW_IN:     'in';
 
@@ -28,6 +28,7 @@ KW_FOR: 'for';
 // loop
 KW_MATCH: 'match';
 KW_CASE: 'case';
+KW_WITH: 'with';
 // slot
 KW_SLOT: 'block';
 KW_APPLY: 'apply';
@@ -47,7 +48,7 @@ GENERIC_R:     '⟩';
 RAW_ID:     '`' ~[`]+ '`';
 UNICODE_ID: [_\p{XID_start}] [\p{XID_continue}]*;
 // skip
-fragment WHITE_CONTROL: [_\-=];
+fragment SPACE_CONTROL: [._\-~=];
 WHITE_SPACE:     [\p{White_Space}]+ -> channel(HIDDEN);
 BLOCK_COMMENT:   '/*' .*? '*/';
 ERROR_CHARACTAR: . -> channel(HIDDEN);

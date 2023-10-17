@@ -10,7 +10,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import dejavu.language.ast.NexusModifiedNode
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieInlayElement
 import dejavu.language.psi.ValkyrieLineMarkElement
 import dejavu.language.psi.ValkyrieScopeNode
@@ -45,7 +45,7 @@ class NexusClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node), Ps
                 return AllIcons.Nodes.Property
             }
         }
-        return NexusIconProvider.Instance.Method
+        return DejavuIconProvider.Instance.Method
     }
 
 

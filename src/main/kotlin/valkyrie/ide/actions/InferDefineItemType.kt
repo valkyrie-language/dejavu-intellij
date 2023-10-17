@@ -8,7 +8,7 @@ import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import dejavu.language.ast.NexusFunctionParameter
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 //import nexus.language.psi_node.ValkyrieDefineItemNode
 import javax.swing.Icon
 
@@ -30,7 +30,7 @@ class InferDefineItemType(element: NexusFunctionParameter) : LocalQuickFixAndInt
     }
 
     override fun getIcon(flags: Int): Icon {
-        return NexusIconProvider.Instance.TYPE
+        return DejavuIconProvider.Instance.TYPE
     }
 
     override fun getPriority(): PriorityAction.Priority {

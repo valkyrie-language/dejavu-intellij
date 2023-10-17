@@ -1,7 +1,7 @@
-grammar NexusAntlr;
+grammar DejavuAntlr;
 
 options {
-	tokenVocab = NexusAntlrLexer;
+	tokenVocab = DejavuAntlrLexer;
 }
 
 // $antlr-format useTab false, columnLimit 144
@@ -9,8 +9,7 @@ options {
 program
     : (
         TEMPLATE_E
-        | define_import
-        | define_class
+        | ie_statement
         | if_statement
         | for_statement
         | slot_statement
@@ -23,11 +22,15 @@ program
 statements: if_statement | for_statement | any_text;
 any_text:   (TEXT_SPACE | TEXT_WORD | TEXT);
 
-// import
-define_import
-    : TEMPLATE_L KW_IMPORT namepath_free (KW_AS identifier)? (KW_IN identifier)? TEMPLATE_R
+// export/import
+ie_statement
+    : TEMPLATE_L (define_import|define_export)+ TEMPLATE_R
     ;
-define_class: TEMPLATE_L KW_CLASS namepath_free (KW_IN identifier)? TEMPLATE_R;
+define_import: KW_IMPORT (KW_IN identifier)? import_block;
+import_block: BRACE_L import_item* BRACE_R;
+import_item: namepath_free (KW_AS identifier)?;
+define_export: KW_EXPORT namepath_free (KW_WITH namepath_free)?;
+
 // if
 if_statement: if_then else_if* else_then? if_end;
 if_then:      TEMPLATE_L KW_IF expression TEMPLATE_R statements*;

@@ -5,7 +5,7 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieScopeNode
 import valkyrie.ide.highlight.NexusHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
@@ -29,7 +29,7 @@ class NexusFunctionStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
     }
 
     override fun getBaseIcon(): Icon {
-        return NexusIconProvider.Instance.Function
+        return DejavuIconProvider.Instance.Function
     }
 
     override fun getPresentation(): ItemPresentation {

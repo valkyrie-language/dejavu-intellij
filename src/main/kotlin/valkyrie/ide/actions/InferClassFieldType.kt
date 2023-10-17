@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
 import dejavu.language.ast.classes.NexusClassFieldNode
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import javax.swing.Icon
 
 class InferClassFieldType(private val element: NexusClassFieldNode) : HintAction, Iconable {
@@ -36,7 +36,7 @@ class InferClassFieldType(private val element: NexusClassFieldNode) : HintAction
     }
 
     override fun getIcon(flags: Int): Icon {
-        return NexusIconProvider.Instance.TYPE
+        return DejavuIconProvider.Instance.TYPE
     }
 }
 

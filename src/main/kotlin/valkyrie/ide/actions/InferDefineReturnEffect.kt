@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
 import dejavu.language.ast.NexusFunctionParameter
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 //import nexus.language.psi_node.ValkyrieDefineItemNode
 import javax.swing.Icon
 
@@ -36,7 +36,7 @@ class InferDefineReturnEffect(private val element: NexusFunctionParameter) : Hin
     }
 
     override fun getIcon(flags: Int): Icon {
-        return NexusIconProvider.Instance.IMPORT
+        return DejavuIconProvider.Instance.IMPORT
     }
 }
 

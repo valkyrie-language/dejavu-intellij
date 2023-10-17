@@ -2,7 +2,7 @@ package valkyrie.ide.highlight
 
 import com.intellij.openapi.options.colors.ColorDescriptor
 import com.intellij.openapi.options.colors.ColorSettingsPage
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 
 class HighlightSetting : ColorSettingsPage {
     private val annotatorTags = NexusHighlightColor
@@ -18,7 +18,7 @@ class HighlightSetting : ColorSettingsPage {
 
     override fun getDisplayName() = dejavu.language.NexusBundle.message("filetype.name")
 
-    override fun getIcon() = NexusIconProvider.Instance.Valkyrie
+    override fun getIcon() = DejavuIconProvider.Instance.Valkyrie
 
     override fun getHighlighter() = TokenHighlighter()
 

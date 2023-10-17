@@ -9,7 +9,7 @@ import com.intellij.execution.runners.ExecutionEnvironment
 import com.intellij.openapi.options.SettingsEditor
 import com.intellij.openapi.project.Project
 import com.intellij.ui.dsl.builder.panel
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import org.jdom.Element
 import javax.swing.Icon
 
@@ -37,7 +37,7 @@ class ValkyrieRunningTask(project: Project, factory: ValkyrieConfigurationFactor
     }
 
     override fun getIcon(): Icon {
-        return NexusIconProvider.Instance.Valkyrie
+        return DejavuIconProvider.Instance.Valkyrie
     }
 
     override fun clone(): RunConfiguration {

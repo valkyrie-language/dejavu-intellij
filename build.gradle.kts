@@ -7,9 +7,10 @@ fun properties(key: String) = project.findProperty(key).toString()
 plugins {
     idea
     java
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.23"
-    id("org.jetbrains.intellij") version "1.17.3"
+    antlr
+    kotlin("jvm") version "1.9.10"
+    kotlin("plugin.serialization") version "1.9.10"
+    id("org.jetbrains.intellij") version "1.15.0"
     id("org.jetbrains.changelog") version "2.2.0"
 }
 
@@ -63,7 +64,16 @@ tasks {
     wrapper {
         gradleVersion = properties("gradleVersion")
     }
-
+    generateGrammarSource {
+        maxHeapSize = "64m"
+        arguments = arguments + listOf(
+            "-listener",
+            "-visitor",
+            "-long-messages",
+            "-encoding", "utf8",
+            "-package", "dejavu.language.antlr"
+        )
+    }
     patchPluginXml {
         version.set(properties("pluginVersion"))
         sinceBuild.set(properties("pluginSinceBuild"))
@@ -119,6 +129,7 @@ val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
     jvmTarget = "17"
 }
+compileKotlin.dependsOn("generateGrammarSource")
 
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {

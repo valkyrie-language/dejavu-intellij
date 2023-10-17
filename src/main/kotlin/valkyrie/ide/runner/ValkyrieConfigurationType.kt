@@ -2,7 +2,7 @@ package valkyrie.ide.runner
 
 import com.intellij.execution.configurations.ConfigurationFactory
 import com.intellij.execution.configurations.ConfigurationType
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import javax.swing.Icon
 
 class ValkyrieConfigurationType : ConfigurationType {
@@ -15,7 +15,7 @@ class ValkyrieConfigurationType : ConfigurationType {
     }
 
     override fun getIcon(): Icon {
-        return NexusIconProvider.Instance.Valkyrie
+        return DejavuIconProvider.Instance.Valkyrie
     }
 
     override fun getId(): String {

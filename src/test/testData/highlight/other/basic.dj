@@ -1,8 +1,12 @@
-<% class std.name.Class in Rust %>
-   class std.name.Class in Rust
+<%.
+    export Hello with rust::Display
+    export Hello with rust::Render
 
-<% using std.name.uppercase as A in Rust %>
-   using std.name.uppercase as A in Rust
+    import in Rust {
+        std.name.uppercase as A
+    }
+.%>
+using std.name.uppercase as A in Rust
 
 <% for k, v in term if guard %>
    for c in term if guard
@@ -17,4 +21,4 @@
 <% end %>
    end
 
-<<% end %>
+<%! end %>

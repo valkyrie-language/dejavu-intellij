@@ -6,9 +6,9 @@ import com.intellij.openapi.actionSystem.LangDataKeys
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 
-class FluentConvertMo : CreateFileAction(name, description, NexusIconProvider.Instance.Valkyrie) {
+class FluentConvertMo : CreateFileAction(name, description, DejavuIconProvider.Instance.Valkyrie) {
     companion object {
         private val name = dejavu.language.NexusBundle.message("action.convert_prop")
         private val description = dejavu.language.NexusBundle.message("action.convert_prop.description")

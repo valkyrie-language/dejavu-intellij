@@ -9,7 +9,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.impl.CheckUtil
 import dejavu.language.file.DejavuFileNode
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import javax.swing.Icon
 
 class CreateNamespace(private val element: DejavuFileNode) : LocalQuickFixAndIntentionActionOnPsiElement(element), PriorityAction, Iconable {
@@ -35,7 +35,7 @@ class CreateNamespace(private val element: DejavuFileNode) : LocalQuickFixAndInt
     }
 
     override fun getIcon(flags: Int): Icon {
-        return NexusIconProvider.Instance.NAMESPACE
+        return DejavuIconProvider.Instance.NAMESPACE
     }
 
     override fun getPriority(): PriorityAction.Priority {

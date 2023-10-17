@@ -12,7 +12,7 @@ import com.intellij.psi.impl.source.tree.CompositeElement
 import dejavu.language.ast.NexusIdentifierNode
 import dejavu.language.ast.NexusNamepathNode
 import dejavu.language.file.DejavuFileNode
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieLineMarkElement
 import dejavu.language.psi.ValkyrieScopeNode
 import valkyrie.ide.highlight.NexusHighlightColor
@@ -39,7 +39,7 @@ class NexusClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), Psi
     }
 
     override fun getBaseIcon(): Icon {
-        return NexusIconProvider.Instance.CLASS
+        return DejavuIconProvider.Instance.CLASS
     }
 
     override fun getContainingFile(): DejavuFileNode {

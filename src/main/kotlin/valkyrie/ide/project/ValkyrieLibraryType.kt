@@ -1,6 +1,6 @@
 package valkyrie.ide.project.`package`
 
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import javax.swing.Icon
 
 enum class ValkyrieLibraryType {
@@ -8,9 +8,9 @@ enum class ValkyrieLibraryType {
 
     fun getIcon(): Icon {
         return when (this) {
-            Core -> NexusIconProvider.Instance.Valkyrie
-            LIBRARY -> NexusIconProvider.Instance.NAMESPACE
-            NAMESPACE -> NexusIconProvider.Instance.NAMESPACE
+            Core -> DejavuIconProvider.Instance.Valkyrie
+            LIBRARY -> DejavuIconProvider.Instance.NAMESPACE
+            NAMESPACE -> DejavuIconProvider.Instance.NAMESPACE
         }
     }
 }

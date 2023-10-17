@@ -2,7 +2,7 @@ package dejavu.language.symbol
 
 import com.intellij.model.presentation.SymbolDeclarationPresentation
 import com.intellij.model.presentation.SymbolDeclarationPresentationProvider
-import dejavu.language.file.NexusIconProvider
+import dejavu.language.file.DejavuIconProvider
 import javax.swing.Icon
 
 object SymbolProvider : SymbolDeclarationPresentationProvider<ValkyrieDeclared> {
@@ -13,7 +13,7 @@ object SymbolProvider : SymbolDeclarationPresentationProvider<ValkyrieDeclared> 
             }
 
             override fun getIcon(unused: Boolean): Icon? {
-                return NexusIconProvider.Instance.Valkyrie
+                return DejavuIconProvider.Instance.Valkyrie
             }
         }
     }
