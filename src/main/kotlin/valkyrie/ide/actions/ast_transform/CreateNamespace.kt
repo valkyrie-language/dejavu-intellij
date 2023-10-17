@@ -22,11 +22,11 @@ class CreateNamespace(private val element: DejavuFileNode) : LocalQuickFixAndInt
     }
 
     override fun getText(): String {
-        return dejavu.language.NexusBundle.message("action.create.namespace.name")
+        return dejavu.language.DejavuBundle.message("action.create.namespace.name")
     }
 
     fun getDescription(): String {
-        return dejavu.language.NexusBundle.message("action.create.namespace.help")
+        return dejavu.language.DejavuBundle.message("action.create.namespace.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

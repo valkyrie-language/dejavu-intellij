@@ -9,7 +9,7 @@ import dejavu.language.antlr.DejavuAntlrLexer.*
 import org.antlr.intellij.adaptor.lexer.ANTLRLexerAdaptor
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 
-class NexusLexer : Lexer() {
+class DejavuLexer : Lexer() {
     private var adaptor: ANTLRLexerAdaptor
 
     init {
@@ -61,21 +61,19 @@ class NexusLexer : Lexer() {
         val Keywords: TokenSet = PSIElementTypeFactory.createTokenSet(
             DejavuLanguage,
             // declare keywords
-            KW_IMPORT, KW_AS, KW_IN,
-
-            //
-
+            KW_IMPORT, KW_AS,
+            KW_EXPORT, KW_WITH,
             // conditional
             KW_IF, KW_ELSE, KW_END,
-            // control flow
-
+            // loop
             KW_FOR, KW_IN,
+            // control flow
+            KW_BREAK, KW_CONTINUE,
             // which/match/catch
             KW_MATCH, KW_CASE,
             // control keywords
             KW_SLOT,
             //
-
         )
         val OperatorPrefix: TokenSet = PSIElementTypeFactory.createTokenSet(
             DejavuLanguage,

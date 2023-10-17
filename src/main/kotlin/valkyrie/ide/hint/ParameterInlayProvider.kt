@@ -56,8 +56,8 @@ class ParameterInlayProvider : InlayParameterHintsProvider {
     /// Editor > Inlay Hints > Parameter Names > Valkyrie
     override fun getSupportedOptions(): MutableList<Option> {
         return mutableListOf(
-            Option("getSupportedOptions1", dejavu.language.NexusBundle.messagePointer("color.token.null"), true),
-            Option("getSupportedOptions2", dejavu.language.NexusBundle.messagePointer("color.token.boolean"), true)
+            Option("getSupportedOptions1", dejavu.language.DejavuBundle.messagePointer("color.token.null"), true),
+            Option("getSupportedOptions2", dejavu.language.DejavuBundle.messagePointer("color.token.boolean"), true)
         )
     }
 }

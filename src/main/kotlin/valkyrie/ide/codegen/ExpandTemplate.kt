@@ -7,8 +7,8 @@ import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiFileFactory
 
-private val name = dejavu.language.NexusBundle.message("action.macro.expand_file")
-private val description = dejavu.language.NexusBundle.message("action.convert_prop.description")
+private val name = dejavu.language.DejavuBundle.message("action.macro.expand_file")
+private val description = dejavu.language.DejavuBundle.message("action.convert_prop.description")
 
 class ExpandTemplate : AnAction(name, description, ExpUiIcons.Actions.GroupByMethod) {
     override fun actionPerformed(e: AnActionEvent) {

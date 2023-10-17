@@ -7,7 +7,7 @@ import javax.swing.Icon
 
 class ValkyrieConfigurationType : ConfigurationType {
     override fun getDisplayName(): String {
-        return dejavu.language.NexusBundle.message("running.group.name")
+        return dejavu.language.DejavuBundle.message("running.group.name")
     }
 
     override fun getConfigurationTypeDescription(): String {

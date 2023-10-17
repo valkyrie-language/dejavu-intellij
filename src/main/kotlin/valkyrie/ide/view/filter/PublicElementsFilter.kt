@@ -16,7 +16,7 @@ class PublicElementsFilter : Filter {
 
     override fun isReverted() = false
     override fun getPresentation(): ActionPresentation = ActionPresentationData(
-        dejavu.language.NexusBundle.message(name),
+        dejavu.language.DejavuBundle.message(name),
         null,
         AllIcons.Nodes.Public
     )

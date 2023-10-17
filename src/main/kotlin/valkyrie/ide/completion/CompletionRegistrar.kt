@@ -8,7 +8,7 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
-import dejavu.language.antlr.NexusLexer
+import dejavu.language.antlr.DejavuLexer
 import dejavu.language.file.DejavuFileNode
 
 
@@ -27,7 +27,7 @@ class CompletionRegistrar : CompletionContributor() {
         val context = ProcessingContext()
         val element = parameters.originalPosition ?: return
         println("CompletionRegistrar: ${element.elementType}")
-        if (NexusLexer.CompletionWords.contains(element.elementType)) {
+        if (DejavuLexer.CompletionWords.contains(element.elementType)) {
             for (node in element.parents(false)) {
                 if (result.isStopped) {
                     return

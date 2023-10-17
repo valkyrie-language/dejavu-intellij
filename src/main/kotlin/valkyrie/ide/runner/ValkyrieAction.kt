@@ -5,7 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import javax.swing.Icon
 
 open class ValkyrieAction(val id: String, val icon: Icon) :
-    AnAction(dejavu.language.NexusBundle.message("$id.name"), dejavu.language.NexusBundle.message("$id.help"), icon) {
+    AnAction(dejavu.language.DejavuBundle.message("$id.name"), dejavu.language.DejavuBundle.message("$id.help"), icon) {
     override fun actionPerformed(e: AnActionEvent) {
 
     }

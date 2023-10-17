@@ -33,6 +33,9 @@ KW_WITH: 'with';
 KW_SLOT: 'block';
 KW_APPLY: 'apply';
 
+KW_BREAK: 'break';
+KW_CONTINUE: 'continue';
+
 OP_PROPORTION: '::';
 
 PARENTHESES_L: '(';

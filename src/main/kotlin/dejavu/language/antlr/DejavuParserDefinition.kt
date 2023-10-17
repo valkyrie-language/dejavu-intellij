@@ -19,12 +19,12 @@ import org.antlr.intellij.adaptor.psi.ANTLRPsiNode
 
 class DejavuParserDefinition : ParserDefinition {
     override fun createLexer(project: Project): Lexer {
-        return NexusLexer()
+        return DejavuLexer()
     }
 
 
     override fun createParser(project: Project): PsiParser {
-        return NexusParser(DejavuAntlrParser(null))
+        return DejavuParser(DejavuAntlrParser(null))
     }
 
     /**
@@ -35,11 +35,11 @@ class DejavuParserDefinition : ParserDefinition {
     }
 
     override fun getCommentTokens(): TokenSet {
-        return NexusLexer.Comments
+        return DejavuLexer.Comments
     }
 
     override fun getStringLiteralElements(): TokenSet {
-        return NexusLexer.Strings
+        return DejavuLexer.Strings
     }
 
 
@@ -93,7 +93,7 @@ class DejavuParserDefinition : ParserDefinition {
      */
     override fun createElement(node: ASTNode): PsiElement {
         return if (node is CompositeElement) {
-            NexusParser.extractCompositeNode(node)
+            DejavuParser.extractCompositeNode(node)
         } else {
             println("create element of ${node.javaClass.name}: ${node.elementType}(${node.text})")
             ASTWrapperPsiElement(node)

@@ -17,7 +17,7 @@ class MainInfoFilter : Filter {
 
     override fun isReverted() = false
     override fun getPresentation(): ActionPresentation = ActionPresentationData(
-        dejavu.language.NexusBundle.message(this.name),
+        dejavu.language.DejavuBundle.message(this.name),
         null,
         AllIcons.Nodes.Favorite
     )

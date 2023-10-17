@@ -9,9 +9,10 @@ options {
 program
     : (
         TEMPLATE_E
-        | ie_statement
-        | if_statement
-        | for_statement
+        | ie_template
+        | if_template
+        | for_template
+        | control_template
         | slot_statement
         | apply_statement
         | match_statement
@@ -19,27 +20,27 @@ program
         | any_text
     )* EOF
     ;
-statements: if_statement | for_statement | any_text;
+statements: if_template | for_template | any_text;
 any_text:   (TEXT_SPACE | TEXT_WORD | TEXT);
 
 // export/import
-ie_statement
+ie_template
     : TEMPLATE_L (define_import|define_export)+ TEMPLATE_R
     ;
-define_import: KW_IMPORT (KW_IN identifier)? import_block;
+define_import: KW_IMPORT (KW_WITH identifier)? import_block;
 import_block: BRACE_L import_item* BRACE_R;
 import_item: namepath_free (KW_AS identifier)?;
 define_export: KW_EXPORT namepath_free (KW_WITH namepath_free)?;
 
 // if
-if_statement: if_then else_if* else_then? if_end;
+if_template: if_then else_if* else_then? if_end;
 if_then:      TEMPLATE_L KW_IF expression TEMPLATE_R statements*;
 else_then:    TEMPLATE_L KW_ELSE TEMPLATE_R statements*;
 else_if:      TEMPLATE_L KW_ELSE KW_IF expression TEMPLATE_R statements*;
 if_end:       TEMPLATE_L KW_END KW_IF? TEMPLATE_R;
 
-// for
-for_statement: for_begin else_then? for_end;
+// === for loop === ====================================================================================================
+for_template: for_begin else_then? for_end;
 for_begin
     : TEMPLATE_L KW_FOR for_pattern KW_IN condition = expression (KW_IF guard = expression)? TEMPLATE_R statements*
     ;
@@ -49,6 +50,9 @@ for_pattern
     | modified_identifier (COMMA modified_identifier)* COMMA?
     ;
 for_end: TEMPLATE_L KW_END KW_FOR? TEMPLATE_R;
+// === control loop === ================================================================================================
+control_template: TEMPLATE_L control_statement TEMPLATE_R;
+control_statement: KW_BREAK | KW_CONTINUE;
 // slot position
 slot_statement: slot_begin slot_end;
 slot_begin: TEMPLATE_L KW_SLOT identifier TEMPLATE_R statements*;

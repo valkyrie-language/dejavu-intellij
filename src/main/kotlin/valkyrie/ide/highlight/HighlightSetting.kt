@@ -16,7 +16,7 @@ class HighlightSetting : ColorSettingsPage {
 
     override fun getColorDescriptors(): Array<ColorDescriptor> = ColorDescriptor.EMPTY_ARRAY
 
-    override fun getDisplayName() = dejavu.language.NexusBundle.message("filetype.name")
+    override fun getDisplayName() = dejavu.language.DejavuBundle.message("filetype.name")
 
     override fun getIcon() = DejavuIconProvider.Instance.Valkyrie
 

@@ -7,13 +7,13 @@ import com.intellij.util.PlatformIcons
 
 object PropertiesGrouper : Grouper {
     override fun getPresentation(): ActionPresentation = ActionPresentationData(
-        dejavu.language.NexusBundle.message("view.PropertiesGrouper"),
+        dejavu.language.DejavuBundle.message("view.PropertiesGrouper"),
         "GGGGG",
         PlatformIcons.ABSTRACT_CLASS_ICON
     )
 
     override fun getName(): String {
-        return dejavu.language.NexusBundle.message("view.PropertiesGrouper")
+        return dejavu.language.DejavuBundle.message("view.PropertiesGrouper")
     }
 
     override fun group(

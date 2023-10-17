@@ -10,8 +10,8 @@ import dejavu.language.file.DejavuIconProvider
 
 class FluentConvertMo : CreateFileAction(name, description, DejavuIconProvider.Instance.Valkyrie) {
     companion object {
-        private val name = dejavu.language.NexusBundle.message("action.convert_prop")
-        private val description = dejavu.language.NexusBundle.message("action.convert_prop.description")
+        private val name = dejavu.language.DejavuBundle.message("action.convert_prop")
+        private val description = dejavu.language.DejavuBundle.message("action.convert_prop.description")
     }
 
     private var sourceFile: PsiFile? = null;

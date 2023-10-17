@@ -1,0 +1,27 @@
+<% for c in s if c.is_ascii %>
+
+
+<% end %>
+
+
+
+<% for c in s if c.is_ascii %>
+
+<% else %>
+
+<% end %>
+
+
+<% for k, v in term if guard %>
+   for c in term if guard
+    <% if condition %>
+       if conditional
+        <% break %>
+        <% continue %>
+       else
+    <% end %>
+       end
+<% else %>
+   else
+<% end %>
+   end

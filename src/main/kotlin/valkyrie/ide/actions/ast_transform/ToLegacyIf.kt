@@ -21,11 +21,11 @@ class ToLegacyIf(element: ValkyrieWhichStatement) : LocalQuickFixAndIntentionAct
     }
 
     override fun getText(): String {
-        return dejavu.language.NexusBundle.message("action.convert.legacy_if.name")
+        return dejavu.language.DejavuBundle.message("action.convert.legacy_if.name")
     }
 
     fun getDescription(): String {
-        return dejavu.language.NexusBundle.message("action.convert.legacy_if.help")
+        return dejavu.language.DejavuBundle.message("action.convert.legacy_if.help")
     }
 
     override fun invoke(project: Project, file: PsiFile, editor: Editor?, startElement: PsiElement, endElement: PsiElement) {

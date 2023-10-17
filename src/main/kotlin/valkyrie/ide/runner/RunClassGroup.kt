@@ -16,8 +16,8 @@ class RunClassGroup : ActionGroup() {
     init {
         templatePresentation.isPopupGroup = false
         templatePresentation.icon = AllIcons.RunConfigurations.TestState.Run_run
-        templatePresentation.text = dejavu.language.NexusBundle.message("action.run.class.group.name")
-        templatePresentation.description = dejavu.language.NexusBundle.message("action.run.class.group.help")
+        templatePresentation.text = dejavu.language.DejavuBundle.message("action.run.class.group.name")
+        templatePresentation.description = dejavu.language.DejavuBundle.message("action.run.class.group.help")
     }
 
     companion object {

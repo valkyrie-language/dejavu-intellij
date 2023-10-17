@@ -7,17 +7,17 @@ import java.util.function.Supplier
 
 private const val Bundle = "messages.NexusBundle"
 
-object NexusBundle : DynamicBundle(dejavu.language.Bundle) {
+object DejavuBundle : DynamicBundle(Bundle) {
 
     @Suppress("SpreadOperator")
     @JvmStatic
-    fun message(@PropertyKey(resourceBundle = dejavu.language.Bundle) key: String, vararg params: Any): String {
+    fun message(@PropertyKey(resourceBundle = Bundle) key: String, vararg params: Any): String {
         return getMessage(key, *params)
     }
 
     @Suppress("SpreadOperator", "unused")
     @JvmStatic
-    fun messagePointer(@PropertyKey(resourceBundle = dejavu.language.Bundle) key: String, vararg params: Any): Supplier<String> {
+    fun messagePointer(@PropertyKey(resourceBundle = Bundle) key: String, vararg params: Any): Supplier<String> {
         return getLazyMessage(key, *params)
     }
 }

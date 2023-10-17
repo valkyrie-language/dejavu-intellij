@@ -13,7 +13,7 @@ import dejavu.language.psi.types.ValkyrieBlockType
 import valkyrie.ide.folding.ValkyrieNodeFolder
 
 
-class ValkyrieBlockNode : ASTWrapperPsiElement, ValkyrieFoldableElement, ValkyrieIndentElement {
+class DejavuBlockNode : ASTWrapperPsiElement, ValkyrieFoldableElement, ValkyrieIndentElement {
     val kind: ValkyrieBlockType
 
     constructor(node: CompositeElement, kind: ValkyrieBlockType) : super(node) {

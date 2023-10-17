@@ -16,7 +16,7 @@ ValkyrieFile 是个 PsiElement
 class DejavuFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, dejavu.language.DejavuLanguage) {
     override fun getFileType(): FileType = DejavuFileType
 
-    override fun toString(): String = dejavu.language.NexusBundle.message("action.create_file")
+    override fun toString(): String = dejavu.language.DejavuBundle.message("action.create_file")
 
     fun updateCache() {
 

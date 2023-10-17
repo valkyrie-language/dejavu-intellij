@@ -6,7 +6,7 @@ import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.tree.TokenSet
 import dejavu.language.DejavuLanguage
 import dejavu.language.antlr.DejavuAntlrLexer.KW_IN
-import dejavu.language.antlr.NexusLexer
+import dejavu.language.antlr.DejavuLexer
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory.createTokenSet
 import valkyrie.ide.matcher.ValkyrieBracketMatch
 
@@ -33,7 +33,7 @@ private val removeSpaceNewlineAfter = TokenSet.orSet(
 // 左右插入一个空格
 private val spaceAroundOperator = TokenSet.orSet(
     createTokenSet(DejavuLanguage, KW_IN),
-    NexusLexer.OperatorInfix
+    DejavuLexer.OperatorInfix
 )
 
 private val addSpaceAfter = TokenSet.orSet(

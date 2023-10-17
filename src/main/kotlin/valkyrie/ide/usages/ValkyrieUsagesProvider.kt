@@ -6,16 +6,16 @@ import com.intellij.lang.cacheBuilder.WordsScanner
 import com.intellij.lang.findUsages.FindUsagesProvider
 import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.TokenSet
-import dejavu.language.antlr.NexusLexer
+import dejavu.language.antlr.DejavuLexer
 
 class ValkyrieUsagesProvider : FindUsagesProvider {
     override fun getWordsScanner(): WordsScanner {
 
         return DefaultWordsScanner(
-            NexusLexer(),
-            NexusLexer.Identifiers,
-            NexusLexer.Identifiers,
-            NexusLexer.Comments,
+            DejavuLexer(),
+            DejavuLexer.Identifiers,
+            DejavuLexer.Identifiers,
+            DejavuLexer.Comments,
             TokenSet.EMPTY
         )
     }

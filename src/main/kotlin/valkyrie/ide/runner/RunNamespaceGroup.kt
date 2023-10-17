@@ -13,8 +13,8 @@ class RunNamespaceGroup(element: PsiElement) : ActionGroup() {
 //            throw IllegalArgumentException("element must be a ValkyrieNamespaceStatementNode")
 //        }
         templatePresentation.icon = AllIcons.RunConfigurations.TestState.Run_run
-        templatePresentation.text = dejavu.language.NexusBundle.message("action.run.namespace.group.name")
-        templatePresentation.description = dejavu.language.NexusBundle.message("action.run.namespace.group.help")
+        templatePresentation.text = dejavu.language.DejavuBundle.message("action.run.namespace.group.name")
+        templatePresentation.description = dejavu.language.DejavuBundle.message("action.run.namespace.group.help")
     }
 
     override fun actionPerformed(event: AnActionEvent) {

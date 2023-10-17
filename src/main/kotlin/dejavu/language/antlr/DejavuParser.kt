@@ -9,9 +9,8 @@ import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
 import dejavu.language.DejavuLanguage
 import dejavu.language.antlr.DejavuAntlrParser.*
-import dejavu.language.ast.NexusIdentifierNode
-import dejavu.language.ast.NexusModifiedNode
-import dejavu.language.ast.NexusNamepathNode
+import dejavu.language.ast.*
+import dejavu.language.psi.types.ValkyrieBlockType
 import dejavu.language.psi.types.ValkyrieModifiedType
 import org.antlr.intellij.adaptor.lexer.RuleIElementType
 import org.antlr.intellij.adaptor.parser.ANTLRParseTreeToPSIConverter
@@ -20,7 +19,7 @@ import org.antlr.v4.runtime.Parser
 import org.antlr.v4.runtime.tree.ParseTree
 
 
-class NexusParser(parser: DejavuAntlrParser) : ANTLRParserAdaptor(DejavuLanguage, parser) {
+class DejavuParser(parser: DejavuAntlrParser) : ANTLRParserAdaptor(DejavuLanguage, parser) {
     override fun parse(parser: Parser, root: IElementType): ParseTree {
         return (parser as DejavuAntlrParser).program()
     }
@@ -38,7 +37,9 @@ class NexusParser(parser: DejavuAntlrParser) : ANTLRParserAdaptor(DejavuLanguage
         fun extractCompositeNode(node: CompositeElement): PsiElement {
             val type: RuleIElementType = node.elementType as RuleIElementType;
             return when (type.ruleIndex) {
-//                RULE_import_statement -> ValkyrieImportStatement(node)
+                RULE_define_import -> DejavuImportNode(node)
+                RULE_import_block -> DejavuBlockNode(node, ValkyrieBlockType.Brace)
+                RULE_define_export -> DejavuExportNode(node)
 //                // annotations
                 RULE_modifiers -> NexusModifiedNode(node, ValkyrieModifiedType.Pure)
                 RULE_modified_identifier -> NexusModifiedNode(node, ValkyrieModifiedType.ModifiedIdentifier)

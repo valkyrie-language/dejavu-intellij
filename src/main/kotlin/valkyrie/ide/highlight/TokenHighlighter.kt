@@ -7,14 +7,14 @@ import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
-import dejavu.language.antlr.NexusLexer
+import dejavu.language.antlr.DejavuLexer
 import org.antlr.intellij.adaptor.lexer.PSIElementTypeFactory
 import valkyrie.ide.matcher.ValkyrieBracketMatch
 
 
 class TokenHighlighter : SyntaxHighlighter {
     override fun getHighlightingLexer(): Lexer {
-        return NexusLexer()
+        return DejavuLexer()
     }
 
     override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> {
@@ -29,17 +29,17 @@ class TokenHighlighter : SyntaxHighlighter {
     private fun getTokenColor(tokenType: IElementType): TextAttributesKey? {
         val hash = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
         return when {
-            NexusLexer.Keywords.contains(tokenType) -> NexusHighlightColor.KEYWORD.textAttributesKey
-            NexusLexer.Operators.contains(tokenType) -> DefaultLanguageHighlighterColors.OPERATION_SIGN
-            NexusLexer.MacroOperators.contains(tokenType) -> NexusHighlightColor.SYM_MACRO.textAttributesKey
-            NexusLexer.Integers.contains(tokenType) -> NexusHighlightColor.INTEGER.textAttributesKey
-            NexusLexer.Decimals.contains(tokenType) -> NexusHighlightColor.DECIMAL.textAttributesKey
-            NexusLexer.Strings.contains(tokenType) -> NexusHighlightColor.STRING.textAttributesKey
-            NexusLexer.Comments.contains(tokenType) -> DefaultLanguageHighlighterColors.LINE_COMMENT
+            DejavuLexer.Keywords.contains(tokenType) -> NexusHighlightColor.KEYWORD.textAttributesKey
+            DejavuLexer.Operators.contains(tokenType) -> DefaultLanguageHighlighterColors.OPERATION_SIGN
+            DejavuLexer.MacroOperators.contains(tokenType) -> NexusHighlightColor.SYM_MACRO.textAttributesKey
+            DejavuLexer.Integers.contains(tokenType) -> NexusHighlightColor.INTEGER.textAttributesKey
+            DejavuLexer.Decimals.contains(tokenType) -> NexusHighlightColor.DECIMAL.textAttributesKey
+            DejavuLexer.Strings.contains(tokenType) -> NexusHighlightColor.STRING.textAttributesKey
+            DejavuLexer.Comments.contains(tokenType) -> DefaultLanguageHighlighterColors.LINE_COMMENT
             // inherit
-            NexusLexer.Comma.contains(tokenType) -> DefaultLanguageHighlighterColors.COMMA
-            NexusLexer.Semicolon.contains(tokenType) -> DefaultLanguageHighlighterColors.SEMICOLON
-            NexusLexer.Escapes.contains(tokenType) -> NexusHighlightColor.STRING_ESCAPED.textAttributesKey
+            DejavuLexer.Comma.contains(tokenType) -> DefaultLanguageHighlighterColors.COMMA
+            DejavuLexer.Semicolon.contains(tokenType) -> DefaultLanguageHighlighterColors.SEMICOLON
+            DejavuLexer.Escapes.contains(tokenType) -> NexusHighlightColor.STRING_ESCAPED.textAttributesKey
 
             else -> {
                 when (tokenType) {
