@@ -3,10 +3,10 @@ package valkyrie.ide.reference.declaration
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiReferenceBase
-import dejavu.language.ast.NexusIdentifierNode
+import dejavu.language.ast.DejavuIdentifierNode
 
-abstract class ValkyrieReference(element: NexusIdentifierNode, private val definition: PsiElement) :
-    PsiReferenceBase<NexusIdentifierNode>(element, TextRange(0, element.text.length)) {
+abstract class ValkyrieReference(element: DejavuIdentifierNode, private val definition: PsiElement) :
+    PsiReferenceBase<DejavuIdentifierNode>(element, TextRange(0, element.text.length)) {
 
     override fun getVariants(): Array<Any> {
         return arrayOf()

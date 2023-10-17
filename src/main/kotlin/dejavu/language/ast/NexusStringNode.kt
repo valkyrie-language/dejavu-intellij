@@ -12,14 +12,14 @@ import com.intellij.psi.LiteralTextEscaper
 import com.intellij.psi.PsiLanguageInjectionHost
 import com.intellij.psi.util.PsiTreeUtil
 import org.intellij.lang.regexp.RegExpLanguage
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.matcher.escaper.StringEscape
 
 class NexusStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguageInjectionHost, NexusHighlightElement {
     val handler by lazy {
-        PsiTreeUtil.getChildOfType(this, NexusIdentifierNode::class.java)
+        PsiTreeUtil.getChildOfType(this, DejavuIdentifierNode::class.java)
     }
 
     //    private val _text by lazy {
@@ -76,6 +76,6 @@ class NexusStringNode(node: ASTNode) : ASTWrapperPsiElement(node), PsiLanguageIn
 
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(handler, NexusHighlightColor.SYM_MACRO)
+        e.register(handler, DejavuHighlightColor.SYM_MACRO)
     }
 }

@@ -29,17 +29,17 @@ class TokenHighlighter : SyntaxHighlighter {
     private fun getTokenColor(tokenType: IElementType): TextAttributesKey? {
         val hash = PSIElementTypeFactory.createTokenSet(dejavu.language.DejavuLanguage);
         return when {
-            DejavuLexer.Keywords.contains(tokenType) -> NexusHighlightColor.KEYWORD.textAttributesKey
+            DejavuLexer.Keywords.contains(tokenType) -> DejavuHighlightColor.KEYWORD.textAttributesKey
             DejavuLexer.Operators.contains(tokenType) -> DefaultLanguageHighlighterColors.OPERATION_SIGN
-            DejavuLexer.MacroOperators.contains(tokenType) -> NexusHighlightColor.SYM_MACRO.textAttributesKey
-            DejavuLexer.Integers.contains(tokenType) -> NexusHighlightColor.INTEGER.textAttributesKey
-            DejavuLexer.Decimals.contains(tokenType) -> NexusHighlightColor.DECIMAL.textAttributesKey
-            DejavuLexer.Strings.contains(tokenType) -> NexusHighlightColor.STRING.textAttributesKey
+            DejavuLexer.MacroOperators.contains(tokenType) -> DejavuHighlightColor.SYM_MACRO.textAttributesKey
+            DejavuLexer.Integers.contains(tokenType) -> DejavuHighlightColor.INTEGER.textAttributesKey
+            DejavuLexer.Decimals.contains(tokenType) -> DejavuHighlightColor.DECIMAL.textAttributesKey
+            DejavuLexer.Strings.contains(tokenType) -> DejavuHighlightColor.STRING.textAttributesKey
             DejavuLexer.Comments.contains(tokenType) -> DefaultLanguageHighlighterColors.LINE_COMMENT
             // inherit
             DejavuLexer.Comma.contains(tokenType) -> DefaultLanguageHighlighterColors.COMMA
             DejavuLexer.Semicolon.contains(tokenType) -> DefaultLanguageHighlighterColors.SEMICOLON
-            DejavuLexer.Escapes.contains(tokenType) -> NexusHighlightColor.STRING_ESCAPED.textAttributesKey
+            DejavuLexer.Escapes.contains(tokenType) -> DejavuHighlightColor.STRING_ESCAPED.textAttributesKey
 
             else -> {
                 when (tokenType) {

@@ -14,7 +14,7 @@ import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieInlayElement
 import dejavu.language.psi.ValkyrieLineMarkElement
 import dejavu.language.psi.ValkyrieScopeNode
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.hint.ParameterInlayHint
@@ -60,9 +60,9 @@ class NexusClassMethodNode(node: CompositeElement) : ValkyrieScopeNode(node), Ps
 
     override fun on_highlight(e: NodeHighlighter) {
         if (method.name == "constructor") {
-            e.register(nameIdentifier, NexusHighlightColor.KEYWORD)
+            e.register(nameIdentifier, DejavuHighlightColor.KEYWORD)
         } else {
-            e.register(nameIdentifier, NexusHighlightColor.SYM_FUNCTION_SELF)
+            e.register(nameIdentifier, DejavuHighlightColor.SYM_FUNCTION_SELF)
         }
         e.register_modifiers(modifiers)
     }

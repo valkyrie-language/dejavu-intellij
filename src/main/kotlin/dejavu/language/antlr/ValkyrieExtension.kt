@@ -10,7 +10,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.TokenType
 import com.intellij.psi.impl.source.tree.CompositeElement
 import dejavu.language.ast.ValkyrieBinaryExpression
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 
 
 fun ASTNode?.isWhitespaceOrEmpty(): Boolean {
@@ -27,7 +27,7 @@ fun extractExpression(node: CompositeElement): ASTWrapperPsiElement {
     }
 }
 
-fun HighlightInfoHolder.register(element: PsiElement?, color: NexusHighlightColor) {
+fun HighlightInfoHolder.register(element: PsiElement?, color: DejavuHighlightColor) {
     if (element == null) return
     val builder = HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION)
     builder.textAttributes(color.textAttributesKey)

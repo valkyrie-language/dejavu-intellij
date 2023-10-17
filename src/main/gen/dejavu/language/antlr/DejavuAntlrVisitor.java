@@ -1,6 +1,5 @@
 // Generated from C:/Users/Dell/IdeaProjects/nexus-intellij/src/main/antlr/DejavuAntlr.g4 by ANTLR 4.13.1
 package dejavu.language.antlr;
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -8,7 +7,7 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  * by {@link DejavuAntlrParser}.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
- *            operations with no return type.
+ * operations with no return type.
  */
 public interface DejavuAntlrVisitor<T> extends ParseTreeVisitor<T> {
     /**
@@ -258,6 +257,54 @@ public interface DejavuAntlrVisitor<T> extends ParseTreeVisitor<T> {
      * @return the visitor result
      */
     T visitExpression(DejavuAntlrParser.ExpressionContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link DejavuAntlrParser#term}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitTerm(DejavuAntlrParser.TermContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link DejavuAntlrParser#atom}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitAtom(DejavuAntlrParser.AtomContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link DejavuAntlrParser#prefix}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitPrefix(DejavuAntlrParser.PrefixContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link DejavuAntlrParser#infix}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitInfix(DejavuAntlrParser.InfixContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link DejavuAntlrParser#suffix}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitSuffix(DejavuAntlrParser.SuffixContext ctx);
+
+    /**
+     * Visit a parse tree produced by {@link DejavuAntlrParser#dot_call}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitDot_call(DejavuAntlrParser.Dot_callContext ctx);
 
     /**
      * Visit a parse tree produced by {@link DejavuAntlrParser#modifiers}.

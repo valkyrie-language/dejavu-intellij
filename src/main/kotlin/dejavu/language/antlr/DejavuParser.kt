@@ -49,7 +49,7 @@ class DejavuParser(parser: DejavuAntlrParser) : ANTLRParserAdaptor(DejavuLanguag
 //                RULE_annotation -> ValkyrieAnnotation(node)
 //                RULE_annotation_call_item -> ValkyrieAnnotationItem(node)
 //                // class
-//                RULE_define_class -> NexusClassStatement(node)
+                RULE_dot_call -> DejavuDotCall(node)
 //                RULE_define_generic -> ValkyrieGenericStatement(node)
 //                RULE_class_block -> ValkyrieBlockNode(node, ValkyrieBlockType.Brace)
 //                RULE_class_field -> ValkyrieClassFieldNode(node)
@@ -95,7 +95,7 @@ class DejavuParser(parser: DejavuAntlrParser) : ANTLRParserAdaptor(DejavuLanguag
 //                // atomic
                 RULE_namepath_free -> NexusNamepathNode(node, type, true)
                 RULE_namepath -> NexusNamepathNode(node, type)
-                RULE_identifier -> NexusIdentifierNode(node)
+                RULE_identifier -> DejavuIdentifierNode(node)
 //                RULE_string_literal -> ValkyrieStringNode(node)
 //                RULE_number -> ValkyrieNumberNode(node)
                 // comment

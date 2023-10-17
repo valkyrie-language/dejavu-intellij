@@ -9,9 +9,9 @@ import com.intellij.psi.util.elementType
 import com.intellij.ui.ColorUtil
 import dejavu.language.antlr.DejavuLexer
 import dejavu.language.ast.classes.NexusClassStatement
-import valkyrie.ide.highlight.NexusHighlightColor
-import valkyrie.ide.highlight.NexusHighlightColor.KEYWORD
-import valkyrie.ide.highlight.NexusHighlightColor.SYM_CLASS
+import valkyrie.ide.highlight.DejavuHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor.KEYWORD
+import valkyrie.ide.highlight.DejavuHighlightColor.SYM_CLASS
 import valkyrie.lsp.RequestDocument
 
 class DocumentationRenderer(var element: PsiElement, private var original: PsiElement?) {
@@ -64,7 +64,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         doc.append("<span>${text}</span>")
     }
 
-    fun append(key: NexusHighlightColor, text: String) {
+    fun append(key: DejavuHighlightColor, text: String) {
         // HtmlSyntaxInfoUtil.getStyledSpan(key.textAttributesKey, text, 1.0f)
         val attr = EditorColorsManager.getInstance().globalScheme.getAttributes(key.textAttributesKey)
         val color = ColorUtil.toHtmlColor(attr.foregroundColor)

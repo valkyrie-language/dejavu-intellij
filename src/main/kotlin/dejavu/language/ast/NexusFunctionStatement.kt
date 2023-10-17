@@ -7,7 +7,7 @@ import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieScopeNode
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.view.IdentifierPresentation
@@ -24,7 +24,7 @@ class NexusFunctionStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): NexusIdentifierNode? {
+    override fun getNameIdentifier(): DejavuIdentifierNode? {
         return namepath?.nameIdentifier
     }
 
@@ -38,7 +38,7 @@ class NexusFunctionStatement(node: CompositeElement) : ValkyrieScopeNode(node), 
 
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(nameIdentifier, NexusHighlightColor.SYM_FUNCTION_FREE)
+        e.register(nameIdentifier, DejavuHighlightColor.SYM_FUNCTION_FREE)
         e.register_modifiers(modifiers)
     }
 }

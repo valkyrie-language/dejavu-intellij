@@ -5,7 +5,7 @@ import com.intellij.lang.annotation.AnnotationHolder
 import com.intellij.lang.annotation.Annotator
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.psi.PsiElement
-import dejavu.language.ast.NexusIdentifierNode
+import dejavu.language.ast.DejavuIdentifierNode
 import dejavu.language.ast.classes.NexusClassStatement
 
 //import nexus.language.psi_node.ValkyrieUnionStatementNode
@@ -25,7 +25,7 @@ class NamepathChecker : Annotator {
     }
 
 
-    private fun checkCamelCase(element: NexusIdentifierNode, holder: AnnotationHolder) {
+    private fun checkCamelCase(element: DejavuIdentifierNode, holder: AnnotationHolder) {
 
         val name = element.name;
 //        val fixer = CamelCaseFixer();
@@ -36,7 +36,7 @@ class NamepathChecker : Annotator {
         }
     }
 
-    private fun checkNeedEscape(element: NexusIdentifierNode, holder: AnnotationHolder) {
+    private fun checkNeedEscape(element: DejavuIdentifierNode, holder: AnnotationHolder) {
         val rawName = element.text;
         if (!rawName.startsWith('`')) return
         // if raw name contains non xid_continue, then need escape

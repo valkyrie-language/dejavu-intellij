@@ -4,11 +4,11 @@ import com.intellij.codeInsight.daemon.impl.HighlightInfo
 import com.intellij.codeInsight.daemon.impl.HighlightInfoType
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.psi.PsiElement
-import dejavu.language.ast.NexusIdentifierNode
+import dejavu.language.ast.DejavuIdentifierNode
 
 @Suppress("FunctionName")
 class NodeHighlighter(private val info: HighlightInfoHolder?) {
-    fun register(element: PsiElement?, color: NexusHighlightColor) {
+    fun register(element: PsiElement?, color: DejavuHighlightColor) {
         if (element == null) return
         val builder = HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION)
         builder.textAttributes(color.textAttributesKey)
@@ -16,13 +16,13 @@ class NodeHighlighter(private val info: HighlightInfoHolder?) {
         this.info?.add(builder.create())
     }
 
-    fun register_modifiers(modifiers: Collection<NexusIdentifierNode>) {
+    fun register_modifiers(modifiers: Collection<DejavuIdentifierNode>) {
         for (mod in modifiers) {
-            this.register(mod, NexusHighlightColor.MODIFIER)
+            this.register(mod, DejavuHighlightColor.MODIFIER)
         }
     }
 
     fun register_macro(annotation: PsiElement) {
-        this.register(annotation, NexusHighlightColor.SYM_MACRO)
+        this.register(annotation, DejavuHighlightColor.SYM_MACRO)
     }
 }

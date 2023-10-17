@@ -11,11 +11,11 @@ import dejavu.language.psi.types.ValkyrieModifiedType
 import org.jetbrains.annotations.Unmodifiable
 
 class NexusModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedType) : ASTWrapperPsiElement(node) {
-    private fun filterAll(): @Unmodifiable MutableList<NexusIdentifierNode> {
-        return PsiTreeUtil.getChildrenOfTypeAsList(this, NexusIdentifierNode::class.java)
+    private fun filterAll(): @Unmodifiable MutableList<DejavuIdentifierNode> {
+        return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuIdentifierNode::class.java)
     }
 
-    fun findModifiers(): List<NexusIdentifierNode> {
+    fun findModifiers(): List<DejavuIdentifierNode> {
         return when (kind) {
             ValkyrieModifiedType.Pure -> {
                 filterAll()
@@ -26,11 +26,11 @@ class NexusModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedType) 
             }
 
             ValkyrieModifiedType.ModifiedNamepath -> {
-                val items = mutableListOf<NexusIdentifierNode>();
+                val items = mutableListOf<DejavuIdentifierNode>();
                 for (child in this.childrenWithLeaves) {
                     if (child is PsiWhiteSpace) {
                         continue;
-                    } else if (child is NexusIdentifierNode) {
+                    } else if (child is DejavuIdentifierNode) {
                         items.add(child)
                     } else {
                         break;
@@ -41,7 +41,7 @@ class NexusModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedType) 
         }
     }
 
-    fun findIdentifier(): NexusIdentifierNode? {
+    fun findIdentifier(): DejavuIdentifierNode? {
         return if (kind == ValkyrieModifiedType.Pure) {
             null
         } else {
@@ -49,25 +49,25 @@ class NexusModifiedNode(node: CompositeElement, val kind: ValkyrieModifiedType) 
         }
     }
 
-    fun findNamepath(): List<NexusIdentifierNode> {
+    fun findNamepath(): List<DejavuIdentifierNode> {
         return emptyList()
     }
 
 
     companion object {
         // Need to be lazy, otherwise it will be an infinite loop
-        fun findModifiers(node: PsiElement): List<NexusIdentifierNode> {
+        fun findModifiers(node: PsiElement): List<DejavuIdentifierNode> {
             val proxy = PsiTreeUtil.getChildOfType(node, NexusModifiedNode::class.java)
             return proxy?.findModifiers() ?: listOf()
         }
 
-        fun findNamepath(node: PsiElement): List<NexusIdentifierNode> {
+        fun findNamepath(node: PsiElement): List<DejavuIdentifierNode> {
             val proxy = PsiTreeUtil.getChildOfType(node, NexusModifiedNode::class.java)
             return proxy?.findNamepath() ?: listOf()
         }
 
         // Need to be lazy, otherwise it will be an infinite loop
-        fun findIdentifier(node: PsiElement): NexusIdentifierNode? {
+        fun findIdentifier(node: PsiElement): DejavuIdentifierNode? {
             val proxy = PsiTreeUtil.getChildOfType(node, NexusModifiedNode::class.java)
             return proxy?.findIdentifier()
         }

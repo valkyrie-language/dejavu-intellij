@@ -4,7 +4,7 @@ import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 
@@ -21,12 +21,12 @@ class NexusFunctionParameter(node: ASTNode) : ASTWrapperPsiElement(node), PsiNam
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): NexusIdentifierNode {
+    override fun getNameIdentifier(): DejavuIdentifierNode {
         return this.parameter
     }
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(nameIdentifier, NexusHighlightColor.SYM_ARG)
+        e.register(nameIdentifier, DejavuHighlightColor.SYM_ARG)
         e.register_modifiers(modifiers)
     }
 

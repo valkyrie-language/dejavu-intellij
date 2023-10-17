@@ -1,9 +1,9 @@
 package valkyrie.ide.reference.declaration
 
+import dejavu.language.ast.DejavuIdentifierNode
 import dejavu.language.ast.NexusFunctionStatement
-import dejavu.language.ast.NexusIdentifierNode
 
-class ValkyrieFunctionReference(definition: NexusFunctionStatement, element: NexusIdentifierNode) :
+class ValkyrieFunctionReference(definition: NexusFunctionStatement, element: DejavuIdentifierNode) :
     ValkyrieReference(element, definition) {
 
 }

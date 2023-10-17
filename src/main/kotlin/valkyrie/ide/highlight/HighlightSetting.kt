@@ -5,11 +5,11 @@ import com.intellij.openapi.options.colors.ColorSettingsPage
 import dejavu.language.file.DejavuIconProvider
 
 class HighlightSetting : ColorSettingsPage {
-    private val annotatorTags = NexusHighlightColor
+    private val annotatorTags = DejavuHighlightColor
         .values()
         .associateBy({ it.name }, { it.textAttributesKey })
 
-    override fun getAttributeDescriptors() = NexusHighlightColor
+    override fun getAttributeDescriptors() = DejavuHighlightColor
         .values()
         .map { it.attributesDescriptor }
         .toTypedArray()

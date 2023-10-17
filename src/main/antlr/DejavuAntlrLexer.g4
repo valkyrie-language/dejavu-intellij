@@ -14,6 +14,11 @@ TEMPLATE_R: SPACE_CONTROL? '%>' -> mode(DEFAULT_MODE);
 DOT:   '.';
 COMMA: ',';
 
+OP_NOT: '!';
+OP_ADD: '+';
+OP_SUB: '-';
+
+// namespace
 KW_EXPORT: 'export';
 KW_IMPORT: 'import';
 KW_AS:     'as';

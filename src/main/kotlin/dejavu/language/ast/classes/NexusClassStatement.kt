@@ -9,13 +9,13 @@ import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
-import dejavu.language.ast.NexusIdentifierNode
+import dejavu.language.ast.DejavuIdentifierNode
 import dejavu.language.ast.NexusNamepathNode
 import dejavu.language.file.DejavuFileNode
 import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieLineMarkElement
 import dejavu.language.psi.ValkyrieScopeNode
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.view.NamepathPresentation
@@ -34,7 +34,7 @@ class NexusClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), Psi
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): NexusIdentifierNode {
+    override fun getNameIdentifier(): DejavuIdentifierNode {
         return _path.nameIdentifier;
     }
 
@@ -51,12 +51,12 @@ class NexusClassStatement(node: CompositeElement) : ValkyrieScopeNode(node), Psi
     }
 
     override fun on_highlight(e: NodeHighlighter) {
-        val lang = NexusIdentifierNode.find(this)
+        val lang = DejavuIdentifierNode.find(this)
         if (lang != null) {
-            e.register(lang, NexusHighlightColor.SYM_LANGUAGE)
+            e.register(lang, DejavuHighlightColor.SYM_LANGUAGE)
         }
 
-        e.register(nameIdentifier, NexusHighlightColor.SYM_CLASS)
+        e.register(nameIdentifier, DejavuHighlightColor.SYM_CLASS)
     }
 
     override fun on_line_mark(e: MutableCollection<in LineMarkerInfo<*>>) {

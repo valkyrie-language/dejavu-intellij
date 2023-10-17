@@ -2,11 +2,11 @@ package valkyrie.ide.view
 
 import com.intellij.navigation.ColoredItemPresentation
 import com.intellij.openapi.editor.colors.TextAttributesKey
-import dejavu.language.ast.NexusIdentifierNode
-import valkyrie.ide.highlight.NexusHighlightColor
+import dejavu.language.ast.DejavuIdentifierNode
+import valkyrie.ide.highlight.DejavuHighlightColor
 import javax.swing.Icon
 
-class IdentifierPresentation(val name: NexusIdentifierNode?, private val icon: Icon) : ColoredItemPresentation {
+class IdentifierPresentation(val name: DejavuIdentifierNode?, private val icon: Icon) : ColoredItemPresentation {
     override fun getPresentableText(): String {
         return name?.name ?: "[Missing]"
     }
@@ -16,7 +16,7 @@ class IdentifierPresentation(val name: NexusIdentifierNode?, private val icon: I
     }
 
     override fun getTextAttributesKey(): TextAttributesKey {
-        return NexusHighlightColor.IDENTIFIER.textAttributesKey
+        return DejavuHighlightColor.IDENTIFIER.textAttributesKey
     }
 
 }

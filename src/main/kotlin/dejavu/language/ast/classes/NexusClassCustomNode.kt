@@ -10,7 +10,7 @@ import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.impl.source.tree.CompositeElement
 import dejavu.language.ast.NexusModifiedNode
 import dejavu.language.psi.ValkyrieLineMarkElement
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.view.IdentifierPresentation
@@ -20,7 +20,7 @@ class NexusClassCustomNode(node: CompositeElement) : ASTWrapperPsiElement(node),
     val custom by lazy { NexusModifiedNode.findIdentifier(this)!! };
     val modifiers by lazy { NexusModifiedNode.findModifiers(this) };
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(custom, NexusHighlightColor.SYM_MACRO)
+        e.register(custom, DejavuHighlightColor.SYM_MACRO)
         e.register_modifiers(modifiers)
     }
 

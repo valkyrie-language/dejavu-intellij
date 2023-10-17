@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.util.PsiTreeUtil
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.view.IdentifierPresentation
@@ -25,7 +25,7 @@ class NexusLetParameter(node: CompositeElement) : ASTWrapperPsiElement(node), Ps
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): NexusIdentifierNode {
+    override fun getNameIdentifier(): DejavuIdentifierNode {
         return _identifier
     }
 
@@ -37,14 +37,14 @@ class NexusLetParameter(node: CompositeElement) : ASTWrapperPsiElement(node), Ps
         return IdentifierPresentation(_identifier, this.getIcon(0))
     }
 
-    private fun findModifiers(): List<NexusIdentifierNode> {
-        val all = PsiTreeUtil.getChildrenOfTypeAsList(this, NexusIdentifierNode::class.java);
+    private fun findModifiers(): List<DejavuIdentifierNode> {
+        val all = PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuIdentifierNode::class.java);
         return all.dropLast(1);
     }
 
     // Need to be lazy, otherwise it will be an infinite loop
-    private fun findIdentifier(): NexusIdentifierNode {
-        val all = PsiTreeUtil.getChildrenOfTypeAsList(this, NexusIdentifierNode::class.java);
+    private fun findIdentifier(): DejavuIdentifierNode {
+        val all = PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuIdentifierNode::class.java);
         return all.last()
     }
 
@@ -60,9 +60,9 @@ class NexusLetParameter(node: CompositeElement) : ASTWrapperPsiElement(node), Ps
 
     override fun on_highlight(e: NodeHighlighter) {
         if (mutable) {
-            e.register(nameIdentifier, NexusHighlightColor.SYM_LOCAL_MUT)
+            e.register(nameIdentifier, DejavuHighlightColor.SYM_LOCAL_MUT)
         } else {
-            e.register(nameIdentifier, NexusHighlightColor.SYM_LOCAL)
+            e.register(nameIdentifier, DejavuHighlightColor.SYM_LOCAL)
         }
         e.register_modifiers(modifiers)
     }

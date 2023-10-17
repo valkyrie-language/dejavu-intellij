@@ -1,6 +1,5 @@
 // Generated from C:/Users/Dell/IdeaProjects/nexus-intellij/src/main/antlr/DejavuAntlr.g4 by ANTLR 4.13.1
 package dejavu.language.antlr;
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -441,6 +440,90 @@ public interface DejavuAntlrListener extends ParseTreeListener {
      * @param ctx the parse tree
      */
     void exitExpression(DejavuAntlrParser.ExpressionContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link DejavuAntlrParser#term}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterTerm(DejavuAntlrParser.TermContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link DejavuAntlrParser#term}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitTerm(DejavuAntlrParser.TermContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link DejavuAntlrParser#atom}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterAtom(DejavuAntlrParser.AtomContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link DejavuAntlrParser#atom}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitAtom(DejavuAntlrParser.AtomContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link DejavuAntlrParser#prefix}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterPrefix(DejavuAntlrParser.PrefixContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link DejavuAntlrParser#prefix}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitPrefix(DejavuAntlrParser.PrefixContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link DejavuAntlrParser#infix}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterInfix(DejavuAntlrParser.InfixContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link DejavuAntlrParser#infix}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitInfix(DejavuAntlrParser.InfixContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link DejavuAntlrParser#suffix}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterSuffix(DejavuAntlrParser.SuffixContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link DejavuAntlrParser#suffix}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitSuffix(DejavuAntlrParser.SuffixContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link DejavuAntlrParser#dot_call}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterDot_call(DejavuAntlrParser.Dot_callContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link DejavuAntlrParser#dot_call}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitDot_call(DejavuAntlrParser.Dot_callContext ctx);
 
     /**
      * Enter a parse tree produced by {@link DejavuAntlrParser#modifiers}.

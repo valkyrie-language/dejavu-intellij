@@ -9,13 +9,13 @@ import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import com.intellij.psi.impl.source.tree.CompositeElement
-import dejavu.language.ast.NexusIdentifierNode
+import dejavu.language.ast.DejavuIdentifierNode
 import dejavu.language.ast.NexusModifiedNode
 import dejavu.language.file.DejavuIconProvider
 import dejavu.language.psi.ValkyrieInlayElement
 import dejavu.language.psi.ValkyrieLineMarkElement
 import dejavu.language.psi.ValkyrieScopeNode
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.hint.TypeInlayHint
@@ -36,7 +36,7 @@ class NexusClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), Psi
         TODO("Not yet implemented")
     }
 
-    override fun getNameIdentifier(): NexusIdentifierNode {
+    override fun getNameIdentifier(): DejavuIdentifierNode {
         return field
     }
 
@@ -59,7 +59,7 @@ class NexusClassFieldNode(node: CompositeElement) : ValkyrieScopeNode(node), Psi
 
 
     override fun on_highlight(e: NodeHighlighter) {
-        e.register(nameIdentifier, NexusHighlightColor.SYM_FIELD)
+        e.register(nameIdentifier, DejavuHighlightColor.SYM_FIELD)
         e.register_modifiers(modifiers)
     }
 

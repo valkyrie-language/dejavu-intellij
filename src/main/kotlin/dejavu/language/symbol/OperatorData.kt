@@ -3,7 +3,7 @@ package dejavu.language.symbol
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.elementType
 import valkyrie.ide.doc.DocumentationRenderer
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 
 //import nexus.language.psi.ValkyrieTypes
 
@@ -16,16 +16,16 @@ class OperatorData(
     val priority: Int = 100,
 ) {
     fun documentation(doc: DocumentationRenderer) {
-        doc.append(NexusHighlightColor.KEYWORD, "operator ")
-        doc.append(NexusHighlightColor.SYM_MACRO, symbol)
-        doc.append(NexusHighlightColor.KEYWORD, " de-sugars ")
-        doc.append(NexusHighlightColor.SYM_FUNCTION_FREE, name)
+        doc.append(DejavuHighlightColor.KEYWORD, "operator ")
+        doc.append(DejavuHighlightColor.SYM_MACRO, symbol)
+        doc.append(DejavuHighlightColor.KEYWORD, " de-sugars ")
+        doc.append(DejavuHighlightColor.SYM_FUNCTION_FREE, name)
         doc.append("<br/>")
-        doc.append(NexusHighlightColor.KEYWORD, "associative ")
-        doc.append(NexusHighlightColor.SYM_MACRO, associative.toString())
+        doc.append(DejavuHighlightColor.KEYWORD, "associative ")
+        doc.append(DejavuHighlightColor.SYM_MACRO, associative.toString())
         doc.append("<br/>")
-        doc.append(NexusHighlightColor.KEYWORD, "priority ")
-        doc.append(NexusHighlightColor.SYM_CONSTANT, priority.toString())
+        doc.append(DejavuHighlightColor.KEYWORD, "priority ")
+        doc.append(DejavuHighlightColor.SYM_CONSTANT, priority.toString())
         doc.append("<hr/>")
         doc.append(detail)
     }

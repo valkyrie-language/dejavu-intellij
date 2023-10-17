@@ -12,7 +12,6 @@ program
         | ie_template
         | if_template
         | for_template
-        | control_template
         | slot_statement
         | apply_statement
         | match_statement
@@ -20,7 +19,7 @@ program
         | any_text
     )* EOF
     ;
-statements: if_template | for_template | any_text;
+statements: if_template | for_template | control_template | any_text;
 any_text:   (TEXT_SPACE | TEXT_WORD | TEXT);
 
 // export/import
@@ -66,12 +65,18 @@ match_statement: match_begin case_branch* match_end;
 match_begin:     TEMPLATE_L KW_MATCH expression TEMPLATE_R statements*;
 case_branch:     TEMPLATE_L KW_CASE expression TEMPLATE_R statements*;
 match_end:       TEMPLATE_L KW_END KW_MATCH? TEMPLATE_R;
-
-// expression
+// === expression === ==================================================================================================
 any_expression: TEMPLATE_L expression? TEMPLATE_R;
-expression:     namepath;
-
-// modifiers
+expression:     term (infix term)*;
+term: prefix* atom suffix*;
+atom: namepath | identifier;
+prefix: OP_NOT| OP_ADD| OP_SUB;
+infix: OP_ADD| OP_SUB;
+suffix: dot_call ;
+// === dot call === ====================================================================================================
+dot_call: DOT identifier
+| DOT identifier PARENTHESES_L PARENTHESES_R;
+// === modifiers === ===================================================================================================
 modifiers:           (mods += identifier)*;
 modified_identifier: (mods += identifier)* id = identifier;
 modified_namepath

@@ -6,22 +6,22 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.PsiTreeUtil
 import org.antlr.intellij.adaptor.psi.IdentifierDefSubtree
-import valkyrie.ide.highlight.NexusHighlightColor
+import valkyrie.ide.highlight.DejavuHighlightColor
 import valkyrie.ide.highlight.NexusHighlightElement
 import valkyrie.ide.highlight.NodeHighlighter
 
 
 class NexusNamepathNode(node: ASTNode, type: IElementType, val free: Boolean = false) : IdentifierDefSubtree(node, type),
     NexusHighlightElement {
-    val identifiers = findChildrenByClass(NexusIdentifierNode::class.java)
-    val parentIdentifier: Array<NexusIdentifierNode> = identifiers.dropLast(1).toTypedArray()
+    val identifiers = findChildrenByClass(DejavuIdentifierNode::class.java)
+    val parentIdentifier: Array<DejavuIdentifierNode> = identifiers.dropLast(1).toTypedArray()
     val namespace: String = parentIdentifier.joinToString(".") { it.text }
 
     override fun getName(): String {
         return nameIdentifier.name
     }
 
-    override fun getNameIdentifier(): NexusIdentifierNode {
+    override fun getNameIdentifier(): DejavuIdentifierNode {
         return identifiers.last()
     }
 
@@ -38,20 +38,20 @@ class NexusNamepathNode(node: ASTNode, type: IElementType, val free: Boolean = f
 }
 
 
-private fun fakeTypeColor(info: NodeHighlighter, psi: NexusIdentifierNode) {
+private fun fakeTypeColor(info: NodeHighlighter, psi: DejavuIdentifierNode) {
     val name = psi.name
     if (keywords.contains(name)) {
-        info.register(psi, NexusHighlightColor.KEYWORD)
+        info.register(psi, DejavuHighlightColor.KEYWORD)
     } else if (functions.contains(name)) {
-        info.register(psi, NexusHighlightColor.SYM_FUNCTION_FREE)
+        info.register(psi, DejavuHighlightColor.SYM_FUNCTION_FREE)
     } else if (name.startsWith('_')) {
-        info.register(psi, NexusHighlightColor.SYM_ARG)
+        info.register(psi, DejavuHighlightColor.SYM_ARG)
     } else if (name.isUppercase()) {
-        info.register(psi, NexusHighlightColor.SYM_GENERIC)
+        info.register(psi, DejavuHighlightColor.SYM_GENERIC)
     } else {
         val first = name.firstOrNull();
         if (first != null && first.isUpperCase()) {
-            info.register(psi, NexusHighlightColor.SYM_CLASS)
+            info.register(psi, DejavuHighlightColor.SYM_CLASS)
         }
     }
 }
