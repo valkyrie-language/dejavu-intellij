@@ -100,6 +100,9 @@ WHITE_TEXT  = [^<]+
 <ProgramContext> {
 	"|>" { return OP_THEN; }
 	{PROPORTION} { return PROPORTION; }
+	\!= { return OP_NE; }
+	==  { return OP_EQ; }
+	=   { return BIND; }
 }
 <ProgramContext> {
 	"(" { return PARENTHESIS_L; }
@@ -124,7 +127,7 @@ WHITE_TEXT  = [^<]+
 	"." { return DOT; }
 	"," { return COMMA; }
 	"-" { return HYPHEN; }
-	"=" { return EQ; }
+
 
 	"^" { return OP_REMARK; }
 //    "!" { return OP_NOT; }

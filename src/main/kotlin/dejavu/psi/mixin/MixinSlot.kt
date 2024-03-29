@@ -10,6 +10,8 @@ import com.intellij.psi.PsiNameIdentifierOwner
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuIdentifierNode
 import dejavu.psi.node.DejavuSlotElement
+import valkyrie.ide.highlight.HighlightColor
+import valkyrie.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
 abstract class MixinSlot(node: ASTNode) : DejavuElement(node),
@@ -37,6 +39,10 @@ abstract class MixinSlot(node: ASTNode) : DejavuElement(node),
 
     override fun getPresentation(): ItemPresentation? {
         return PresentationData(name, "", baseIcon, null)
+    }
+
+    override fun highlight(highlighter: NodeHighlighter) {
+        this.nameIdentifier?.let { highlighter.highlight(it, HighlightColor.SYM_BUILTIN) }
     }
 }
 

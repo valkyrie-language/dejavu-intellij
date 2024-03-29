@@ -11,6 +11,9 @@ public interface DejavuTemplateFor extends PsiElement {
   DejavuExpression getExpression();
 
   @Nullable
+  DejavuIfConditional getIfConditional();
+
+  @Nullable
   DejavuPatternBare getPatternBare();
 
 }

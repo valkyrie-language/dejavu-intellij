@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
-public class DejavuTemplateForNode extends DejavuElement implements DejavuTemplateFor {
+public class DejavuIfConditionalNode extends DejavuElement implements DejavuIfConditional {
 
-  public DejavuTemplateForNode(@NotNull ASTNode node) {
+  public DejavuIfConditionalNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitTemplateFor(this);
+    visitor.visitIfConditional(this);
   }
 
   @Override
@@ -30,18 +30,6 @@ public class DejavuTemplateForNode extends DejavuElement implements DejavuTempla
   @Nullable
   public DejavuExpression getExpression() {
     return findChildByClass(DejavuExpression.class);
-  }
-
-  @Override
-  @Nullable
-  public DejavuIfConditional getIfConditional() {
-    return findChildByClass(DejavuIfConditional.class);
-  }
-
-  @Override
-  @Nullable
-  public DejavuPatternBare getPatternBare() {
-    return findChildByClass(DejavuPatternBare.class);
   }
 
 }

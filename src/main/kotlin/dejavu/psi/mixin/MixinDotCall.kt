@@ -51,10 +51,9 @@ abstract class MixinFunctionCall(node: ASTNode) : DejavuElement(node),
         if (namepath.nameIdentifier == null) {
             return
         }
-
+        val keywords = setOf("self", "true", "false", "null")
         val id = namepath.nameIdentifier!!;
-
-        if (name == "self") {
+        if (keywords.contains(name)) {
             highlighter.highlight(id, HighlightColor.KEYWORD)
         } else if (this.argumentList == null) {
             highlighter.highlight(id, HighlightColor.SYM_LOCAL)
@@ -62,8 +61,6 @@ abstract class MixinFunctionCall(node: ASTNode) : DejavuElement(node),
             highlighter.highlight(id, HighlightColor.SYM_FUNCTION)
         }
     }
-
-
 }
 
 
