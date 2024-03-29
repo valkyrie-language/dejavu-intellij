@@ -1,3 +1,3 @@
-<% for $pattern$ in $condition$ %>
-    $body$
-<% end %>
+for item in $iterable$ {
+$block$
+}

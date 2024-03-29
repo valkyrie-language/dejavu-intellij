@@ -7,7 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
-import dejavu.language.ast.classes.NexusClassStatement
+import yggdrasil.psi.node.YggdrasilClassNode
 
 //import nexus.language.psi_node.ValkyrieClassStatementNode
 //import nexus.language.psi_node.ValkyrieTraitStatementNode
@@ -21,13 +21,13 @@ class GotoSuper : GotoTargetHandler() {
     }
 
     override fun getChooserTitle(sourceElement: PsiElement, name: String?, length: Int, finished: Boolean) = when (sourceElement) {
-        is NexusClassStatement -> "ValkyrieClassStatementNode"
+        is YggdrasilClassNode -> "ValkyrieClassStatementNode"
         else -> "???????"
         // EditorConfigBundle.get("goto.super.select.parent")
     }
 
     override fun getNotFoundMessage(project: Project, editor: Editor, file: PsiFile) = when (findSource(editor, file)) {
-        is NexusClassStatement -> "ValkyrieClassStatementNode not found"
+        is YggdrasilClassNode -> "ValkyrieClassStatementNode not found"
         else -> "???? not found"
     }
 }
@@ -36,13 +36,13 @@ private fun findSource(editor: Editor, file: PsiFile): PsiElement? {
     val element = file.findElementAt(editor.caretModel.offset) ?: return null
     return PsiTreeUtil.getParentOfType(
         element,
-        NexusClassStatement::class.java,
+        YggdrasilClassNode::class.java,
     )
 }
 
 private fun findTargets(element: PsiElement): List<PsiElement?> = listOf(
     PsiTreeUtil.getParentOfType(
         element,
-        NexusClassStatement::class.java,
+        YggdrasilClassNode::class.java,
     )
 )

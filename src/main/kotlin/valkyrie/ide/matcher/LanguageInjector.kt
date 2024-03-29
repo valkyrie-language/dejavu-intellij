@@ -4,19 +4,21 @@ package valkyrie.ide.matcher
 import com.intellij.lang.injection.MultiHostInjector
 import com.intellij.lang.injection.MultiHostRegistrar
 import com.intellij.psi.PsiElement
-import dejavu.language.ast.NexusStringNode
+import yggdrasil.psi.mixin.MixinRegex
+import yggdrasil.psi.node.YggdrasilRegexNode
+
 
 //import nexus.language.psi_node.ValkyrieStringNode
 
 class LanguageInjector : MultiHostInjector {
     override fun getLanguagesToInject(registrar: MultiHostRegistrar, context: PsiElement) {
         when (context) {
-            is NexusStringNode -> context.injectPerform(registrar)
+            is YggdrasilRegexNode -> context.injectPerform(registrar)
         }
     }
 
     override fun elementsToInjectIn(): MutableList<out Class<out PsiElement>> {
-        return mutableListOf(NexusStringNode::class.java)
+        return mutableListOf(MixinRegex::class.java)
     }
 }
 

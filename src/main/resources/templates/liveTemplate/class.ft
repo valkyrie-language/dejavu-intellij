@@ -1,1 +1,8 @@
-<% class $path$ in $language$ %>
+#derive(Default, Debug, Serde)
+class $Class$ {
+$fields$
+}
+
+extends $Class$ {
+$functions$
+}
