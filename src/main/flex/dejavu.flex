@@ -33,8 +33,18 @@ TEMPLATE_L = <%{TEMPLATE_X}?
 TEMPLATE_R = {TEMPLATE_X}?%>
 
 
+
+KW_EXTENDS = extends
+KW_SKOT = slot
+
+
 KW_IMPORT  = import
-KW_MACRO   = macro|function|func|fun|fn|def
+KW_INCLUDE = include
+
+
+KW_INVOKE = invoke
+KW_THEN   = then
+
 
 KW_IF     = if
 KW_ELSE     = else
@@ -48,6 +58,7 @@ KW_AS      = as
 
 
 KW_MATCH   = match
+KW_WHEN    = when
 KW_CASE    = case
 
 KW_END   = end
@@ -118,6 +129,9 @@ TEXT = [^<]+
 }
 
 <ProgramContext> {
+    {KW_IMPORT} { return KW_IMPORT; }
+    {KW_AS} { return KW_AS; }
+
     {KW_IF} { return KW_IF; }
     {KW_ELSE} { return KW_ELSE; }
 
@@ -125,11 +139,14 @@ TEXT = [^<]+
 	{KW_IN} { return KW_IN; }
 
     {KW_WHILE} { return KW_WHILE; }
+
     {KW_MATCH} { return KW_MATCH; }
+    {KW_WHEN} { return KW_WHEN; }
     {KW_CASE} { return KW_CASE; }
-    {KW_IMPORT} { return KW_IMPORT; }
-    {KW_AS} { return KW_AS; }
-    {KW_MACRO} { return KW_MACRO; }
+
+	{KW_INVOKE} { return KW_INVOKE; }
+
+    {KW_SKOT} { return KW_MACRO; }
     {KW_END} { return KW_END; }
 }
 

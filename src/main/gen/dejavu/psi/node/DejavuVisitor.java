@@ -151,7 +151,15 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitInvokeElement(@NotNull DejavuInvokeElement o) {
+    visitPsiElement(o);
+  }
+
   public void visitKey(@NotNull DejavuKey o) {
+    visitPsiElement(o);
+  }
+
+  public void visitMatchBranch(@NotNull DejavuMatchBranch o) {
     visitPsiElement(o);
   }
 
@@ -235,7 +243,15 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitTemplateInvoke(@NotNull DejavuTemplateInvoke o) {
+    visitPsiElement(o);
+  }
+
   public void visitTemplateMatch(@NotNull DejavuTemplateMatch o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateWhen(@NotNull DejavuTemplateWhen o) {
     visitPsiElement(o);
   }
 
@@ -280,6 +296,10 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitValue(@NotNull DejavuValue o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhenStatement(@NotNull DejavuWhenStatement o) {
     visitPsiElement(o);
   }
 

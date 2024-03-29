@@ -78,6 +78,7 @@ text-element ::=
   | while-element
   | for-element
   | match-element
+  | invoke-element
   | WHITE_SPACE
   | NORMAL_TEXT;
 
@@ -259,18 +260,37 @@ template-for      ::= TEMPLATE_L KW_FOR identifier KW_IN identifier TEMPLATE_R {
     pin = 2
 }
 
-template-end ::= TEMPLATE_L (KW_END identifier-free? | identifier-free? KW_END) TEMPLATE_R {
-    pin = 2
-}
+
 // === match statement ===
-match-element ::= match-statement case-statement* else-statement? template-end;
+match-element   ::= match-statement match-branch* template-end;
 match-statement ::= template-match WHITE_SPACE*;
+match-branch    ::=
+    case-statement
+  | when-statement
+  | else-statement
+when-statement ::= template-when text-element*;
 case-statement ::= template-case text-element*;
 
 template-match ::= TEMPLATE_L KW_MATCH identifier TEMPLATE_R {
     pin = 2
 }
+template-when ::= TEMPLATE_L KW_WHEN identifier TEMPLATE_R {
+    pin = 2
+}
 template-case ::= TEMPLATE_L KW_CASE identifier TEMPLATE_R {
+    pin = 2
+}
+
+
+// === for statement ===
+invoke-element  ::= template-invoke text-element* template-end;
+template-invoke ::= TEMPLATE_L KW_INVOKE identifier TEMPLATE_R {
+    pin = 2
+}
+
+
+
+template-end ::= TEMPLATE_L (KW_END identifier-free? | identifier-free? KW_END) TEMPLATE_R {
     pin = 2
 }
 /* Literals */
@@ -285,6 +305,7 @@ identifier-free     ::=
   | KW_WHILE | KW_FOR
   | KW_IF
   | KW_MATCH
+  | KW_INVOKE
 {
     extends = identifier
 }
