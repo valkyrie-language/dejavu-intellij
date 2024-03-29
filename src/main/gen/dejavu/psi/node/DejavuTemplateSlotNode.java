@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
-public class DejavuUsingAliasNode extends DejavuElement implements DejavuUsingAlias {
+public class DejavuTemplateSlotNode extends DejavuElement implements DejavuTemplateSlot {
 
-  public DejavuUsingAliasNode(@NotNull ASTNode node) {
+  public DejavuTemplateSlotNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitUsingAlias(this);
+    visitor.visitTemplateSlot(this);
   }
 
   @Override
@@ -27,15 +27,9 @@ public class DejavuUsingAliasNode extends DejavuElement implements DejavuUsingAl
   }
 
   @Override
-  @NotNull
-  public DejavuIdentifierFree getIdentifierFree() {
-    return findNotNullChildByClass(DejavuIdentifierFree.class);
-  }
-
-  @Override
-  @NotNull
-  public DejavuKey getKey() {
-    return findNotNullChildByClass(DejavuKey.class);
+  @Nullable
+  public DejavuExpression getExpression() {
+    return findChildByClass(DejavuExpression.class);
   }
 
 }

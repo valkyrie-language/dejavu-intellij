@@ -8,6 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface DejavuTemplateInvoke extends PsiElement {
 
   @Nullable
-  DejavuIdentifier getIdentifier();
+  DejavuExpression getExpression();
 
 }

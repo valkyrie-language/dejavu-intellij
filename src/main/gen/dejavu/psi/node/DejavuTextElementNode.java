@@ -52,6 +52,12 @@ public class DejavuTextElementNode extends DejavuElement implements DejavuTextEl
 
   @Override
   @Nullable
+  public DejavuSlotElement getSlotElement() {
+    return findChildByClass(DejavuSlotElement.class);
+  }
+
+  @Override
+  @Nullable
   public DejavuWhileElement getWhileElement() {
     return findChildByClass(DejavuWhileElement.class);
   }

@@ -8,16 +8,16 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
+import dejavu.psi.mixin.MixinSlot;
 
-public class DejavuExpressionGroupNode extends DejavuExpressionNode implements DejavuExpressionGroup {
+public class DejavuSlotElementNode extends MixinSlot implements DejavuSlotElement {
 
-  public DejavuExpressionGroupNode(@NotNull ASTNode node) {
+  public DejavuSlotElementNode(@NotNull ASTNode node) {
     super(node);
   }
 
-  @Override
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitExpressionGroup(this);
+    visitor.visitSlotElement(this);
   }
 
   @Override
@@ -28,8 +28,14 @@ public class DejavuExpressionGroupNode extends DejavuExpressionNode implements D
 
   @Override
   @NotNull
-  public DejavuExpression getExpression() {
-    return findNotNullChildByClass(DejavuExpression.class);
+  public DejavuSlotStatement getSlotStatement() {
+    return findNotNullChildByClass(DejavuSlotStatement.class);
+  }
+
+  @Override
+  @NotNull
+  public DejavuTemplateEnd getTemplateEnd() {
+    return findNotNullChildByClass(DejavuTemplateEnd.class);
   }
 
 }
