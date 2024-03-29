@@ -70,6 +70,12 @@ public class DejavuTextElementsNode extends DejavuElement implements DejavuTextE
 
   @Override
   @Nullable
+  public DejavuTemplateExpression getTemplateExpression() {
+    return findChildByClass(DejavuTemplateExpression.class);
+  }
+
+  @Override
+  @Nullable
   public DejavuWhileElement getWhileElement() {
     return findChildByClass(DejavuWhileElement.class);
   }

@@ -20,10 +20,12 @@ public interface DejavuTypes {
   IElementType EXTENDS_ELEMENT = new DejavuElementType("EXTENDS_ELEMENT");
   IElementType FOR_ELEMENT = new DejavuElementType("FOR_ELEMENT");
   IElementType FOR_STATEMENT = new DejavuElementType("FOR_STATEMENT");
+  IElementType FUNCTION_CALL = new DejavuElementType("FUNCTION_CALL");
   IElementType IDENTIFIER = new DejavuElementType("IDENTIFIER");
   IElementType IDENTIFIER_FREE = new DejavuElementType("IDENTIFIER_FREE");
   IElementType IF_ELEMENT = new DejavuElementType("IF_ELEMENT");
   IElementType IF_STATEMENT = new DejavuElementType("IF_STATEMENT");
+  IElementType INFIX = new DejavuElementType("INFIX");
   IElementType INVOKE_ELEMENT = new DejavuElementType("INVOKE_ELEMENT");
   IElementType LET_STATEMENT = new DejavuElementType("LET_STATEMENT");
   IElementType MATCH_BRANCH = new DejavuElementType("MATCH_BRANCH");
@@ -32,6 +34,7 @@ public interface DejavuTypes {
   IElementType NAMEPATH = new DejavuElementType("NAMEPATH");
   IElementType NUMBER = new DejavuElementType("NUMBER");
   IElementType PAIR = new DejavuElementType("PAIR");
+  IElementType PREFIX = new DejavuElementType("PREFIX");
   IElementType PROGRAM_ELEMENT = new DejavuElementType("PROGRAM_ELEMENT");
   IElementType PROGRAM_TEMPLATE = new DejavuElementType("PROGRAM_TEMPLATE");
   IElementType SLOT_ELEMENT = new DejavuElementType("SLOT_ELEMENT");
@@ -41,6 +44,7 @@ public interface DejavuTypes {
   IElementType TEMPLATE_ELSE = new DejavuElementType("TEMPLATE_ELSE");
   IElementType TEMPLATE_ELSE_IF = new DejavuElementType("TEMPLATE_ELSE_IF");
   IElementType TEMPLATE_END = new DejavuElementType("TEMPLATE_END");
+  IElementType TEMPLATE_EXPRESSION = new DejavuElementType("TEMPLATE_EXPRESSION");
   IElementType TEMPLATE_FOR = new DejavuElementType("TEMPLATE_FOR");
   IElementType TEMPLATE_IF = new DejavuElementType("TEMPLATE_IF");
   IElementType TEMPLATE_INVOKE = new DejavuElementType("TEMPLATE_INVOKE");
@@ -48,6 +52,7 @@ public interface DejavuTypes {
   IElementType TEMPLATE_SLOT = new DejavuElementType("TEMPLATE_SLOT");
   IElementType TEMPLATE_WHEN = new DejavuElementType("TEMPLATE_WHEN");
   IElementType TEMPLATE_WHILE = new DejavuElementType("TEMPLATE_WHILE");
+  IElementType TERM = new DejavuElementType("TERM");
   IElementType TEXT_ELEMENTS = new DejavuElementType("TEXT_ELEMENTS");
   IElementType USING_ALIAS = new DejavuElementType("USING_ALIAS");
   IElementType USING_ELEMENT = new DejavuElementType("USING_ELEMENT");
@@ -102,6 +107,7 @@ public interface DejavuTypes {
   IElementType OP_MANY = new DejavuTokenType("*");
   IElementType OP_OR = new DejavuTokenType("|");
   IElementType OP_REMARK = new DejavuTokenType("^");
+  IElementType OP_THEN = new DejavuTokenType("OP_THEN");
   IElementType PARENTHESIS_L = new DejavuTokenType("(");
   IElementType PARENTHESIS_R = new DejavuTokenType(")");
   IElementType PLACE_HOLDER = new DejavuTokenType("_");
@@ -160,6 +166,9 @@ public interface DejavuTypes {
       else if (type == FOR_STATEMENT) {
         return new DejavuForStatementNode(node);
       }
+      else if (type == FUNCTION_CALL) {
+        return new DejavuFunctionCallNode(node);
+      }
       else if (type == IDENTIFIER) {
         return new DejavuIdentifierNode(node);
       }
@@ -171,6 +180,9 @@ public interface DejavuTypes {
       }
       else if (type == IF_STATEMENT) {
         return new DejavuIfStatementNode(node);
+      }
+      else if (type == INFIX) {
+        return new DejavuInfixNode(node);
       }
       else if (type == INVOKE_ELEMENT) {
         return new DejavuInvokeElementNode(node);
@@ -195,6 +207,9 @@ public interface DejavuTypes {
       }
       else if (type == PAIR) {
         return new DejavuPairNode(node);
+      }
+      else if (type == PREFIX) {
+        return new DejavuPrefixNode(node);
       }
       else if (type == PROGRAM_ELEMENT) {
         return new DejavuProgramElementNode(node);
@@ -223,6 +238,9 @@ public interface DejavuTypes {
       else if (type == TEMPLATE_END) {
         return new DejavuTemplateEndNode(node);
       }
+      else if (type == TEMPLATE_EXPRESSION) {
+        return new DejavuTemplateExpressionNode(node);
+      }
       else if (type == TEMPLATE_FOR) {
         return new DejavuTemplateForNode(node);
       }
@@ -243,6 +261,9 @@ public interface DejavuTypes {
       }
       else if (type == TEMPLATE_WHILE) {
         return new DejavuTemplateWhileNode(node);
+      }
+      else if (type == TERM) {
+        return new DejavuTermNode(node);
       }
       else if (type == TEXT_ELEMENTS) {
         return new DejavuTextElementsNode(node);

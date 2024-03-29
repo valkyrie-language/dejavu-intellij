@@ -28,14 +28,14 @@ public class DejavuExpressionNode extends DejavuElement implements DejavuExpress
 
   @Override
   @NotNull
-  public List<DejavuSuffix> getSuffixList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuSuffix.class);
+  public List<DejavuInfix> getInfixList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuInfix.class);
   }
 
   @Override
   @NotNull
-  public DejavuValue getValue() {
-    return findNotNullChildByClass(DejavuValue.class);
+  public List<DejavuTerm> getTermList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTerm.class);
   }
 
 }

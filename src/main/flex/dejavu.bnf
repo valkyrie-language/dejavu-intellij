@@ -82,6 +82,7 @@ text-elements ::=
   | match-element
   | slot-element
   | invoke-element
+  | template-expression
   | WHITE_SPACE
   | NORMAL_TEXT;
 // === program statement ===
@@ -117,9 +118,10 @@ extends-element ::= KW_EXTENDS (string | namepath) {
 
 
 // === class statement ===
-let-statement ::= KW_LET identifier EQ expression SEMICOLON {
+let-statement ::= KW_LET identifier-free EQ expression {
     pin = 1
-//    mixin = "dejavu.psi.mixin.MixinLet"
+    mixin = "dejavu.psi.mixin.MixinLet"
+    methods = [highlight]
 }
 
 
@@ -193,14 +195,23 @@ template-end ::= TEMPLATE_L (KW_END identifier-free? | identifier-free? KW_END) 
     pin = 2
 }
 // === expression statement ===
-expression ::= value suffix*;
+template-expression ::= TEMPLATE_L expression TEMPLATE_R {
 
+}
+expression ::= term (infix term)*;
+term    ::= prefix* value suffix*
 
+infix  ::= OP_THEN;
+prefix ::= OP_REMARK;
 suffix ::= dot-call;
+
+
 dot-call ::= DOT identifier-free argument-list? {
     mixin = "dejavu.psi.mixin.MixinDotCall"
     methods= [highlight]
 }
+
+
 argument-list  ::= PARENTHESIS_L (argument (COMMA argument)* COMMA?)? PARENTHESIS_R {
 //    mixin = "dejavu.psi.mixin.MixinTuple"
 }
@@ -209,7 +220,11 @@ pair ::= identifier EQ value;
 
 
 // === atomic statement ===
-value    ::= number | string | namepath;
+value    ::= number | string | function-call;
+function-call ::= identifier-free argument-list? {
+    mixin = "dejavu.psi.mixin.MixinFunctionCall"
+    methods= [highlight]
+}
 // === literals ===
 
 

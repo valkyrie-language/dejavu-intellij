@@ -4,6 +4,7 @@ package dejavu.psi.node;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import valkyrie.ide.highlight.NodeHighlighter;
 
 public interface DejavuDotCall extends PsiElement {
 
@@ -13,8 +14,6 @@ public interface DejavuDotCall extends PsiElement {
   @NotNull
   DejavuIdentifierFree getIdentifierFree();
 
-  //WARNING: highlight(...) is skipped
-  //matching highlight(DejavuDotCall, ...)
-  //methods are not found in DejavuPsiExtension
+  void highlight(@NotNull NodeHighlighter highlighter);
 
 }

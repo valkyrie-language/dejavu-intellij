@@ -5,15 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuValue extends PsiElement {
+public interface DejavuTemplateExpression extends PsiElement {
 
-  @Nullable
-  DejavuFunctionCall getFunctionCall();
-
-  @Nullable
-  DejavuNumber getNumber();
-
-  @Nullable
-  DejavuString getString();
+  @NotNull
+  DejavuExpression getExpression();
 
 }

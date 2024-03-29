@@ -8,9 +8,10 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
-import dejavu.psi.DejavuElement;
+import dejavu.psi.mixin.MixinLet;
+import valkyrie.ide.highlight.NodeHighlighter;
 
-public class DejavuLetStatementNode extends DejavuElement implements DejavuLetStatement {
+public class DejavuLetStatementNode extends MixinLet implements DejavuLetStatement {
 
   public DejavuLetStatementNode(@NotNull ASTNode node) {
     super(node);
@@ -34,8 +35,8 @@ public class DejavuLetStatementNode extends DejavuElement implements DejavuLetSt
 
   @Override
   @Nullable
-  public DejavuIdentifier getIdentifier() {
-    return findChildByClass(DejavuIdentifier.class);
+  public DejavuIdentifierFree getIdentifierFree() {
+    return findChildByClass(DejavuIdentifierFree.class);
   }
 
 }
