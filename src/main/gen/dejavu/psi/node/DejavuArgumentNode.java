@@ -27,15 +27,15 @@ public class DejavuArgumentNode extends DejavuElement implements DejavuArgument 
   }
 
   @Override
-  @Nullable
-  public DejavuIdentifier getIdentifier() {
-    return findChildByClass(DejavuIdentifier.class);
+  @NotNull
+  public DejavuExpression getExpression() {
+    return findNotNullChildByClass(DejavuExpression.class);
   }
 
   @Override
-  @NotNull
-  public DejavuValue getValue() {
-    return findNotNullChildByClass(DejavuValue.class);
+  @Nullable
+  public DejavuIdentifier getIdentifier() {
+    return findChildByClass(DejavuIdentifier.class);
   }
 
 }

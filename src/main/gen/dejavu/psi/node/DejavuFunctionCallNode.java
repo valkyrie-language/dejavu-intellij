@@ -35,8 +35,8 @@ public class DejavuFunctionCallNode extends MixinFunctionCall implements DejavuF
 
   @Override
   @NotNull
-  public DejavuIdentifierFree getIdentifierFree() {
-    return findNotNullChildByClass(DejavuIdentifierFree.class);
+  public DejavuNamepath getNamepath() {
+    return findNotNullChildByClass(DejavuNamepath.class);
   }
 
 }

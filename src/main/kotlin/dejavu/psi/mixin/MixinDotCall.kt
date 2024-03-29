@@ -39,7 +39,7 @@ abstract class MixinFunctionCall(node: ASTNode) : DejavuElement(node),
     DejavuFunctionCall {
 
     override fun getName(): String? {
-        return identifierFree.text
+        return namepath.nameIdentifier?.text
     }
 
 
@@ -48,12 +48,18 @@ abstract class MixinFunctionCall(node: ASTNode) : DejavuElement(node),
     }
 
     override fun highlight(highlighter: NodeHighlighter) {
+        if (namepath.nameIdentifier == null) {
+            return
+        }
+
+        val id = namepath.nameIdentifier!!;
+
         if (name == "self") {
-            highlighter.highlight(this.identifierFree, HighlightColor.KEYWORD)
+            highlighter.highlight(id, HighlightColor.KEYWORD)
         } else if (this.argumentList == null) {
-            highlighter.highlight(this.identifierFree, HighlightColor.SYM_LOCAL)
+            highlighter.highlight(id, HighlightColor.SYM_LOCAL)
         } else {
-            highlighter.highlight(this.identifierFree, HighlightColor.SYM_FUNCTION)
+            highlighter.highlight(id, HighlightColor.SYM_FUNCTION)
         }
     }
 

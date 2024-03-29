@@ -28,14 +28,14 @@ public class DejavuPairNode extends DejavuElement implements DejavuPair {
 
   @Override
   @NotNull
-  public DejavuIdentifier getIdentifier() {
-    return findNotNullChildByClass(DejavuIdentifier.class);
+  public DejavuExpression getExpression() {
+    return findNotNullChildByClass(DejavuExpression.class);
   }
 
   @Override
   @NotNull
-  public DejavuValue getValue() {
-    return findNotNullChildByClass(DejavuValue.class);
+  public DejavuIdentifier getIdentifier() {
+    return findNotNullChildByClass(DejavuIdentifier.class);
   }
 
 }
