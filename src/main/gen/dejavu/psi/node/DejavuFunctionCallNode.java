@@ -8,16 +8,17 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
-import dejavu.psi.DejavuElement;
+import dejavu.psi.mixin.MixinFunctionCall;
+import valkyrie.ide.highlight.NodeHighlighter;
 
-public class DejavuValueNode extends DejavuElement implements DejavuValue {
+public class DejavuFunctionCallNode extends MixinFunctionCall implements DejavuFunctionCall {
 
-  public DejavuValueNode(@NotNull ASTNode node) {
+  public DejavuFunctionCallNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitValue(this);
+    visitor.visitFunctionCall(this);
   }
 
   @Override
@@ -28,20 +29,14 @@ public class DejavuValueNode extends DejavuElement implements DejavuValue {
 
   @Override
   @Nullable
-  public DejavuFunctionCall getFunctionCall() {
-    return findChildByClass(DejavuFunctionCall.class);
+  public DejavuArgumentList getArgumentList() {
+    return findChildByClass(DejavuArgumentList.class);
   }
 
   @Override
-  @Nullable
-  public DejavuNumber getNumber() {
-    return findChildByClass(DejavuNumber.class);
-  }
-
-  @Override
-  @Nullable
-  public DejavuString getString() {
-    return findChildByClass(DejavuString.class);
+  @NotNull
+  public DejavuIdentifierFree getIdentifierFree() {
+    return findNotNullChildByClass(DejavuIdentifierFree.class);
   }
 
 }

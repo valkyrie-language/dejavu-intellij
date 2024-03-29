@@ -14,7 +14,7 @@ import static dejavu.psi.DejavuTypes.*;
 
 %state ProgramContext
 
-WHITE_SPACE        = [\s\t]
+
 REGULAR_EXPRESSION = \/([^\/\\]|\\.)+\/
 REGULAR_RANGE      = \[[^\]]*\]
 COMMENT_LINE       = [/]{2}[^\r\n]*
@@ -70,7 +70,9 @@ KW_CASE    = case
 
 KW_END   = end
 
-TEXT = [^<]+
+
+WHITE_SPACE = [\s\t]+
+WHITE_TEXT  = [^<]+
 
 %%
 
@@ -79,8 +81,9 @@ TEXT = [^<]+
           yybegin(ProgramContext);
           return TEMPLATE_L;
     }
-    {WHITE_SPACE}+ { return WHITE_SPACE; }
-    {TEXT} { return NORMAL_TEXT; }
+    {WHITE_SPACE} { return WHITE_SPACE; }
+    {WHITE_TEXT}  { return NORMAL_TEXT; }
+	"<"           { return NORMAL_TEXT; }
 }
 
 <ProgramContext> {
@@ -93,8 +96,11 @@ TEXT = [^<]+
 	}
 }
 
-
-
+// === infix operator ===
+<ProgramContext> {
+	"|>" { return OP_THEN; }
+	{PROPORTION} { return PROPORTION; }
+}
 <ProgramContext> {
 	"(" { return PARENTHESIS_L; }
     ")" { return PARENTHESIS_R; }
@@ -108,7 +114,7 @@ TEXT = [^<]+
     "|" { return OP_OR;}
     "~" { return OP_CONCAT;}
 
-	{PROPORTION} { return PROPORTION; }
+
 	":" { return COLON; }
 	";" { return SEMICOLON; }
 //	"#" { return HASH; }

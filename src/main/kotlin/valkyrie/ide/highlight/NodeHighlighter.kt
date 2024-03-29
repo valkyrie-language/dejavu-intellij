@@ -9,10 +9,7 @@ import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import dejavu.language.file.DejavuFileNode
-import dejavu.psi.node.DejavuArgument
-import dejavu.psi.node.DejavuClassElement
-import dejavu.psi.node.DejavuUsingAlias
-import dejavu.psi.node.DejavuVisitor
+import dejavu.psi.node.*
 
 class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
     private var infoHolder: HighlightInfoHolder? = null
@@ -23,13 +20,24 @@ class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
     }
 
     override fun visitArgument(o: DejavuArgument) {
-        highlight(o.identifier, HighlightColor.SYM_ARGUMENT)
+        o.identifier?.let { highlight(it, HighlightColor.SYM_ARGUMENT) }
     }
 
     override fun visitClassElement(o: DejavuClassElement) {
         o.namepath?.lastChild?.let { highlight(it, HighlightColor.SYM_CLASS) }
     }
 
+    override fun visitLetStatement(o: DejavuLetStatement) {
+        o.highlight(this)
+    }
+
+    override fun visitDotCall(o: DejavuDotCall) {
+        o.highlight(this)
+    }
+
+    override fun visitFunctionCall(o: DejavuFunctionCall) {
+        o.highlight(this)
+    }
 
     fun highlight(element: PsiElement, color: HighlightColor) {
         val builder = HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION)

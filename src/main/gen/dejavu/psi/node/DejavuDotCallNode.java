@@ -9,10 +9,11 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.mixin.MixinDotCall;
+import valkyrie.ide.highlight.NodeHighlighter;
 
 public class DejavuDotCallNode extends MixinDotCall implements DejavuDotCall {
 
-  public DejavuDotCallNode(ASTNode node) {
+  public DejavuDotCallNode(@NotNull ASTNode node) {
     super(node);
   }
 

@@ -30,9 +30,9 @@ class TokenHighlighter : SyntaxHighlighter {
             KW_END,
             -> HighlightColor.KEYWORD
             // operations
-            TEMPLATE_L, TEMPLATE_R -> HighlightColor.OPERATION
+            TEMPLATE_L, TEMPLATE_R -> HighlightColor.SYM_BUILTIN
             COLON, EQ -> HighlightColor.OPERATION
-            OP_OR, OP_CONCAT -> HighlightColor.OPERATION
+            OP_OR, OP_THEN -> HighlightColor.OPERATION
             OP_REMARK -> HighlightColor.OPERATION
             OP_MANY -> HighlightColor.OPERATION
             // literals

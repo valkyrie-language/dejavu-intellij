@@ -10,38 +10,20 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
-public class DejavuValueNode extends DejavuElement implements DejavuValue {
+public class DejavuInfixNode extends DejavuElement implements DejavuInfix {
 
-  public DejavuValueNode(@NotNull ASTNode node) {
+  public DejavuInfixNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitValue(this);
+    visitor.visitInfix(this);
   }
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof DejavuVisitor) accept((DejavuVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @Nullable
-  public DejavuFunctionCall getFunctionCall() {
-    return findChildByClass(DejavuFunctionCall.class);
-  }
-
-  @Override
-  @Nullable
-  public DejavuNumber getNumber() {
-    return findChildByClass(DejavuNumber.class);
-  }
-
-  @Override
-  @Nullable
-  public DejavuString getString() {
-    return findChildByClass(DejavuString.class);
   }
 
 }

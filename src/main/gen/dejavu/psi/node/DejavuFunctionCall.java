@@ -6,12 +6,12 @@ import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 import valkyrie.ide.highlight.NodeHighlighter;
 
-public interface DejavuLetStatement extends PsiElement {
+public interface DejavuFunctionCall extends PsiElement {
 
   @Nullable
-  DejavuExpression getExpression();
+  DejavuArgumentList getArgumentList();
 
-  @Nullable
+  @NotNull
   DejavuIdentifierFree getIdentifierFree();
 
   void highlight(@NotNull NodeHighlighter highlighter);
