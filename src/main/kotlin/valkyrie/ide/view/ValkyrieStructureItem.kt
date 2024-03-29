@@ -11,7 +11,7 @@ import javax.swing.Icon
 
 class ValkyrieStructureItem : StructureViewTreeElement, SortableTreeElement {
     val node: NavigatablePsiElement
-    val view: ItemPresentation;
+    val view: ItemPresentation
     var visibility: ValkyrieVisibility = ValkyrieVisibility.Public
 
     constructor(self: NavigatablePsiElement) {
@@ -40,14 +40,14 @@ class ValkyrieStructureItem : StructureViewTreeElement, SortableTreeElement {
 
     companion object {
         fun findChildrenView(root: PsiElement): Array<ValkyrieStructureItem> {
-            val output = mutableListOf<ValkyrieStructureItem>();
+            val output = mutableListOf<ValkyrieStructureItem>()
             root.traversal {
                 if (it is NavigatablePsiElement) {
                     if (it.presentation != null) {
                         output.add(ValkyrieStructureItem(it))
                         false
                     } else {
-                        true;
+                        true
                     }
                 } else {
                     true

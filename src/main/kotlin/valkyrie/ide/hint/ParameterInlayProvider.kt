@@ -12,18 +12,18 @@ import yggdrasil.language.psi.ValkyrieInlayElement
 class ParameterInlayProvider : InlayParameterHintsProvider {
     var context = ""
 
-    override fun getHintInfo(element: PsiElement): HintInfo? {
+    override fun getHintInfo(element: PsiElement): HintInfo {
         return HintInfo.MethodInfo("aaa", listOf("bbb"))
     }
 
 
     /// 函数里面的东西
     override fun getParameterHints(element: PsiElement): MutableList<InlayInfo> {
-        val visitor = ParameterInlayHint();
+        val visitor = ParameterInlayHint()
         if (element is ValkyrieInlayElement) {
             element.parameter_hint(visitor)
         }
-        return visitor.info;
+        return visitor.info
     }
 
 

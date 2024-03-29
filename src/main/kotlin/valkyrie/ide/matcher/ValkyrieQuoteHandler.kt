@@ -25,7 +25,7 @@ class ValkyrieQuoteHandler : MultiCharQuoteHandler {
     }
 
     override fun getClosingQuote(iterator: HighlighterIterator, offset: Int): CharSequence? {
-        return null;
+        return null
     }
 
 

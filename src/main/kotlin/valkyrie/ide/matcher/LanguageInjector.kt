@@ -5,7 +5,6 @@ import com.intellij.lang.injection.MultiHostInjector
 import com.intellij.lang.injection.MultiHostRegistrar
 import com.intellij.psi.PsiElement
 import dejavu.psi.mixin.MixinRegex
-import dejavu.psi.node.YggdrasilRegexNode
 
 
 //import nexus.language.psi_node.ValkyrieStringNode
@@ -13,7 +12,7 @@ import dejavu.psi.node.YggdrasilRegexNode
 class LanguageInjector : MultiHostInjector {
     override fun getLanguagesToInject(registrar: MultiHostRegistrar, context: PsiElement) {
         when (context) {
-            is YggdrasilRegexNode -> context.injectPerform(registrar)
+//            is YggdrasilRegexNode -> context.injectPerform(registrar)
         }
     }
 

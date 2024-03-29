@@ -1,13 +1,19 @@
 // This is a generated file. Not intended for manual editing.
 package dejavu.psi.node;
 
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElementVisitor;
-import dejavu.psi.mixin.MixinGroup;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import java.util.List;
 
-public class DejavuGroupNode extends MixinGroup implements DejavuGroup {
+import org.jetbrains.annotations.*;
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+
+import static dejavu.psi.DejavuTypes.*;
+
+import dejavu.psi.DejavuElement;
+
+public class DejavuGroupNode extends DejavuElement implements DejavuGroup {
 
     public DejavuGroupNode(@NotNull ASTNode node) {
         super(node);

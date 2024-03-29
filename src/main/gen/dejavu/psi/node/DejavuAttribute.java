@@ -1,10 +1,10 @@
 // This is a generated file. Not intended for manual editing.
 package dejavu.psi.node;
 
+import java.util.List;
+
+import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import valkyrie.ide.highlight.NodeHighlighter;
 
 public interface DejavuAttribute extends PsiElement {
 
@@ -13,7 +13,5 @@ public interface DejavuAttribute extends PsiElement {
 
     @Nullable
     DejavuTuple getTuple();
-
-    void highlight(@NotNull NodeHighlighter visitor);
 
 }

@@ -8,8 +8,7 @@ import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
 import dejavu.psi.ParserExtension
-import dejavu.psi.node.YggdrasilClassNode
-import dejavu.psi.node.YggdrasilDefineUnion
+
 import yggdrasil.language.file.YggdrasilFileNode
 
 
@@ -39,15 +38,15 @@ class CompletionRegistrar : CompletionContributor() {
                         return
                     }
 
-                    is YggdrasilClassNode -> {
-                        CompletionInClassScope().addCompletionVariants(parameters, context, result)
-                        return
-                    }
-
-                    is YggdrasilDefineUnion -> {
-                        CompletionInClassScope().addCompletionVariants(parameters, context, result)
-                        return
-                    }
+//                    is YggdrasilClassNode -> {
+//                        CompletionInClassScope().addCompletionVariants(parameters, context, result)
+//                        return
+//                    }
+//
+//                    is YggdrasilDefineUnion -> {
+//                        CompletionInClassScope().addCompletionVariants(parameters, context, result)
+//                        return
+//                    }
                 }
             }
         } else {

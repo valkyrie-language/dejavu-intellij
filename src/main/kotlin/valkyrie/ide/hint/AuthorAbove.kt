@@ -4,8 +4,7 @@ import com.intellij.codeInsight.hints.VcsCodeVisionLanguageContext
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import dejavu.psi.node.YggdrasilClassNode
-import dejavu.psi.node.YggdrasilDefineUnion
+import dejavu.psi.node.DejavuClass
 import java.awt.event.MouseEvent
 
 @Suppress("UnstableApiUsage")
@@ -17,8 +16,8 @@ class AuthorAbove : VcsCodeVisionLanguageContext {
     }
 
     override fun isAccepted(element: PsiElement): Boolean {
-        return element is YggdrasilClassNode
-            || element is YggdrasilDefineUnion
+        return element is DejavuClass
+//            || element is YggdrasilDefineUnion
 //            || element is YggdrasilClimbStatement
 //            || element is YggdrasilGrammarNode
     }

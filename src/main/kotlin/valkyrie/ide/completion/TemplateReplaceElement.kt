@@ -21,9 +21,9 @@ class TemplateReplaceElement(val element: PsiElement, val id: String, val text: 
             file: String,
             discard: Map<String, String> = mapOf(),
         ): LookupElementBuilder {
-            val path = "/templates/liveTemplate/$file";
+            val path = "/templates/liveTemplate/$file"
             val text = object {}.javaClass.getResourceAsStream(path)?.use { it.reader(Charsets.UTF_8).readText() } ?: path
-            val insert = TemplateReplaceElement(element, id, text, discard);
+            val insert = TemplateReplaceElement(element, id, text, discard)
             return LookupElementBuilder.create(id).withInsertHandler(insert)
         }
     }

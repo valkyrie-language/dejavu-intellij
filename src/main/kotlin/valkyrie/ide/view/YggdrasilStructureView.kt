@@ -23,12 +23,8 @@ class YggdrasilStructureView : PsiStructureViewFactory {
             return Model(file)
         }
 
-        override fun createStructureView(fileEditor: FileEditor?, project: Project): StructureView {
-            return super.createStructureView(fileEditor, project)
-        }
-
         override fun isRootNodeShown(): Boolean {
-            return true;
+            return true
         }
     }
 

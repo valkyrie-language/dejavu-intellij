@@ -84,24 +84,24 @@ private statements ::=
 // === annotation statement ===
 annotations ::= attribute* modifier*
 modifier    ::= identifier {
-    mixin = "dejavu.psi.mixin.MixinModifier"
+//    mixin = "dejavu.psi.mixin.MixinModifier"
 }
 attribute   ::= (AT|HASH) identifier tuple? {
 	pin = 2
-    mixin = "dejavu.psi.mixin.MixinAttribute"
-    methods=[highlight]
+//    mixin = "dejavu.psi.mixin.MixinAttribute"
+//    methods=[highlight]
 }
 // === grammar statement ===
 grammar ::= annotations KW_GRAMMAR identifier grammar-body {
 	pin = 2
-    mixin = "dejavu.psi.mixin.MixinGrammar"
+//    mixin = "dejavu.psi.mixin.MixinGrammar"
 }
 grammar-body ::= BRACE_L grammar-term* BRACE_R;
 grammar-term ::= pair | COMMA | SEMICOLON;
 // === class statement ===
 using ::= annotations KW_USING identifier-free (DOT (OP_MANY | using-body))? {
     pin = 2
-    mixin = "dejavu.psi.mixin.MixinUsing"
+//    mixin = "dejavu.psi.mixin.MixinUsing"
 }
 using-body ::= BRACE_L using-term* BRACE_R;
 using-term ::=
@@ -111,39 +111,39 @@ using-alias ::= key KW_AS identifier-free;
 // === class statement ===
 class  ::= annotations KW_CLASS identifier class-cast? OP_REMARK? class-body {
     pin = 2
-    mixin = "dejavu.psi.mixin.MixinClass"
-    methods=[createLookup]
+//    mixin = "dejavu.psi.mixin.MixinClass"
+//    methods=[createLookup]
 }
 class-cast ::= TO identifier;
 class-body ::= BRACE_L OP_OR? expression? BRACE_R;
 // === union statement ===
 define-union ::= annotations KW_UNION identifier OP_REMARK? union-body {
     pin = 2
-    mixin = "dejavu.psi.mixin.MixinUnion"
-    methods=[createLookup]
+//    mixin = "dejavu.psi.mixin.MixinUnion"
+//    methods=[createLookup]
 }
 union-body ::= BRACE_L union-variant* BRACE_R;
 union-variant ::= OP_OR expression-hard tag-branch? {
-    mixin = "dejavu.psi.mixin.MixinUnionItem"
+//    mixin = "dejavu.psi.mixin.MixinUnionItem"
 }
 tag-branch ::= HASH identifier-free;
 // === group statement ===
 group  ::= annotations KW_GROUP identifier-free? group-body {
     pin = 2
-    mixin = "dejavu.psi.mixin.MixinGroup"
-    methods=[getTokenList]
+//    mixin = "dejavu.psi.mixin.MixinGroup"
+//    methods=[getTokenList]
 }
 group-body ::= BRACE_L group-term* BRACE_R;
 group-term ::= group-item | SEMICOLON;
 group-item ::= attribute* identifier* EQ atomic {
-    mixin = "dejavu.psi.mixin.MixinGroupItem"
-    methods=[highlight createLookup]
+//    mixin = "dejavu.psi.mixin.MixinGroupItem"
+//    methods=[highlight createLookup]
 }
 /// === function definition ===
 define-function ::= annotations KW_MACRO identifier-free function-parameter function-block {
     pin = 2
-    mixin = "dejavu.psi.mixin.MixinDefineFunction"
-    methods=[createLookup]
+//    mixin = "dejavu.psi.mixin.MixinDefineFunction"
+//    methods=[createLookup]
 }
 function-parameter ::= PARENTHESIS_L (parameter (COMMA parameter)* COMMA?)? PARENTHESIS_R;
 parameter ::= identifier ((EQ|COLON) expression)? {
@@ -169,7 +169,7 @@ expression-soft ::= expression-tag expression-tag* {
 }
 expression-tag ::= (identifier-free COLON)? term {
     extends = expression
-    mixin = "dejavu.psi.mixin.MixinExpressionTag"
+//    mixin = "dejavu.psi.mixin.MixinExpressionTag"
 }
 term ::= prefix* atomic suffix* {
     extends = expression
@@ -197,7 +197,7 @@ range-upper ::= INTEGER;
 range-lower ::= INTEGER;
 
 string ::= TEXT_SINGLE | TEXT_DOUBLE {
-    mixin = "dejavu.psi.mixin.MixinString"
+//    mixin = "dejavu.psi.mixin.MixinString"
 }
 regex ::= REGULAR_EXPRESSION | REGULAR_RANGE {
     mixin = "dejavu.psi.mixin.MixinRegex"
@@ -225,9 +225,9 @@ number ::= INTEGER {
 
 /* Identifier */
 identifier          ::= SYMBOL | SYMBOW_RAW {
-    mixin = "dejavu.psi.mixin.MixinIdentifier"
-    methods=[highlight]
+//    mixin = "dejavu.psi.mixin.MixinIdentifier"
+//    methods=[highlight]
 }
-identifier-free     ::= SYMBOL | SYMBOW_RAW | KW_MACRO | KW_CLASS | KW_UNION | KW_GROUP | KW_GRAMMAR | KW_IMPORT | KW_AS | KW_CLIMB {
+identifier-free     ::= SYMBOL | SYMBOW_RAW | KW_MACRO | KW_CLASS | KW_UNION | KW_GROUP | KW_GRAMMAR | KW_IMPORT | KW_AS | KW_CLIMB | KW_FOR| KW_IF | KW_END | KW_WHILE {
     extends = identifier
 }

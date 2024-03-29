@@ -10,7 +10,7 @@ import com.intellij.util.ProcessingContext
 import yggdrasil.language.file.YggdrasilFileNode
 
 class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
-    var element: PsiElement? = null;
+    var element: PsiElement? = null
     override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
         element = parameters.position
         result.addDefinitions()
@@ -23,7 +23,7 @@ class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
     }
 
     private fun CompletionResultSet.addDefinitions() {
-        val file = element?.containingFile as? YggdrasilFileNode ?: return;
+        val file = element?.containingFile as? YggdrasilFileNode ?: return
         for (completion in file.definitions.getCompletions()) {
             addElement(completion)
         }

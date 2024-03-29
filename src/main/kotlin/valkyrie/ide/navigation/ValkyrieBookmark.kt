@@ -14,14 +14,14 @@ class ValkyrieBookmark : BookmarkProvider {
     }
 
     override fun getWeight(): Int {
-        return 100;
+        return 100
     }
 
     override fun getProject(): Project {
         TODO("Not yet implemented")
     }
 
-    override fun createBookmark(map: MutableMap<String, String>): Bookmark? {
+    override fun createBookmark(map: MutableMap<String, String>): Bookmark {
         return object : FileBookmark {
             override val attributes: Map<String, String>
                 get() = TODO("Not yet implemented")

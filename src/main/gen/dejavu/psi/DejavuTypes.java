@@ -1,9 +1,9 @@
 // This is a generated file. Not intended for manual editing.
 package dejavu.psi;
 
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.PsiElement;
+import com.intellij.lang.ASTNode;
 import dejavu.psi.node.*;
 
 public interface DejavuTypes {
@@ -81,12 +81,16 @@ public interface DejavuTypes {
     IElementType KW_AS = new DejavuTokenType("as");
     IElementType KW_CLASS = new DejavuTokenType("class");
     IElementType KW_CLIMB = new DejavuTokenType("climb");
+    IElementType KW_END = new DejavuTokenType("KW_END");
+    IElementType KW_FOR = new DejavuTokenType("KW_FOR");
     IElementType KW_GRAMMAR = new DejavuTokenType("grammar");
     IElementType KW_GROUP = new DejavuTokenType("group");
+    IElementType KW_IF = new DejavuTokenType("KW_IF");
     IElementType KW_IMPORT = new DejavuTokenType("import");
     IElementType KW_MACRO = new DejavuTokenType("macro");
     IElementType KW_UNION = new DejavuTokenType("union");
     IElementType KW_USING = new DejavuTokenType("using");
+    IElementType KW_WHILE = new DejavuTokenType("KW_WHILE");
     IElementType OP_AND = new DejavuTokenType("OP_AND");
     IElementType OP_CONCAT = new DejavuTokenType("~");
     IElementType OP_MANY = new DejavuTokenType("*");

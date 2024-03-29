@@ -11,77 +11,9 @@ import com.intellij.psi.PsiFile
 import dejavu.psi.node.*
 import yggdrasil.language.file.YggdrasilFileNode
 
-class NodeHighlighter : YggdrasilVisitor(), HighlightVisitor {
+class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
     private var infoHolder: HighlightInfoHolder? = null
 
-    override fun visitGrammar(o: YggdrasilGrammar) {
-        o.identifier?.let { highlight(it, HighlightColor.SYM_MACRO) }
-    }
-
-    override fun visitUsing(o: YggdrasilUsing) {
-        o.identifierFree?.let { highlight(it, HighlightColor.SYM_MACRO) }
-    }
-
-
-    override fun visitModifier(o: YggdrasilModifier) {
-        highlight(o.identifier, HighlightColor.KEYWORD)
-    }
-
-
-    override fun visitAttribute(o: YggdrasilAttribute) {
-        o.highlight(this)
-    }
-
-    override fun visitClass(o: YggdrasilClass) {
-        o.identifier?.let { highlight(it, HighlightColor.RULE_CLASS) }
-    }
-
-    override fun visitDefineUnion(o: YggdrasilDefineUnion) {
-        o.identifier?.let { highlight(it, HighlightColor.RULE_UNION) }
-    }
-
-    override fun visitDefineFunction(o: YggdrasilDefineFunction) {
-        o.identifierFree?.let { highlight(it, HighlightColor.SYM_FUNCTION) }
-    }
-
-    override fun visitGroupItem(o: YggdrasilGroupItem) {
-        o.highlight(this)
-    }
-
-    override fun visitExpressionTag(o: YggdrasilExpressionTag) {
-        o.identifierFree?.let { highlight(it, HighlightColor.TAG_NODE) }
-    }
-
-    override fun visitTagBranch(o: YggdrasilTagBranch) {
-        highlight(o, HighlightColor.TAG_BRANCH)
-    }
-
-    override fun visitArgument(o: YggdrasilArgument) {
-        o.identifierFree?.let { highlight(it, HighlightColor.SYM_FIELD) }
-    }
-
-    override fun visitPair(o: YggdrasilPair) {
-        highlight(o.key, HighlightColor.SYM_FIELD)
-    }
-
-    override fun visitFunctionCall(o: YggdrasilFunctionCall) {
-        highlight(o.firstChild, HighlightColor.SYM_FUNCTION)
-        highlight(o.identifierFree, HighlightColor.SYM_FUNCTION)
-    }
-
-    override fun visitAtomic(o: YggdrasilAtomic) {
-        o.identifierFree?.highlight(this)
-    }
-
-    override fun visitCategory(o: YggdrasilCategory) {
-        o.key?.let { highlight(it, HighlightColor.SYM_FIELD) }
-        highlight(o.identifierFree, HighlightColor.SYM_CONSTANT)
-    }
-
-    override fun visitRange(o: YggdrasilRange) {
-        highlight(o.firstChild, HighlightColor.OPERATION)
-        highlight(o.lastChild, HighlightColor.OPERATION)
-    }
 
     fun highlight(element: PsiElement, color: HighlightColor) {
         val builder = HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION)

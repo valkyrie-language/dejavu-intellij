@@ -9,9 +9,6 @@ class YggdrasilCommenter : Commenter {
     override fun getBlockCommentSuffix() = "*/"
     override fun getCommentedBlockCommentPrefix() = null
     override fun getCommentedBlockCommentSuffix() = null
-    override fun getLineCommentPrefixes(): MutableList<String> {
-        return super.getLineCommentPrefixes()
-    }
 
 
     override fun blockCommentRequiresFullLineSelection(): Boolean {

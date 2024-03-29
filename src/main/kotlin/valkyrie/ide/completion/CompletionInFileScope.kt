@@ -15,7 +15,7 @@ import yggdrasil.language.file.YggdrasilIconProvider
 import javax.swing.Icon
 
 class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
-    var element: PsiElement? = null;
+    var element: PsiElement? = null
     override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext, result: CompletionResultSet) {
         element = parameters.position
         result.addTopMacros()
@@ -57,7 +57,7 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
 
 
     companion object {
-        val Condition = triggerCondition();
+        val Condition = triggerCondition()
         private fun buildWithReplace(show: String, replace: String, offset: Int, lookup: Set<String>, icon: Icon): LookupElementBuilder {
             return LookupElementBuilder.create(show).bold()
                 .withLookupStrings(lookup)
@@ -85,5 +85,5 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
 
 
 private fun triggerCondition(): PsiElementPattern.Capture<LeafPsiElement> {
-    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(DejavuLanguage);
+    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(DejavuLanguage)
 }

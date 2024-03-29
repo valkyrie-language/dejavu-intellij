@@ -1,24 +1,15 @@
 package dejavu.psi;
 
-import com.intellij.psi.tree.IElementType;
-
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
 import static com.intellij.psi.TokenType.WHITE_SPACE;
 import static dejavu.psi.DejavuTypes.*;
 
 %%
-
-//%{
-//public WitLexer() {
-//	this((java.io.Reader)null);
-//}
-//%}
-
 %public
 %class _DejavuLexer
-%implements FlexLexer
+%implements com.intellij.lexer.FlexLexer
 %function advance
-%type IElementType
+%type com.intellij.psi.tree.IElementType
 %unicode
 
 //%state TextContextIndent
@@ -37,15 +28,16 @@ SYMBOL=[\p{XID_Start}_][\p{XID_Continue}_]*
 SYMBOW_RAW = `[^`]*`
 ESCAPED = \\.
 
-KW_GRAMMAR = grammar|lexicon
-KW_USING   = using
-KW_GROUP   = group|token
-KW_CLASS   = class|struct
 KW_UNION   = union|enum|climb
 KW_IMPORT  = import
-KW_AS      = as
 KW_MACRO   = macro|function|func|fun|fn|def
-
+KW_IF     = if
+KW_ELSE     = else
+KW_FOR   = for
+KW_IN    = in
+KW_WHILE   = while
+KW_AS      = as
+KW_END   = group|token
 
 %%
 
@@ -96,10 +88,10 @@ KW_MACRO   = macro|function|func|fun|fn|def
 }
 
 <YYINITIAL> {
-    {KW_GRAMMAR} { return KW_GRAMMAR; }
-    {KW_USING} { return KW_USING; }
-    {KW_GROUP} { return KW_GROUP; }
-    {KW_CLASS} { return KW_CLASS; }
+    {KW_FOR} { return KW_FOR; }
+    {KW_IF} { return KW_IF; }
+    {KW_END} { return KW_END; }
+    {KW_WHILE} { return KW_WHILE; }
     {KW_UNION} { return KW_UNION; }
     {KW_IMPORT} { return KW_IMPORT; }
     {KW_AS} { return KW_AS; }

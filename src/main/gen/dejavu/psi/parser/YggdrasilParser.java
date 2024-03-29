@@ -1,16 +1,16 @@
 // This is a generated file. Not intended for manual editing.
 package dejavu.psi.parser;
 
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.LightPsiParser;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
-import com.intellij.lang.PsiParser;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.TokenSet;
-
 import static dejavu.psi.DejavuTypes.*;
 import static dejavu.psi.ParserExtension.*;
+
+import com.intellij.psi.tree.IElementType;
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.tree.TokenSet;
+import com.intellij.lang.PsiParser;
+import com.intellij.lang.LightPsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class YggdrasilParser implements PsiParser, LightPsiParser {
@@ -713,7 +713,10 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     /* ********************************************************** */
-    // attribute* identifier* EQ atomic
+    // attribute* identifier* EQ atomic {
+    // //    mixin = "dejavu.psi.mixin.MixinGroupItem"
+    // //    methods=[highlight createLookup]
+    // }
     public static boolean group_item(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "group_item")) return false;
         boolean r;
@@ -722,6 +725,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
         r = r && group_item_1(b, l + 1);
         r = r && consumeToken(b, EQ);
         r = r && atomic(b, l + 1);
+        r = r && group_item_4(b, l + 1);
         exit_section_(b, l, m, r, false, null);
         return r;
     }
@@ -748,6 +752,14 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
         return true;
     }
 
+    // {
+    // //    mixin = "dejavu.psi.mixin.MixinGroupItem"
+    // //    methods=[highlight createLookup]
+    // }
+    private static boolean group_item_4(PsiBuilder b, int l) {
+        return true;
+    }
+
     /* ********************************************************** */
     // group-item | SEMICOLON
     public static boolean group_term(PsiBuilder b, int l) {
@@ -761,20 +773,45 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     /* ********************************************************** */
-    // SYMBOL | SYMBOW_RAW
+    // SYMBOL | SYMBOW_RAW {
+    // //    mixin = "dejavu.psi.mixin.MixinIdentifier"
+    // //    methods=[highlight]
+    // }
     public static boolean identifier(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "identifier")) return false;
         if (!nextTokenIs(b, "<identifier>", SYMBOL, SYMBOW_RAW)) return false;
         boolean r;
         Marker m = enter_section_(b, l, _NONE_, IDENTIFIER, "<identifier>");
         r = consumeToken(b, SYMBOL);
-        if (!r) r = consumeToken(b, SYMBOW_RAW);
+        if (!r) r = identifier_1(b, l + 1);
         exit_section_(b, l, m, r, false, null);
         return r;
     }
 
+    // SYMBOW_RAW {
+    // //    mixin = "dejavu.psi.mixin.MixinIdentifier"
+    // //    methods=[highlight]
+    // }
+    private static boolean identifier_1(PsiBuilder b, int l) {
+        if (!recursion_guard_(b, l, "identifier_1")) return false;
+        boolean r;
+        Marker m = enter_section_(b);
+        r = consumeToken(b, SYMBOW_RAW);
+        r = r && identifier_1_1(b, l + 1);
+        exit_section_(b, m, null, r);
+        return r;
+    }
+
+    // {
+    // //    mixin = "dejavu.psi.mixin.MixinIdentifier"
+    // //    methods=[highlight]
+    // }
+    private static boolean identifier_1_1(PsiBuilder b, int l) {
+        return true;
+    }
+
     /* ********************************************************** */
-    // SYMBOL | SYMBOW_RAW | KW_MACRO | KW_CLASS | KW_UNION | KW_GROUP | KW_GRAMMAR | KW_IMPORT | KW_AS | KW_CLIMB
+    // SYMBOL | SYMBOW_RAW | KW_MACRO | KW_CLASS | KW_UNION | KW_GROUP | KW_GRAMMAR | KW_IMPORT | KW_AS | KW_CLIMB | KW_FOR| KW_IF | KW_END | KW_WHILE
     public static boolean identifier_free(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "identifier_free")) return false;
         boolean r;
@@ -789,6 +826,10 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
         if (!r) r = consumeToken(b, KW_IMPORT);
         if (!r) r = consumeToken(b, KW_AS);
         if (!r) r = consumeToken(b, KW_CLIMB);
+        if (!r) r = consumeToken(b, KW_FOR);
+        if (!r) r = consumeToken(b, KW_IF);
+        if (!r) r = consumeToken(b, KW_END);
+        if (!r) r = consumeToken(b, KW_WHILE);
         exit_section_(b, l, m, r, false, null);
         return r;
     }
@@ -805,15 +846,25 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     /* ********************************************************** */
-    // identifier
+    // identifier {
+    // //    mixin = "dejavu.psi.mixin.MixinModifier"
+    // }
     public static boolean modifier(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "modifier")) return false;
         if (!nextTokenIs(b, "<modifier>", SYMBOL, SYMBOW_RAW)) return false;
         boolean r;
         Marker m = enter_section_(b, l, _NONE_, MODIFIER, "<modifier>");
         r = identifier(b, l + 1);
+        r = r && modifier_1(b, l + 1);
         exit_section_(b, l, m, r, false, null);
         return r;
+    }
+
+    // {
+    // //    mixin = "dejavu.psi.mixin.MixinModifier"
+    // }
+    private static boolean modifier_1(PsiBuilder b, int l) {
+        return true;
     }
 
     /* ********************************************************** */
@@ -1076,16 +1127,38 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     /* ********************************************************** */
-    // TEXT_SINGLE | TEXT_DOUBLE
+    // TEXT_SINGLE | TEXT_DOUBLE {
+    // //    mixin = "dejavu.psi.mixin.MixinString"
+    // }
     public static boolean string(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "string")) return false;
         if (!nextTokenIs(b, "<string>", TEXT_DOUBLE, TEXT_SINGLE)) return false;
         boolean r;
         Marker m = enter_section_(b, l, _NONE_, STRING, "<string>");
         r = consumeToken(b, TEXT_SINGLE);
-        if (!r) r = consumeToken(b, TEXT_DOUBLE);
+        if (!r) r = string_1(b, l + 1);
         exit_section_(b, l, m, r, false, null);
         return r;
+    }
+
+    // TEXT_DOUBLE {
+    // //    mixin = "dejavu.psi.mixin.MixinString"
+    // }
+    private static boolean string_1(PsiBuilder b, int l) {
+        if (!recursion_guard_(b, l, "string_1")) return false;
+        boolean r;
+        Marker m = enter_section_(b);
+        r = consumeToken(b, TEXT_DOUBLE);
+        r = r && string_1_1(b, l + 1);
+        exit_section_(b, m, null, r);
+        return r;
+    }
+
+    // {
+    // //    mixin = "dejavu.psi.mixin.MixinString"
+    // }
+    private static boolean string_1_1(PsiBuilder b, int l) {
+        return true;
     }
 
     /* ********************************************************** */
@@ -1238,7 +1311,9 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     /* ********************************************************** */
-    // OP_OR expression-hard tag-branch?
+    // OP_OR expression-hard tag-branch? {
+    // //    mixin = "dejavu.psi.mixin.MixinUnionItem"
+    // }
     public static boolean union_variant(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "union_variant")) return false;
         if (!nextTokenIs(b, OP_OR)) return false;
@@ -1247,6 +1322,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
         r = consumeToken(b, OP_OR);
         r = r && expression_hard(b, l + 1);
         r = r && union_variant_2(b, l + 1);
+        r = r && union_variant_3(b, l + 1);
         exit_section_(b, m, UNION_VARIANT, r);
         return r;
     }
@@ -1255,6 +1331,13 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     private static boolean union_variant_2(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "union_variant_2")) return false;
         tag_branch(b, l + 1);
+        return true;
+    }
+
+    // {
+    // //    mixin = "dejavu.psi.mixin.MixinUnionItem"
+    // }
+    private static boolean union_variant_3(PsiBuilder b, int l) {
         return true;
     }
 

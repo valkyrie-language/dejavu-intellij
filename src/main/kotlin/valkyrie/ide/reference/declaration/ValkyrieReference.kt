@@ -3,21 +3,17 @@ package valkyrie.ide.reference.declaration
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiQualifiedReference
-import dejavu.psi.node.YggdrasilClassNode
-import dejavu.psi.node.YggdrasilDefineUnion
-import dejavu.psi.node.YggdrasilGroupItemNode
-import dejavu.psi.node.YggdrasilIdentifierNode
-import valkyrie.ide.highlight.HighlightColor
+import dejavu.psi.node.DejavuIdentifierNode
 import valkyrie.ide.highlight.NodeHighlighter
 
 open class ValkyrieReference : PsiQualifiedReference {
-    private val _element: YggdrasilIdentifierNode
+    private val _element: DejavuIdentifierNode
 
-    constructor(element: YggdrasilIdentifierNode) {
+    constructor(element: DejavuIdentifierNode) {
         this._element = element
     }
 
-    override fun getElement(): YggdrasilIdentifierNode {
+    override fun getElement(): DejavuIdentifierNode {
         return _element
     }
 
@@ -26,7 +22,8 @@ open class ValkyrieReference : PsiQualifiedReference {
     }
 
     override fun resolve(): PsiElement? {
-        return _element.containingFile.definitions.find(_element)
+//        return _element.containingFile.definitions.find(_element)
+        return null;
     }
 
     override fun getCanonicalText(): String {
@@ -59,9 +56,9 @@ open class ValkyrieReference : PsiQualifiedReference {
 
     fun highlight(highlighter: NodeHighlighter) {
         return when (this.resolve()) {
-            is YggdrasilClassNode -> highlighter.highlight(_element, HighlightColor.RULE_CLASS)
-            is YggdrasilDefineUnion -> highlighter.highlight(_element, HighlightColor.RULE_UNION)
-            is YggdrasilGroupItemNode -> highlighter.highlight(_element, HighlightColor.SYM_CONSTANT)
+//            is YggdrasilClassNode -> highlighter.highlight(_element, HighlightColor.RULE_CLASS)
+//            is YggdrasilDefineUnion -> highlighter.highlight(_element, HighlightColor.RULE_UNION)
+//            is YggdrasilGroupItemNode -> highlighter.highlight(_element, HighlightColor.SYM_CONSTANT)
             else -> {
 
             }

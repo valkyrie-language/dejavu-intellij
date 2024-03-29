@@ -1,9 +1,10 @@
 // This is a generated file. Not intended for manual editing.
 package dejavu.psi.node;
 
+import java.util.List;
+
+import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public interface DejavuGroup extends PsiElement {
 
@@ -15,9 +16,5 @@ public interface DejavuGroup extends PsiElement {
 
     @Nullable
     DejavuIdentifierFree getIdentifierFree();
-
-    //WARNING: getTokenList(...) is skipped
-    //matching getTokenList(DejavuGroup, ...)
-    //methods are not found in DejavuPsiExtension
 
 }

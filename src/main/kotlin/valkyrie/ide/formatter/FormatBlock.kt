@@ -5,7 +5,6 @@ import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiErrorElement
 import com.intellij.psi.formatter.FormatterUtil
-import dejavu.psi.node.*
 import yggdrasil.antlr.isWhitespaceOrEmpty
 import yggdrasil.language.psi.ValkyrieAlignmentElement
 
@@ -85,16 +84,16 @@ class FormatBlock : ASTBlock {
 
     private fun computeIndent(child: ASTNode): Indent? {
         val isCorner = _node.firstChildNode == child || _node.lastChildNode == child
-        val byCorner = if (isCorner) Indent.getNoneIndent() else Indent.getNormalIndent();
+        val byCorner = if (isCorner) Indent.getNoneIndent() else Indent.getNormalIndent()
         return when (node.psi) {
-            is YggdrasilGrammarBody -> byCorner
-            is YggdrasilClassBody -> byCorner
-            is YggdrasilUnionBody -> byCorner
-            is YggdrasilGroupBody -> byCorner
-            is YggdrasilExpressionGroup -> byCorner
-            is YggdrasilFunctionBlock -> byCorner
-            is YggdrasilFunctionParameter -> byCorner
-            is YggdrasilTuple -> byCorner
+//            is YggdrasilGrammarBody -> byCorner
+//            is YggdrasilClassBody -> byCorner
+//            is YggdrasilUnionBody -> byCorner
+//            is YggdrasilGroupBody -> byCorner
+//            is YggdrasilExpressionGroup -> byCorner
+//            is YggdrasilFunctionBlock -> byCorner
+//            is YggdrasilFunctionParameter -> byCorner
+//            is YggdrasilTuple -> byCorner
             else -> Indent.getNoneIndent()
         }
     }
@@ -118,7 +117,7 @@ class FormatBlock : ASTBlock {
 //    }
 
     private fun computeAlignment(child: ASTNode): Alignment? {
-        val psi = _node.psi;
+        val psi = _node.psi
         if (psi is ValkyrieAlignmentElement) {
             return psi.on_alignment(child)
         }
