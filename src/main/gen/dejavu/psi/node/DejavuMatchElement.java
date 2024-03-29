@@ -16,4 +16,7 @@ public interface DejavuMatchElement extends PsiElement {
   @NotNull
   DejavuTemplateEnd getTemplateEnd();
 
+  @NotNull
+  String foldPlaceholder();
+
 }

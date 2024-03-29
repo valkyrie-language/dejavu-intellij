@@ -158,7 +158,10 @@ if-conditional    ::= KW_IF expression {
     pin = 1
 }
 // === match statement ===
-match-element   ::= match-statement match-branch* template-end;
+match-element   ::= match-statement match-branch* template-end {
+    mixin = "dejavu.psi.mixin.MixinMatch"
+    methods = [foldPlaceholder]
+}
 match-statement ::= template-match WHITE_SPACE*;
 match-branch    ::=
     case-statement
