@@ -1,4 +1,4 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.icons.AllIcons
 import com.intellij.ide.projectView.PresentationData
@@ -7,9 +7,9 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilIdentifierNode
-import yggdrasil.psi.node.YggdrasilUnionVariant
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilIdentifierNode
+import dejavu.psi.node.YggdrasilUnionVariant
 import javax.swing.Icon
 
 abstract class MixinUnionItem(node: ASTNode) : YggdrasilElement(node),

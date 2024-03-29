@@ -4,8 +4,8 @@ import com.intellij.codeInsight.hints.VcsCodeVisionLanguageContext
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import yggdrasil.psi.node.YggdrasilClassNode
-import yggdrasil.psi.node.YggdrasilDefineUnion
+import dejavu.psi.node.YggdrasilClassNode
+import dejavu.psi.node.YggdrasilDefineUnion
 import java.awt.event.MouseEvent
 
 @Suppress("UnstableApiUsage")

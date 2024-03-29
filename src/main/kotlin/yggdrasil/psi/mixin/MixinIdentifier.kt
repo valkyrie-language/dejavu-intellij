@@ -1,16 +1,16 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.lang.ASTNode
 import com.intellij.psi.impl.source.tree.SharedImplUtil
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilClassNode
+import dejavu.psi.node.YggdrasilDefineUnion
+import dejavu.psi.node.YggdrasilIdentifier
+import dejavu.psi.node.YggdrasilIdentifierNode
 import valkyrie.ide.highlight.HighlightColor
 import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.reference.declaration.ValkyrieReference
 import yggdrasil.language.file.YggdrasilFileNode
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilClassNode
-import yggdrasil.psi.node.YggdrasilDefineUnion
-import yggdrasil.psi.node.YggdrasilIdentifier
-import yggdrasil.psi.node.YggdrasilIdentifierNode
 
 abstract class MixinIdentifier(node: ASTNode) : YggdrasilElement(node),
 

@@ -4,8 +4,8 @@ import com.intellij.formatting.SpacingBuilder
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.tree.TokenSet
+import dejavu.psi.ParserExtension
 import yggdrasil.language.YggdrasilLanguage
-import yggdrasil.psi.ParserExtension
 
 
 private val removeSpaceBefore = TokenSet.orSet(

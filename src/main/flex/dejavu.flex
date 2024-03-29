@@ -1,11 +1,11 @@
-package yggdrasil.psi;
+package dejavu.psi;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
 import static com.intellij.psi.TokenType.WHITE_SPACE;
-import static yggdrasil.psi.YggdrasilTypes.*;
+import static dejavu.psi.YggdrasilTypes.*;
 
 %%
 

@@ -1,13 +1,13 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.icons.AllIcons
 import com.intellij.ide.projectView.PresentationData
 import com.intellij.lang.ASTNode
 import com.intellij.navigation.ItemPresentation
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilAttribute
 import valkyrie.ide.highlight.HighlightColor
 import valkyrie.ide.highlight.NodeHighlighter
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilAttribute
 
 abstract class MixinAttribute(node: ASTNode) : YggdrasilElement(node), YggdrasilAttribute {
 

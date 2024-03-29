@@ -1,14 +1,14 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.lang.ASTNode
 import com.intellij.lang.injection.MultiHostRegistrar
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.LiteralTextEscaper
 import com.intellij.psi.PsiLanguageInjectionHost
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilRegex
+import dejavu.psi.node.YggdrasilRegexNode
 import org.intellij.lang.regexp.RegExpLanguage
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilRegex
-import yggdrasil.psi.node.YggdrasilRegexNode
 
 abstract class MixinRegex(node: ASTNode) : YggdrasilElement(node), PsiLanguageInjectionHost, YggdrasilRegex {
 

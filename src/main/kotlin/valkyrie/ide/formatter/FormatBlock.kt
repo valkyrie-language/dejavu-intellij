@@ -5,9 +5,9 @@ import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiErrorElement
 import com.intellij.psi.formatter.FormatterUtil
+import dejavu.psi.node.*
 import yggdrasil.antlr.isWhitespaceOrEmpty
 import yggdrasil.language.psi.ValkyrieAlignmentElement
-import yggdrasil.psi.node.*
 
 //import nexus.language.psi.ValkyrieTokenType
 

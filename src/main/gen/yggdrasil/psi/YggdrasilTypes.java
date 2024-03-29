@@ -1,10 +1,10 @@
 // This is a generated file. Not intended for manual editing.
-package yggdrasil.psi;
+package dejavu.psi;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
-import yggdrasil.psi.node.*;
+import dejavu.psi.node.*;
 
 public interface YggdrasilTypes {
 

@@ -1,8 +1,8 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.lang.ASTNode
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilString
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilString
 
 abstract class MixinString(node: ASTNode) : YggdrasilElement(node),
     YggdrasilString {

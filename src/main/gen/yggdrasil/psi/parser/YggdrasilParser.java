@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package yggdrasil.psi.parser;
+package dejavu.psi.parser;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.LightPsiParser;
@@ -9,8 +9,8 @@ import com.intellij.lang.PsiParser;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.TokenSet;
 
-import static yggdrasil.psi.ParserExtension.*;
-import static yggdrasil.psi.YggdrasilTypes.*;
+import static dejavu.psi.ParserExtension.*;
+import static dejavu.psi.YggdrasilTypes.*;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class YggdrasilParser implements PsiParser, LightPsiParser {
@@ -78,7 +78,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
 
     /* ********************************************************** */
     // (identifier-free EQ)? value {
-    // //    mixin = "yggdrasil.psi.mixin.MixinTuple"
+    // //    mixin = "dejavu.psi.mixin.MixinTuple"
     // }
     public static boolean argument(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "argument")) return false;
@@ -110,7 +110,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     // {
-    // //    mixin = "yggdrasil.psi.mixin.MixinTuple"
+    // //    mixin = "dejavu.psi.mixin.MixinTuple"
     // }
     private static boolean argument_2(PsiBuilder b, int l) {
         return true;
@@ -818,7 +818,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
 
     /* ********************************************************** */
     // INTEGER {
-    // //    mixin = "yggdrasil.psi.mixin.MixinNumber"
+    // //    mixin = "dejavu.psi.mixin.MixinNumber"
     // }
     public static boolean number(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "number")) return false;
@@ -832,7 +832,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     // {
-    // //    mixin = "yggdrasil.psi.mixin.MixinNumber"
+    // //    mixin = "dejavu.psi.mixin.MixinNumber"
     // }
     private static boolean number_1(PsiBuilder b, int l) {
         return true;
@@ -840,7 +840,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
 
     /* ********************************************************** */
     // key EQ value {
-    // //    mixin = "yggdrasil.psi.mixin.MixinTuple"
+    // //    mixin = "dejavu.psi.mixin.MixinTuple"
     // }
     public static boolean pair(PsiBuilder b, int l) {
         if (!recursion_guard_(b, l, "pair")) return false;
@@ -855,7 +855,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     }
 
     // {
-    // //    mixin = "yggdrasil.psi.mixin.MixinTuple"
+    // //    mixin = "dejavu.psi.mixin.MixinTuple"
     // }
     private static boolean pair_3(PsiBuilder b, int l) {
         return true;

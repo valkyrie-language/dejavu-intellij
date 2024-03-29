@@ -1,7 +1,7 @@
 package yggdrasil.language.symbol
 
+import dejavu.psi.node.YggdrasilIdentifierNode
 import valkyrie.ide.highlight.HighlightColor
-import yggdrasil.psi.node.YggdrasilIdentifierNode
 
 data class ValkyrieVariableKind(
     val identifier: YggdrasilIdentifierNode,

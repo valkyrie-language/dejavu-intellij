@@ -8,8 +8,8 @@ import com.intellij.codeInsight.daemon.impl.HighlightVisitor
 import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import dejavu.psi.node.*
 import yggdrasil.language.file.YggdrasilFileNode
-import yggdrasil.psi.node.*
 
 class NodeHighlighter : YggdrasilVisitor(), HighlightVisitor {
     private var infoHolder: HighlightInfoHolder? = null

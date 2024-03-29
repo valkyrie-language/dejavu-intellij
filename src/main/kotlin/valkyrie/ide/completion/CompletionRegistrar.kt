@@ -7,10 +7,10 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
+import dejavu.psi.ParserExtension
+import dejavu.psi.node.YggdrasilClassNode
+import dejavu.psi.node.YggdrasilDefineUnion
 import yggdrasil.language.file.YggdrasilFileNode
-import yggdrasil.psi.ParserExtension
-import yggdrasil.psi.node.YggdrasilClassNode
-import yggdrasil.psi.node.YggdrasilDefineUnion
 
 
 class CompletionRegistrar : CompletionContributor() {

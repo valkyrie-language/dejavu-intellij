@@ -3,12 +3,12 @@ package valkyrie.ide.reference.declaration
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiQualifiedReference
+import dejavu.psi.node.YggdrasilClassNode
+import dejavu.psi.node.YggdrasilDefineUnion
+import dejavu.psi.node.YggdrasilGroupItemNode
+import dejavu.psi.node.YggdrasilIdentifierNode
 import valkyrie.ide.highlight.HighlightColor
 import valkyrie.ide.highlight.NodeHighlighter
-import yggdrasil.psi.node.YggdrasilClassNode
-import yggdrasil.psi.node.YggdrasilDefineUnion
-import yggdrasil.psi.node.YggdrasilGroupItemNode
-import yggdrasil.psi.node.YggdrasilIdentifierNode
 
 open class ValkyrieReference : PsiQualifiedReference {
     private val _element: YggdrasilIdentifierNode

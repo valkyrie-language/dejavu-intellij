@@ -1,4 +1,4 @@
-package yggdrasil.psi
+package dejavu.psi
 
 import com.intellij.extapi.psi.ASTWrapperPsiElement
 import com.intellij.lang.ASTNode
@@ -15,10 +15,10 @@ import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
+import dejavu.psi.YggdrasilTypes.*
+import dejavu.psi.parser.YggdrasilParser
 import yggdrasil.language.YggdrasilLanguage
 import yggdrasil.language.file.YggdrasilFileNode
-import yggdrasil.psi.YggdrasilTypes.*
-import yggdrasil.psi.parser.YggdrasilParser
 
 class ParserExtension : GeneratedParserUtilBase() {
     companion object {

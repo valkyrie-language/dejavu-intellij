@@ -7,8 +7,8 @@ import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
 
-import yggdrasil.psi.ParserDefinition
-import yggdrasil.psi.YggdrasilTypes.*
+import dejavu.psi.ParserDefinition
+import dejavu.psi.YggdrasilTypes.*
 
 
 class ValkyrieBracketMatch : PairedBraceMatcher {

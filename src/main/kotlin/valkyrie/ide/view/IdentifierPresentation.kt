@@ -2,8 +2,8 @@ package valkyrie.ide.view
 
 import com.intellij.navigation.ColoredItemPresentation
 import com.intellij.openapi.editor.colors.TextAttributesKey
+import dejavu.psi.node.YggdrasilIdentifierNode
 import valkyrie.ide.highlight.HighlightColor
-import yggdrasil.psi.node.YggdrasilIdentifierNode
 import javax.swing.Icon
 
 class IdentifierPresentation(val name: YggdrasilIdentifierNode?, private val icon: Icon) : ColoredItemPresentation {

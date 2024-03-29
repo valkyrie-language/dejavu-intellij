@@ -1,4 +1,4 @@
-# Dejavu-Intellij
+# Intellij Déjà-vu Language Support
 
 ![Build](https://github.com/oovm/Wit-Intellij/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/24001.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)

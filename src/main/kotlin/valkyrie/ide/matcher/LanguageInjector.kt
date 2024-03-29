@@ -4,8 +4,8 @@ package valkyrie.ide.matcher
 import com.intellij.lang.injection.MultiHostInjector
 import com.intellij.lang.injection.MultiHostRegistrar
 import com.intellij.psi.PsiElement
-import yggdrasil.psi.mixin.MixinRegex
-import yggdrasil.psi.node.YggdrasilRegexNode
+import dejavu.psi.mixin.MixinRegex
+import dejavu.psi.node.YggdrasilRegexNode
 
 
 //import nexus.language.psi_node.ValkyrieStringNode

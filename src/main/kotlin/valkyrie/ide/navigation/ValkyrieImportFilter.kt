@@ -4,8 +4,8 @@ import com.intellij.usages.Usage
 import com.intellij.usages.UsageTarget
 import com.intellij.usages.rules.ImportFilteringRule
 import com.intellij.usages.rules.PsiElementUsage
+import dejavu.psi.node.YggdrasilIdentifierNode
 import yggdrasil.antlr.ancestors
-import yggdrasil.psi.node.YggdrasilIdentifierNode
 
 //import nexus.language.psi_node.ValkyrieIdentifierNode
 //import nexus.language.psi_node.ValkyrieImportStatementNode

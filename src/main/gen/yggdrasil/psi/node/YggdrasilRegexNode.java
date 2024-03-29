@@ -1,10 +1,10 @@
 // This is a generated file. Not intended for manual editing.
-package yggdrasil.psi.node;
+package dejavu.psi.node;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElementVisitor;
+import dejavu.psi.mixin.MixinRegex;
 import org.jetbrains.annotations.NotNull;
-import yggdrasil.psi.mixin.MixinRegex;
 
 public class YggdrasilRegexNode extends MixinRegex implements YggdrasilRegex {
 

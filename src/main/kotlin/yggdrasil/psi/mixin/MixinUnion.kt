@@ -1,4 +1,4 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.codeInsight.lookup.LookupElementBuilder
@@ -9,9 +9,9 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilDefineUnion
-import yggdrasil.psi.node.YggdrasilIdentifier
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilDefineUnion
+import dejavu.psi.node.YggdrasilIdentifier
 import javax.swing.Icon
 
 abstract class MixinUnion(node: ASTNode) : YggdrasilElement(node),

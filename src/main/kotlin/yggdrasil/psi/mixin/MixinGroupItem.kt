@@ -1,4 +1,4 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.codeInsight.lookup.LookupElementBuilder
@@ -9,11 +9,11 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilGroupItem
+import dejavu.psi.node.YggdrasilIdentifierNode
 import valkyrie.ide.highlight.HighlightColor
 import valkyrie.ide.highlight.NodeHighlighter
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilGroupItem
-import yggdrasil.psi.node.YggdrasilIdentifierNode
 import javax.swing.Icon
 
 abstract class MixinGroupItem(node: ASTNode) : YggdrasilElement(node),

@@ -1,11 +1,11 @@
-package yggdrasil.psi.mixin
+package dejavu.psi.mixin
 
 import com.intellij.icons.AllIcons
 import com.intellij.ide.projectView.PresentationData
 import com.intellij.lang.ASTNode
 import com.intellij.navigation.ItemPresentation
-import yggdrasil.psi.YggdrasilElement
-import yggdrasil.psi.node.YggdrasilExpressionTag
+import dejavu.psi.YggdrasilElement
+import dejavu.psi.node.YggdrasilExpressionTag
 import javax.swing.Icon
 
 abstract class MixinExpressionTag(node: ASTNode) : YggdrasilElement(node), YggdrasilExpressionTag {
