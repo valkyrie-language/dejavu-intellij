@@ -8,6 +8,15 @@ import com.intellij.psi.PsiElement;
 public interface DejavuProgramElement extends PsiElement {
 
   @Nullable
+  DejavuClassElement getClassElement();
+
+  @Nullable
+  DejavuExtendsElement getExtendsElement();
+
+  @Nullable
   DejavuLetStatement getLetStatement();
+
+  @Nullable
+  DejavuUsingElement getUsingElement();
 
 }

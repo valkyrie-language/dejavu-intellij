@@ -20,7 +20,8 @@ class TokenHighlighter : SyntaxHighlighter {
 
     private fun getTokenColor(tokenType: IElementType): HighlightColor? {
         return when (tokenType) {
-            KW_TEMPLATE, KW_EXTENDS, KW_IMPLEMENTS,
+            KW_TEMPLATE, KW_PROGRAM, KW_EXTENDS,
+            KW_USING, KW_IMPORT, KW_AS,
             KW_IF, KW_ELSE,
             KW_FOR, KW_IN,
 //            KW_SLOT,

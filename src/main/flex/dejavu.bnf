@@ -84,30 +84,39 @@ text-elements ::=
   | invoke-element
   | WHITE_SPACE
   | NORMAL_TEXT;
-
-declaration-template  ::= TEMPLATE_L KW_TEMPLATE namepath? declaration-element* TEMPLATE_R {
+// === program statement ===
+declaration-template  ::= TEMPLATE_L KW_TEMPLATE namepath? program-element* TEMPLATE_R {
     mixin = "dejavu.psi.mixin.MixinTemplate"
 }
-declaration-element ::=
-    implement-element
+program-template ::= TEMPLATE_L KW_PROGRAM program-element* TEMPLATE_R {
+    pin = 2
+}
+program-element ::=
+    using-element
+  | class-element
   | extends-element
+  | let-statement
   | SEMICOLON
-
-implement-element ::= KW_IMPLEMENTS namepath BRACE_L argument* BRACE_R{
+// === using statement ===
+using-element ::= KW_USING BRACE_L using-alias* BRACE_R {
     pin = 1
-    mixin = "dejavu.psi.mixin.MixinImplements"
+//    mixin = "dejavu.psi.mixin.MixinUsing"
+}
+using-alias  ::= identifier EQ namepath {
+
+}
+// === class statement ===
+class-element ::= KW_CLASS namepath BRACE_L argument* BRACE_R {
+    pin = 1
+    mixin = "dejavu.psi.mixin.MixinClass"
 }
 extends-element ::= KW_EXTENDS (string | namepath) {
     pin = 1
     mixin = "dejavu.psi.mixin.MixinExtends"
 }
-// === program statement ===
-program-template ::= TEMPLATE_L KW_PROGRAM program-element* TEMPLATE_R {
-    pin = 2
-}
-program-element ::=
-    let-statement
-  | SEMICOLON
+
+
+// === class statement ===
 let-statement ::= KW_LET identifier EQ expression SEMICOLON {
     pin = 1
 //    mixin = "dejavu.psi.mixin.MixinLet"

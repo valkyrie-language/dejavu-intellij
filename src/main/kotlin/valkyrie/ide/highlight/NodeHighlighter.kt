@@ -14,6 +14,11 @@ import dejavu.language.file.DejavuFileNode
 class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
     private var infoHolder: HighlightInfoHolder? = null
 
+    override fun visitUsingAlias(o: DejavuUsingAlias) {
+        super.visitUsingAlias(o)
+    }
+
+
 
     fun highlight(element: PsiElement, color: HighlightColor) {
         val builder = HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION)
