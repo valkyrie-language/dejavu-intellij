@@ -5,12 +5,12 @@ import com.intellij.lang.injection.MultiHostRegistrar
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.LiteralTextEscaper
 import com.intellij.psi.PsiLanguageInjectionHost
-import dejavu.psi.YggdrasilElement
+import dejavu.psi.DejavuElement
 import dejavu.psi.node.YggdrasilRegex
 import dejavu.psi.node.YggdrasilRegexNode
 import org.intellij.lang.regexp.RegExpLanguage
 
-abstract class MixinRegex(node: ASTNode) : YggdrasilElement(node), PsiLanguageInjectionHost, YggdrasilRegex {
+abstract class MixinRegex(node: ASTNode) : DejavuElement(node), PsiLanguageInjectionHost, YggdrasilRegex {
 
     override fun isValidHost(): Boolean {
         return true

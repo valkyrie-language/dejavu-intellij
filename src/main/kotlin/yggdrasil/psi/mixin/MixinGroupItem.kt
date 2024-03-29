@@ -9,14 +9,14 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
-import dejavu.psi.YggdrasilElement
+import dejavu.psi.DejavuElement
 import dejavu.psi.node.YggdrasilGroupItem
 import dejavu.psi.node.YggdrasilIdentifierNode
 import valkyrie.ide.highlight.HighlightColor
 import valkyrie.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
-abstract class MixinGroupItem(node: ASTNode) : YggdrasilElement(node),
+abstract class MixinGroupItem(node: ASTNode) : DejavuElement(node),
     NavigatablePsiElement,
     PsiNameIdentifierOwner,
     YggdrasilGroupItem {

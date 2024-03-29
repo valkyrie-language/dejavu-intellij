@@ -2,7 +2,7 @@ package dejavu.psi.mixin
 
 import com.intellij.lang.ASTNode
 import com.intellij.psi.impl.source.tree.SharedImplUtil
-import dejavu.psi.YggdrasilElement
+import dejavu.psi.DejavuElement
 import dejavu.psi.node.YggdrasilClassNode
 import dejavu.psi.node.YggdrasilDefineUnion
 import dejavu.psi.node.YggdrasilIdentifier
@@ -12,7 +12,7 @@ import valkyrie.ide.highlight.NodeHighlighter
 import valkyrie.ide.reference.declaration.ValkyrieReference
 import yggdrasil.language.file.YggdrasilFileNode
 
-abstract class MixinIdentifier(node: ASTNode) : YggdrasilElement(node),
+abstract class MixinIdentifier(node: ASTNode) : DejavuElement(node),
 
     YggdrasilIdentifier {
 

@@ -4,12 +4,12 @@ import com.intellij.icons.AllIcons
 import com.intellij.ide.projectView.PresentationData
 import com.intellij.lang.ASTNode
 import com.intellij.navigation.ItemPresentation
-import dejavu.psi.YggdrasilElement
+import dejavu.psi.DejavuElement
 import dejavu.psi.node.YggdrasilAttribute
 import valkyrie.ide.highlight.HighlightColor
 import valkyrie.ide.highlight.NodeHighlighter
 
-abstract class MixinAttribute(node: ASTNode) : YggdrasilElement(node), YggdrasilAttribute {
+abstract class MixinAttribute(node: ASTNode) : DejavuElement(node), YggdrasilAttribute {
 
     override fun getName(): String {
         return this.identifier.text ?: ""

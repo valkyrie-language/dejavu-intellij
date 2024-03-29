@@ -36,7 +36,7 @@ class ExpandTemplate : AnAction(name, description, AllIcons.Actions.GroupByMetho
                 break
             }
         }
-        val file = builder.createFileFromText(fileName, yggdrasil.language.YggdrasilLanguage, text)
+        val file = builder.createFileFromText(fileName, yggdrasil.language.DejavuLanguage, text)
         dir.add(file)
         return file;
     }

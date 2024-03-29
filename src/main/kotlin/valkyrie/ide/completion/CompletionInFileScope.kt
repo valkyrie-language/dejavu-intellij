@@ -10,7 +10,7 @@ import com.intellij.patterns.PsiElementPattern
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.util.ProcessingContext
-import yggdrasil.language.YggdrasilLanguage
+import yggdrasil.language.DejavuLanguage
 import yggdrasil.language.file.YggdrasilIconProvider
 import javax.swing.Icon
 
@@ -85,5 +85,5 @@ class CompletionInFileScope : CompletionProvider<CompletionParameters>() {
 
 
 private fun triggerCondition(): PsiElementPattern.Capture<LeafPsiElement> {
-    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(YggdrasilLanguage);
+    return PlatformPatterns.psiElement(LeafPsiElement::class.java).withLanguage(DejavuLanguage);
 }

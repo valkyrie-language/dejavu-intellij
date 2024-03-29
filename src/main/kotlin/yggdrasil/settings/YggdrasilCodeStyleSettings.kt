@@ -2,11 +2,11 @@ package yggdrasil.settings
 
 import com.intellij.lang.Language
 import com.intellij.psi.codeStyle.LanguageCodeStyleSettingsProvider
-import yggdrasil.language.YggdrasilLanguage
+import yggdrasil.language.DejavuLanguage
 
 class YggdrasilCodeStyleSettings : LanguageCodeStyleSettingsProvider() {
     override fun getLanguage(): Language {
-        return YggdrasilLanguage
+        return DejavuLanguage
     }
 
     override fun getCodeSample(p0: SettingsType): String? {

@@ -1,10 +1,10 @@
 package dejavu.psi.mixin
 
 import com.intellij.lang.ASTNode
-import dejavu.psi.YggdrasilElement
+import dejavu.psi.DejavuElement
 import dejavu.psi.node.YggdrasilString
 
-abstract class MixinString(node: ASTNode) : YggdrasilElement(node),
+abstract class MixinString(node: ASTNode) : DejavuElement(node),
     YggdrasilString {
 
 

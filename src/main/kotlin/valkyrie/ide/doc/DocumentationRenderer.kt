@@ -38,7 +38,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         HtmlSyntaxInfoUtil.appendHighlightedByLexerAndEncodedAsHtmlCodeSnippet(
             doc,
             element.project,
-            yggdrasil.language.YggdrasilLanguage,
+            yggdrasil.language.DejavuLanguage,
             code.trimIndent(),
             1.0f,
         )

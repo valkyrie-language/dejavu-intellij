@@ -7,14 +7,13 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
-import dejavu.psi.YggdrasilElement
+import dejavu.psi.DejavuElement
 import dejavu.psi.node.YggdrasilGroup
-import dejavu.psi.node.YggdrasilGroupItemNode
 import dejavu.psi.node.YggdrasilIdentifierNode
 import javax.swing.Icon
 
 
-abstract class MixinGroup(node: ASTNode) : YggdrasilElement(node),
+abstract class MixinGroup(node: ASTNode) : DejavuElement(node),
     NavigatablePsiElement,
     PsiNameIdentifierOwner,
     YggdrasilGroup {
@@ -41,19 +40,6 @@ abstract class MixinGroup(node: ASTNode) : YggdrasilElement(node),
         return PresentationData(name, "", baseIcon, null)
     }
 
-    override fun getTokenList(): MutableList<YggdrasilGroupItemNode> {
-        if (groupBody == null) {
-            return mutableListOf()
-        }
-        val items = mutableListOf<YggdrasilGroupItemNode>()
-        for (item in groupBody!!.groupTermList) {
-            val inner = item.groupItem as? YggdrasilGroupItemNode;
-            if (inner != null) {
-                items.add(inner)
-            }
-        }
-        return items;
-    }
 
 }
 

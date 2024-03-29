@@ -7,12 +7,12 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
-import dejavu.psi.YggdrasilElement
+import dejavu.psi.DejavuElement
 import dejavu.psi.node.YggdrasilIdentifierNode
 import dejavu.psi.node.YggdrasilUnionVariant
 import javax.swing.Icon
 
-abstract class MixinUnionItem(node: ASTNode) : YggdrasilElement(node),
+abstract class MixinUnionItem(node: ASTNode) : DejavuElement(node),
     NavigatablePsiElement,
     PsiNameIdentifierOwner,
     YggdrasilUnionVariant {

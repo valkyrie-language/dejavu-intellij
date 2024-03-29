@@ -1,11 +1,11 @@
 package yggdrasil.language.file
 
 import com.intellij.openapi.fileTypes.LanguageFileType
-import yggdrasil.language.YggdrasilLanguage
+import yggdrasil.language.DejavuLanguage
 import javax.swing.Icon
 
-object YggdrasilFileType : LanguageFileType(YggdrasilLanguage) {
-    override fun getName(): String = YggdrasilLanguage.id
+object YggdrasilFileType : LanguageFileType(DejavuLanguage) {
+    override fun getName(): String = DejavuLanguage.id
 
     override fun getDescription(): String = yggdrasil.language.YggdrasilBundle.message("filetype.description")
 

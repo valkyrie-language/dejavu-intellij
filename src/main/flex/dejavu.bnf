@@ -2,18 +2,18 @@
     parserClass = "dejavu.psi.parser.YggdrasilParser"
     parserUtilClass = "dejavu.psi.ParserExtension"
 
-    extends = "dejavu.psi.YggdrasilElement"
+    extends = "dejavu.psi.DejavuElement"
 
-    psiClassPrefix = "Yggdrasil"
+    psiClassPrefix = "Dejavu"
     psiImplClassSuffix = "Node"
     psiPackage = "dejavu.psi.node"
     psiImplPackage = "dejavu.psi.node"
 
-    elementTypeHolderClass = "dejavu.psi.YggdrasilTypes"
-    elementTypeClass = "dejavu.psi.YggdrasilElementType"
-    tokenTypeClass = "dejavu.psi.YggdrasilTokenType"
+    elementTypeHolderClass = "dejavu.psi.DejavuTypes"
+    elementTypeClass = "dejavu.psi.DejavuElementType"
+    tokenTypeClass = "dejavu.psi.DejavuTokenType"
 
-    psiImplUtilClass = "dejavu.psi.node.YggdrasilPsiExtension"
+    psiImplUtilClass = "dejavu.psi.node.DejavuPsiExtension"
 
     tokens = [
         // comment

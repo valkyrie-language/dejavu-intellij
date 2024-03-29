@@ -13,7 +13,7 @@ import com.intellij.psi.search.SearchScope
 ValkyrieFile 是个 PsiElement
  */
 @Suppress("UnstableApiUsage")
-class YggdrasilFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, yggdrasil.language.YggdrasilLanguage) {
+class YggdrasilFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, yggdrasil.language.DejavuLanguage) {
     override fun getFileType(): FileType = YggdrasilFileType
 
     override fun toString(): String = yggdrasil.language.YggdrasilBundle.message("action.create_file")

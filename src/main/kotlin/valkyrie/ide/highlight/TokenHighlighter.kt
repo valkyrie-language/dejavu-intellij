@@ -6,8 +6,8 @@ import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase.pack
 import com.intellij.psi.tree.IElementType
+import dejavu.psi.DejavuTypes.*
 import dejavu.psi.ParserDefinition
-import dejavu.psi.YggdrasilTypes.*
 
 class TokenHighlighter : SyntaxHighlighter {
     override fun getHighlightingLexer(): Lexer {

@@ -1,0 +1,19 @@
+// This is a generated file. Not intended for manual editing.
+package dejavu.psi.node;
+
+import com.intellij.psi.PsiElement;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+public interface DejavuUsing extends PsiElement {
+
+    @NotNull
+    DejavuAnnotations getAnnotations();
+
+    @Nullable
+    DejavuIdentifierFree getIdentifierFree();
+
+    @Nullable
+    DejavuUsingBody getUsingBody();
+
+}

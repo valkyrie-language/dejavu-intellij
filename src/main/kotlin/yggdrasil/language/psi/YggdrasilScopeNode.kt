@@ -36,8 +36,8 @@ abstract class YggdrasilScopeNode(node: CompositeElement) : ASTWrapperPsiElement
         return null;
     }
 
-    override fun getLanguage(): yggdrasil.language.YggdrasilLanguage {
-        return yggdrasil.language.YggdrasilLanguage
+    override fun getLanguage(): yggdrasil.language.DejavuLanguage {
+        return yggdrasil.language.DejavuLanguage
     }
 
     override fun getOwnDeclarations(): MutableCollection<out PsiSymbolDeclaration> {
