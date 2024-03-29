@@ -151,7 +151,7 @@ template-while  ::= TEMPLATE_L KW_WHILE expression TEMPLATE_R {
 for-element   ::= for-statement else-statement? template-end;
 for-statement ::= template-for text-elements*;
 
-template-for  ::= TEMPLATE_L KW_FOR identifier KW_IN expression TEMPLATE_R {
+template-for  ::= TEMPLATE_L KW_FOR pattern-bare KW_IN expression TEMPLATE_R {
     pin = 2
 }
 // === match statement ===
@@ -167,12 +167,16 @@ case-statement ::= template-case text-elements*;
 template-match ::= TEMPLATE_L KW_MATCH expression TEMPLATE_R {
     pin = 2
 }
-template-when ::= TEMPLATE_L KW_WHEN identifier TEMPLATE_R {
+template-when ::= TEMPLATE_L KW_WHEN pattern TEMPLATE_R {
     pin = 2
 }
-template-case ::= TEMPLATE_L KW_CASE identifier TEMPLATE_R {
+template-case ::= TEMPLATE_L KW_CASE pattern TEMPLATE_R {
     pin = 2
 }
+// === pattern expressions ===
+pattern ::= pattern-tuple | identifier;
+pattern-tuple ::= PARENTHESIS_L pattern-bare? PARENTHESIS_R;
+pattern-bare ::= pattern (COMMA pattern)* COMMA;
 // === slot statement ===
 slot-element ::= template-slot text-elements* template-end {
     mixin = "dejavu.psi.mixin.MixinSlot"

@@ -34,6 +34,9 @@ public interface DejavuTypes {
   IElementType NAMEPATH = new DejavuElementType("NAMEPATH");
   IElementType NUMBER = new DejavuElementType("NUMBER");
   IElementType PAIR = new DejavuElementType("PAIR");
+  IElementType PATTERN = new DejavuElementType("PATTERN");
+  IElementType PATTERN_BARE = new DejavuElementType("PATTERN_BARE");
+  IElementType PATTERN_TUPLE = new DejavuElementType("PATTERN_TUPLE");
   IElementType PREFIX = new DejavuElementType("PREFIX");
   IElementType PROGRAM_ELEMENT = new DejavuElementType("PROGRAM_ELEMENT");
   IElementType PROGRAM_TEMPLATE = new DejavuElementType("PROGRAM_TEMPLATE");
@@ -207,6 +210,15 @@ public interface DejavuTypes {
       }
       else if (type == PAIR) {
         return new DejavuPairNode(node);
+      }
+      else if (type == PATTERN) {
+        return new DejavuPatternNode(node);
+      }
+      else if (type == PATTERN_BARE) {
+        return new DejavuPatternBareNode(node);
+      }
+      else if (type == PATTERN_TUPLE) {
+        return new DejavuPatternTupleNode(node);
       }
       else if (type == PREFIX) {
         return new DejavuPrefixNode(node);
