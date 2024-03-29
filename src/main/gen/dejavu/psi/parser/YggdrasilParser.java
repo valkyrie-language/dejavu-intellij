@@ -171,16 +171,17 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KW_EXTENDS identifier
+  // KW_EXTENDS namepath
   public static boolean extends_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "extends_element")) return false;
     if (!nextTokenIs(b, KW_EXTENDS)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, EXTENDS_ELEMENT, null);
     r = consumeToken(b, KW_EXTENDS);
-    r = r && identifier(b, l + 1);
-    exit_section_(b, m, EXTENDS_ELEMENT, r);
-    return r;
+    p = r; // pin = 1
+    r = r && namepath(b, l + 1);
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */
@@ -322,16 +323,17 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KW_IMPLEMENTS identifier
+  // KW_IMPLEMENTS string
   public static boolean implement_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "implement_element")) return false;
     if (!nextTokenIs(b, KW_IMPLEMENTS)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, IMPLEMENT_ELEMENT, null);
     r = consumeToken(b, KW_IMPLEMENTS);
-    r = r && identifier(b, l + 1);
-    exit_section_(b, m, IMPLEMENT_ELEMENT, r);
-    return r;
+    p = r; // pin = 1
+    r = r && string(b, l + 1);
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
   /* ********************************************************** */
@@ -516,6 +518,19 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
       if (!empty_element_parsed_guard_(b, "slot_element_1", c)) break;
     }
     return true;
+  }
+
+  /* ********************************************************** */
+  // TEXT_SINGLE | TEXT_DOUBLE
+  public static boolean string(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "string")) return false;
+    if (!nextTokenIs(b, "<string>", TEXT_DOUBLE, TEXT_SINGLE)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, STRING, "<string>");
+    r = consumeToken(b, TEXT_SINGLE);
+    if (!r) r = consumeToken(b, TEXT_DOUBLE);
+    exit_section_(b, l, m, r, false, null);
+    return r;
   }
 
   /* ********************************************************** */
@@ -758,12 +773,13 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // number | namepath
+  // number | string | namepath
   public static boolean value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "value")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, VALUE, "<value>");
     r = number(b, l + 1);
+    if (!r) r = string(b, l + 1);
     if (!r) r = namepath(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;

@@ -127,8 +127,8 @@ TEXT = [^<]+
 
 <ProgramContext> {
     {INTEGER} { return INTEGER; }
-//    {TEXT_SINGLE} { return TEXT_SINGLE; }
-//    {TEXT_DOUBLE} { return TEXT_DOUBLE; }
+    {TEXT_SINGLE} { return TEXT_SINGLE; }
+    {TEXT_DOUBLE} { return TEXT_DOUBLE; }
 //    {REGULAR_RANGE} { return REGULAR_RANGE; }
 //    {REGULAR_EXPRESSION} { return REGULAR_EXPRESSION;}
 }

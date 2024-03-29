@@ -84,14 +84,22 @@ text-elements ::=
   | WHITE_SPACE
   | NORMAL_TEXT;
 
-declaration-template  ::= TEMPLATE_L KW_TEMPLATE identifier? declaration-element* TEMPLATE_R;
+declaration-template  ::= TEMPLATE_L KW_TEMPLATE identifier? declaration-element* TEMPLATE_R {
+    mixin = "dejavu.psi.mixin.MixinTemplate"
+}
 declaration-element ::=
     implement-element
   | extends-element
   | SEMICOLON
 
-implement-element ::= KW_IMPLEMENTS identifier;
-extends-element ::= KW_EXTENDS identifier;
+implement-element ::= KW_IMPLEMENTS string {
+    pin = 1
+    mixin = "dejavu.psi.mixin.MixinImplements"
+}
+extends-element ::= KW_EXTENDS namepath {
+    pin = 1
+    mixin = "dejavu.psi.mixin.MixinExtends"
+}
 
 // === if statement ===
 if-element        ::= if-statement else-if-statement* else-statement? template-end;
@@ -165,12 +173,12 @@ template-end ::= TEMPLATE_L (KW_END identifier-free? | identifier-free? KW_END) 
 // === expression statement ===
 expression ::= value;
 // === atomic statement ===
-value    ::= number | namepath;
+value    ::= number | string | namepath;
 // === literals ===
 number ::= INTEGER {
 //    mixin = "dejavu.psi.mixin.MixinNumber"
 }
-
+string ::= TEXT_SINGLE | TEXT_DOUBLE;
 
 
 // === Identifier ===

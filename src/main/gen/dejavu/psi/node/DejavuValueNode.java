@@ -38,4 +38,10 @@ public class DejavuValueNode extends DejavuElement implements DejavuValue {
     return findChildByClass(DejavuNumber.class);
   }
 
+  @Override
+  @Nullable
+  public DejavuString getString() {
+    return findChildByClass(DejavuString.class);
+  }
+
 }

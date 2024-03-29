@@ -29,6 +29,7 @@ public interface DejavuTypes {
   IElementType NAMEPATH = new DejavuElementType("NAMEPATH");
   IElementType NUMBER = new DejavuElementType("NUMBER");
   IElementType SLOT_ELEMENT = new DejavuElementType("SLOT_ELEMENT");
+  IElementType STRING = new DejavuElementType("STRING");
   IElementType TEMPLATE_CASE = new DejavuElementType("TEMPLATE_CASE");
   IElementType TEMPLATE_ELSE = new DejavuElementType("TEMPLATE_ELSE");
   IElementType TEMPLATE_ELSE_IF = new DejavuElementType("TEMPLATE_ELSE_IF");
@@ -103,6 +104,8 @@ public interface DejavuTypes {
   IElementType SYMBOW_RAW = new DejavuTokenType("SYMBOW_RAW");
   IElementType TEMPLATE_L = new DejavuTokenType("TEMPLATE_L");
   IElementType TEMPLATE_R = new DejavuTokenType("TEMPLATE_R");
+  IElementType TEXT_DOUBLE = new DejavuTokenType("TEXT_DOUBLE");
+  IElementType TEXT_SINGLE = new DejavuTokenType("TEXT_SINGLE");
   IElementType TO = new DejavuTokenType("->");
   IElementType URL = new DejavuTokenType("Url");
   IElementType VERSION = new DejavuTokenType("<<semver>>");
@@ -173,6 +176,9 @@ public interface DejavuTypes {
       }
       else if (type == SLOT_ELEMENT) {
         return new DejavuSlotElementNode(node);
+      }
+      else if (type == STRING) {
+        return new DejavuStringNode(node);
       }
       else if (type == TEMPLATE_CASE) {
         return new DejavuTemplateCaseNode(node);
