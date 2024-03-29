@@ -23,6 +23,7 @@ public interface DejavuTypes {
   IElementType FUNCTION_CALL = new DejavuElementType("FUNCTION_CALL");
   IElementType IDENTIFIER = new DejavuElementType("IDENTIFIER");
   IElementType IDENTIFIER_FREE = new DejavuElementType("IDENTIFIER_FREE");
+  IElementType IF_CONDITIONAL = new DejavuElementType("IF_CONDITIONAL");
   IElementType IF_ELEMENT = new DejavuElementType("IF_ELEMENT");
   IElementType IF_STATEMENT = new DejavuElementType("IF_STATEMENT");
   IElementType INFIX = new DejavuElementType("INFIX");
@@ -67,6 +68,7 @@ public interface DejavuTypes {
   IElementType ANGLE_L = new DejavuTokenType("<");
   IElementType ANGLE_R = new DejavuTokenType(">");
   IElementType AT = new DejavuTokenType("@");
+  IElementType BIND = new DejavuTokenType("=");
   IElementType BRACE_L = new DejavuTokenType("{");
   IElementType BRACE_R = new DejavuTokenType("}");
   IElementType BRACKET_L = new DejavuTokenType("[");
@@ -77,7 +79,6 @@ public interface DejavuTypes {
   IElementType COMMENT_LINE = new DejavuTokenType("Comment");
   IElementType DOLLAR = new DejavuTokenType("$");
   IElementType DOT = new DejavuTokenType(".");
-  IElementType EQ = new DejavuTokenType("=");
   IElementType ESCAPED = new DejavuTokenType("\\escaped");
   IElementType HYPHEN = new DejavuTokenType("-");
   IElementType INTEGER = new DejavuTokenType("<<INTEGER>>");
@@ -107,7 +108,9 @@ public interface DejavuTypes {
   IElementType KW_WHILE = new DejavuTokenType("KW_WHILE");
   IElementType NORMAL_TEXT = new DejavuTokenType("NORMAL_TEXT");
   IElementType OP_CONCAT = new DejavuTokenType("~");
+  IElementType OP_EQ = new DejavuTokenType("OP_EQ");
   IElementType OP_MANY = new DejavuTokenType("*");
+  IElementType OP_NE = new DejavuTokenType("OP_NE");
   IElementType OP_OR = new DejavuTokenType("|");
   IElementType OP_REMARK = new DejavuTokenType("^");
   IElementType OP_THEN = new DejavuTokenType("OP_THEN");
@@ -177,6 +180,9 @@ public interface DejavuTypes {
       }
       else if (type == IDENTIFIER_FREE) {
         return new DejavuIdentifierFreeNode(node);
+      }
+      else if (type == IF_CONDITIONAL) {
+        return new DejavuIfConditionalNode(node);
       }
       else if (type == IF_ELEMENT) {
         return new DejavuIfElementNode(node);

@@ -19,6 +19,10 @@ class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
         highlight(o.namepath.lastChild, HighlightColor.SYM_FUNCTION)
     }
 
+    override fun visitPair(o: DejavuPair) {
+        highlight(o.identifier, HighlightColor.SYM_FIELD)
+    }
+
     override fun visitArgument(o: DejavuArgument) {
         o.identifier?.let { highlight(it, HighlightColor.SYM_ARGUMENT) }
     }
@@ -31,11 +35,19 @@ class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
         o.highlight(this)
     }
 
+    override fun visitSlotElement(o: DejavuSlotElement) {
+        o.highlight(this)
+    }
+
     override fun visitDotCall(o: DejavuDotCall) {
         o.highlight(this)
     }
 
     override fun visitFunctionCall(o: DejavuFunctionCall) {
+        o.highlight(this)
+    }
+
+    override fun visitPattern(o: DejavuPattern) {
         o.highlight(this)
     }
 

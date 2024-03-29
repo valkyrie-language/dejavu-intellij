@@ -83,7 +83,7 @@
 		<nameSuggestionProvider implementation="valkyrie.ide.completion.CompletionSuggestion"/>
 		<lang.foldingBuilder
 			language="dejavu"
-			implementationClass="valkyrie.ide.folding.ValkyrieFoldingBuilder"/>
+			implementationClass="valkyrie.ide.folding.FoldingBuilder"/>
 		<codeBlockProvider language="dejavu" implementationClass="valkyrie.ide.matcher.ValkyrieCodeBlockProvider"/>
 		<codeFoldingOptionsProvider instance="valkyrie.ide.folding.ValkyrieFoldingOptions"/>
 		<referenceImporter implementation="valkyrie.ide.completion.ValkyrieImportInsert"/>

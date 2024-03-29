@@ -5,12 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuTemplateCase extends PsiElement {
+public interface DejavuIfConditional extends PsiElement {
 
   @Nullable
-  DejavuIfConditional getIfConditional();
-
-  @Nullable
-  DejavuPatternBare getPatternBare();
+  DejavuExpression getExpression();
 
 }

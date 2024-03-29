@@ -4,6 +4,7 @@ package dejavu.psi.node;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import valkyrie.ide.highlight.NodeHighlighter;
 
 public interface DejavuPattern extends PsiElement {
 
@@ -12,5 +13,7 @@ public interface DejavuPattern extends PsiElement {
 
   @Nullable
   DejavuPatternTuple getPatternTuple();
+
+  void highlight(@NotNull NodeHighlighter highlighter);
 
 }

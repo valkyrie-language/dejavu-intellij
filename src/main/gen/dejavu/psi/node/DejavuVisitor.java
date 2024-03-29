@@ -68,6 +68,10 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitIdentifier(o);
   }
 
+  public void visitIfConditional(@NotNull DejavuIfConditional o) {
+    visitPsiElement(o);
+  }
+
   public void visitIfElement(@NotNull DejavuIfElement o) {
     visitPsiElement(o);
   }
