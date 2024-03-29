@@ -28,8 +28,8 @@ public class DejavuTemplateInvokeNode extends DejavuElement implements DejavuTem
 
   @Override
   @Nullable
-  public DejavuIdentifier getIdentifier() {
-    return findChildByClass(DejavuIdentifier.class);
+  public DejavuExpression getExpression() {
+    return findChildByClass(DejavuExpression.class);
   }
 
 }

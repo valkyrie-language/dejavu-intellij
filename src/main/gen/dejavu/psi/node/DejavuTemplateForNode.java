@@ -27,9 +27,15 @@ public class DejavuTemplateForNode extends DejavuElement implements DejavuTempla
   }
 
   @Override
-  @NotNull
-  public List<DejavuIdentifier> getIdentifierList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuIdentifier.class);
+  @Nullable
+  public DejavuExpression getExpression() {
+    return findChildByClass(DejavuExpression.class);
+  }
+
+  @Override
+  @Nullable
+  public DejavuIdentifier getIdentifier() {
+    return findChildByClass(DejavuIdentifier.class);
   }
 
 }

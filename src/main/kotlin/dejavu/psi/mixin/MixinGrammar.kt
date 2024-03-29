@@ -8,21 +8,21 @@ import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import dejavu.psi.DejavuElement
-import dejavu.psi.node.DejavuGrammar
 import dejavu.psi.node.DejavuIdentifierNode
+import dejavu.psi.node.DejavuSlotElement
 import javax.swing.Icon
 
-abstract class MixinGrammar(node: ASTNode) : DejavuElement(node),
+abstract class MixinSlot(node: ASTNode) : DejavuElement(node),
     NavigatablePsiElement,
     PsiNameIdentifierOwner,
-    DejavuGrammar {
+    DejavuSlotElement {
 
     override fun getName(): String? {
         return this.nameIdentifier?.name ?: "⟪anonymous⟫"
     }
 
     override fun getNameIdentifier(): DejavuIdentifierNode? {
-        return this.identifier as? DejavuIdentifierNode
+        return this.slotStatement as? DejavuIdentifierNode
     }
 
 

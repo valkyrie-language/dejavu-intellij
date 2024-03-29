@@ -5,9 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuClassBody extends PsiElement {
+public interface DejavuSlotElement extends PsiElement {
 
-  @Nullable
-  DejavuExpression getExpression();
+  @NotNull
+  DejavuSlotStatement getSlotStatement();
+
+  @NotNull
+  DejavuTemplateEnd getTemplateEnd();
 
 }

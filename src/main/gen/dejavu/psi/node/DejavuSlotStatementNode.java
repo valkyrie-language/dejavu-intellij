@@ -10,20 +10,32 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
-public class DejavuRangeUpperNode extends DejavuElement implements DejavuRangeUpper {
+public class DejavuSlotStatementNode extends DejavuElement implements DejavuSlotStatement {
 
-  public DejavuRangeUpperNode(@NotNull ASTNode node) {
+  public DejavuSlotStatementNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitRangeUpper(this);
+    visitor.visitSlotStatement(this);
   }
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof DejavuVisitor) accept((DejavuVisitor)visitor);
     else super.accept(visitor);
+  }
+
+  @Override
+  @NotNull
+  public DejavuTemplateSlot getTemplateSlot() {
+    return findNotNullChildByClass(DejavuTemplateSlot.class);
+  }
+
+  @Override
+  @NotNull
+  public List<DejavuTextElement> getTextElementList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElement.class);
   }
 
 }

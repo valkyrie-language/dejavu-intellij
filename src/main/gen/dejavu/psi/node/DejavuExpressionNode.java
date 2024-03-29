@@ -10,7 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
-public abstract class DejavuExpressionNode extends DejavuElement implements DejavuExpression {
+public class DejavuExpressionNode extends DejavuElement implements DejavuExpression {
 
   public DejavuExpressionNode(@NotNull ASTNode node) {
     super(node);
@@ -24,6 +24,12 @@ public abstract class DejavuExpressionNode extends DejavuElement implements Deja
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof DejavuVisitor) accept((DejavuVisitor)visitor);
     else super.accept(visitor);
+  }
+
+  @Override
+  @NotNull
+  public DejavuValue getValue() {
+    return findNotNullChildByClass(DejavuValue.class);
   }
 
 }
