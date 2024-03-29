@@ -45,6 +45,8 @@ KW_SLOT       = slot
 KW_IMPORT  = import
 KW_INCLUDE = include
 
+KW_PROGRAM = program
+KW_LET     = let
 
 KW_INVOKE = invoke
 KW_THEN   = then
@@ -140,6 +142,9 @@ TEXT = [^<]+
 
     {KW_IMPORT} { return KW_IMPORT; }
     {KW_AS} { return KW_AS; }
+
+	{KW_PROGRAM} { return KW_PROGRAM; }
+	{KW_LET} { return KW_LET; }
 
     {KW_IF} { return KW_IF; }
     {KW_ELSE} { return KW_ELSE; }

@@ -23,6 +23,9 @@ public interface DejavuTextElements extends PsiElement {
   DejavuMatchElement getMatchElement();
 
   @Nullable
+  DejavuProgramTemplate getProgramTemplate();
+
+  @Nullable
   DejavuSlotElement getSlotElement();
 
   @Nullable
