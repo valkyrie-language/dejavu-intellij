@@ -23,6 +23,10 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitCaseStatement(@NotNull DejavuCaseStatement o) {
+    visitPsiElement(o);
+  }
+
   public void visitCategory(@NotNull DejavuCategory o) {
     visitPsiElement(o);
   }
@@ -151,6 +155,14 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitMatchElement(@NotNull DejavuMatchElement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitMatchStatement(@NotNull DejavuMatchStatement o) {
+    visitPsiElement(o);
+  }
+
   public void visitModifier(@NotNull DejavuModifier o) {
     visitPsiElement(o);
   }
@@ -199,6 +211,10 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitTemplateCase(@NotNull DejavuTemplateCase o) {
+    visitPsiElement(o);
+  }
+
   public void visitTemplateElse(@NotNull DejavuTemplateElse o) {
     visitPsiElement(o);
   }
@@ -216,6 +232,14 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitTemplateIf(@NotNull DejavuTemplateIf o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateMatch(@NotNull DejavuTemplateMatch o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateWhile(@NotNull DejavuTemplateWhile o) {
     visitPsiElement(o);
   }
 
@@ -256,6 +280,14 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitValue(@NotNull DejavuValue o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhileElement(@NotNull DejavuWhileElement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhileStatement(@NotNull DejavuWhileStatement o) {
     visitPsiElement(o);
   }
 

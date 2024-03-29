@@ -75,12 +75,11 @@
 root ::= text-element*
 text-element ::=
     if-element
+  | while-element
   | for-element
+  | match-element
+  | WHITE_SPACE
   | NORMAL_TEXT;
-
-
-
-
 
 
 
@@ -246,11 +245,12 @@ template-else-if ::= TEMPLATE_L KW_ELSE KW_IF identifier TEMPLATE_R {
     pin = 3
 }
 // === while statement ===
-while-element ::=
+while-element ::= while-statement else-statement? template-end;
+while-statement ::= template-while text-element*;
+
 template-while ::= TEMPLATE_L KW_WHILE identifier TEMPLATE_R {
     pin = 2
 }
-
 // === for statement ===
 for-element  ::= for-statement else-statement? template-end;
 for-statement  ::= template-for text-element*;
@@ -259,13 +259,20 @@ template-for      ::= TEMPLATE_L KW_FOR identifier KW_IN identifier TEMPLATE_R {
     pin = 2
 }
 
-
-
-
-template-end ::= TEMPLATE_L KW_END identifier-free? TEMPLATE_R {
+template-end ::= TEMPLATE_L (KW_END identifier-free? | identifier-free? KW_END) TEMPLATE_R {
     pin = 2
 }
+// === match statement ===
+match-element ::= match-statement case-statement* else-statement? template-end;
+match-statement ::= template-match WHITE_SPACE*;
+case-statement ::= template-case text-element*;
 
+template-match ::= TEMPLATE_L KW_MATCH identifier TEMPLATE_R {
+    pin = 2
+}
+template-case ::= TEMPLATE_L KW_CASE identifier TEMPLATE_R {
+    pin = 2
+}
 /* Literals */
 
 /* Identifier */
@@ -277,6 +284,7 @@ identifier-free     ::=
     SYMBOL | SYMBOW_RAW
   | KW_WHILE | KW_FOR
   | KW_IF
+  | KW_MATCH
 {
     extends = identifier
 }

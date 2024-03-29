@@ -13,4 +13,10 @@ public interface DejavuTextElement extends PsiElement {
   @Nullable
   DejavuIfElement getIfElement();
 
+  @Nullable
+  DejavuMatchElement getMatchElement();
+
+  @Nullable
+  DejavuWhileElement getWhileElement();
+
 }

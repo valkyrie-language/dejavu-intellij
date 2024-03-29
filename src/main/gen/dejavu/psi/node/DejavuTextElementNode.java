@@ -38,4 +38,16 @@ public class DejavuTextElementNode extends DejavuElement implements DejavuTextEl
     return findChildByClass(DejavuIfElement.class);
   }
 
+  @Override
+  @Nullable
+  public DejavuMatchElement getMatchElement() {
+    return findChildByClass(DejavuMatchElement.class);
+  }
+
+  @Override
+  @Nullable
+  public DejavuWhileElement getWhileElement() {
+    return findChildByClass(DejavuWhileElement.class);
+  }
+
 }
