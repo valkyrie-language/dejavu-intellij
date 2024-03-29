@@ -2,36 +2,34 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
 public class DejavuTupleNode extends DejavuElement implements DejavuTuple {
 
-    public DejavuTupleNode(@NotNull ASTNode node) {
-        super(node);
-    }
+  public DejavuTupleNode(@NotNull ASTNode node) {
+    super(node);
+  }
 
-    public void accept(@NotNull DejavuVisitor visitor) {
-        visitor.visitTuple(this);
-    }
+  public void accept(@NotNull DejavuVisitor visitor) {
+    visitor.visitTuple(this);
+  }
 
-    @Override
-    public void accept(@NotNull PsiElementVisitor visitor) {
-        if (visitor instanceof DejavuVisitor) accept((DejavuVisitor) visitor);
-        else super.accept(visitor);
-    }
+  @Override
+  public void accept(@NotNull PsiElementVisitor visitor) {
+    if (visitor instanceof DejavuVisitor) accept((DejavuVisitor)visitor);
+    else super.accept(visitor);
+  }
 
-    @Override
-    @NotNull
-    public List<DejavuArgument> getArgumentList() {
-        return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuArgument.class);
-    }
+  @Override
+  @NotNull
+  public List<DejavuArgument> getArgumentList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuArgument.class);
+  }
 
 }

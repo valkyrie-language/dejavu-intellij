@@ -2,36 +2,34 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
 public class DejavuGroupTermNode extends DejavuElement implements DejavuGroupTerm {
 
-    public DejavuGroupTermNode(@NotNull ASTNode node) {
-        super(node);
-    }
+  public DejavuGroupTermNode(@NotNull ASTNode node) {
+    super(node);
+  }
 
-    public void accept(@NotNull DejavuVisitor visitor) {
-        visitor.visitGroupTerm(this);
-    }
+  public void accept(@NotNull DejavuVisitor visitor) {
+    visitor.visitGroupTerm(this);
+  }
 
-    @Override
-    public void accept(@NotNull PsiElementVisitor visitor) {
-        if (visitor instanceof DejavuVisitor) accept((DejavuVisitor) visitor);
-        else super.accept(visitor);
-    }
+  @Override
+  public void accept(@NotNull PsiElementVisitor visitor) {
+    if (visitor instanceof DejavuVisitor) accept((DejavuVisitor)visitor);
+    else super.accept(visitor);
+  }
 
-    @Override
-    @Nullable
-    public DejavuGroupItem getGroupItem() {
-        return findChildByClass(DejavuGroupItem.class);
-    }
+  @Override
+  @Nullable
+  public DejavuGroupItem getGroupItem() {
+    return findChildByClass(DejavuGroupItem.class);
+  }
 
 }

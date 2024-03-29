@@ -1,7 +1,7 @@
 package yggdrasil.language.file
 
 import com.intellij.openapi.fileTypes.LanguageFileType
-import yggdrasil.language.DejavuLanguage
+import dejavu.language.DejavuLanguage
 import javax.swing.Icon
 
 object YggdrasilFileType : LanguageFileType(DejavuLanguage) {
@@ -9,7 +9,7 @@ object YggdrasilFileType : LanguageFileType(DejavuLanguage) {
 
     override fun getDescription(): String = yggdrasil.language.YggdrasilBundle.message("filetype.description")
 
-    override fun getDefaultExtension(): String = "ygg;yggdrasil;"
+    override fun getDefaultExtension(): String = "dejavu;"
 
     override fun getIcon(): Icon = YggdrasilIconProvider.Instance.File
 

@@ -10,7 +10,7 @@ import com.intellij.patterns.PsiElementPattern
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.util.ProcessingContext
-import yggdrasil.language.DejavuLanguage
+import dejavu.language.DejavuLanguage
 import yggdrasil.language.file.YggdrasilIconProvider
 import javax.swing.Icon
 

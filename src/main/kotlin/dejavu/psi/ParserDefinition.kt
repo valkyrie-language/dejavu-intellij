@@ -13,7 +13,7 @@ import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 import dejavu.psi.parser.YggdrasilParser
-import yggdrasil.language.DejavuLanguage
+import dejavu.language.DejavuLanguage
 import yggdrasil.language.file.YggdrasilFileNode
 
 object ParserDefinition : ParserDefinition {

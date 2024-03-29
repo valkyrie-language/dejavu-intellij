@@ -1,7 +1,6 @@
-package yggdrasil.language
+package dejavu.language
 
 import com.intellij.lang.Language
-import com.intellij.openapi.fileTypes.LanguageFileType
 
 
 private const val LANGUAGE_ID = "dejavu"

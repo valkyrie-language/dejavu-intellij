@@ -4,11 +4,12 @@ import com.intellij.codeInsight.completion.XmlCharFilter
 import com.intellij.codeInsight.editorActions.XmlAutoPopupHandler
 import com.intellij.codeInsight.lookup.CharFilter
 import com.intellij.codeInsight.lookup.Lookup
+import dejavu.language.DejavuLanguage
 
 class CompletionInterrupter : CharFilter() {
     override fun acceptChar(c: Char, prefixLength: Int, lookup: Lookup?): Result? {
         val element = lookup?.psiElement ?: return null
-        if (element.language != yggdrasil.language.DejavuLanguage) {
+        if (element.language != DejavuLanguage) {
             return null
         }
         return if (Character.isJavaIdentifierPart(c)) Result.ADD_TO_PREFIX

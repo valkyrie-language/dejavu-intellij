@@ -2,19 +2,18 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
 public interface DejavuTerm extends DejavuExpression {
 
-    @NotNull
-    DejavuExpression getExpression();
+  @NotNull
+  DejavuExpression getExpression();
 
-    @NotNull
-    List<DejavuPrefix> getPrefixList();
+  @NotNull
+  List<DejavuPrefix> getPrefixList();
 
-    @NotNull
-    List<DejavuSuffix> getSuffixList();
+  @NotNull
+  List<DejavuSuffix> getSuffixList();
 
 }

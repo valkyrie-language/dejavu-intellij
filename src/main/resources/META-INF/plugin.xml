@@ -8,9 +8,9 @@
 	<resource-bundle>messages.YggdrasilBundle</resource-bundle>
 	<extensions defaultExtensionNs="com.intellij">
 		<fileType
-			name="yggdrasil"
-			language="yggdrasil"
-			extensions="ygg;yggdrasil;"
+			name="dejavu"
+			language="dejavu"
+			extensions="dejavu;"
 			implementationClass="yggdrasil.language.file.YggdrasilFileType"
 			fieldName="INSTANCE"/>
 		<lang.parserDefinition

@@ -2,19 +2,18 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
 public interface DejavuGroup extends PsiElement {
 
-    @NotNull
-    DejavuAnnotations getAnnotations();
+  @NotNull
+  DejavuAnnotations getAnnotations();
 
-    @Nullable
-    DejavuGroupBody getGroupBody();
+  @Nullable
+  DejavuGroupBody getGroupBody();
 
-    @Nullable
-    DejavuIdentifierFree getIdentifierFree();
+  @Nullable
+  DejavuIdentifierFree getIdentifierFree();
 
 }

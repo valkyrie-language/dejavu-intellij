@@ -5,12 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuFunctionCall extends PsiElement {
-
-  @NotNull
-  DejavuIdentifierFree getIdentifierFree();
-
-  @Nullable
-  DejavuTuple getTuple();
+public interface DejavuTemplateEnd extends PsiElement {
 
 }

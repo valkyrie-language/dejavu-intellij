@@ -5,15 +5,14 @@ import com.intellij.model.psi.PsiSymbolDeclaration
 import com.intellij.model.psi.PsiSymbolReference
 import com.intellij.openapi.fileTypes.FileType
 import com.intellij.psi.FileViewProvider
-import com.intellij.psi.search.GlobalSearchScope
-import com.intellij.psi.search.SearchScope
+import dejavu.language.DejavuLanguage
 
 
 /**
 ValkyrieFile 是个 PsiElement
  */
 @Suppress("UnstableApiUsage")
-class YggdrasilFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, yggdrasil.language.DejavuLanguage) {
+class YggdrasilFileNode(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, DejavuLanguage) {
     override fun getFileType(): FileType = YggdrasilFileType
 
     override fun toString(): String = yggdrasil.language.YggdrasilBundle.message("action.create_file")

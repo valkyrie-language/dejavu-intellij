@@ -8,6 +8,7 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.impl.source.tree.SharedImplUtil
 import com.intellij.psi.util.parents
+import dejavu.language.DejavuLanguage
 import yggdrasil.language.file.YggdrasilFileNode
 import javax.swing.Icon
 
@@ -36,8 +37,8 @@ abstract class YggdrasilScopeNode(node: CompositeElement) : ASTWrapperPsiElement
         return null
     }
 
-    override fun getLanguage(): yggdrasil.language.DejavuLanguage {
-        return yggdrasil.language.DejavuLanguage
+    override fun getLanguage(): DejavuLanguage {
+        return DejavuLanguage
     }
 
     override fun getOwnDeclarations(): MutableCollection<out PsiSymbolDeclaration> {

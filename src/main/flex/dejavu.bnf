@@ -220,6 +220,8 @@ number ::= INTEGER {
 }
 
 
+template-end ::= TEMPLATE_L TEMPLATE_R;
+
 
 /* Literals */
 

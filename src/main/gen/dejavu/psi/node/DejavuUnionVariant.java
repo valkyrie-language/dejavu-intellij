@@ -2,16 +2,15 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
 public interface DejavuUnionVariant extends PsiElement {
 
-    @NotNull
-    DejavuExpression getExpression();
+  @NotNull
+  DejavuExpression getExpression();
 
-    @Nullable
-    DejavuTagBranch getTagBranch();
+  @Nullable
+  DejavuTagBranch getTagBranch();
 
 }

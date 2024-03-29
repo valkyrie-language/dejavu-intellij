@@ -2,16 +2,15 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
 public interface DejavuRange extends PsiElement {
 
-    @Nullable
-    DejavuRangeLower getRangeLower();
+  @Nullable
+  DejavuRangeLower getRangeLower();
 
-    @Nullable
-    DejavuRangeUpper getRangeUpper();
+  @Nullable
+  DejavuRangeUpper getRangeUpper();
 
 }

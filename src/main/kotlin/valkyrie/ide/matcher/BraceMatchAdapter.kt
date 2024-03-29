@@ -3,9 +3,10 @@ package valkyrie.ide.matcher
 import com.intellij.codeInsight.highlighting.PairedBraceMatcherAdapter
 import com.intellij.openapi.editor.highlighter.HighlighterIterator
 import com.intellij.openapi.fileTypes.FileType
+import dejavu.language.DejavuLanguage
 import yggdrasil.language.file.YggdrasilFileType
 
-class BraceMatchAdapter : PairedBraceMatcherAdapter(ValkyrieBracketMatch(), yggdrasil.language.DejavuLanguage) {
+class BraceMatchAdapter : PairedBraceMatcherAdapter(ValkyrieBracketMatch(), DejavuLanguage) {
     override fun isLBraceToken(iterator: HighlighterIterator, fileText: CharSequence, fileType: FileType): Boolean {
         return isBrace(iterator, fileText, fileType, true)
     }

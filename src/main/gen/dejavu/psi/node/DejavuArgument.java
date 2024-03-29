@@ -2,16 +2,15 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
 public interface DejavuArgument extends PsiElement {
 
-    @Nullable
-    DejavuIdentifierFree getIdentifierFree();
+  @Nullable
+  DejavuIdentifierFree getIdentifierFree();
 
-    @NotNull
-    DejavuValue getValue();
+  @NotNull
+  DejavuValue getValue();
 
 }

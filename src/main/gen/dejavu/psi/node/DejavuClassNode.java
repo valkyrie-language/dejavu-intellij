@@ -2,55 +2,52 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-
 import static dejavu.psi.DejavuTypes.*;
-
 import dejavu.psi.DejavuElement;
 
 public class DejavuClassNode extends DejavuElement implements DejavuClass {
 
-    public DejavuClassNode(@NotNull ASTNode node) {
-        super(node);
-    }
+  public DejavuClassNode(@NotNull ASTNode node) {
+    super(node);
+  }
 
-    public void accept(@NotNull DejavuVisitor visitor) {
-        visitor.visitClass(this);
-    }
+  public void accept(@NotNull DejavuVisitor visitor) {
+    visitor.visitClass(this);
+  }
 
-    @Override
-    public void accept(@NotNull PsiElementVisitor visitor) {
-        if (visitor instanceof DejavuVisitor) accept((DejavuVisitor) visitor);
-        else super.accept(visitor);
-    }
+  @Override
+  public void accept(@NotNull PsiElementVisitor visitor) {
+    if (visitor instanceof DejavuVisitor) accept((DejavuVisitor)visitor);
+    else super.accept(visitor);
+  }
 
-    @Override
-    @NotNull
-    public DejavuAnnotations getAnnotations() {
-        return findNotNullChildByClass(DejavuAnnotations.class);
-    }
+  @Override
+  @NotNull
+  public DejavuAnnotations getAnnotations() {
+    return findNotNullChildByClass(DejavuAnnotations.class);
+  }
 
-    @Override
-    @Nullable
-    public DejavuClassBody getClassBody() {
-        return findChildByClass(DejavuClassBody.class);
-    }
+  @Override
+  @Nullable
+  public DejavuClassBody getClassBody() {
+    return findChildByClass(DejavuClassBody.class);
+  }
 
-    @Override
-    @Nullable
-    public DejavuClassCast getClassCast() {
-        return findChildByClass(DejavuClassCast.class);
-    }
+  @Override
+  @Nullable
+  public DejavuClassCast getClassCast() {
+    return findChildByClass(DejavuClassCast.class);
+  }
 
-    @Override
-    @Nullable
-    public DejavuIdentifier getIdentifier() {
-        return findChildByClass(DejavuIdentifier.class);
-    }
+  @Override
+  @Nullable
+  public DejavuIdentifier getIdentifier() {
+    return findChildByClass(DejavuIdentifier.class);
+  }
 
 }

@@ -2,13 +2,12 @@
 package dejavu.psi.node;
 
 import java.util.List;
-
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
 public interface DejavuFunctionParameter extends PsiElement {
 
-    @NotNull
-    List<DejavuParameter> getParameterList();
+  @NotNull
+  List<DejavuParameter> getParameterList();
 
 }

@@ -6,6 +6,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.psi.PsiDirectory
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiFileFactory
+import dejavu.language.DejavuLanguage
 
 private val name = yggdrasil.language.YggdrasilBundle.message("action.macro.expand_file")
 private val description = yggdrasil.language.YggdrasilBundle.message("action.convert_prop.description")
@@ -36,7 +37,7 @@ class ExpandTemplate : AnAction(name, description, AllIcons.Actions.GroupByMetho
                 break
             }
         }
-        val file = builder.createFileFromText(fileName, yggdrasil.language.DejavuLanguage, text)
+        val file = builder.createFileFromText(fileName, DejavuLanguage, text)
         dir.add(file)
         return file
     }

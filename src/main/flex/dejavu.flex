@@ -12,7 +12,7 @@ import static dejavu.psi.DejavuTypes.*;
 %type com.intellij.psi.tree.IElementType
 %unicode
 
-//%state TextContextIndent
+%state ProgramContext
 
 WHITE_SPACE        = [\s\t]
 REGULAR_EXPRESSION = \/([^\/\\]|\\.)+\/
@@ -28,6 +28,9 @@ SYMBOL=[\p{XID_Start}_][\p{XID_Continue}_]*
 SYMBOW_RAW = `[^`]*`
 ESCAPED = \\.
 
+TEMPLATE_X = [_\-~=?]
+TEMPLATE_L = <%{TEMPLATE_X}?
+TEMPLATE_R = {TEMPLATE_X}?%>
 KW_UNION   = union|enum|climb
 KW_IMPORT  = import
 KW_MACRO   = macro|function|func|fun|fn|def
@@ -42,12 +45,25 @@ KW_END   = group|token
 %%
 
 <YYINITIAL> {
+	{TEMPLATE_L} {
+          yybegin(ProgramContext);
+          return TEMPLATE_L;
+    }
+}
+
+<ProgramContext> {
+	{TEMPLATE_R} {
+		  yybegin(YYINITIAL);
+		  return TEMPLATE_R;
+	}
     {WHITE_SPACE}+     { return WHITE_SPACE; }
 	{COMMENT_LINE}     { return COMMENT_LINE; }
 	{COMMENT_BLOCK}    { return COMMENT_BLOCK; }
 }
 
-<YYINITIAL> {
+
+
+<ProgramContext> {
 	"(" { return PARENTHESIS_L; }
     ")" { return PARENTHESIS_R; }
     "[" { return BRACKET_L; }
@@ -79,7 +95,7 @@ KW_END   = group|token
     "+" { return OP_MANY1; }
 }
 
-<YYINITIAL> {
+<ProgramContext> {
     {INTEGER} { return INTEGER; }
     {TEXT_SINGLE} { return TEXT_SINGLE; }
     {TEXT_DOUBLE} { return TEXT_DOUBLE; }
@@ -87,7 +103,7 @@ KW_END   = group|token
     {REGULAR_EXPRESSION} { return REGULAR_EXPRESSION;}
 }
 
-<YYINITIAL> {
+<ProgramContext> {
     {KW_FOR} { return KW_FOR; }
     {KW_IF} { return KW_IF; }
     {KW_END} { return KW_END; }

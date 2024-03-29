@@ -5,6 +5,7 @@ import com.intellij.openapi.editor.colors.EditorColorsManager
 import com.intellij.openapi.editor.richcopy.HtmlSyntaxInfoUtil
 import com.intellij.psi.PsiElement
 import com.intellij.ui.ColorUtil
+import dejavu.language.DejavuLanguage
 import valkyrie.ide.highlight.HighlightColor
 
 
@@ -38,7 +39,7 @@ class DocumentationRenderer(var element: PsiElement, private var original: PsiEl
         HtmlSyntaxInfoUtil.appendHighlightedByLexerAndEncodedAsHtmlCodeSnippet(
             doc,
             element.project,
-            yggdrasil.language.DejavuLanguage,
+            DejavuLanguage,
             code.trimIndent(),
             1.0f,
         )
