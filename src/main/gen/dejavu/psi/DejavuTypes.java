@@ -24,11 +24,14 @@ public interface DejavuTypes {
   IElementType IF_STATEMENT = new DejavuElementType("IF_STATEMENT");
   IElementType IMPLEMENT_ELEMENT = new DejavuElementType("IMPLEMENT_ELEMENT");
   IElementType INVOKE_ELEMENT = new DejavuElementType("INVOKE_ELEMENT");
+  IElementType LET_STATEMENT = new DejavuElementType("LET_STATEMENT");
   IElementType MATCH_BRANCH = new DejavuElementType("MATCH_BRANCH");
   IElementType MATCH_ELEMENT = new DejavuElementType("MATCH_ELEMENT");
   IElementType MATCH_STATEMENT = new DejavuElementType("MATCH_STATEMENT");
   IElementType NAMEPATH = new DejavuElementType("NAMEPATH");
   IElementType NUMBER = new DejavuElementType("NUMBER");
+  IElementType PROGRAM_ELEMENT = new DejavuElementType("PROGRAM_ELEMENT");
+  IElementType PROGRAM_TEMPLATE = new DejavuElementType("PROGRAM_TEMPLATE");
   IElementType SLOT_ELEMENT = new DejavuElementType("SLOT_ELEMENT");
   IElementType STRING = new DejavuElementType("STRING");
   IElementType TEMPLATE_CASE = new DejavuElementType("TEMPLATE_CASE");
@@ -80,8 +83,10 @@ public interface DejavuTypes {
   IElementType KW_IMPORT = new DejavuTokenType("import");
   IElementType KW_IN = new DejavuTokenType("KW_IN");
   IElementType KW_INVOKE = new DejavuTokenType("KW_INVOKE");
+  IElementType KW_LET = new DejavuTokenType("KW_LET");
   IElementType KW_MACRO = new DejavuTokenType("macro");
   IElementType KW_MATCH = new DejavuTokenType("KW_MATCH");
+  IElementType KW_PROGRAM = new DejavuTokenType("KW_PROGRAM");
   IElementType KW_SLOT = new DejavuTokenType("KW_SLOT");
   IElementType KW_TEMPLATE = new DejavuTokenType("KW_TEMPLATE");
   IElementType KW_UNION = new DejavuTokenType("union");
@@ -163,6 +168,9 @@ public interface DejavuTypes {
       else if (type == INVOKE_ELEMENT) {
         return new DejavuInvokeElementNode(node);
       }
+      else if (type == LET_STATEMENT) {
+        return new DejavuLetStatementNode(node);
+      }
       else if (type == MATCH_BRANCH) {
         return new DejavuMatchBranchNode(node);
       }
@@ -177,6 +185,12 @@ public interface DejavuTypes {
       }
       else if (type == NUMBER) {
         return new DejavuNumberNode(node);
+      }
+      else if (type == PROGRAM_ELEMENT) {
+        return new DejavuProgramElementNode(node);
+      }
+      else if (type == PROGRAM_TEMPLATE) {
+        return new DejavuProgramTemplateNode(node);
       }
       else if (type == SLOT_ELEMENT) {
         return new DejavuSlotElementNode(node);

@@ -30,7 +30,7 @@ private val removeSpaceNewlineAfter = TokenSet.orSet(
 // 左右插入一个空格
 private val spaceAroundOperator = TokenSet.orSet(
 //    createTokenSet(YggdrasilLanguage),
-    ParserExtension.OperatorInfix
+//    ParserExtension.OperatorInfix
 )
 
 private val addSpaceAfter = TokenSet.orSet(

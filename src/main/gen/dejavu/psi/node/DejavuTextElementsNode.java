@@ -58,6 +58,12 @@ public class DejavuTextElementsNode extends DejavuElement implements DejavuTextE
 
   @Override
   @Nullable
+  public DejavuProgramTemplate getProgramTemplate() {
+    return findChildByClass(DejavuProgramTemplate.class);
+  }
+
+  @Override
+  @Nullable
   public DejavuSlotElement getSlotElement() {
     return findChildByClass(DejavuSlotElement.class);
   }

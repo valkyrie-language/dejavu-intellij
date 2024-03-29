@@ -32,7 +32,7 @@
 			implementationClass="valkyrie.ide.highlight.TokenHighlighter"
 		/>
 		<!-- Formatter -->
-		<lang.formatter language="dejavu" implementationClass="valkyrie.ide.formatter.FormatBuilder"/>
+<!--		<lang.formatter language="dejavu" implementationClass="valkyrie.ide.formatter.FormatBuilder"/>-->
 		<langCodeStyleSettingsProvider implementation="yggdrasil.settings.YggdrasilCodeStyleSettings"/>
 		<!-- Goto -->
 		<symbolNavigation
