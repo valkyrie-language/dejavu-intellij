@@ -5,15 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuValue extends PsiElement {
-
-  @Nullable
-  DejavuNamepath getNamepath();
-
-  @Nullable
-  DejavuNumber getNumber();
-
-  @Nullable
-  DejavuString getString();
+public interface DejavuString extends PsiElement {
 
 }

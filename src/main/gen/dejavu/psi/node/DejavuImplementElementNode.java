@@ -8,9 +8,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
-import dejavu.psi.DejavuElement;
+import dejavu.psi.mixin.MixinImplements;
 
-public class DejavuImplementElementNode extends DejavuElement implements DejavuImplementElement {
+public class DejavuImplementElementNode extends MixinImplements implements DejavuImplementElement {
 
   public DejavuImplementElementNode(@NotNull ASTNode node) {
     super(node);
@@ -27,9 +27,9 @@ public class DejavuImplementElementNode extends DejavuElement implements DejavuI
   }
 
   @Override
-  @NotNull
-  public DejavuIdentifier getIdentifier() {
-    return findNotNullChildByClass(DejavuIdentifier.class);
+  @Nullable
+  public DejavuString getString() {
+    return findChildByClass(DejavuString.class);
   }
 
 }

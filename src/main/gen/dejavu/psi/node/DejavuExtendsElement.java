@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface DejavuExtendsElement extends PsiElement {
 
-  @NotNull
-  DejavuIdentifier getIdentifier();
+  @Nullable
+  DejavuNamepath getNamepath();
 
 }
