@@ -8,9 +8,9 @@ import com.intellij.psi.PsiElement;
 public interface DejavuPair extends PsiElement {
 
   @NotNull
-  DejavuIdentifier getIdentifier();
+  DejavuExpression getExpression();
 
   @NotNull
-  DejavuValue getValue();
+  DejavuIdentifier getIdentifier();
 
 }

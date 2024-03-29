@@ -215,13 +215,13 @@ dot-call ::= DOT identifier-free argument-list? {
 argument-list  ::= PARENTHESIS_L (argument (COMMA argument)* COMMA?)? PARENTHESIS_R {
 //    mixin = "dejavu.psi.mixin.MixinTuple"
 }
-argument ::= (identifier EQ)? value;
-pair ::= identifier EQ value;
+argument ::= (identifier EQ)? expression;
+pair ::= identifier EQ expression;
 
 
 // === atomic statement ===
 value    ::= number | string | function-call;
-function-call ::= identifier-free argument-list? {
+function-call ::= namepath argument-list? {
     mixin = "dejavu.psi.mixin.MixinFunctionCall"
     methods= [highlight]
 }

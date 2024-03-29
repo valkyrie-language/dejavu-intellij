@@ -12,7 +12,7 @@ public interface DejavuFunctionCall extends PsiElement {
   DejavuArgumentList getArgumentList();
 
   @NotNull
-  DejavuIdentifierFree getIdentifierFree();
+  DejavuNamepath getNamepath();
 
   void highlight(@NotNull NodeHighlighter highlighter);
 
