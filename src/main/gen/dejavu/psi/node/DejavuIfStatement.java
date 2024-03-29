@@ -11,6 +11,6 @@ public interface DejavuIfStatement extends PsiElement {
   DejavuTemplateIf getTemplateIf();
 
   @NotNull
-  List<DejavuTextElement> getTextElementList();
+  List<DejavuTextElements> getTextElementsList();
 
 }

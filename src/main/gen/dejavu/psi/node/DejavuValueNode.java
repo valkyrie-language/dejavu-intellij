@@ -28,8 +28,8 @@ public class DejavuValueNode extends DejavuElement implements DejavuValue {
 
   @Override
   @Nullable
-  public DejavuIdentifier getIdentifier() {
-    return findChildByClass(DejavuIdentifier.class);
+  public DejavuNamepath getNamepath() {
+    return findChildByClass(DejavuNamepath.class);
   }
 
   @Override

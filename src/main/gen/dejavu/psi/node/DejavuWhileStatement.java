@@ -11,6 +11,6 @@ public interface DejavuWhileStatement extends PsiElement {
   DejavuTemplateWhile getTemplateWhile();
 
   @NotNull
-  List<DejavuTextElement> getTextElementList();
+  List<DejavuTextElements> getTextElementsList();
 
 }

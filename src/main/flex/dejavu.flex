@@ -28,15 +28,19 @@ SYMBOL=[\p{XID_Start}_][\p{XID_Continue}_]*
 SYMBOW_RAW = `[^`]*`
 ESCAPED = \\.
 
+PROPORTION = ::|[∷]
+
 TEMPLATE_X = [_\-~=?]
 TEMPLATE_L = <%{TEMPLATE_X}?
 TEMPLATE_R = {TEMPLATE_X}?%>
 
 
-
-KW_EXTENDS = extends
-KW_SKOT = slot
-
+KW_TEMPLATE   = template
+KW_IMPLEMENTS = implements
+KW_EXTENDS    = extends
+KW_INHERITS   = inherits
+KW_EXTERNAL   = external
+KW_SLOT       = slot
 
 KW_IMPORT  = import
 KW_INCLUDE = include
@@ -101,6 +105,7 @@ TEXT = [^<]+
     "|" { return OP_OR;}
     "~" { return OP_CONCAT;}
 
+	{PROPORTION} { return PROPORTION; }
 	":" { return COLON; }
 	";" { return SEMICOLON; }
 //	"#" { return HASH; }
@@ -129,6 +134,10 @@ TEXT = [^<]+
 }
 
 <ProgramContext> {
+	{KW_TEMPLATE} {return KW_TEMPLATE; }
+    {KW_IMPLEMENTS} {return KW_IMPLEMENTS; }
+    {KW_EXTENDS} {return KW_EXTENDS; }
+
     {KW_IMPORT} { return KW_IMPORT; }
     {KW_AS} { return KW_AS; }
 
@@ -146,7 +155,7 @@ TEXT = [^<]+
 
 	{KW_INVOKE} { return KW_INVOKE; }
 
-    {KW_SKOT} { return KW_MACRO; }
+    {KW_SLOT} { return KW_SLOT; }
     {KW_END} { return KW_END; }
 }
 

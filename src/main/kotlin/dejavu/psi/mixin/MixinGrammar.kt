@@ -32,7 +32,7 @@ abstract class MixinSlot(node: ASTNode) : DejavuElement(node),
 
 
     override fun getBaseIcon(): Icon {
-        return AllIcons.Nodes.DataSchema
+        return AllIcons.Nodes.Gvariable
     }
 
     override fun getPresentation(): ItemPresentation? {

@@ -14,6 +14,6 @@ public interface DejavuSlotElement extends PsiElement {
   DejavuTemplateSlot getTemplateSlot();
 
   @NotNull
-  List<DejavuTextElement> getTextElementList();
+  List<DejavuTextElements> getTextElementsList();
 
 }
