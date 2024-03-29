@@ -7,6 +7,7 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
+import com.intellij.psi.util.lastLeaf
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuExtendsElement
 import dejavu.psi.node.DejavuIdentifierNode
@@ -14,20 +15,10 @@ import javax.swing.Icon
 
 abstract class MixinExtends(node: ASTNode) : DejavuElement(node),
     NavigatablePsiElement,
-    PsiNameIdentifierOwner,
     DejavuExtendsElement {
 
     override fun getName(): String? {
-        return this.nameIdentifier?.name ?: "⟪anonymous⟫"
-    }
-
-    override fun getNameIdentifier(): DejavuIdentifierNode? {
-        return this.identifier as? DejavuIdentifierNode
-    }
-
-
-    override fun setName(name: String): PsiElement {
-        TODO("Not yet implemented")
+        return this.string?.text
     }
 
 

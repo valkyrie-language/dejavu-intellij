@@ -84,7 +84,7 @@ text-elements ::=
   | WHITE_SPACE
   | NORMAL_TEXT;
 
-declaration-template  ::= TEMPLATE_L KW_TEMPLATE identifier? declaration-element* TEMPLATE_R {
+declaration-template  ::= TEMPLATE_L KW_TEMPLATE namepath? declaration-element* TEMPLATE_R {
     mixin = "dejavu.psi.mixin.MixinTemplate"
 }
 declaration-element ::=
@@ -92,11 +92,11 @@ declaration-element ::=
   | extends-element
   | SEMICOLON
 
-implement-element ::= KW_IMPLEMENTS string {
+implement-element ::= KW_IMPLEMENTS namepath BRACE_L argument* BRACE_R{
     pin = 1
     mixin = "dejavu.psi.mixin.MixinImplements"
 }
-extends-element ::= KW_EXTENDS namepath {
+extends-element ::= KW_EXTENDS (string | namepath) {
     pin = 1
     mixin = "dejavu.psi.mixin.MixinExtends"
 }
@@ -175,6 +175,8 @@ expression ::= value;
 // === atomic statement ===
 value    ::= number | string | namepath;
 // === literals ===
+argument ::= identifier EQ value;
+
 number ::= INTEGER {
 //    mixin = "dejavu.psi.mixin.MixinNumber"
 }
@@ -182,10 +184,14 @@ string ::= TEXT_SINGLE | TEXT_DOUBLE;
 
 
 // === Identifier ===
-namepath ::= identifier (PROPORTION identifier)*;
+namepath ::= identifier (PROPORTION identifier)* {
+    mixin = "dejavu.psi.mixin.MixinNamepath"
+    implements = [
+        "com.intellij.psi.PsiNameIdentifierOwner"
+    ]
+}
 identifier          ::= SYMBOL | SYMBOW_RAW {
     mixin = "dejavu.psi.mixin.MixinIdentifier"
-//    methods=[highlight]
 }
 identifier-free     ::=
     SYMBOL | SYMBOW_RAW

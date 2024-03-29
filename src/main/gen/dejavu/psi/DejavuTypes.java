@@ -8,6 +8,7 @@ import dejavu.psi.node.*;
 
 public interface DejavuTypes {
 
+  IElementType ARGUMENT = new DejavuElementType("ARGUMENT");
   IElementType CASE_STATEMENT = new DejavuElementType("CASE_STATEMENT");
   IElementType DECLARATION_ELEMENT = new DejavuElementType("DECLARATION_ELEMENT");
   IElementType DECLARATION_TEMPLATE = new DejavuElementType("DECLARATION_TEMPLATE");
@@ -114,7 +115,10 @@ public interface DejavuTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-      if (type == CASE_STATEMENT) {
+      if (type == ARGUMENT) {
+        return new DejavuArgumentNode(node);
+      }
+      else if (type == CASE_STATEMENT) {
         return new DejavuCaseStatementNode(node);
       }
       else if (type == DECLARATION_ELEMENT) {

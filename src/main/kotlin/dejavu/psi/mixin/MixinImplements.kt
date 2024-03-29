@@ -17,19 +17,17 @@ abstract class MixinImplements(node: ASTNode) : DejavuElement(node),
     PsiNameIdentifierOwner,
     DejavuImplementElement {
 
-    override fun getName(): String? {
-        return this.nameIdentifier?.name ?: "⟪anonymous⟫"
-    }
-
     override fun getNameIdentifier(): DejavuIdentifierNode? {
-        return this.identifier as? DejavuIdentifierNode
+        return this.namepath?.identifierList?.lastOrNull() as? DejavuIdentifierNode
     }
 
+    override fun getName(): String? {
+        return nameIdentifier?.text
+    }
 
     override fun setName(name: String): PsiElement {
         TODO("Not yet implemented")
     }
-
 
     override fun getBaseIcon(): Icon {
         return AllIcons.Nodes.AbstractClass

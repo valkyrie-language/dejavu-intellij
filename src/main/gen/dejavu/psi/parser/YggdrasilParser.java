@@ -40,6 +40,20 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   };
 
   /* ********************************************************** */
+  // identifier EQ value
+  public static boolean argument(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "argument")) return false;
+    if (!nextTokenIs(b, "<argument>", SYMBOL, SYMBOW_RAW)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, ARGUMENT, "<argument>");
+    r = identifier(b, l + 1);
+    r = r && consumeToken(b, EQ);
+    r = r && value(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
   // template-case text-elements*
   public static boolean case_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "case_statement")) return false;
@@ -79,7 +93,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // TEMPLATE_L KW_TEMPLATE identifier? declaration-element* TEMPLATE_R
+  // TEMPLATE_L KW_TEMPLATE namepath? declaration-element* TEMPLATE_R
   public static boolean declaration_template(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "declaration_template")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -93,10 +107,10 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // identifier?
+  // namepath?
   private static boolean declaration_template_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "declaration_template_2")) return false;
-    identifier(b, l + 1);
+    namepath(b, l + 1);
     return true;
   }
 
@@ -171,7 +185,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KW_EXTENDS namepath
+  // KW_EXTENDS (string | namepath)
   public static boolean extends_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "extends_element")) return false;
     if (!nextTokenIs(b, KW_EXTENDS)) return false;
@@ -179,9 +193,18 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, EXTENDS_ELEMENT, null);
     r = consumeToken(b, KW_EXTENDS);
     p = r; // pin = 1
-    r = r && namepath(b, l + 1);
+    r = r && extends_element_1(b, l + 1);
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // string | namepath
+  private static boolean extends_element_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "extends_element_1")) return false;
+    boolean r;
+    r = string(b, l + 1);
+    if (!r) r = namepath(b, l + 1);
+    return r;
   }
 
   /* ********************************************************** */
@@ -323,7 +346,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KW_IMPLEMENTS string
+  // KW_IMPLEMENTS namepath BRACE_L argument* BRACE_R
   public static boolean implement_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "implement_element")) return false;
     if (!nextTokenIs(b, KW_IMPLEMENTS)) return false;
@@ -331,9 +354,23 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, IMPLEMENT_ELEMENT, null);
     r = consumeToken(b, KW_IMPLEMENTS);
     p = r; // pin = 1
-    r = r && string(b, l + 1);
+    r = r && report_error_(b, namepath(b, l + 1));
+    r = p && report_error_(b, consumeToken(b, BRACE_L)) && r;
+    r = p && report_error_(b, implement_element_3(b, l + 1)) && r;
+    r = p && consumeToken(b, BRACE_R) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // argument*
+  private static boolean implement_element_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "implement_element_3")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!argument(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "implement_element_3", c)) break;
+    }
+    return true;
   }
 
   /* ********************************************************** */

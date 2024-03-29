@@ -4,8 +4,9 @@ package dejavu.psi.node;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiNameIdentifierOwner;
 
-public interface DejavuNamepath extends PsiElement {
+public interface DejavuNamepath extends PsiNameIdentifierOwner {
 
   @NotNull
   List<DejavuIdentifier> getIdentifierList();

@@ -34,8 +34,8 @@ public class DejavuDeclarationTemplateNode extends MixinTemplate implements Deja
 
   @Override
   @Nullable
-  public DejavuIdentifier getIdentifier() {
-    return findChildByClass(DejavuIdentifier.class);
+  public DejavuNamepath getNamepath() {
+    return findChildByClass(DejavuNamepath.class);
   }
 
 }
