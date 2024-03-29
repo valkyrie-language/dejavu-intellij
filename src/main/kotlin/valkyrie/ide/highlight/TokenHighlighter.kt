@@ -22,7 +22,9 @@ class TokenHighlighter : SyntaxHighlighter {
         return when (tokenType) {
             KW_IF, KW_ELSE,
             KW_FOR, KW_IN,
-            KW_CLASS, KW_UNION, KW_GROUP, KW_MACRO,
+//            KW_SLOT,
+            KW_MATCH, KW_WHEN, KW_CASE,
+            KW_MACRO, KW_INVOKE,
             KW_END,
             -> HighlightColor.KEYWORD
             // operations

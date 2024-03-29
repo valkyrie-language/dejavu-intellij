@@ -12,6 +12,7 @@ public interface DejavuTypes {
   IElementType ARGUMENT = new DejavuElementType("ARGUMENT");
   IElementType ATOMIC = new DejavuElementType("ATOMIC");
   IElementType ATTRIBUTE = new DejavuElementType("ATTRIBUTE");
+  IElementType CASE_STATEMENT = new DejavuElementType("CASE_STATEMENT");
   IElementType CATEGORY = new DejavuElementType("CATEGORY");
   IElementType CLASS = new DejavuElementType("CLASS");
   IElementType CLASS_BODY = new DejavuElementType("CLASS_BODY");
@@ -43,7 +44,11 @@ public interface DejavuTypes {
   IElementType IDENTIFIER_FREE = new DejavuElementType("IDENTIFIER_FREE");
   IElementType IF_ELEMENT = new DejavuElementType("IF_ELEMENT");
   IElementType IF_STATEMENT = new DejavuElementType("IF_STATEMENT");
+  IElementType INVOKE_ELEMENT = new DejavuElementType("INVOKE_ELEMENT");
   IElementType KEY = new DejavuElementType("KEY");
+  IElementType MATCH_BRANCH = new DejavuElementType("MATCH_BRANCH");
+  IElementType MATCH_ELEMENT = new DejavuElementType("MATCH_ELEMENT");
+  IElementType MATCH_STATEMENT = new DejavuElementType("MATCH_STATEMENT");
   IElementType MODIFIER = new DejavuElementType("MODIFIER");
   IElementType NUMBER = new DejavuElementType("NUMBER");
   IElementType PAIR = new DejavuElementType("PAIR");
@@ -56,11 +61,16 @@ public interface DejavuTypes {
   IElementType STRING = new DejavuElementType("STRING");
   IElementType SUFFIX = new DejavuElementType("SUFFIX");
   IElementType TAG_BRANCH = new DejavuElementType("TAG_BRANCH");
+  IElementType TEMPLATE_CASE = new DejavuElementType("TEMPLATE_CASE");
   IElementType TEMPLATE_ELSE = new DejavuElementType("TEMPLATE_ELSE");
   IElementType TEMPLATE_ELSE_IF = new DejavuElementType("TEMPLATE_ELSE_IF");
   IElementType TEMPLATE_END = new DejavuElementType("TEMPLATE_END");
   IElementType TEMPLATE_FOR = new DejavuElementType("TEMPLATE_FOR");
   IElementType TEMPLATE_IF = new DejavuElementType("TEMPLATE_IF");
+  IElementType TEMPLATE_INVOKE = new DejavuElementType("TEMPLATE_INVOKE");
+  IElementType TEMPLATE_MATCH = new DejavuElementType("TEMPLATE_MATCH");
+  IElementType TEMPLATE_WHEN = new DejavuElementType("TEMPLATE_WHEN");
+  IElementType TEMPLATE_WHILE = new DejavuElementType("TEMPLATE_WHILE");
   IElementType TERM = new DejavuElementType("TERM");
   IElementType TEXT_ELEMENT = new DejavuElementType("TEXT_ELEMENT");
   IElementType TUPLE = new DejavuElementType("TUPLE");
@@ -71,6 +81,9 @@ public interface DejavuTypes {
   IElementType USING_BODY = new DejavuElementType("USING_BODY");
   IElementType USING_TERM = new DejavuElementType("USING_TERM");
   IElementType VALUE = new DejavuElementType("VALUE");
+  IElementType WHEN_STATEMENT = new DejavuElementType("WHEN_STATEMENT");
+  IElementType WHILE_ELEMENT = new DejavuElementType("WHILE_ELEMENT");
+  IElementType WHILE_STATEMENT = new DejavuElementType("WHILE_STATEMENT");
 
   IElementType ANGLE_L = new DejavuTokenType("<");
   IElementType ANGLE_R = new DejavuTokenType(">");
@@ -91,6 +104,7 @@ public interface DejavuTypes {
   IElementType HYPHEN = new DejavuTokenType("-");
   IElementType INTEGER = new DejavuTokenType("<<INTEGER>>");
   IElementType KW_AS = new DejavuTokenType("as");
+  IElementType KW_CASE = new DejavuTokenType("KW_CASE");
   IElementType KW_CLASS = new DejavuTokenType("class");
   IElementType KW_CLIMB = new DejavuTokenType("climb");
   IElementType KW_ELSE = new DejavuTokenType("KW_ELSE");
@@ -101,9 +115,12 @@ public interface DejavuTypes {
   IElementType KW_IF = new DejavuTokenType("KW_IF");
   IElementType KW_IMPORT = new DejavuTokenType("import");
   IElementType KW_IN = new DejavuTokenType("KW_IN");
+  IElementType KW_INVOKE = new DejavuTokenType("KW_INVOKE");
   IElementType KW_MACRO = new DejavuTokenType("macro");
+  IElementType KW_MATCH = new DejavuTokenType("KW_MATCH");
   IElementType KW_UNION = new DejavuTokenType("union");
   IElementType KW_USING = new DejavuTokenType("using");
+  IElementType KW_WHEN = new DejavuTokenType("KW_WHEN");
   IElementType KW_WHILE = new DejavuTokenType("KW_WHILE");
   IElementType NORMAL_TEXT = new DejavuTokenType("NORMAL_TEXT");
   IElementType OP_AND = new DejavuTokenType("OP_AND");
@@ -132,6 +149,7 @@ public interface DejavuTypes {
   IElementType TO = new DejavuTokenType("->");
   IElementType URL = new DejavuTokenType("Url");
   IElementType VERSION = new DejavuTokenType("<<semver>>");
+  IElementType WHITE_SPACE = new DejavuTokenType("WHITE_SPACE");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
@@ -147,6 +165,9 @@ public interface DejavuTypes {
       }
       else if (type == ATTRIBUTE) {
         return new DejavuAttributeNode(node);
+      }
+      else if (type == CASE_STATEMENT) {
+        return new DejavuCaseStatementNode(node);
       }
       else if (type == CATEGORY) {
         return new DejavuCategoryNode(node);
@@ -238,8 +259,20 @@ public interface DejavuTypes {
       else if (type == IF_STATEMENT) {
         return new DejavuIfStatementNode(node);
       }
+      else if (type == INVOKE_ELEMENT) {
+        return new DejavuInvokeElementNode(node);
+      }
       else if (type == KEY) {
         return new DejavuKeyNode(node);
+      }
+      else if (type == MATCH_BRANCH) {
+        return new DejavuMatchBranchNode(node);
+      }
+      else if (type == MATCH_ELEMENT) {
+        return new DejavuMatchElementNode(node);
+      }
+      else if (type == MATCH_STATEMENT) {
+        return new DejavuMatchStatementNode(node);
       }
       else if (type == MODIFIER) {
         return new DejavuModifierNode(node);
@@ -277,6 +310,9 @@ public interface DejavuTypes {
       else if (type == TAG_BRANCH) {
         return new DejavuTagBranchNode(node);
       }
+      else if (type == TEMPLATE_CASE) {
+        return new DejavuTemplateCaseNode(node);
+      }
       else if (type == TEMPLATE_ELSE) {
         return new DejavuTemplateElseNode(node);
       }
@@ -291,6 +327,18 @@ public interface DejavuTypes {
       }
       else if (type == TEMPLATE_IF) {
         return new DejavuTemplateIfNode(node);
+      }
+      else if (type == TEMPLATE_INVOKE) {
+        return new DejavuTemplateInvokeNode(node);
+      }
+      else if (type == TEMPLATE_MATCH) {
+        return new DejavuTemplateMatchNode(node);
+      }
+      else if (type == TEMPLATE_WHEN) {
+        return new DejavuTemplateWhenNode(node);
+      }
+      else if (type == TEMPLATE_WHILE) {
+        return new DejavuTemplateWhileNode(node);
       }
       else if (type == TERM) {
         return new DejavuTermNode(node);
@@ -321,6 +369,15 @@ public interface DejavuTypes {
       }
       else if (type == VALUE) {
         return new DejavuValueNode(node);
+      }
+      else if (type == WHEN_STATEMENT) {
+        return new DejavuWhenStatementNode(node);
+      }
+      else if (type == WHILE_ELEMENT) {
+        return new DejavuWhileElementNode(node);
+      }
+      else if (type == WHILE_STATEMENT) {
+        return new DejavuWhileStatementNode(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

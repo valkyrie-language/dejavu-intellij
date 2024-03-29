@@ -7,9 +7,8 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
-import dejavu.psi.ParserExtension
-
 import dejavu.language.file.DejavuFileNode
+import dejavu.psi.DejavuTypes.NORMAL_TEXT
 
 
 class CompletionRegistrar : CompletionContributor() {
@@ -27,30 +26,25 @@ class CompletionRegistrar : CompletionContributor() {
         ProgressManager.checkCanceled()
         val context = ProcessingContext()
         val element = parameters.originalPosition ?: return
-        if (ParserExtension.CompletionWords.contains(element.elementType)) {
-            for (node in element.parents(false)) {
-                if (result.isStopped) {
+        if (element.elementType == NORMAL_TEXT) {
+            CompletionInTextScope().addCompletionVariants(parameters, context, result)
+            return
+        }
+        for (node in element.parents(false)) {
+            if (result.isStopped) {
+                return
+            }
+            when (node) {
+                is DejavuFileNode -> {
+                    CompletionInTextScope().addCompletionVariants(parameters, context, result)
                     return
                 }
-                when (node) {
-                    is DejavuFileNode -> {
-                        CompletionInFileScope().addCompletionVariants(parameters, context, result)
-                        return
-                    }
-
-//                    is YggdrasilClassNode -> {
-//                        CompletionInClassScope().addCompletionVariants(parameters, context, result)
-//                        return
-//                    }
 //
 //                    is YggdrasilDefineUnion -> {
 //                        CompletionInClassScope().addCompletionVariants(parameters, context, result)
 //                        return
 //                    }
-                }
             }
-        } else {
-            println("CompletionRegistrar: ${element.elementType}")
         }
     }
 }

@@ -23,6 +23,10 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitCaseStatement(@NotNull DejavuCaseStatement o) {
+    visitPsiElement(o);
+  }
+
   public void visitCategory(@NotNull DejavuCategory o) {
     visitPsiElement(o);
   }
@@ -147,7 +151,23 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitInvokeElement(@NotNull DejavuInvokeElement o) {
+    visitPsiElement(o);
+  }
+
   public void visitKey(@NotNull DejavuKey o) {
+    visitPsiElement(o);
+  }
+
+  public void visitMatchBranch(@NotNull DejavuMatchBranch o) {
+    visitPsiElement(o);
+  }
+
+  public void visitMatchElement(@NotNull DejavuMatchElement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitMatchStatement(@NotNull DejavuMatchStatement o) {
     visitPsiElement(o);
   }
 
@@ -199,6 +219,10 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitTemplateCase(@NotNull DejavuTemplateCase o) {
+    visitPsiElement(o);
+  }
+
   public void visitTemplateElse(@NotNull DejavuTemplateElse o) {
     visitPsiElement(o);
   }
@@ -216,6 +240,22 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitTemplateIf(@NotNull DejavuTemplateIf o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateInvoke(@NotNull DejavuTemplateInvoke o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateMatch(@NotNull DejavuTemplateMatch o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateWhen(@NotNull DejavuTemplateWhen o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateWhile(@NotNull DejavuTemplateWhile o) {
     visitPsiElement(o);
   }
 
@@ -256,6 +296,18 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitValue(@NotNull DejavuValue o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhenStatement(@NotNull DejavuWhenStatement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhileElement(@NotNull DejavuWhileElement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhileStatement(@NotNull DejavuWhileStatement o) {
     visitPsiElement(o);
   }
 
