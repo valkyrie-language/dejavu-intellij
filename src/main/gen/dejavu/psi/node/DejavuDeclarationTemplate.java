@@ -11,6 +11,6 @@ public interface DejavuDeclarationTemplate extends PsiElement {
   List<DejavuDeclarationElement> getDeclarationElementList();
 
   @Nullable
-  DejavuIdentifier getIdentifier();
+  DejavuNamepath getNamepath();
 
 }

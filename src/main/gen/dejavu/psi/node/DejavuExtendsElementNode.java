@@ -32,4 +32,10 @@ public class DejavuExtendsElementNode extends MixinExtends implements DejavuExte
     return findChildByClass(DejavuNamepath.class);
   }
 
+  @Override
+  @Nullable
+  public DejavuString getString() {
+    return findChildByClass(DejavuString.class);
+  }
+
 }

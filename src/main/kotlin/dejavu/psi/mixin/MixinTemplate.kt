@@ -7,6 +7,7 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
+import com.intellij.psi.util.lastLeaf
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuDeclarationTemplate
 import dejavu.psi.node.DejavuIdentifierNode
@@ -22,7 +23,7 @@ abstract class MixinTemplate(node: ASTNode) : DejavuElement(node),
     }
 
     override fun getNameIdentifier(): DejavuIdentifierNode? {
-        return this.identifier as? DejavuIdentifierNode
+        return this.namepath?.nameIdentifier as? DejavuIdentifierNode
     }
 
 

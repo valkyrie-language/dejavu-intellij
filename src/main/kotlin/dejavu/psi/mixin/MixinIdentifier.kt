@@ -2,9 +2,10 @@ package dejavu.psi.mixin
 
 import com.intellij.lang.ASTNode
 import com.intellij.psi.impl.source.tree.SharedImplUtil
+import dejavu.language.file.DejavuFileNode
 import dejavu.psi.DejavuElement
 import valkyrie.ide.reference.declaration.ValkyrieReference
-import dejavu.language.file.DejavuFileNode
+
 
 abstract class MixinIdentifier(node: ASTNode) : DejavuElement(node) {
     override fun getContainingFile(): DejavuFileNode {
