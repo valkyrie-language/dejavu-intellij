@@ -9,8 +9,10 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuClassElement
+import dejavu.psi.node.DejavuDotCall
 import dejavu.psi.node.DejavuIdentifierNode
-import dejavu.psi.node.DejavuImplementElement
+import valkyrie.ide.highlight.HighlightColor
+import valkyrie.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
 abstract class MixinClass(node: ASTNode) : DejavuElement(node),
@@ -38,3 +40,29 @@ abstract class MixinClass(node: ASTNode) : DejavuElement(node),
         return PresentationData(name, "", baseIcon, null)
     }
 }
+
+abstract class MixinDotCall(node: ASTNode) : DejavuElement(node),
+    NavigatablePsiElement,
+    DejavuDotCall {
+
+    override fun getName(): String? {
+        return identifierFree.text
+    }
+
+
+    override fun getBaseIcon(): Icon {
+        return AllIcons.Nodes.AbstractClass
+    }
+
+    fun highlight(highlighter: NodeHighlighter) {
+        if (this.argumentList == null) {
+            highlighter.highlight(this, HighlightColor.SYM_FIELD)
+        }
+        else {
+            highlighter.highlight(this, HighlightColor.SYM_FUNCTION)
+        }
+    }
+
+
+}
+

@@ -27,15 +27,15 @@ public class DejavuClassElementNode extends MixinClass implements DejavuClassEle
   }
 
   @Override
-  @NotNull
-  public List<DejavuArgument> getArgumentList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuArgument.class);
-  }
-
-  @Override
   @Nullable
   public DejavuNamepath getNamepath() {
     return findChildByClass(DejavuNamepath.class);
+  }
+
+  @Override
+  @NotNull
+  public List<DejavuPair> getPairList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuPair.class);
   }
 
 }

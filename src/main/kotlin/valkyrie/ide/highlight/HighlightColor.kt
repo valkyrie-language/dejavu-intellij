@@ -29,7 +29,7 @@ enum class HighlightColor(humanName: Supplier<@AttributeDescriptor String>, defa
     // 标识符
     IDENTIFIER(OptionsBundle.messagePointer("options.language.defaults.identifier"), Default.IDENTIFIER),
     SYM_TYPE(YggdrasilBundle.messagePointer("color.token.symbol.trait"), Default.CLASS_REFERENCE),
-    RULE_CLASS(YggdrasilBundle.messagePointer("color.token.symbol.class"), Default.CLASS_NAME),
+    SYM_CLASS(YggdrasilBundle.messagePointer("color.token.symbol.class"), Default.CLASS_NAME),
     RULE_UNION(YggdrasilBundle.messagePointer("color.token.symbol.variant"), Default.INTERFACE_NAME),
     SYM_MACRO(YggdrasilBundle.messagePointer("color.token.symbol.macro"), Default.METADATA),
     SYM_LANGUAGE(YggdrasilBundle.messagePointer("color.token.symbol.macro"), Default.METADATA),

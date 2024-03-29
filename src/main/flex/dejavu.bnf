@@ -106,7 +106,7 @@ using-alias  ::= identifier EQ namepath {
 
 }
 // === class statement ===
-class-element ::= KW_CLASS namepath BRACE_L argument* BRACE_R {
+class-element ::= KW_CLASS namepath BRACE_L pair* BRACE_R {
     pin = 1
     mixin = "dejavu.psi.mixin.MixinClass"
 }
@@ -193,11 +193,25 @@ template-end ::= TEMPLATE_L (KW_END identifier-free? | identifier-free? KW_END) 
     pin = 2
 }
 // === expression statement ===
-expression ::= value;
+expression ::= value suffix*;
+
+
+suffix ::= dot-call;
+dot-call ::= DOT identifier-free argument-list? {
+    mixin = "dejavu.psi.mixin.MixinDotCall"
+    methods= [highlight]
+}
+argument-list  ::= PARENTHESIS_L (argument (COMMA argument)* COMMA?)? PARENTHESIS_R {
+//    mixin = "dejavu.psi.mixin.MixinTuple"
+}
+argument ::= (identifier EQ)? value;
+pair ::= identifier EQ value;
+
+
 // === atomic statement ===
 value    ::= number | string | namepath;
 // === literals ===
-argument ::= identifier EQ value;
+
 
 number ::= INTEGER {
 //    mixin = "dejavu.psi.mixin.MixinNumber"
