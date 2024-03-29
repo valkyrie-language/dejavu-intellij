@@ -408,38 +408,26 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // slot-statement template-end
+  // template-slot text-element* template-end
   public static boolean slot_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "slot_element")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = slot_statement(b, l + 1);
+    r = template_slot(b, l + 1);
+    r = r && slot_element_1(b, l + 1);
     r = r && template_end(b, l + 1);
     exit_section_(b, m, SLOT_ELEMENT, r);
     return r;
   }
 
-  /* ********************************************************** */
-  // template-slot text-element*
-  public static boolean slot_statement(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "slot_statement")) return false;
-    if (!nextTokenIs(b, TEMPLATE_L)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = template_slot(b, l + 1);
-    r = r && slot_statement_1(b, l + 1);
-    exit_section_(b, m, SLOT_STATEMENT, r);
-    return r;
-  }
-
   // text-element*
-  private static boolean slot_statement_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "slot_statement_1")) return false;
+  private static boolean slot_element_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "slot_element_1")) return false;
     while (true) {
       int c = current_position_(b);
       if (!text_element(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "slot_statement_1", c)) break;
+      if (!empty_element_parsed_guard_(b, "slot_element_1", c)) break;
     }
     return true;
   }
@@ -612,7 +600,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // TEMPLATE_L KW_SLOT expression TEMPLATE_R
+  // TEMPLATE_L KW_SLOT identifier TEMPLATE_R
   public static boolean template_slot(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "template_slot")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -620,7 +608,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, TEMPLATE_SLOT, null);
     r = consumeTokens(b, 2, TEMPLATE_L, KW_SLOT);
     p = r; // pin = 2
-    r = r && report_error_(b, expression(b, l + 1));
+    r = r && report_error_(b, identifier(b, l + 1));
     r = p && consumeToken(b, TEMPLATE_R) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;

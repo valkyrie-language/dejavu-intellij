@@ -28,14 +28,20 @@ public class DejavuSlotElementNode extends MixinSlot implements DejavuSlotElemen
 
   @Override
   @NotNull
-  public DejavuSlotStatement getSlotStatement() {
-    return findNotNullChildByClass(DejavuSlotStatement.class);
+  public DejavuTemplateEnd getTemplateEnd() {
+    return findNotNullChildByClass(DejavuTemplateEnd.class);
   }
 
   @Override
   @NotNull
-  public DejavuTemplateEnd getTemplateEnd() {
-    return findNotNullChildByClass(DejavuTemplateEnd.class);
+  public DejavuTemplateSlot getTemplateSlot() {
+    return findNotNullChildByClass(DejavuTemplateSlot.class);
+  }
+
+  @Override
+  @NotNull
+  public List<DejavuTextElement> getTextElementList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElement.class);
   }
 
 }

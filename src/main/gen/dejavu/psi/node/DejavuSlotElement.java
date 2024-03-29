@@ -8,9 +8,12 @@ import com.intellij.psi.PsiElement;
 public interface DejavuSlotElement extends PsiElement {
 
   @NotNull
-  DejavuSlotStatement getSlotStatement();
+  DejavuTemplateEnd getTemplateEnd();
 
   @NotNull
-  DejavuTemplateEnd getTemplateEnd();
+  DejavuTemplateSlot getTemplateSlot();
+
+  @NotNull
+  List<DejavuTextElement> getTextElementList();
 
 }
