@@ -307,6 +307,14 @@ public interface DejavuAntlrVisitor<T> extends ParseTreeVisitor<T> {
     T visitDot_call(DejavuAntlrParser.Dot_callContext ctx);
 
     /**
+     * Visit a parse tree produced by {@link DejavuAntlrParser#call_term}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    T visitCall_term(DejavuAntlrParser.Call_termContext ctx);
+
+    /**
      * Visit a parse tree produced by {@link DejavuAntlrParser#modifiers}.
      *
      * @param ctx the parse tree

@@ -526,6 +526,20 @@ public interface DejavuAntlrListener extends ParseTreeListener {
     void exitDot_call(DejavuAntlrParser.Dot_callContext ctx);
 
     /**
+     * Enter a parse tree produced by {@link DejavuAntlrParser#call_term}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterCall_term(DejavuAntlrParser.Call_termContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link DejavuAntlrParser#call_term}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitCall_term(DejavuAntlrParser.Call_termContext ctx);
+
+    /**
      * Enter a parse tree produced by {@link DejavuAntlrParser#modifiers}.
      *
      * @param ctx the parse tree

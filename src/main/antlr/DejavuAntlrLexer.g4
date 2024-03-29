@@ -8,11 +8,13 @@ TEXT_SPACE: [\p{White_Space}]+;
 TEXT_WORD:  [\p{XID_start}] [\p{XID_continue}]*;
 TEXT:       .+?;
 
-mode TEMPLATE_MODE;
+mode TEMPLATE_MODE
+    ;
 TEMPLATE_R: SPACE_CONTROL? '%>' -> mode(DEFAULT_MODE);
 
 DOT:   '.';
 COMMA: ',';
+COLON: ':';
 
 OP_NOT: '!';
 OP_ADD: '+';
@@ -32,13 +34,13 @@ KW_END:  'end';
 KW_FOR: 'for';
 // loop
 KW_MATCH: 'match';
-KW_CASE: 'case';
-KW_WITH: 'with';
+KW_CASE:  'case';
+KW_WITH:  'with';
 // slot
-KW_SLOT: 'block';
+KW_SLOT:  'block';
 KW_APPLY: 'apply';
 
-KW_BREAK: 'break';
+KW_BREAK:    'break';
 KW_CONTINUE: 'continue';
 
 OP_PROPORTION: '::';
@@ -57,7 +59,6 @@ RAW_ID:     '`' ~[`]+ '`';
 UNICODE_ID: [_\p{XID_start}] [\p{XID_continue}]*;
 // skip
 fragment SPACE_CONTROL: [._\-~=];
-WHITE_SPACE:     [\p{White_Space}]+ -> channel(HIDDEN);
-BLOCK_COMMENT:   '/*' .*? '*/';
-ERROR_CHARACTAR: . -> channel(HIDDEN);
-
+WHITE_SPACE:            [\p{White_Space}]+ -> channel(HIDDEN);
+BLOCK_COMMENT:          '/*' .*? '*/';
+ERROR_CHARACTAR:        . -> channel(HIDDEN);

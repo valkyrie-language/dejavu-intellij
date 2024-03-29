@@ -426,6 +426,17 @@ public class DejavuAntlrBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
      * {@link #visitChildren} on {@code ctx}.</p>
      */
     @Override
+    public T visitCall_term(DejavuAntlrParser.Call_termContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation returns the result of calling
+     * {@link #visitChildren} on {@code ctx}.</p>
+     */
+    @Override
     public T visitModifiers(DejavuAntlrParser.ModifiersContext ctx) {
         return visitChildren(ctx);
     }

@@ -684,6 +684,24 @@ public class DejavuAntlrBaseListener implements DejavuAntlrListener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
+    public void enterCall_term(DejavuAntlrParser.Call_termContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitCall_term(DejavuAntlrParser.Call_termContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
     public void enterModifiers(DejavuAntlrParser.ModifiersContext ctx) {
     }
 
