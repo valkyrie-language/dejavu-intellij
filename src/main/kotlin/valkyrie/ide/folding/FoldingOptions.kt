@@ -4,7 +4,7 @@ import com.intellij.application.options.editor.CodeFoldingOptionsProvider
 import javax.swing.JComponent
 
 /// 显示在 Editor > General > Code Folding 中
-class ValkyrieFoldingOptions : CodeFoldingOptionsProvider {
+class FoldingOptions : CodeFoldingOptionsProvider {
     override fun createComponent(): JComponent? {
         return null
     }
