@@ -246,6 +246,10 @@ template-else-if ::= TEMPLATE_L KW_ELSE KW_IF identifier TEMPLATE_R {
     pin = 3
 }
 // === while statement ===
+while-element ::=
+template-while ::= TEMPLATE_L KW_WHILE identifier TEMPLATE_R {
+    pin = 2
+}
 
 // === for statement ===
 for-element  ::= for-statement else-statement? template-end;
