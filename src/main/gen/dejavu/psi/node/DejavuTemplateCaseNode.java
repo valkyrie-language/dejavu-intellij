@@ -28,8 +28,8 @@ public class DejavuTemplateCaseNode extends DejavuElement implements DejavuTempl
 
   @Override
   @Nullable
-  public DejavuIdentifier getIdentifier() {
-    return findChildByClass(DejavuIdentifier.class);
+  public DejavuPattern getPattern() {
+    return findChildByClass(DejavuPattern.class);
   }
 
 }

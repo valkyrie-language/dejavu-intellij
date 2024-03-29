@@ -112,6 +112,18 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitPattern(@NotNull DejavuPattern o) {
+    visitPsiElement(o);
+  }
+
+  public void visitPatternBare(@NotNull DejavuPatternBare o) {
+    visitPsiElement(o);
+  }
+
+  public void visitPatternTuple(@NotNull DejavuPatternTuple o) {
+    visitPsiElement(o);
+  }
+
   public void visitPrefix(@NotNull DejavuPrefix o) {
     visitPsiElement(o);
   }
