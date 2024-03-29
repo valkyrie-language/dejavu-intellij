@@ -11,6 +11,6 @@ public interface DejavuCaseStatement extends PsiElement {
   DejavuTemplateCase getTemplateCase();
 
   @NotNull
-  List<DejavuTextElement> getTextElementList();
+  List<DejavuTextElements> getTextElementsList();
 
 }

@@ -34,8 +34,8 @@ public class DejavuCaseStatementNode extends DejavuElement implements DejavuCase
 
   @Override
   @NotNull
-  public List<DejavuTextElement> getTextElementList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElement.class);
+  public List<DejavuTextElements> getTextElementsList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElements.class);
   }
 
 }

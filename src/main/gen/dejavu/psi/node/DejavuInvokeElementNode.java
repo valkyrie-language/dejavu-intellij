@@ -40,8 +40,8 @@ public class DejavuInvokeElementNode extends DejavuElement implements DejavuInvo
 
   @Override
   @NotNull
-  public List<DejavuTextElement> getTextElementList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElement.class);
+  public List<DejavuTextElements> getTextElementsList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElements.class);
   }
 
 }

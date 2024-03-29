@@ -5,10 +5,10 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuTextElement extends PsiElement {
+public interface DejavuTextElements extends PsiElement {
 
   @Nullable
-  DejavuDeclarationElement getDeclarationElement();
+  DejavuDeclarationTemplate getDeclarationTemplate();
 
   @Nullable
   DejavuForElement getForElement();

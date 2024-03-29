@@ -40,7 +40,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   };
 
   /* ********************************************************** */
-  // template-case text-element*
+  // template-case text-elements*
   public static boolean case_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "case_statement")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -52,19 +52,67 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean case_statement_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "case_statement_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "case_statement_1", c)) break;
     }
     return true;
   }
 
   /* ********************************************************** */
-  // template-else-if text-element*
+  // implement-element
+  //   | extends-element
+  //   | SEMICOLON
+  public static boolean declaration_element(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "declaration_element")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, DECLARATION_ELEMENT, "<declaration element>");
+    r = implement_element(b, l + 1);
+    if (!r) r = extends_element(b, l + 1);
+    if (!r) r = consumeToken(b, SEMICOLON);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // TEMPLATE_L KW_TEMPLATE identifier? declaration-element* TEMPLATE_R
+  public static boolean declaration_template(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "declaration_template")) return false;
+    if (!nextTokenIs(b, TEMPLATE_L)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, TEMPLATE_L, KW_TEMPLATE);
+    r = r && declaration_template_2(b, l + 1);
+    r = r && declaration_template_3(b, l + 1);
+    r = r && consumeToken(b, TEMPLATE_R);
+    exit_section_(b, m, DECLARATION_TEMPLATE, r);
+    return r;
+  }
+
+  // identifier?
+  private static boolean declaration_template_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "declaration_template_2")) return false;
+    identifier(b, l + 1);
+    return true;
+  }
+
+  // declaration-element*
+  private static boolean declaration_template_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "declaration_template_3")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!declaration_element(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "declaration_template_3", c)) break;
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // template-else-if text-elements*
   public static boolean else_if_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "else_if_statement")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -76,19 +124,19 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean else_if_statement_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "else_if_statement_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "else_if_statement_1", c)) break;
     }
     return true;
   }
 
   /* ********************************************************** */
-  // template-else text-element*
+  // template-else text-elements*
   public static boolean else_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "else_statement")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -100,12 +148,12 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean else_statement_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "else_statement_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "else_statement_1", c)) break;
     }
     return true;
@@ -119,6 +167,19 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, EXPRESSION, "<expression>");
     r = value(b, l + 1);
     exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // KW_EXTENDS identifier
+  public static boolean extends_element(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "extends_element")) return false;
+    if (!nextTokenIs(b, KW_EXTENDS)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, KW_EXTENDS);
+    r = r && identifier(b, l + 1);
+    exit_section_(b, m, EXTENDS_ELEMENT, r);
     return r;
   }
 
@@ -144,7 +205,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // template-for text-element*
+  // template-for text-elements*
   public static boolean for_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "for_statement")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -156,53 +217,28 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean for_statement_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "for_statement_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "for_statement_1", c)) break;
     }
     return true;
   }
 
   /* ********************************************************** */
-  // SYMBOL | SYMBOW_RAW {
-  // //    mixin = "dejavu.psi.mixin.MixinIdentifier"
-  // //    methods=[highlight]
-  // }
+  // SYMBOL | SYMBOW_RAW
   public static boolean identifier(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "identifier")) return false;
     if (!nextTokenIs(b, "<identifier>", SYMBOL, SYMBOW_RAW)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, IDENTIFIER, "<identifier>");
     r = consumeToken(b, SYMBOL);
-    if (!r) r = identifier_1(b, l + 1);
+    if (!r) r = consumeToken(b, SYMBOW_RAW);
     exit_section_(b, l, m, r, false, null);
     return r;
-  }
-
-  // SYMBOW_RAW {
-  // //    mixin = "dejavu.psi.mixin.MixinIdentifier"
-  // //    methods=[highlight]
-  // }
-  private static boolean identifier_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "identifier_1")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, SYMBOW_RAW);
-    r = r && identifier_1_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // {
-  // //    mixin = "dejavu.psi.mixin.MixinIdentifier"
-  // //    methods=[highlight]
-  // }
-  private static boolean identifier_1_1(PsiBuilder b, int l) {
-    return true;
   }
 
   /* ********************************************************** */
@@ -211,6 +247,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   //   | KW_IF
   //   | KW_MATCH
   //   | KW_INVOKE
+  //   | KW_SLOT
   public static boolean identifier_free(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "identifier_free")) return false;
     boolean r;
@@ -222,6 +259,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, KW_IF);
     if (!r) r = consumeToken(b, KW_MATCH);
     if (!r) r = consumeToken(b, KW_INVOKE);
+    if (!r) r = consumeToken(b, KW_SLOT);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -260,7 +298,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // template-if text-element*
+  // template-if text-elements*
   public static boolean if_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "if_statement")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -272,19 +310,32 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean if_statement_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "if_statement_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "if_statement_1", c)) break;
     }
     return true;
   }
 
   /* ********************************************************** */
-  // template-invoke text-element* template-end
+  // KW_IMPLEMENTS identifier
+  public static boolean implement_element(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "implement_element")) return false;
+    if (!nextTokenIs(b, KW_IMPLEMENTS)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, KW_IMPLEMENTS);
+    r = r && identifier(b, l + 1);
+    exit_section_(b, m, IMPLEMENT_ELEMENT, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // template-invoke text-elements* template-end
   public static boolean invoke_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "invoke_element")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -297,12 +348,12 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean invoke_element_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "invoke_element_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "invoke_element_1", c)) break;
     }
     return true;
@@ -374,6 +425,41 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // identifier (PROPORTION identifier)*
+  public static boolean namepath(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "namepath")) return false;
+    if (!nextTokenIs(b, "<namepath>", SYMBOL, SYMBOW_RAW)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, NAMEPATH, "<namepath>");
+    r = identifier(b, l + 1);
+    r = r && namepath_1(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  // (PROPORTION identifier)*
+  private static boolean namepath_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "namepath_1")) return false;
+    while (true) {
+      int c = current_position_(b);
+      if (!namepath_1_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "namepath_1", c)) break;
+    }
+    return true;
+  }
+
+  // PROPORTION identifier
+  private static boolean namepath_1_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "namepath_1_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, PROPORTION);
+    r = r && identifier(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // INTEGER {
   // //    mixin = "dejavu.psi.mixin.MixinNumber"
   // }
@@ -396,19 +482,19 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // text-element*
+  // text-elements*
   static boolean root(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "root")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "root", c)) break;
     }
     return true;
   }
 
   /* ********************************************************** */
-  // template-slot text-element* template-end
+  // template-slot text-elements* template-end
   public static boolean slot_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "slot_element")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -421,12 +507,12 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean slot_element_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "slot_element_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "slot_element_1", c)) break;
     }
     return true;
@@ -645,7 +731,8 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // if-element
+  // declaration-template
+  //   | if-element
   //   | while-element
   //   | for-element
   //   | match-element
@@ -653,11 +740,12 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   //   | invoke-element
   //   | WHITE_SPACE
   //   | NORMAL_TEXT
-  public static boolean text_element(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "text_element")) return false;
+  public static boolean text_elements(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "text_elements")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TEXT_ELEMENT, "<text element>");
-    r = if_element(b, l + 1);
+    Marker m = enter_section_(b, l, _NONE_, TEXT_ELEMENTS, "<text elements>");
+    r = declaration_template(b, l + 1);
+    if (!r) r = if_element(b, l + 1);
     if (!r) r = while_element(b, l + 1);
     if (!r) r = for_element(b, l + 1);
     if (!r) r = match_element(b, l + 1);
@@ -670,19 +758,19 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // number | identifier
+  // number | namepath
   public static boolean value(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "value")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, VALUE, "<value>");
     r = number(b, l + 1);
-    if (!r) r = identifier(b, l + 1);
+    if (!r) r = namepath(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
   /* ********************************************************** */
-  // template-when text-element*
+  // template-when text-elements*
   public static boolean when_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "when_statement")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -694,12 +782,12 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean when_statement_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "when_statement_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "when_statement_1", c)) break;
     }
     return true;
@@ -727,7 +815,7 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // template-while text-element*
+  // template-while text-elements*
   public static boolean while_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "while_statement")) return false;
     if (!nextTokenIs(b, TEMPLATE_L)) return false;
@@ -739,12 +827,12 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // text-element*
+  // text-elements*
   private static boolean while_statement_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "while_statement_1")) return false;
     while (true) {
       int c = current_position_(b);
-      if (!text_element(b, l + 1)) break;
+      if (!text_elements(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "while_statement_1", c)) break;
     }
     return true;

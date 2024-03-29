@@ -72,9 +72,10 @@
 }
 
 // https://github.com/bytecodealliance/fluent/blob/master/spec/fluent.ebnf
-root ::= text-element*
-text-element ::=
-    if-element
+root ::= text-elements*
+text-elements ::=
+    declaration-template
+  | if-element
   | while-element
   | for-element
   | match-element
@@ -83,12 +84,20 @@ text-element ::=
   | WHITE_SPACE
   | NORMAL_TEXT;
 
+declaration-template  ::= TEMPLATE_L KW_TEMPLATE identifier? declaration-element* TEMPLATE_R;
+declaration-element ::=
+    implement-element
+  | extends-element
+  | SEMICOLON
+
+implement-element ::= KW_IMPLEMENTS identifier;
+extends-element ::= KW_EXTENDS identifier;
 
 // === if statement ===
 if-element        ::= if-statement else-if-statement* else-statement? template-end;
-if-statement      ::= template-if text-element*;
-else-if-statement ::= template-else-if text-element*;
-else-statement    ::= template-else text-element*;
+if-statement      ::= template-if text-elements*;
+else-if-statement ::= template-else-if text-elements*;
+else-statement    ::= template-else text-elements*;
 
 template-if       ::= TEMPLATE_L KW_IF expression TEMPLATE_R {
     pin = 2
@@ -101,14 +110,14 @@ template-else-if  ::= TEMPLATE_L KW_ELSE KW_IF expression TEMPLATE_R {
 }
 // === while statement ===
 while-element   ::= while-statement else-statement? template-end;
-while-statement ::= template-while text-element*;
+while-statement ::= template-while text-elements*;
 
 template-while  ::= TEMPLATE_L KW_WHILE expression TEMPLATE_R {
     pin = 2
 }
 // === for statement ===
 for-element   ::= for-statement else-statement? template-end;
-for-statement ::= template-for text-element*;
+for-statement ::= template-for text-elements*;
 
 template-for  ::= TEMPLATE_L KW_FOR identifier KW_IN expression TEMPLATE_R {
     pin = 2
@@ -120,8 +129,8 @@ match-branch    ::=
     case-statement
   | when-statement
   | else-statement
-when-statement ::= template-when text-element*;
-case-statement ::= template-case text-element*;
+when-statement ::= template-when text-elements*;
+case-statement ::= template-case text-elements*;
 
 template-match ::= TEMPLATE_L KW_MATCH expression TEMPLATE_R {
     pin = 2
@@ -133,7 +142,7 @@ template-case ::= TEMPLATE_L KW_CASE identifier TEMPLATE_R {
     pin = 2
 }
 // === slot statement ===
-slot-element ::= template-slot text-element* template-end {
+slot-element ::= template-slot text-elements* template-end {
     mixin = "dejavu.psi.mixin.MixinSlot"
 }
 template-slot ::= TEMPLATE_L KW_SLOT identifier TEMPLATE_R {
@@ -143,7 +152,7 @@ template-slot ::= TEMPLATE_L KW_SLOT identifier TEMPLATE_R {
 
 
 // === for statement ===
-invoke-element  ::= template-invoke text-element* template-end;
+invoke-element  ::= template-invoke text-elements* template-end;
 template-invoke ::= TEMPLATE_L KW_INVOKE expression TEMPLATE_R {
     pin = 2
 }
@@ -156,7 +165,7 @@ template-end ::= TEMPLATE_L (KW_END identifier-free? | identifier-free? KW_END) 
 // === expression statement ===
 expression ::= value;
 // === atomic statement ===
-value    ::= number | identifier;
+value    ::= number | namepath;
 // === literals ===
 number ::= INTEGER {
 //    mixin = "dejavu.psi.mixin.MixinNumber"
@@ -164,9 +173,10 @@ number ::= INTEGER {
 
 
 
-/* Identifier */
+// === Identifier ===
+namepath ::= identifier (PROPORTION identifier)*;
 identifier          ::= SYMBOL | SYMBOW_RAW {
-//    mixin = "dejavu.psi.mixin.MixinIdentifier"
+    mixin = "dejavu.psi.mixin.MixinIdentifier"
 //    methods=[highlight]
 }
 identifier-free     ::=
@@ -175,6 +185,7 @@ identifier-free     ::=
   | KW_IF
   | KW_MATCH
   | KW_INVOKE
+  | KW_SLOT
 {
     extends = identifier
 }

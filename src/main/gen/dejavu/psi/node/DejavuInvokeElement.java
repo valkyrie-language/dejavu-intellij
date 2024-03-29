@@ -14,6 +14,6 @@ public interface DejavuInvokeElement extends PsiElement {
   DejavuTemplateInvoke getTemplateInvoke();
 
   @NotNull
-  List<DejavuTextElement> getTextElementList();
+  List<DejavuTextElements> getTextElementsList();
 
 }

@@ -11,6 +11,6 @@ public interface DejavuElseStatement extends PsiElement {
   DejavuTemplateElse getTemplateElse();
 
   @NotNull
-  List<DejavuTextElement> getTextElementList();
+  List<DejavuTextElements> getTextElementsList();
 
 }

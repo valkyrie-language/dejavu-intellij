@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
-public class DejavuElseIfStatementNode extends DejavuElement implements DejavuElseIfStatement {
+public class DejavuNamepathNode extends DejavuElement implements DejavuNamepath {
 
-  public DejavuElseIfStatementNode(@NotNull ASTNode node) {
+  public DejavuNamepathNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitElseIfStatement(this);
+    visitor.visitNamepath(this);
   }
 
   @Override
@@ -28,14 +28,8 @@ public class DejavuElseIfStatementNode extends DejavuElement implements DejavuEl
 
   @Override
   @NotNull
-  public DejavuTemplateElseIf getTemplateElseIf() {
-    return findNotNullChildByClass(DejavuTemplateElseIf.class);
-  }
-
-  @Override
-  @NotNull
-  public List<DejavuTextElements> getTextElementsList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElements.class);
+  public List<DejavuIdentifier> getIdentifierList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuIdentifier.class);
   }
 
 }
