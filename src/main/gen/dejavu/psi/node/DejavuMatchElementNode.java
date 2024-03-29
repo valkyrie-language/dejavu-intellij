@@ -4,13 +4,11 @@ package dejavu.psi.node;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
-import static dejavu.psi.DejavuTypes.*;
-import dejavu.psi.DejavuElement;
+import dejavu.psi.mixin.MixinMatch;
 
-public class DejavuMatchElementNode extends DejavuElement implements DejavuMatchElement {
+public class DejavuMatchElementNode extends MixinMatch implements DejavuMatchElement {
 
   public DejavuMatchElementNode(@NotNull ASTNode node) {
     super(node);
