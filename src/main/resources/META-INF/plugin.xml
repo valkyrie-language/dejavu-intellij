@@ -69,7 +69,7 @@
 		<typedHandler implementation="valkyrie.ide.completion.AutoInsertBrace"/>
 		<backspaceHandlerDelegate implementation="valkyrie.ide.completion.AutoDeleteBrace"/>
 		<!--		<lookup.charFilter implementation="valkyrie.ide.completion.CompletionInterrupter"/>-->
-		<lang.commenter language="dejavu" implementationClass="valkyrie.ide.formatter.YggdrasilCommenter"/>
+		<lang.commenter language="dejavu" implementationClass="valkyrie.ide.formatter.Commenter"/>
 		<lang.braceMatcher
 			language="dejavu"
 			implementationClass="valkyrie.ide.matcher.BraceMatchAdapter"/>

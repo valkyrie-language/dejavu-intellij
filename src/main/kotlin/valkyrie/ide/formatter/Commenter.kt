@@ -1,10 +1,7 @@
 package valkyrie.ide.formatter
 
-import com.intellij.lang.Commenter
-
-
-class YggdrasilCommenter : Commenter {
-    override fun getLineCommentPrefix() = "//"
+class Commenter : com.intellij.lang.Commenter {
+    override fun getLineCommentPrefix() = null
     override fun getBlockCommentPrefix() = "/*"
     override fun getBlockCommentSuffix() = "*/"
     override fun getCommentedBlockCommentPrefix() = null
