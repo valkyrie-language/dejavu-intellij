@@ -22,7 +22,7 @@ abstract class MixinSlot(node: ASTNode) : DejavuElement(node),
     }
 
     override fun getNameIdentifier(): DejavuIdentifierNode? {
-        return this.slotStatement as? DejavuIdentifierNode
+        return this.templateSlot.identifier as? DejavuIdentifierNode
     }
 
 

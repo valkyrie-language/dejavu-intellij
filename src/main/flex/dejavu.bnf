@@ -133,13 +133,14 @@ template-case ::= TEMPLATE_L KW_CASE identifier TEMPLATE_R {
     pin = 2
 }
 // === slot statement ===
-slot-element ::= slot-statement template-end {
+slot-element ::= template-slot text-element* template-end {
     mixin = "dejavu.psi.mixin.MixinSlot"
 }
-slot-statement ::= template-slot text-element*;
-template-slot ::= TEMPLATE_L KW_SLOT expression TEMPLATE_R {
+template-slot ::= TEMPLATE_L KW_SLOT identifier TEMPLATE_R {
     pin = 2
 }
+
+
 
 // === for statement ===
 invoke-element  ::= template-invoke text-element* template-end;

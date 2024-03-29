@@ -28,8 +28,8 @@ public class DejavuTemplateSlotNode extends DejavuElement implements DejavuTempl
 
   @Override
   @Nullable
-  public DejavuExpression getExpression() {
-    return findChildByClass(DejavuExpression.class);
+  public DejavuIdentifier getIdentifier() {
+    return findChildByClass(DejavuIdentifier.class);
   }
 
 }

@@ -71,10 +71,6 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitSlotStatement(@NotNull DejavuSlotStatement o) {
-    visitPsiElement(o);
-  }
-
   public void visitTemplateCase(@NotNull DejavuTemplateCase o) {
     visitPsiElement(o);
   }

@@ -24,7 +24,6 @@ public interface DejavuTypes {
   IElementType MATCH_STATEMENT = new DejavuElementType("MATCH_STATEMENT");
   IElementType NUMBER = new DejavuElementType("NUMBER");
   IElementType SLOT_ELEMENT = new DejavuElementType("SLOT_ELEMENT");
-  IElementType SLOT_STATEMENT = new DejavuElementType("SLOT_STATEMENT");
   IElementType TEMPLATE_CASE = new DejavuElementType("TEMPLATE_CASE");
   IElementType TEMPLATE_ELSE = new DejavuElementType("TEMPLATE_ELSE");
   IElementType TEMPLATE_ELSE_IF = new DejavuElementType("TEMPLATE_ELSE_IF");
@@ -150,9 +149,6 @@ public interface DejavuTypes {
       }
       else if (type == SLOT_ELEMENT) {
         return new DejavuSlotElementNode(node);
-      }
-      else if (type == SLOT_STATEMENT) {
-        return new DejavuSlotStatementNode(node);
       }
       else if (type == TEMPLATE_CASE) {
         return new DejavuTemplateCaseNode(node);

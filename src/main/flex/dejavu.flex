@@ -103,7 +103,7 @@ TEXT = [^<]+
 
 	":" { return COLON; }
 	";" { return SEMICOLON; }
-	"#" { return HASH; }
+//	"#" { return HASH; }
 	"$" { return DOLLAR; }
 	"@" { return AT; }
 	"/" { return SLASH; }
@@ -113,19 +113,19 @@ TEXT = [^<]+
 	"=" { return EQ; }
 
 	"^" { return OP_REMARK; }
-    "!" { return OP_NOT; }
+//    "!" { return OP_NOT; }
 
-    "?" { return OP_OPTIONAL; }
+//    "?" { return OP_OPTIONAL; }
     "*" { return OP_MANY; }
-    "+" { return OP_MANY1; }
+//    "+" { return OP_MANY1; }
 }
 
 <ProgramContext> {
     {INTEGER} { return INTEGER; }
-    {TEXT_SINGLE} { return TEXT_SINGLE; }
-    {TEXT_DOUBLE} { return TEXT_DOUBLE; }
-    {REGULAR_RANGE} { return REGULAR_RANGE; }
-    {REGULAR_EXPRESSION} { return REGULAR_EXPRESSION;}
+//    {TEXT_SINGLE} { return TEXT_SINGLE; }
+//    {TEXT_DOUBLE} { return TEXT_DOUBLE; }
+//    {REGULAR_RANGE} { return REGULAR_RANGE; }
+//    {REGULAR_EXPRESSION} { return REGULAR_EXPRESSION;}
 }
 
 <ProgramContext> {
