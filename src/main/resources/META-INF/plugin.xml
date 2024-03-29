@@ -85,7 +85,7 @@
 			language="dejavu"
 			implementationClass="valkyrie.ide.folding.FoldingBuilder"/>
 		<codeBlockProvider language="dejavu" implementationClass="valkyrie.ide.matcher.ValkyrieCodeBlockProvider"/>
-		<codeFoldingOptionsProvider instance="valkyrie.ide.folding.ValkyrieFoldingOptions"/>
+		<codeFoldingOptionsProvider instance="valkyrie.ide.folding.FoldingOptions"/>
 		<referenceImporter implementation="valkyrie.ide.completion.ValkyrieImportInsert"/>
 		<lang.importOptimizer
 			language="dejavu"

@@ -24,14 +24,20 @@ class FoldingVisitor : DejavuVisitorRecursive() {
     }
 
     override fun visitUsingElement(o: DejavuUsingElement) {
-        o.findStartToken(KW_USING) {
+        o.findStartToken(BRACE_L) {
+            fold(o, it.endOffset, o.lastChild.startOffset)
+        }
+    }
+
+    override fun visitClassElement(o: DejavuClassElement) {
+        o.findStartToken(BRACE_L) {
             fold(o, it.endOffset, o.lastChild.startOffset)
         }
     }
 
     override fun visitProgramTemplate(o: DejavuProgramTemplate) {
         o.findStartToken(KW_PROGRAM) {
-            fold(o, it.endOffset, o.lastButWhitespace())
+            fold(o, it.endOffset, o.lastChild.startOffset)
         }
     }
 
@@ -68,7 +74,7 @@ class FoldingVisitor : DejavuVisitorRecursive() {
 
     private fun PsiElement.lastButWhitespace(): Int {
         val last = this.lastChild;
-        return if (last.elementType == WHITE_SPACE) {
+        return if (last.prevSibling.elementType == WHITE_SPACE) {
             last.startOffset - 1
         } else {
             last.startOffset
