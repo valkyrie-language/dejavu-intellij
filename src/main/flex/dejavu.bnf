@@ -72,15 +72,26 @@
 }
 
 // https://github.com/bytecodealliance/fluent/blob/master/spec/fluent.ebnf
-root ::= statements*
+root ::= text-element*
+text-element ::=
+    if-element
+  | for-element
+  | NORMAL_TEXT;
+
+
+
+
+
+
+
+
+
+
 private statements ::=
     grammar
-  | using
-  | class
-  | define-union
-  | group
-  | define-function
+  | for-element
   | SEMICOLON
+
 // === annotation statement ===
 annotations ::= attribute* modifier*
 modifier    ::= identifier {
@@ -219,9 +230,37 @@ number ::= INTEGER {
 //    mixin = "dejavu.psi.mixin.MixinNumber"
 }
 
+// === if statement ===
+if-element ::= if-statement else-if-statement* else-statement? template-end;
+if-statement ::= template-if text-element*;
+else-if-statement ::= template-else-if text-element*;
+else-statement ::= template-else text-element*;
 
-template-end ::= TEMPLATE_L TEMPLATE_R;
+template-if ::= TEMPLATE_L KW_IF identifier TEMPLATE_R {
+    pin = 2
+}
+template-else ::= TEMPLATE_L KW_ELSE TEMPLATE_R {
+    pin = 2
+}
+template-else-if ::= TEMPLATE_L KW_ELSE KW_IF identifier TEMPLATE_R {
+    pin = 3
+}
+// === while statement ===
 
+// === for statement ===
+for-element  ::= for-statement else-statement? template-end;
+for-statement  ::= template-for text-element*;
+
+template-for      ::= TEMPLATE_L KW_FOR identifier KW_IN identifier TEMPLATE_R {
+    pin = 2
+}
+
+
+
+
+template-end ::= TEMPLATE_L KW_END identifier-free? TEMPLATE_R {
+    pin = 2
+}
 
 /* Literals */
 
@@ -230,6 +269,10 @@ identifier          ::= SYMBOL | SYMBOW_RAW {
 //    mixin = "dejavu.psi.mixin.MixinIdentifier"
 //    methods=[highlight]
 }
-identifier-free     ::= SYMBOL | SYMBOW_RAW | KW_MACRO | KW_CLASS | KW_UNION | KW_GROUP | KW_GRAMMAR | KW_IMPORT | KW_AS | KW_CLIMB | KW_FOR| KW_IF | KW_END | KW_WHILE {
+identifier-free     ::=
+    SYMBOL | SYMBOW_RAW
+  | KW_WHILE | KW_FOR
+  | KW_IF
+{
     extends = identifier
 }

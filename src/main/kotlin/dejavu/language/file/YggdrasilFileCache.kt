@@ -2,9 +2,10 @@ package yggdrasil.language.file
 
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.psi.PsiNameIdentifierOwner
+import dejavu.language.file.DejavuFileNode
 import dejavu.psi.node.DejavuIdentifierNode
 
-class YggdrasilFileCache(val root: YggdrasilFileNode) {
+class YggdrasilFileCache(val root: DejavuFileNode) {
     private fun getCache(): MutableMap<String, PsiNameIdentifierOwner> {
         val cache = mutableMapOf<String, PsiNameIdentifierOwner>()
 

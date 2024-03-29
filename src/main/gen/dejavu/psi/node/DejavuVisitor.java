@@ -47,6 +47,14 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitElseIfStatement(@NotNull DejavuElseIfStatement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitElseStatement(@NotNull DejavuElseStatement o) {
+    visitPsiElement(o);
+  }
+
   public void visitEscape(@NotNull DejavuEscape o) {
     visitPsiElement(o);
   }
@@ -73,6 +81,14 @@ public class DejavuVisitor extends PsiElementVisitor {
 
   public void visitExpressionTag(@NotNull DejavuExpressionTag o) {
     visitExpression(o);
+  }
+
+  public void visitForElement(@NotNull DejavuForElement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitForStatement(@NotNull DejavuForStatement o) {
+    visitPsiElement(o);
   }
 
   public void visitFunctionBlock(@NotNull DejavuFunctionBlock o) {
@@ -121,6 +137,14 @@ public class DejavuVisitor extends PsiElementVisitor {
 
   public void visitIdentifierFree(@NotNull DejavuIdentifierFree o) {
     visitIdentifier(o);
+  }
+
+  public void visitIfElement(@NotNull DejavuIfElement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitIfStatement(@NotNull DejavuIfStatement o) {
+    visitPsiElement(o);
   }
 
   public void visitKey(@NotNull DejavuKey o) {
@@ -175,12 +199,32 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitTemplateElse(@NotNull DejavuTemplateElse o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateElseIf(@NotNull DejavuTemplateElseIf o) {
+    visitPsiElement(o);
+  }
+
   public void visitTemplateEnd(@NotNull DejavuTemplateEnd o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateFor(@NotNull DejavuTemplateFor o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemplateIf(@NotNull DejavuTemplateIf o) {
     visitPsiElement(o);
   }
 
   public void visitTerm(@NotNull DejavuTerm o) {
     visitExpression(o);
+  }
+
+  public void visitTextElement(@NotNull DejavuTextElement o) {
+    visitPsiElement(o);
   }
 
   public void visitTuple(@NotNull DejavuTuple o) {

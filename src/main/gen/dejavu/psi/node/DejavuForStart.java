@@ -5,9 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuTemplateEnd extends PsiElement {
-
-  @Nullable
-  DejavuIdentifierFree getIdentifierFree();
+public interface DejavuForStart extends PsiElement {
 
 }

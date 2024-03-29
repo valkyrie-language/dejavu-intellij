@@ -4,7 +4,7 @@ import com.intellij.codeInsight.highlighting.PairedBraceMatcherAdapter
 import com.intellij.openapi.editor.highlighter.HighlighterIterator
 import com.intellij.openapi.fileTypes.FileType
 import dejavu.language.DejavuLanguage
-import yggdrasil.language.file.YggdrasilFileType
+import dejavu.language.file.DejavuFileType
 
 class BraceMatchAdapter : PairedBraceMatcherAdapter(ValkyrieBracketMatch(), DejavuLanguage) {
     override fun isLBraceToken(iterator: HighlighterIterator, fileText: CharSequence, fileType: FileType): Boolean {
@@ -16,7 +16,7 @@ class BraceMatchAdapter : PairedBraceMatcherAdapter(ValkyrieBracketMatch(), Deja
     }
 
     private fun isBrace(iterator: HighlighterIterator, fileText: CharSequence, fileType: FileType, left: Boolean): Boolean {
-        if (fileType != YggdrasilFileType) return false
+        if (fileType != DejavuFileType) return false
         val pair = findPair(left, iterator, fileText, fileType)
         return pair != null
     }

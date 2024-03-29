@@ -4,11 +4,11 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.impl.source.tree.SharedImplUtil
 import dejavu.psi.DejavuElement
 import valkyrie.ide.reference.declaration.ValkyrieReference
-import yggdrasil.language.file.YggdrasilFileNode
+import dejavu.language.file.DejavuFileNode
 
 abstract class MixinIdentifier(node: ASTNode) : DejavuElement(node) {
-    override fun getContainingFile(): YggdrasilFileNode {
-        return SharedImplUtil.getContainingFile(node) as YggdrasilFileNode
+    override fun getContainingFile(): DejavuFileNode {
+        return SharedImplUtil.getContainingFile(node) as DejavuFileNode
     }
 
     override fun getName(): String? {

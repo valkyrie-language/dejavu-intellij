@@ -40,7 +40,9 @@ KW_FOR   = for
 KW_IN    = in
 KW_WHILE   = while
 KW_AS      = as
-KW_END   = group|token
+KW_END   = end
+
+TEXT = [^<]+
 
 %%
 
@@ -49,16 +51,17 @@ KW_END   = group|token
           yybegin(ProgramContext);
           return TEMPLATE_L;
     }
+    {TEXT} { return NORMAL_TEXT; }
 }
 
 <ProgramContext> {
+    {WHITE_SPACE}+     { return WHITE_SPACE; }
+	{COMMENT_LINE}     { return COMMENT_LINE; }
+	{COMMENT_BLOCK}    { return COMMENT_BLOCK; }
 	{TEMPLATE_R} {
 		  yybegin(YYINITIAL);
 		  return TEMPLATE_R;
 	}
-    {WHITE_SPACE}+     { return WHITE_SPACE; }
-	{COMMENT_LINE}     { return COMMENT_LINE; }
-	{COMMENT_BLOCK}    { return COMMENT_BLOCK; }
 }
 
 
@@ -104,15 +107,21 @@ KW_END   = group|token
 }
 
 <ProgramContext> {
-    {KW_FOR} { return KW_FOR; }
     {KW_IF} { return KW_IF; }
-    {KW_END} { return KW_END; }
+    {KW_ELSE} { return KW_ELSE; }
+
+	{KW_FOR} { return KW_FOR; }
+	{KW_IN} { return KW_IN; }
+
     {KW_WHILE} { return KW_WHILE; }
     {KW_UNION} { return KW_UNION; }
     {KW_IMPORT} { return KW_IMPORT; }
     {KW_AS} { return KW_AS; }
     {KW_MACRO} { return KW_MACRO; }
+    {KW_END} { return KW_END; }
+}
 
+<ProgramContext> {
     {ESCAPED} { return ESCAPED; }
     {SYMBOW_RAW} { return SYMBOW_RAW; }
     {SYMBOL}  { return SYMBOL; }

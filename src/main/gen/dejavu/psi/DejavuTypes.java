@@ -18,6 +18,8 @@ public interface DejavuTypes {
   IElementType CLASS_CAST = new DejavuElementType("CLASS_CAST");
   IElementType DEFINE_FUNCTION = new DejavuElementType("DEFINE_FUNCTION");
   IElementType DEFINE_UNION = new DejavuElementType("DEFINE_UNION");
+  IElementType ELSE_IF_STATEMENT = new DejavuElementType("ELSE_IF_STATEMENT");
+  IElementType ELSE_STATEMENT = new DejavuElementType("ELSE_STATEMENT");
   IElementType ESCAPE = new DejavuElementType("ESCAPE");
   IElementType EXPRESSION = new DejavuElementType("EXPRESSION");
   IElementType EXPRESSION_CHOICE = new DejavuElementType("EXPRESSION_CHOICE");
@@ -25,6 +27,8 @@ public interface DejavuTypes {
   IElementType EXPRESSION_HARD = new DejavuElementType("EXPRESSION_HARD");
   IElementType EXPRESSION_SOFT = new DejavuElementType("EXPRESSION_SOFT");
   IElementType EXPRESSION_TAG = new DejavuElementType("EXPRESSION_TAG");
+  IElementType FOR_ELEMENT = new DejavuElementType("FOR_ELEMENT");
+  IElementType FOR_STATEMENT = new DejavuElementType("FOR_STATEMENT");
   IElementType FUNCTION_BLOCK = new DejavuElementType("FUNCTION_BLOCK");
   IElementType FUNCTION_CALL = new DejavuElementType("FUNCTION_CALL");
   IElementType FUNCTION_PARAMETER = new DejavuElementType("FUNCTION_PARAMETER");
@@ -37,6 +41,8 @@ public interface DejavuTypes {
   IElementType GROUP_TERM = new DejavuElementType("GROUP_TERM");
   IElementType IDENTIFIER = new DejavuElementType("IDENTIFIER");
   IElementType IDENTIFIER_FREE = new DejavuElementType("IDENTIFIER_FREE");
+  IElementType IF_ELEMENT = new DejavuElementType("IF_ELEMENT");
+  IElementType IF_STATEMENT = new DejavuElementType("IF_STATEMENT");
   IElementType KEY = new DejavuElementType("KEY");
   IElementType MODIFIER = new DejavuElementType("MODIFIER");
   IElementType NUMBER = new DejavuElementType("NUMBER");
@@ -50,8 +56,13 @@ public interface DejavuTypes {
   IElementType STRING = new DejavuElementType("STRING");
   IElementType SUFFIX = new DejavuElementType("SUFFIX");
   IElementType TAG_BRANCH = new DejavuElementType("TAG_BRANCH");
+  IElementType TEMPLATE_ELSE = new DejavuElementType("TEMPLATE_ELSE");
+  IElementType TEMPLATE_ELSE_IF = new DejavuElementType("TEMPLATE_ELSE_IF");
   IElementType TEMPLATE_END = new DejavuElementType("TEMPLATE_END");
+  IElementType TEMPLATE_FOR = new DejavuElementType("TEMPLATE_FOR");
+  IElementType TEMPLATE_IF = new DejavuElementType("TEMPLATE_IF");
   IElementType TERM = new DejavuElementType("TERM");
+  IElementType TEXT_ELEMENT = new DejavuElementType("TEXT_ELEMENT");
   IElementType TUPLE = new DejavuElementType("TUPLE");
   IElementType UNION_BODY = new DejavuElementType("UNION_BODY");
   IElementType UNION_VARIANT = new DejavuElementType("UNION_VARIANT");
@@ -82,16 +93,19 @@ public interface DejavuTypes {
   IElementType KW_AS = new DejavuTokenType("as");
   IElementType KW_CLASS = new DejavuTokenType("class");
   IElementType KW_CLIMB = new DejavuTokenType("climb");
+  IElementType KW_ELSE = new DejavuTokenType("KW_ELSE");
   IElementType KW_END = new DejavuTokenType("KW_END");
   IElementType KW_FOR = new DejavuTokenType("KW_FOR");
   IElementType KW_GRAMMAR = new DejavuTokenType("grammar");
   IElementType KW_GROUP = new DejavuTokenType("group");
   IElementType KW_IF = new DejavuTokenType("KW_IF");
   IElementType KW_IMPORT = new DejavuTokenType("import");
+  IElementType KW_IN = new DejavuTokenType("KW_IN");
   IElementType KW_MACRO = new DejavuTokenType("macro");
   IElementType KW_UNION = new DejavuTokenType("union");
   IElementType KW_USING = new DejavuTokenType("using");
   IElementType KW_WHILE = new DejavuTokenType("KW_WHILE");
+  IElementType NORMAL_TEXT = new DejavuTokenType("NORMAL_TEXT");
   IElementType OP_AND = new DejavuTokenType("OP_AND");
   IElementType OP_CONCAT = new DejavuTokenType("~");
   IElementType OP_MANY = new DejavuTokenType("*");
@@ -152,6 +166,12 @@ public interface DejavuTypes {
       else if (type == DEFINE_UNION) {
         return new DejavuDefineUnionNode(node);
       }
+      else if (type == ELSE_IF_STATEMENT) {
+        return new DejavuElseIfStatementNode(node);
+      }
+      else if (type == ELSE_STATEMENT) {
+        return new DejavuElseStatementNode(node);
+      }
       else if (type == ESCAPE) {
         return new DejavuEscapeNode(node);
       }
@@ -169,6 +189,12 @@ public interface DejavuTypes {
       }
       else if (type == EXPRESSION_TAG) {
         return new DejavuExpressionTagNode(node);
+      }
+      else if (type == FOR_ELEMENT) {
+        return new DejavuForElementNode(node);
+      }
+      else if (type == FOR_STATEMENT) {
+        return new DejavuForStatementNode(node);
       }
       else if (type == FUNCTION_BLOCK) {
         return new DejavuFunctionBlockNode(node);
@@ -205,6 +231,12 @@ public interface DejavuTypes {
       }
       else if (type == IDENTIFIER_FREE) {
         return new DejavuIdentifierFreeNode(node);
+      }
+      else if (type == IF_ELEMENT) {
+        return new DejavuIfElementNode(node);
+      }
+      else if (type == IF_STATEMENT) {
+        return new DejavuIfStatementNode(node);
       }
       else if (type == KEY) {
         return new DejavuKeyNode(node);
@@ -245,11 +277,26 @@ public interface DejavuTypes {
       else if (type == TAG_BRANCH) {
         return new DejavuTagBranchNode(node);
       }
+      else if (type == TEMPLATE_ELSE) {
+        return new DejavuTemplateElseNode(node);
+      }
+      else if (type == TEMPLATE_ELSE_IF) {
+        return new DejavuTemplateElseIfNode(node);
+      }
       else if (type == TEMPLATE_END) {
         return new DejavuTemplateEndNode(node);
       }
+      else if (type == TEMPLATE_FOR) {
+        return new DejavuTemplateForNode(node);
+      }
+      else if (type == TEMPLATE_IF) {
+        return new DejavuTemplateIfNode(node);
+      }
       else if (type == TERM) {
         return new DejavuTermNode(node);
+      }
+      else if (type == TEXT_ELEMENT) {
+        return new DejavuTextElementNode(node);
       }
       else if (type == TUPLE) {
         return new DejavuTupleNode(node);

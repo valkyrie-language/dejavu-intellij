@@ -9,7 +9,7 @@ import com.intellij.psi.util.parents
 import com.intellij.util.ProcessingContext
 import dejavu.psi.ParserExtension
 
-import yggdrasil.language.file.YggdrasilFileNode
+import dejavu.language.file.DejavuFileNode
 
 
 class CompletionRegistrar : CompletionContributor() {
@@ -33,7 +33,7 @@ class CompletionRegistrar : CompletionContributor() {
                     return
                 }
                 when (node) {
-                    is YggdrasilFileNode -> {
+                    is DejavuFileNode -> {
                         CompletionInFileScope().addCompletionVariants(parameters, context, result)
                         return
                     }

@@ -9,7 +9,7 @@ import com.intellij.psi.impl.source.tree.CompositeElement
 import com.intellij.psi.impl.source.tree.SharedImplUtil
 import com.intellij.psi.util.parents
 import dejavu.language.DejavuLanguage
-import yggdrasil.language.file.YggdrasilFileNode
+import dejavu.language.file.DejavuFileNode
 import javax.swing.Icon
 
 /**
@@ -24,8 +24,8 @@ import javax.swing.Icon
  * implements ScopeNode.
  */
 abstract class YggdrasilScopeNode(node: CompositeElement) : ASTWrapperPsiElement(node) {
-    override fun getContainingFile(): YggdrasilFileNode {
-        return SharedImplUtil.getContainingFile(node) as YggdrasilFileNode
+    override fun getContainingFile(): DejavuFileNode {
+        return SharedImplUtil.getContainingFile(node) as DejavuFileNode
     }
 
     override fun getContext(): YggdrasilScopeNode? {

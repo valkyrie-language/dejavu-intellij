@@ -7,7 +7,7 @@ import com.intellij.codeInsight.lookup.LookupElementBuilder
 import com.intellij.icons.AllIcons
 import com.intellij.psi.PsiElement
 import com.intellij.util.ProcessingContext
-import yggdrasil.language.file.YggdrasilFileNode
+import dejavu.language.file.DejavuFileNode
 
 class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
     var element: PsiElement? = null
@@ -23,7 +23,7 @@ class CompletionInClassScope : CompletionProvider<CompletionParameters>() {
     }
 
     private fun CompletionResultSet.addDefinitions() {
-        val file = element?.containingFile as? YggdrasilFileNode ?: return
+        val file = element?.containingFile as? DejavuFileNode ?: return
         for (completion in file.definitions.getCompletions()) {
             addElement(completion)
         }

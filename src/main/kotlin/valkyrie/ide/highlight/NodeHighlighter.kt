@@ -9,7 +9,7 @@ import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import dejavu.psi.node.*
-import yggdrasil.language.file.YggdrasilFileNode
+import dejavu.language.file.DejavuFileNode
 
 class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
     private var infoHolder: HighlightInfoHolder? = null
@@ -37,7 +37,7 @@ class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
 
     override fun clone(): HighlightVisitor = NodeHighlighter()
 
-    override fun suitableForFile(file: PsiFile): Boolean = file is YggdrasilFileNode
+    override fun suitableForFile(file: PsiFile): Boolean = file is DejavuFileNode
 
     override fun visit(element: PsiElement) = element.accept(this)
 }
