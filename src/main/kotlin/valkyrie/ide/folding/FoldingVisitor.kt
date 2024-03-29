@@ -4,6 +4,7 @@ import com.intellij.lang.folding.FoldingDescriptor
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.TokenType.WHITE_SPACE
+import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.elementType
 import com.intellij.refactoring.suggested.endOffset
 import com.intellij.refactoring.suggested.startOffset
@@ -17,30 +18,20 @@ class FoldingVisitor : DejavuVisitorRecursive() {
     private val descriptors: MutableList<FoldingDescriptor> = mutableListOf()
 
     override fun visitDeclarationTemplate(o: DejavuDeclarationTemplate) {
-        for (child in o.childrenWithLeaves) {
-            if (child.elementType == KW_TEMPLATE) {
-                fold(o, child.endOffset, o.lastChild.startOffset)
-            }
+        o.findStartToken(KW_TEMPLATE) {
+            fold(o, it.endOffset, o.lastChild.startOffset)
         }
     }
 
     override fun visitUsingElement(o: DejavuUsingElement) {
-        for (child in o.childrenWithLeaves) {
-            if (child.elementType == BRACE_L) {
-                fold(o, child.endOffset, o.lastChild.startOffset)
-            }
+        o.findStartToken(KW_USING) {
+            fold(o, it.endOffset, o.lastChild.startOffset)
         }
     }
 
     override fun visitProgramTemplate(o: DejavuProgramTemplate) {
-        for (child in o.childrenWithLeaves) {
-            if (child.elementType == KW_PROGRAM) {
-                if (child.prevSibling.elementType == WHITE_SPACE) {
-                    fold(o, child.endOffset, o.lastChild.startOffset - 1)
-                } else {
-                    fold(o, child.endOffset, o.lastChild.startOffset)
-                }
-            }
+        o.findStartToken(KW_PROGRAM) {
+            fold(o, it.endOffset, o.lastButWhitespace())
         }
     }
 
@@ -50,34 +41,32 @@ class FoldingVisitor : DejavuVisitorRecursive() {
 
     override fun visitForElement(o: DejavuForElement) {
         var start = o.forStatement.templateFor.endOffset;
-        val endNode = o.templateEnd.lastChild;
-        for (child in o.forStatement.templateFor.childrenWithLeaves) {
-            if (child.elementType == KW_IN) {
-                start = child.startOffset
-            }
+        val end = o.templateEnd.lastButWhitespace();
+        o.forStatement.templateFor.findStartToken(KW_IN) {
+            start = it.startOffset
         }
-        if (endNode.prevSibling.elementType == WHITE_SPACE) {
-            fold(o, start, endNode.startOffset - 1)
-        } else {
-            fold(o, start, endNode.startOffset)
-        }
+        fold(o, start, end)
     }
 
     override fun visitMatchElement(o: DejavuMatchElement) {
         val startNode = o.matchStatement.templateMatch.lastChild;
-        val endNode = o.templateEnd.lastChild;
-        if (endNode.prevSibling.elementType == WHITE_SPACE) {
-            fold(o, startNode.startOffset, endNode.startOffset - 1)
-        } else {
-            fold(o, startNode.startOffset, endNode.startOffset)
-        }
+        val end = o.templateEnd.lastButWhitespace();
+        fold(o, startNode.startOffset, end)
     }
 
     private fun fold(node: PsiElement, range: TextRange) {
         fold(node, range.startOffset, range.endOffset)
     }
 
-    private fun PsiElement.endButWhitespace(): Int {
+    private fun PsiElement.findStartToken(token: IElementType, then: (PsiElement) -> Unit) {
+        for (child in childrenWithLeaves) {
+            if (child.elementType == token) {
+                then(child)
+            }
+        }
+    }
+
+    private fun PsiElement.lastButWhitespace(): Int {
         val last = this.lastChild;
         return if (last.elementType == WHITE_SPACE) {
             last.startOffset - 1
