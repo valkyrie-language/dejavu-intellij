@@ -5,9 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuArgument extends PsiElement {
+public interface DejavuPair extends PsiElement {
 
-  @Nullable
+  @NotNull
   DejavuIdentifier getIdentifier();
 
   @NotNull

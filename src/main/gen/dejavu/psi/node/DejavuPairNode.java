@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
 
-public class DejavuExpressionNode extends DejavuElement implements DejavuExpression {
+public class DejavuPairNode extends DejavuElement implements DejavuPair {
 
-  public DejavuExpressionNode(@NotNull ASTNode node) {
+  public DejavuPairNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitExpression(this);
+    visitor.visitPair(this);
   }
 
   @Override
@@ -28,8 +28,8 @@ public class DejavuExpressionNode extends DejavuElement implements DejavuExpress
 
   @Override
   @NotNull
-  public List<DejavuSuffix> getSuffixList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuSuffix.class);
+  public DejavuIdentifier getIdentifier() {
+    return findNotNullChildByClass(DejavuIdentifier.class);
   }
 
   @Override
