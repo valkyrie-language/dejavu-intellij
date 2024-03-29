@@ -8,16 +8,16 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
-import dejavu.psi.mixin.MixinTemplate;
+import dejavu.psi.DejavuElement;
 
-public class DejavuDeclarationTemplateNode extends MixinTemplate implements DejavuDeclarationTemplate {
+public class DejavuUsingElementNode extends DejavuElement implements DejavuUsingElement {
 
-  public DejavuDeclarationTemplateNode(@NotNull ASTNode node) {
+  public DejavuUsingElementNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull DejavuVisitor visitor) {
-    visitor.visitDeclarationTemplate(this);
+    visitor.visitUsingElement(this);
   }
 
   @Override
@@ -27,15 +27,9 @@ public class DejavuDeclarationTemplateNode extends MixinTemplate implements Deja
   }
 
   @Override
-  @Nullable
-  public DejavuNamepath getNamepath() {
-    return findChildByClass(DejavuNamepath.class);
-  }
-
-  @Override
   @NotNull
-  public List<DejavuProgramElement> getProgramElementList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuProgramElement.class);
+  public List<DejavuUsingAlias> getUsingAliasList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuUsingAlias.class);
   }
 
 }

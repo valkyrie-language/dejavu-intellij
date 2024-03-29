@@ -16,7 +16,7 @@ public class DejavuVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitDeclarationElement(@NotNull DejavuDeclarationElement o) {
+  public void visitClassElement(@NotNull DejavuClassElement o) {
     visitPsiElement(o);
   }
 
@@ -61,10 +61,6 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitIfStatement(@NotNull DejavuIfStatement o) {
-    visitPsiElement(o);
-  }
-
-  public void visitImplementElement(@NotNull DejavuImplementElement o) {
     visitPsiElement(o);
   }
 
@@ -157,6 +153,14 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitTextElements(@NotNull DejavuTextElements o) {
+    visitPsiElement(o);
+  }
+
+  public void visitUsingAlias(@NotNull DejavuUsingAlias o) {
+    visitPsiElement(o);
+  }
+
+  public void visitUsingElement(@NotNull DejavuUsingElement o) {
     visitPsiElement(o);
   }
 

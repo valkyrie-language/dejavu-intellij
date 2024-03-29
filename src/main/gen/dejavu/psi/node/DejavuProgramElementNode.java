@@ -28,8 +28,26 @@ public class DejavuProgramElementNode extends DejavuElement implements DejavuPro
 
   @Override
   @Nullable
+  public DejavuClassElement getClassElement() {
+    return findChildByClass(DejavuClassElement.class);
+  }
+
+  @Override
+  @Nullable
+  public DejavuExtendsElement getExtendsElement() {
+    return findChildByClass(DejavuExtendsElement.class);
+  }
+
+  @Override
+  @Nullable
   public DejavuLetStatement getLetStatement() {
     return findChildByClass(DejavuLetStatement.class);
+  }
+
+  @Override
+  @Nullable
+  public DejavuUsingElement getUsingElement() {
+    return findChildByClass(DejavuUsingElement.class);
   }
 
 }

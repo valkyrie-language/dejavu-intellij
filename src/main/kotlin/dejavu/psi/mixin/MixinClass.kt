@@ -8,14 +8,15 @@ import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
 import dejavu.psi.DejavuElement
+import dejavu.psi.node.DejavuClassElement
 import dejavu.psi.node.DejavuIdentifierNode
 import dejavu.psi.node.DejavuImplementElement
 import javax.swing.Icon
 
-abstract class MixinImplements(node: ASTNode) : DejavuElement(node),
+abstract class MixinClass(node: ASTNode) : DejavuElement(node),
     NavigatablePsiElement,
     PsiNameIdentifierOwner,
-    DejavuImplementElement {
+    DejavuClassElement {
 
     override fun getNameIdentifier(): DejavuIdentifierNode? {
         return this.namepath?.identifierList?.lastOrNull() as? DejavuIdentifierNode
