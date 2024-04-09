@@ -1,4 +1,4 @@
-package valkyrie.ide.folding
+package dejavu.ide.folding
 
 import com.intellij.lang.folding.FoldingDescriptor
 import com.intellij.openapi.util.TextRange
@@ -8,6 +8,7 @@ import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.elementType
 import com.intellij.refactoring.suggested.endOffset
 import com.intellij.refactoring.suggested.startOffset
+import dejavu.language.file.DejavuVisitorRecursive
 import dejavu.psi.DejavuTypes.*
 import dejavu.psi.node.*
 import yggdrasil.antlr.childrenWithLeaves

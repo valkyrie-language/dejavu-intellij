@@ -5,11 +5,10 @@ import com.intellij.codeInsight.hints.InlayInfo
 import com.intellij.codeInsight.hints.InlayParameterHintsProvider
 import com.intellij.codeInsight.hints.Option
 import com.intellij.psi.PsiElement
-import yggdrasil.language.psi.ValkyrieInlayElement
 
 
 @Suppress("UnstableApiUsage")
-class ParameterInlayProvider : InlayParameterHintsProvider {
+class InlayParameterProvider : InlayParameterHintsProvider {
     var context = ""
 
     override fun getHintInfo(element: PsiElement): HintInfo {
@@ -19,11 +18,9 @@ class ParameterInlayProvider : InlayParameterHintsProvider {
 
     /// 函数里面的东西
     override fun getParameterHints(element: PsiElement): MutableList<InlayInfo> {
-        val visitor = ParameterInlayHint()
-        if (element is ValkyrieInlayElement) {
-            element.parameter_hint(visitor)
-        }
-        return visitor.info
+        val visitor = InlayParameterVisitor()
+        visitor.visitElement(element)
+        return visitor.finish()
     }
 
 

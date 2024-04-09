@@ -1,4 +1,4 @@
-package valkyrie.ide.folding
+package dejavu.ide.folding
 
 import com.intellij.lang.ASTNode
 import com.intellij.lang.folding.FoldingBuilder
