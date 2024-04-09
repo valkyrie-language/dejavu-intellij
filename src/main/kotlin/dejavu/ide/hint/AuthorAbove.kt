@@ -1,4 +1,4 @@
-package valkyrie.ide.hint
+package dejavu.ide.hint
 
 import com.intellij.codeInsight.hints.VcsCodeVisionLanguageContext
 import com.intellij.openapi.editor.Editor

@@ -42,15 +42,18 @@
 		<importFilteringRule implementation="valkyrie.ide.navigation.ValkyrieImportFilter"/>
 		<usageFilteringRuleProvider implementation="valkyrie.ide.navigation.usageFiltering"/>
 		<!-- Hint -->
-		<codeInsight.parameterInfo language="dejavu" implementationClass="valkyrie.ide.hint.ParameterInfoHint"/>
+		<codeInsight.parameterInfo language="dejavu" implementationClass="dejavu.ide.hint.ParameterInfoHint"/>
 		<codeInsight.parameterNameHints language="dejavu"
-		                                implementationClass="valkyrie.ide.hint.InlayParameterProvider"/>
+		                                implementationClass="dejavu.ide.hint.InlayParameterHintsProvider"/>
 		<codeInsight.lineMarkerProvider
 			language="dejavu"
-			implementationClass="valkyrie.ide.hint.ValkyrieLineMarkerProvider"/>
+			implementationClass="dejavu.ide.hint.ValkyrieLineMarkerProvider"/>
 		<vcs.codeVisionLanguageContext
 			language="dejavu"
-			implementationClass="valkyrie.ide.hint.AuthorAbove"/>
+			implementationClass="dejavu.ide.hint.AuthorAbove"/>
+		<implicitUsageProvider
+			language="dejavu"
+			implementationClass="dejavu.ide.hint.ImplicitUsageProvider"/>
 
 		<!--		<psi.fileReferenceHelper implementation="valkyrie.ide.reference.ValkyrieFileReference"/>-->
 		<psi.referenceContributor

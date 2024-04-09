@@ -1,4 +1,4 @@
-package valkyrie.ide.hint
+package dejavu.ide.hint
 
 import com.intellij.lang.parameterInfo.CreateParameterInfoContext
 import com.intellij.lang.parameterInfo.ParameterInfoHandler
