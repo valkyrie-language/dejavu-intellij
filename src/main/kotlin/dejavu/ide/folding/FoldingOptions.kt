@@ -1,4 +1,4 @@
-package valkyrie.ide.folding
+package dejavu.ide.folding
 
 import com.intellij.application.options.editor.CodeFoldingOptionsProvider
 import javax.swing.JComponent

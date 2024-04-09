@@ -1,4 +1,4 @@
-package valkyrie.ide.folding
+package dejavu.language.file
 
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.psi.PsiElement

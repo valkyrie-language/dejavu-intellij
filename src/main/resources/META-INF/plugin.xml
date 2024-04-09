@@ -44,7 +44,7 @@
 		<!-- Hint -->
 		<codeInsight.parameterInfo language="dejavu" implementationClass="valkyrie.ide.hint.ParameterInfoHint"/>
 		<codeInsight.parameterNameHints language="dejavu"
-		                                implementationClass="valkyrie.ide.hint.ParameterInlayProvider"/>
+		                                implementationClass="valkyrie.ide.hint.InlayParameterProvider"/>
 		<codeInsight.lineMarkerProvider
 			language="dejavu"
 			implementationClass="valkyrie.ide.hint.ValkyrieLineMarkerProvider"/>
@@ -83,9 +83,9 @@
 		<nameSuggestionProvider implementation="valkyrie.ide.completion.CompletionSuggestion"/>
 		<lang.foldingBuilder
 			language="dejavu"
-			implementationClass="valkyrie.ide.folding.FoldingBuilder"/>
+			implementationClass="dejavu.ide.folding.FoldingBuilder"/>
 		<codeBlockProvider language="dejavu" implementationClass="valkyrie.ide.matcher.ValkyrieCodeBlockProvider"/>
-		<codeFoldingOptionsProvider instance="valkyrie.ide.folding.FoldingOptions"/>
+		<codeFoldingOptionsProvider instance="dejavu.ide.folding.FoldingOptions"/>
 		<referenceImporter implementation="valkyrie.ide.completion.ValkyrieImportInsert"/>
 		<lang.importOptimizer
 			language="dejavu"
@@ -96,7 +96,7 @@
 			implementationClass="valkyrie.ide.doc.DocumentationProvider"/>
 	</extensions>
 	<actions>
-		<action id="valkyrie.create.file" class="valkyrie.ide.actions.file_transform.ValkyrieCreateFile">
+		<action id="valkyrie.create.file" class="valkyrie.ide.actions.ValkyrieCreateFile">
 			<add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewHtmlFile"/>
 		</action>
 		<!-- Generated	-->
