@@ -1,4 +1,4 @@
-package valkyrie.ide.hint
+package dejavu.ide.hint
 
 import com.intellij.codeInsight.daemon.LineMarkerInfo
 import com.intellij.codeInsight.daemon.LineMarkerProvider

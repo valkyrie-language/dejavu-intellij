@@ -1,4 +1,4 @@
-package valkyrie.ide.hint
+package dejavu.ide.hint
 
 import com.intellij.codeInsight.codeVision.settings.CodeVisionGroupDefaultSettingModel
 import com.intellij.codeInsight.hints.settings.InlayProviderSettingsModel
@@ -7,6 +7,7 @@ import com.intellij.lang.Language
 import com.intellij.openapi.project.Project
 import dejavu.language.DejavuLanguage
 
+@Suppress("UnstableApiUsage")
 class ValkyrieInlaySettingsProvider : InlaySettingsProvider {
     override fun createModels(project: Project, language: Language): List<InlayProviderSettingsModel> {
         return listOf(

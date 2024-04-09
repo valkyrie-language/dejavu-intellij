@@ -1,4 +1,4 @@
-package valkyrie.ide.hint
+package dejavu.ide.hint
 
 import com.intellij.codeInsight.hints.InlayInfo
 import com.intellij.psi.PsiElement
@@ -7,7 +7,7 @@ import dejavu.psi.node.DejavuFunctionCall
 import dejavu.psi.node.DejavuVisitor
 
 @Suppress("UnstableApiUsage")
-class InlayParameterVisitor : DejavuVisitor() {
+class InlayParameterHintVisitor : DejavuVisitor() {
     private var info: MutableList<InlayInfo> = mutableListOf()
 
     override fun visitElement(element: PsiElement) {

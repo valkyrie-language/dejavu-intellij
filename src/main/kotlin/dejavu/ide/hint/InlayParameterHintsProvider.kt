@@ -1,4 +1,4 @@
-package valkyrie.ide.hint
+package dejavu.ide.hint
 
 import com.intellij.codeInsight.hints.HintInfo
 import com.intellij.codeInsight.hints.InlayInfo
@@ -8,7 +8,7 @@ import com.intellij.psi.PsiElement
 
 
 @Suppress("UnstableApiUsage")
-class InlayParameterProvider : InlayParameterHintsProvider {
+class InlayParameterHintsProvider : InlayParameterHintsProvider {
     var context = ""
 
     override fun getHintInfo(element: PsiElement): HintInfo {
@@ -18,7 +18,7 @@ class InlayParameterProvider : InlayParameterHintsProvider {
 
     /// 函数里面的东西
     override fun getParameterHints(element: PsiElement): MutableList<InlayInfo> {
-        val visitor = InlayParameterVisitor()
+        val visitor = InlayParameterHintVisitor()
         visitor.visitElement(element)
         return visitor.finish()
     }
