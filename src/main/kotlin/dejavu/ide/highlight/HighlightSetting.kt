@@ -1,16 +1,14 @@
-package valkyrie.ide.highlight
+package dejavu.ide.highlight
 
 import com.intellij.openapi.options.colors.ColorDescriptor
 import com.intellij.openapi.options.colors.ColorSettingsPage
 import dejavu.language.file.IconProvider
 
 class HighlightSetting : ColorSettingsPage {
-    private val annotatorTags = HighlightColor
-        .values()
+    private val annotatorTags = HighlightColor.entries
         .associateBy({ it.name }, { it.textAttributesKey })
 
-    override fun getAttributeDescriptors() = HighlightColor
-        .values()
+    override fun getAttributeDescriptors() = HighlightColor.entries
         .map { it.attributesDescriptor }
         .toTypedArray()
 

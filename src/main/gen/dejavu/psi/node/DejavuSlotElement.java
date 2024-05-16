@@ -4,7 +4,7 @@ package dejavu.psi.node;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import valkyrie.ide.highlight.NodeHighlighter;
+import dejavu.ide.highlight.NodeHighlighter;
 
 public interface DejavuSlotElement extends PsiElement {
 

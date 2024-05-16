@@ -4,8 +4,8 @@ import com.intellij.icons.AllIcons
 import com.intellij.lang.ASTNode
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuPattern
-import valkyrie.ide.highlight.HighlightColor
-import valkyrie.ide.highlight.NodeHighlighter
+import dejavu.ide.highlight.HighlightColor
+import dejavu.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
 abstract class MixinPattern(node: ASTNode) : DejavuElement(node),
