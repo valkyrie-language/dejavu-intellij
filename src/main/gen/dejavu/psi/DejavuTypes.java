@@ -89,7 +89,6 @@ public interface DejavuTypes {
   IElementType KW_ELSE = new DejavuTokenType("KW_ELSE");
   IElementType KW_END = new DejavuTokenType("KW_END");
   IElementType KW_EXTENDS = new DejavuTokenType("KW_EXTENDS");
-  IElementType KW_FOR = new DejavuTokenType("KW_FOR");
   IElementType KW_GRAMMAR = new DejavuTokenType("grammar");
   IElementType KW_GROUP = new DejavuTokenType("group");
   IElementType KW_IF = new DejavuTokenType("KW_IF");
@@ -97,6 +96,7 @@ public interface DejavuTypes {
   IElementType KW_IN = new DejavuTokenType("KW_IN");
   IElementType KW_INVOKE = new DejavuTokenType("KW_INVOKE");
   IElementType KW_LET = new DejavuTokenType("KW_LET");
+  IElementType KW_LOOP = new DejavuTokenType("KW_LOOP");
   IElementType KW_MACRO = new DejavuTokenType("macro");
   IElementType KW_MATCH = new DejavuTokenType("KW_MATCH");
   IElementType KW_PROGRAM = new DejavuTokenType("KW_PROGRAM");

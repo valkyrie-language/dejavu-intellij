@@ -9,10 +9,11 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.DejavuElement;
+import error.NonExistentClass;
 
 public class DejavuTemplateElseIfNode extends DejavuElement implements DejavuTemplateElseIf {
 
-  public DejavuTemplateElseIfNode(@NotNull ASTNode node) {
+  public DejavuTemplateElseIfNode(NonExistentClass node) {
     super(node);
   }
 

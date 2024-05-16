@@ -31,8 +31,8 @@ ESCAPED = \\.
 PROPORTION = ::|[∷]
 
 TEMPLATE_X = [_\-~=?]
-TEMPLATE_L = <%{TEMPLATE_X}?
-TEMPLATE_R = {TEMPLATE_X}?%>
+TEMPLATE_L = \{%{TEMPLATE_X}?
+TEMPLATE_R = {TEMPLATE_X}?%\}
 
 
 KW_TEMPLATE   = template
@@ -54,12 +54,12 @@ KW_THEN   = then
 
 
 KW_IF     = if
-KW_ELSE     = else
+KW_ELSE   = else
 
 
 KW_WHILE   = while
-KW_FOR   = for
-KW_IN    = in
+KW_LOOP    = loop
+KW_IN      = in
 
 KW_AS      = as
 
@@ -72,7 +72,7 @@ KW_END   = end
 
 
 WHITE_SPACE = [\s\t]+
-WHITE_TEXT  = [^<]+
+WHITE_TEXT  = [^{]+
 
 %%
 
@@ -83,7 +83,7 @@ WHITE_TEXT  = [^<]+
     }
     {WHITE_SPACE} { return WHITE_SPACE; }
     {WHITE_TEXT}  { return NORMAL_TEXT; }
-	"<"           { return NORMAL_TEXT; }
+	\{            { return NORMAL_TEXT; }
 }
 
 <ProgramContext> {
@@ -162,7 +162,7 @@ WHITE_TEXT  = [^<]+
     {KW_IF} { return KW_IF; }
     {KW_ELSE} { return KW_ELSE; }
 
-	{KW_FOR} { return KW_FOR; }
+	{KW_LOOP} { return KW_LOOP; }
 	{KW_IN} { return KW_IN; }
 
     {KW_WHILE} { return KW_WHILE; }

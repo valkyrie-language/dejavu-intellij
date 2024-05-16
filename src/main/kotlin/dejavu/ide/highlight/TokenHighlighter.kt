@@ -24,7 +24,7 @@ class TokenHighlighter : SyntaxHighlighter {
             KW_USING, KW_IMPORT, KW_AS,
             KW_CLASS, KW_LET,
             KW_IF, KW_ELSE,
-            KW_FOR, KW_IN,
+            KW_LOOP, KW_IN,
 //            KW_SLOT,
             KW_MATCH, KW_WHEN, KW_CASE,
             KW_MACRO, KW_INVOKE,
