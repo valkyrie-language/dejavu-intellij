@@ -5,8 +5,8 @@ import com.intellij.lang.ASTNode
 import com.intellij.psi.NavigatablePsiElement
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuLetStatement
-import valkyrie.ide.highlight.HighlightColor
-import valkyrie.ide.highlight.NodeHighlighter
+import dejavu.ide.highlight.HighlightColor
+import dejavu.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
 abstract class MixinLet(node: ASTNode) : DejavuElement(node),

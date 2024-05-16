@@ -10,8 +10,8 @@ import com.intellij.psi.PsiNameIdentifierOwner
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuIdentifierNode
 import dejavu.psi.node.DejavuSlotElement
-import valkyrie.ide.highlight.HighlightColor
-import valkyrie.ide.highlight.NodeHighlighter
+import dejavu.ide.highlight.HighlightColor
+import dejavu.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
 abstract class MixinSlot(node: ASTNode) : DejavuElement(node),

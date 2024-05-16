@@ -1,4 +1,4 @@
-package valkyrie.ide.highlight
+package dejavu.ide.highlight
 
 import com.intellij.lang.annotation.HighlightSeverity
 import com.intellij.openapi.editor.colors.TextAttributesKey

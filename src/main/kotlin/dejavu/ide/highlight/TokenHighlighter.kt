@@ -1,4 +1,4 @@
-package valkyrie.ide.highlight
+package dejavu.ide.highlight
 
 
 import com.intellij.lexer.Lexer

@@ -25,11 +25,11 @@
 			implementationClass="valkyrie.ide.view.YggdrasilStructureView"/>
 
 		<!-- Highlight -->
-		<colorSettingsPage implementation="valkyrie.ide.highlight.HighlightSetting"/>
-		<highlightVisitor implementation="valkyrie.ide.highlight.NodeHighlighter"/>
+		<colorSettingsPage implementation="dejavu.ide.highlight.HighlightSetting"/>
+		<highlightVisitor implementation="dejavu.ide.highlight.NodeHighlighter"/>
 		<lang.syntaxHighlighter
 			language="dejavu"
-			implementationClass="valkyrie.ide.highlight.TokenHighlighter"
+			implementationClass="dejavu.ide.highlight.TokenHighlighter"
 		/>
 		<!-- Formatter -->
 <!--		<lang.formatter language="dejavu" implementationClass="valkyrie.ide.formatter.FormatBuilder"/>-->

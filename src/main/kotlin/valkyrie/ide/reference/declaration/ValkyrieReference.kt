@@ -4,7 +4,7 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiQualifiedReference
 import dejavu.psi.node.DejavuIdentifierNode
-import valkyrie.ide.highlight.NodeHighlighter
+import dejavu.ide.highlight.NodeHighlighter
 
 open class ValkyrieReference : PsiQualifiedReference {
     private val _element: DejavuIdentifierNode

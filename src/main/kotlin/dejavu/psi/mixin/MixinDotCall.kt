@@ -6,8 +6,8 @@ import com.intellij.psi.NavigatablePsiElement
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuDotCall
 import dejavu.psi.node.DejavuFunctionCall
-import valkyrie.ide.highlight.HighlightColor
-import valkyrie.ide.highlight.NodeHighlighter
+import dejavu.ide.highlight.HighlightColor
+import dejavu.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
 abstract class MixinDotCall(node: ASTNode) : DejavuElement(node),

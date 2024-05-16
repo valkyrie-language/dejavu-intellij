@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.richcopy.HtmlSyntaxInfoUtil
 import com.intellij.psi.PsiElement
 import com.intellij.ui.ColorUtil
 import dejavu.language.DejavuLanguage
-import valkyrie.ide.highlight.HighlightColor
+import dejavu.ide.highlight.HighlightColor
 
 
 class DocumentationRenderer(var element: PsiElement, private var original: PsiElement?) {

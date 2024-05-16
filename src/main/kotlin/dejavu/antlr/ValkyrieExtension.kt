@@ -7,7 +7,7 @@ import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
 import com.intellij.psi.TokenType
-import valkyrie.ide.highlight.HighlightColor
+import dejavu.ide.highlight.HighlightColor
 
 
 fun ASTNode?.isWhitespaceOrEmpty(): Boolean {
