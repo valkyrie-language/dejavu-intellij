@@ -2,7 +2,7 @@ package dejavu.ide.hint
 
 import com.intellij.codeInsight.hints.InlayInfo
 import com.intellij.psi.PsiElement
-import com.intellij.refactoring.suggested.endOffset
+import com.intellij.psi.util.endOffset
 import dejavu.psi.node.DejavuFunctionCall
 import dejavu.psi.node.DejavuVisitor
 

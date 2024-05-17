@@ -10,11 +10,10 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.mixin.MixinSlot;
 import dejavu.ide.highlight.NodeHighlighter;
-import error.NonExistentClass;
 
 public class DejavuSlotElementNode extends MixinSlot implements DejavuSlotElement {
 
-  public DejavuSlotElementNode(NonExistentClass node) {
+  public DejavuSlotElementNode(@NotNull ASTNode node) {
     super(node);
   }
 

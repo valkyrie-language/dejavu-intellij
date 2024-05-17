@@ -9,11 +9,10 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.mixin.MixinClass;
-import error.NonExistentClass;
 
 public class DejavuClassElementNode extends MixinClass implements DejavuClassElement {
 
-  public DejavuClassElementNode(NonExistentClass node) {
+  public DejavuClassElementNode(@NotNull ASTNode node) {
     super(node);
   }
 

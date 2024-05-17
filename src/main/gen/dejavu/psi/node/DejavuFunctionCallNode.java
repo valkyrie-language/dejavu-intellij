@@ -10,11 +10,10 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.mixin.MixinFunctionCall;
 import dejavu.ide.highlight.NodeHighlighter;
-import error.NonExistentClass;
 
 public class DejavuFunctionCallNode extends MixinFunctionCall implements DejavuFunctionCall {
 
-  public DejavuFunctionCallNode(NonExistentClass node) {
+  public DejavuFunctionCallNode(@NotNull ASTNode node) {
     super(node);
   }
 

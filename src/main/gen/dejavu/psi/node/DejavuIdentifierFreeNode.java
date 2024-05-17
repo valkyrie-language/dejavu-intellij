@@ -8,11 +8,10 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
-import error.NonExistentClass;
 
 public class DejavuIdentifierFreeNode extends DejavuIdentifierNode implements DejavuIdentifierFree {
 
-  public DejavuIdentifierFreeNode(NonExistentClass node) {
+  public DejavuIdentifierFreeNode(@NotNull ASTNode node) {
     super(node);
   }
 

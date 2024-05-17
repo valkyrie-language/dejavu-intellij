@@ -20,7 +20,7 @@ class IconProvider : com.intellij.ide.IconProvider() {
     }
 
     object Instance {
-        val File = IconLoader.getIcon("/icons/ygg.svg", IconProvider::class.java)
+        val File = IconLoader.getIcon("/icons/dejavu.svg", IconProvider::class.java)
         val SNIPPET = AllIcons.Actions.MoreHorizontal
         val CLASS = AllIcons.Nodes.Class
         val UNION = AllIcons.Nodes.Enum
