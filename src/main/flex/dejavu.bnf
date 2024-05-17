@@ -28,9 +28,6 @@
 
         REFERENCE = "$Symbol"
 
-        SELECTION_LINE = "SELECTION_LINE"
-
-
         KW_GRAMMAR = "grammar"
         KW_USING = "using"
         KW_GROUP = "group"
@@ -41,7 +38,6 @@
         KW_AS = "as"
         KW_MACRO = "macro"
 
-		VERSION = "<<semver>>"
         PARENTHESIS_L = '('
         PARENTHESIS_R = ')'
         BRACKET_L = '['
@@ -65,26 +61,22 @@
         OP_OR = '|'
         OP_CONCAT = '~'
         PLACE_HOLDER = "_"
-//      SPACE='regexp:\s+'
-//      ANY = 'regexp:.'
-
     ]
 }
 
 // https://github.com/bytecodealliance/fluent/blob/master/spec/fluent.ebnf
 root ::= text-elements*
-text-elements ::=
-    declaration-template
-  | program-template
-  | if-element
-  | while-element
-  | for-element
-  | match-element
-  | slot-element
-  | invoke-element
-  | template-expression
-  | WHITE_SPACE
-  | NORMAL_TEXT;
+text-elements ::= WHITE_SPACE
+    | declaration-template
+    | program-template
+    | if-element
+    | while-element
+    | for-element
+    | match-element
+    | slot-element
+    | invoke-element
+    | template-expression
+    | NORMAL_TEXT;
 // === program statement ===
 declaration-template  ::= TEMPLATE_L KW_TEMPLATE namepath? program-element* TEMPLATE_R {
     mixin = "dejavu.psi.mixin.MixinTemplate"
@@ -92,12 +84,11 @@ declaration-template  ::= TEMPLATE_L KW_TEMPLATE namepath? program-element* TEMP
 program-template ::= TEMPLATE_L KW_PROGRAM program-element* TEMPLATE_R {
     pin = 2
 }
-program-element ::=
-    using-element
-  | class-element
-  | extends-element
-  | let-statement
-  | SEMICOLON
+program-element ::= SEMICOLON
+    | using-element
+    | class-element
+    | extends-element
+    | let-statement
 // === using statement ===
 using-element ::= KW_USING BRACE_L using-alias* BRACE_R {
     pin = 1
@@ -121,7 +112,6 @@ extends-element ::= KW_EXTENDS (string | namepath) {
 let-statement ::= KW_LET identifier-free BIND expression {
     pin = 1
     mixin = "dejavu.psi.mixin.MixinLet"
-    methods = [highlight]
 }
 
 
@@ -182,14 +172,13 @@ template-case ::= TEMPLATE_L KW_CASE pattern-bare if-conditional? TEMPLATE_R {
 // === pattern expressions ===
 pattern ::= pattern-tuple | identifier {
     mixin = "dejavu.psi.mixin.MixinPattern"
-    methods= [highlight]
+
 }
 pattern-tuple ::= PARENTHESIS_L pattern-bare? PARENTHESIS_R;
 pattern-bare ::= pattern (COMMA pattern)* COMMA?;
 // === slot statement ===
 slot-element ::= template-slot text-elements* template-end {
     mixin = "dejavu.psi.mixin.MixinSlot"
-    methods= [highlight]
 }
 template-slot ::= TEMPLATE_L KW_SLOT identifier TEMPLATE_R {
     pin = 2
@@ -222,7 +211,6 @@ suffix ::= dot-call;
 
 dot-call ::= DOT identifier-free argument-list? {
     mixin = "dejavu.psi.mixin.MixinDotCall"
-    methods= [highlight]
 }
 
 
@@ -237,7 +225,6 @@ pair ::= identifier BIND expression;
 value    ::= number | string | function-call;
 function-call ::= namepath argument-list? {
     mixin = "dejavu.psi.mixin.MixinFunctionCall"
-    methods= [highlight]
 }
 // === literals ===
 
@@ -251,9 +238,6 @@ string ::= TEXT_SINGLE | TEXT_DOUBLE;
 // === Identifier ===
 namepath ::= identifier (PROPORTION identifier)* {
     mixin = "dejavu.psi.mixin.MixinNamepath"
-    implements = [
-        "com.intellij.psi.PsiNameIdentifierOwner"
-    ]
 }
 identifier          ::= SYMBOL | SYMBOW_RAW {
     mixin = "dejavu.psi.mixin.MixinIdentifier"

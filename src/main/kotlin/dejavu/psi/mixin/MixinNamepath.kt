@@ -2,12 +2,13 @@ package dejavu.psi.mixin
 
 import com.intellij.lang.ASTNode
 import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiNameIdentifierOwner
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuIdentifierNode
 import dejavu.psi.node.DejavuNamepath
 import valkyrie.ide.reference.declaration.ValkyrieReference
 
-abstract class MixinNamepath(node: ASTNode) : DejavuElement(node), DejavuNamepath {
+abstract class MixinNamepath(node: ASTNode) : DejavuElement(node), DejavuNamepath, PsiNameIdentifierOwner {
     override fun getNameIdentifier(): DejavuIdentifierNode {
         return this.identifierList.last() as DejavuIdentifierNode
     }

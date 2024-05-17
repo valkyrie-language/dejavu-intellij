@@ -16,11 +16,10 @@ abstract class MixinPattern(node: ASTNode) : DejavuElement(node),
         return AllIcons.Nodes.AbstractClass
     }
 
-    override fun highlight(highlighter: NodeHighlighter) {
-        this.identifier?.let { highlighter.highlight(it, HighlightColor.SYM_LOCAL) }
-    }
-
 
 }
 
 
+fun DejavuPattern.highlight(highlighter: NodeHighlighter) {
+    this.identifier?.let { highlighter.highlight(it, HighlightColor.SYM_LOCAL) }
+}

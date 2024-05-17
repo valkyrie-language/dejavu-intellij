@@ -8,6 +8,7 @@ import com.intellij.codeInsight.daemon.impl.analysis.HighlightInfoHolder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import dejavu.language.file.DejavuFileNode
+import dejavu.psi.mixin.highlight
 import dejavu.psi.node.*
 
 class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
@@ -50,7 +51,8 @@ class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
         o.highlight(this)
     }
 
-    fun highlight(element: PsiElement, color: HighlightColor) {
+    fun highlight(element: PsiElement?, color: HighlightColor) {
+        if (element == null) return
         val builder = HighlightInfo.newHighlightInfo(HighlightInfoType.INFORMATION)
         builder.textAttributes(color.textAttributesKey)
         builder.range(element)

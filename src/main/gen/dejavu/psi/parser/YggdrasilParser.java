@@ -802,20 +802,20 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // using-element
-  //   | class-element
-  //   | extends-element
-  //   | let-statement
-  //   | SEMICOLON
+  // SEMICOLON
+  //     | using-element
+  //     | class-element
+  //     | extends-element
+  //     | let-statement
   public static boolean program_element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "program_element")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, PROGRAM_ELEMENT, "<program element>");
-    r = using_element(b, l + 1);
+    r = consumeToken(b, SEMICOLON);
+    if (!r) r = using_element(b, l + 1);
     if (!r) r = class_element(b, l + 1);
     if (!r) r = extends_element(b, l + 1);
     if (!r) r = let_statement(b, l + 1);
-    if (!r) r = consumeToken(b, SEMICOLON);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -1194,22 +1194,23 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // declaration-template
-  //   | program-template
-  //   | if-element
-  //   | while-element
-  //   | for-element
-  //   | match-element
-  //   | slot-element
-  //   | invoke-element
-  //   | template-expression
-  //   | WHITE_SPACE
-  //   | NORMAL_TEXT
+  // WHITE_SPACE
+  //     | declaration-template
+  //     | program-template
+  //     | if-element
+  //     | while-element
+  //     | for-element
+  //     | match-element
+  //     | slot-element
+  //     | invoke-element
+  //     | template-expression
+  //     | NORMAL_TEXT
   public static boolean text_elements(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "text_elements")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, TEXT_ELEMENTS, "<text elements>");
-    r = declaration_template(b, l + 1);
+    r = consumeToken(b, WHITE_SPACE);
+    if (!r) r = declaration_template(b, l + 1);
     if (!r) r = program_template(b, l + 1);
     if (!r) r = if_element(b, l + 1);
     if (!r) r = while_element(b, l + 1);
@@ -1218,7 +1219,6 @@ public class YggdrasilParser implements PsiParser, LightPsiParser {
     if (!r) r = slot_element(b, l + 1);
     if (!r) r = invoke_element(b, l + 1);
     if (!r) r = template_expression(b, l + 1);
-    if (!r) r = consumeToken(b, WHITE_SPACE);
     if (!r) r = consumeToken(b, NORMAL_TEXT);
     exit_section_(b, l, m, r, false, null);
     return r;

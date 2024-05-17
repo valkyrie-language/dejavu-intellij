@@ -9,7 +9,6 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static dejavu.psi.DejavuTypes.*;
 import dejavu.psi.mixin.MixinSlot;
-import dejavu.ide.highlight.NodeHighlighter;
 
 public class DejavuSlotElementNode extends MixinSlot implements DejavuSlotElement {
 

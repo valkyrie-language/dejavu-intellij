@@ -4,7 +4,6 @@ package dejavu.psi.node;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiNameIdentifierOwner;
 
 public class DejavuVisitor extends PsiElementVisitor {
 
@@ -105,7 +104,7 @@ public class DejavuVisitor extends PsiElementVisitor {
   }
 
   public void visitNamepath(@NotNull DejavuNamepath o) {
-    visitPsiNameIdentifierOwner(o);
+    visitPsiElement(o);
   }
 
   public void visitNumber(@NotNull DejavuNumber o) {
@@ -230,10 +229,6 @@ public class DejavuVisitor extends PsiElementVisitor {
 
   public void visitWhileStatement(@NotNull DejavuWhileStatement o) {
     visitPsiElement(o);
-  }
-
-  public void visitPsiNameIdentifierOwner(@NotNull PsiNameIdentifierOwner o) {
-    visitElement(o);
   }
 
   public void visitPsiElement(@NotNull PsiElement o) {

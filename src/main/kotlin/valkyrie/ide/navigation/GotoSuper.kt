@@ -19,7 +19,7 @@ class GotoSuper : GotoTargetHandler() {
         return GotoData(source, targets.toTypedArray(), emptyList())
     }
 
-    override fun getChooserTitle(sourceElement: PsiElement, name: String?, length: Int, finished: Boolean) = when (sourceElement) {
+    override fun getChooserTitle(source: PsiElement, name: String?, length: Int, finished: Boolean) = when (source) {
 //        is YggdrasilClassNode -> "ValkyrieClassStatementNode"
         else -> "???????"
         // EditorConfigBundle.get("goto.super.select.parent")

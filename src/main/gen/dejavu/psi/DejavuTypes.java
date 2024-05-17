@@ -119,7 +119,6 @@ public interface DejavuTypes {
   IElementType PLACE_HOLDER = new DejavuTokenType("_");
   IElementType PROPORTION = new DejavuTokenType("PROPORTION");
   IElementType REFERENCE = new DejavuTokenType("$Symbol");
-  IElementType SELECTION_LINE = new DejavuTokenType("SELECTION_LINE");
   IElementType SEMICOLON = new DejavuTokenType(";");
   IElementType SLASH = new DejavuTokenType("/");
   IElementType SYMBOL = new DejavuTokenType("Symbol");
@@ -130,7 +129,6 @@ public interface DejavuTypes {
   IElementType TEXT_SINGLE = new DejavuTokenType("TEXT_SINGLE");
   IElementType TO = new DejavuTokenType("->");
   IElementType URL = new DejavuTokenType("Url");
-  IElementType VERSION = new DejavuTokenType("<<semver>>");
   IElementType WHITE_SPACE = new DejavuTokenType("WHITE_SPACE");
 
   class Factory {

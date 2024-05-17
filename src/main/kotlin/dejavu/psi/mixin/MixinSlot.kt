@@ -7,11 +7,11 @@ import com.intellij.navigation.ItemPresentation
 import com.intellij.psi.NavigatablePsiElement
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiNameIdentifierOwner
+import dejavu.ide.highlight.HighlightColor
+import dejavu.ide.highlight.NodeHighlighter
 import dejavu.psi.DejavuElement
 import dejavu.psi.node.DejavuIdentifierNode
 import dejavu.psi.node.DejavuSlotElement
-import dejavu.ide.highlight.HighlightColor
-import dejavu.ide.highlight.NodeHighlighter
 import javax.swing.Icon
 
 abstract class MixinSlot(node: ASTNode) : DejavuElement(node),
@@ -41,10 +41,11 @@ abstract class MixinSlot(node: ASTNode) : DejavuElement(node),
         return PresentationData(name, "", baseIcon, null)
     }
 
-    override fun highlight(highlighter: NodeHighlighter) {
-        this.nameIdentifier?.let { highlighter.highlight(it, HighlightColor.SYM_BUILTIN) }
-    }
+
 }
 
-
+fun DejavuSlotElement.highlight(highlighter: NodeHighlighter) {
+    this as MixinSlot
+    this.nameIdentifier?.let { highlighter.highlight(it, HighlightColor.SYM_BUILTIN) }
+}
 
