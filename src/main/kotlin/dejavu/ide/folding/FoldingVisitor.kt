@@ -1,22 +1,28 @@
 package dejavu.ide.folding
 
 import com.intellij.lang.folding.FoldingDescriptor
+import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiRecursiveVisitor
 import com.intellij.psi.TokenType.WHITE_SPACE
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.util.elementType
 import com.intellij.psi.util.endOffset
 import com.intellij.psi.util.startOffset
-import dejavu.language.file.DejavuVisitorRecursive
 import dejavu.psi.DejavuTypes.*
 import dejavu.psi.node.*
 import yggdrasil.antlr.childrenWithLeaves
 
 
-class FoldingVisitor : DejavuVisitorRecursive() {
+class FoldingVisitor : DejavuVisitor(), PsiRecursiveVisitor {
 
     private val descriptors: MutableList<FoldingDescriptor> = mutableListOf()
+
+    override fun visitElement(element: PsiElement) {
+        ProgressManager.checkCanceled()
+        element.acceptChildren(this)
+    }
 
     override fun visitDeclarationTemplate(o: DejavuDeclarationTemplate) {
         o.findStartToken(KW_TEMPLATE) {
@@ -46,10 +52,10 @@ class FoldingVisitor : DejavuVisitorRecursive() {
         fold(o, o.ifStatement.templateIf.lastChild.startOffset, o.templateEnd.lastChild.startOffset)
     }
 
-    override fun visitForElement(o: DejavuForElement) {
-        var start = o.forStatement.templateFor.endOffset;
+    override fun visitEachElement(o: DejavuEachElement) {
+        var start = o.eachStatement.eachTemplate.endOffset;
         val end = o.templateEnd.lastButWhitespace();
-        o.forStatement.templateFor.findStartToken(KW_IN) {
+        o.eachStatement.eachTemplate.findStartToken(KW_IN) {
             start = it.startOffset
         }
         fold(o, start, end)

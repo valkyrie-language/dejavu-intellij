@@ -11,27 +11,30 @@ public interface DejavuTextElements extends PsiElement {
   DejavuDeclarationTemplate getDeclarationTemplate();
 
   @Nullable
-  DejavuForElement getForElement();
+  DejavuEachElement getEachElement();
 
-  @Nullable
-  DejavuIfElement getIfElement();
+    @Nullable
+    DejavuIfElement getIfElement();
 
-  @Nullable
-  DejavuInvokeElement getInvokeElement();
+    @Nullable
+    DejavuInvokeElement getInvokeElement();
 
-  @Nullable
-  DejavuMatchElement getMatchElement();
+    @Nullable
+    DejavuMatchElement getMatchElement();
 
-  @Nullable
-  DejavuProgramTemplate getProgramTemplate();
+    @Nullable
+    DejavuProgramTemplate getProgramTemplate();
 
-  @Nullable
-  DejavuSlotElement getSlotElement();
+    @Nullable
+    DejavuSlotElement getSlotElement();
 
-  @Nullable
-  DejavuTemplateExpression getTemplateExpression();
+    @Nullable
+    DejavuTemplateExpression getTemplateExpression();
 
-  @Nullable
-  DejavuWhileElement getWhileElement();
+    @Nullable
+    DejavuUntilElement getUntilElement();
+
+    @Nullable
+    DejavuWhileElement getWhileElement();
 
 }

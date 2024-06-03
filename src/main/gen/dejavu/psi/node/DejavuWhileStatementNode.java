@@ -28,14 +28,14 @@ public class DejavuWhileStatementNode extends DejavuElement implements DejavuWhi
 
   @Override
   @NotNull
-  public DejavuTemplateWhile getTemplateWhile() {
-    return findNotNullChildByClass(DejavuTemplateWhile.class);
-  }
-
-  @Override
-  @NotNull
   public List<DejavuTextElements> getTextElementsList() {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, DejavuTextElements.class);
   }
+
+    @Override
+    @NotNull
+    public DejavuWhileTemplate getWhileTemplate() {
+        return findNotNullChildByClass(DejavuWhileTemplate.class);
+    }
 
 }

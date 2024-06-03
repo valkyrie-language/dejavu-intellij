@@ -23,7 +23,7 @@ abstract class MixinTemplate(node: ASTNode) : DejavuElement(node),
     }
 
     override fun getNameIdentifier(): DejavuIdentifierNode? {
-        return this.namepath?.nameIdentifier as? DejavuIdentifierNode
+        return this.namepath?.identifierList?.last() as? DejavuIdentifierNode
     }
 
 

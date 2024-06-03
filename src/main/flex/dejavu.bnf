@@ -71,7 +71,8 @@ text-elements ::= WHITE_SPACE
     | program-template
     | if-element
     | while-element
-    | for-element
+    | until-element
+    | each-element
     | match-element
     | slot-element
     | invoke-element
@@ -132,16 +133,20 @@ template-else-if  ::= TEMPLATE_L KW_ELSE KW_IF expression TEMPLATE_R {
 }
 // === while statement ===
 while-element   ::= while-statement else-statement? template-end;
-while-statement ::= template-while text-elements*;
-
-template-while  ::= TEMPLATE_L KW_WHILE expression TEMPLATE_R {
-    pin = 2
+while-statement ::= while-template text-elements*;
+while-template  ::= TEMPLATE_L KW_LOOP KW_WHILE expression TEMPLATE_R {
+    pin = 3
+}
+until-element   ::= until-statement else-statement? template-end;
+until-statement ::= until-template text-elements*;
+until-template  ::= TEMPLATE_L KW_LOOP KW_UNTIL expression TEMPLATE_R {
+    pin = 3
 }
 // === for statement ===
-for-element   ::= for-statement else-statement? template-end;
-for-statement ::= template-for text-elements*;
+each-element   ::= each-statement else-statement? template-end;
+each-statement ::= each-template text-elements*;
 
-template-for  ::= TEMPLATE_L KW_LOOP pattern-bare KW_IN expression if-conditional? TEMPLATE_R {
+each-template  ::= TEMPLATE_L KW_LOOP pattern-bare KW_IN expression if-conditional? TEMPLATE_R {
     pin = 2
 }
 if-conditional    ::= KW_IF expression {
@@ -172,7 +177,6 @@ template-case ::= TEMPLATE_L KW_CASE pattern-bare if-conditional? TEMPLATE_R {
 // === pattern expressions ===
 pattern ::= pattern-tuple | identifier {
     mixin = "dejavu.psi.mixin.MixinPattern"
-
 }
 pattern-tuple ::= PARENTHESIS_L pattern-bare? PARENTHESIS_R;
 pattern-bare ::= pattern (COMMA pattern)* COMMA?;
@@ -227,8 +231,6 @@ function-call ::= namepath argument-list? {
     mixin = "dejavu.psi.mixin.MixinFunctionCall"
 }
 // === literals ===
-
-
 number ::= INTEGER {
 //    mixin = "dejavu.psi.mixin.MixinNumber"
 }

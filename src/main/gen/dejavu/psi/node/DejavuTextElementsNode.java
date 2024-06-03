@@ -34,50 +34,56 @@ public class DejavuTextElementsNode extends DejavuElement implements DejavuTextE
 
   @Override
   @Nullable
-  public DejavuForElement getForElement() {
-    return findChildByClass(DejavuForElement.class);
+  public DejavuEachElement getEachElement() {
+      return findChildByClass(DejavuEachElement.class);
   }
 
-  @Override
-  @Nullable
-  public DejavuIfElement getIfElement() {
-    return findChildByClass(DejavuIfElement.class);
-  }
+    @Override
+    @Nullable
+    public DejavuIfElement getIfElement() {
+        return findChildByClass(DejavuIfElement.class);
+    }
 
-  @Override
-  @Nullable
-  public DejavuInvokeElement getInvokeElement() {
-    return findChildByClass(DejavuInvokeElement.class);
-  }
+    @Override
+    @Nullable
+    public DejavuInvokeElement getInvokeElement() {
+        return findChildByClass(DejavuInvokeElement.class);
+    }
 
-  @Override
-  @Nullable
-  public DejavuMatchElement getMatchElement() {
-    return findChildByClass(DejavuMatchElement.class);
-  }
+    @Override
+    @Nullable
+    public DejavuMatchElement getMatchElement() {
+        return findChildByClass(DejavuMatchElement.class);
+    }
 
-  @Override
-  @Nullable
-  public DejavuProgramTemplate getProgramTemplate() {
-    return findChildByClass(DejavuProgramTemplate.class);
-  }
+    @Override
+    @Nullable
+    public DejavuProgramTemplate getProgramTemplate() {
+        return findChildByClass(DejavuProgramTemplate.class);
+    }
 
-  @Override
-  @Nullable
-  public DejavuSlotElement getSlotElement() {
-    return findChildByClass(DejavuSlotElement.class);
-  }
+    @Override
+    @Nullable
+    public DejavuSlotElement getSlotElement() {
+        return findChildByClass(DejavuSlotElement.class);
+    }
 
-  @Override
-  @Nullable
-  public DejavuTemplateExpression getTemplateExpression() {
-    return findChildByClass(DejavuTemplateExpression.class);
-  }
+    @Override
+    @Nullable
+    public DejavuTemplateExpression getTemplateExpression() {
+        return findChildByClass(DejavuTemplateExpression.class);
+    }
 
-  @Override
-  @Nullable
-  public DejavuWhileElement getWhileElement() {
-    return findChildByClass(DejavuWhileElement.class);
-  }
+    @Override
+    @Nullable
+    public DejavuUntilElement getUntilElement() {
+        return findChildByClass(DejavuUntilElement.class);
+    }
+
+    @Override
+    @Nullable
+    public DejavuWhileElement getWhileElement() {
+        return findChildByClass(DejavuWhileElement.class);
+    }
 
 }

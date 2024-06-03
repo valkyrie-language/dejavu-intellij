@@ -2,15 +2,16 @@
 package dejavu.psi.node;
 
 import java.util.List;
+
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface DejavuWhileStatement extends PsiElement {
-
-  @NotNull
-  List<DejavuTextElements> getTextElementsList();
+public interface DejavuEachStatement extends PsiElement {
 
     @NotNull
-    DejavuWhileTemplate getWhileTemplate();
+    DejavuEachTemplate getEachTemplate();
+
+    @NotNull
+    List<DejavuTextElements> getTextElementsList();
 
 }

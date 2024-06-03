@@ -56,10 +56,10 @@ KW_THEN   = then
 KW_IF     = if
 KW_ELSE   = else
 
-
-KW_WHILE   = while
-KW_LOOP    = loop
-KW_IN      = in
+KW_LOOP  = loop
+KW_WHILE = while
+KW_UNTIL = until
+KW_IN    = in
 
 KW_AS      = as
 
@@ -166,6 +166,8 @@ WHITE_TEXT  = [^{]+
 	{KW_IN} { return KW_IN; }
 
     {KW_WHILE} { return KW_WHILE; }
+    {KW_UNTIL} { return KW_UNTIL; }
+
 
     {KW_MATCH} { return KW_MATCH; }
     {KW_WHEN} { return KW_WHEN; }
