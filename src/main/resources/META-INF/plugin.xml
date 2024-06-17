@@ -12,18 +12,20 @@
 			language="dejavu"
 			extensions="dejavu;"
 			implementationClass="dejavu.language.file.DejavuFileType"
-			fieldName="INSTANCE"/>
+			fieldName="INSTANCE"
+		/>
 		<lang.parserDefinition
 			language="dejavu"
-			implementationClass="dejavu.psi.ParserDefinition"/>
+			implementationClass="dejavu.psi.DejavuParserDefinition"
+		/>
 		<multiHostInjector implementation="valkyrie.ide.matcher.LanguageInjector"/>
 		<!-- Project Namespace -->
 		<iconProvider implementation="dejavu.language.file.IconProvider"/>
 		<!--		<lang.structureViewExtension implementation="valkyrie.ide.view.VStructureViewExtension"/>-->
 		<lang.psiStructureViewFactory
 			language="dejavu"
-			implementationClass="valkyrie.ide.view.YggdrasilStructureView"/>
-
+			implementationClass="valkyrie.ide.view.YggdrasilStructureView"
+		/>
 		<!-- Highlight -->
 		<colorSettingsPage implementation="dejavu.ide.highlight.HighlightSetting"/>
 		<highlightVisitor implementation="dejavu.ide.highlight.NodeHighlighter"/>
@@ -32,12 +34,13 @@
 			implementationClass="dejavu.ide.highlight.TokenHighlighter"
 		/>
 		<!-- Formatter -->
-<!--		<lang.formatter language="dejavu" implementationClass="valkyrie.ide.formatter.FormatBuilder"/>-->
-		<langCodeStyleSettingsProvider implementation="yggdrasil.settings.YggdrasilCodeStyleSettings"/>
+		<!--		<lang.formatter language="dejavu" implementationClass="valkyrie.ide.formatter.FormatBuilder"/>-->
+		<!--		<langCodeStyleSettingsProvider implementation="dejavu.settings.YggdrasilCodeStyleSettings"/>-->
 		<!-- Goto -->
-		<symbolNavigation
-			forClass="yggdrasil.language.symbol.ValkyrieSymbolTemplate"
-			implementationClass="valkyrie.ide.goto.VSymbolNavigationProvider"/>
+		<!--		<symbolNavigation-->
+		<!--			forClass="dejavu.language.symbol.ValkyrieSymbolTemplate"-->
+		<!--			implementationClass="valkyrie.ide.goto.VSymbolNavigationProvider"-->
+		<!--		/>-->
 		<codeInsight.gotoSuper language="dejavu" implementationClass="valkyrie.ide.navigation.GotoSuper"/>
 		<importFilteringRule implementation="valkyrie.ide.navigation.ValkyrieImportFilter"/>
 		<usageFilteringRuleProvider implementation="valkyrie.ide.navigation.usageFiltering"/>
@@ -50,10 +53,8 @@
 			implementationClass="dejavu.ide.hint.ValkyrieLineMarkerProvider"/>
 		<vcs.codeVisionLanguageContext
 			language="dejavu"
-			implementationClass="dejavu.ide.hint.AuthorAbove"/>
-		<implicitUsageProvider
-			language="dejavu"
-			implementationClass="dejavu.ide.hint.ImplicitUsageProvider"/>
+			implementationClass="dejavu.ide.hint.AuthorAbove"
+		/>
 
 		<!--		<psi.fileReferenceHelper implementation="valkyrie.ide.reference.ValkyrieFileReference"/>-->
 		<psi.referenceContributor

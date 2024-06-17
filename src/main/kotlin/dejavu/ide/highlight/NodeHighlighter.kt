@@ -24,11 +24,11 @@ class NodeHighlighter : DejavuVisitor(), HighlightVisitor {
     }
 
     override fun visitArgument(o: DejavuArgument) {
-        o.identifier?.let { highlight(it, HighlightColor.SYM_ARGUMENT) }
+        highlight(o.identifier, HighlightColor.SYM_ARGUMENT)
     }
 
     override fun visitClassElement(o: DejavuClassElement) {
-        o.namepath?.lastChild?.let { highlight(it, HighlightColor.SYM_CLASS) }
+        highlight(o.namepath?.lastChild, HighlightColor.SYM_CLASS)
     }
 
     override fun visitLetStatement(o: DejavuLetStatement) {

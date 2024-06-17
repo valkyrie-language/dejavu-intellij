@@ -2,9 +2,10 @@ package dejavu.ide.hint
 
 import com.intellij.codeInsight.hints.VcsCodeVisionLanguageContext
 import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import dejavu.psi.node.DejavuImplementElement
+import dejavu.psi.node.DejavuDeclarationTemplate
 import dejavu.psi.node.DejavuSlotElement
 import java.awt.event.MouseEvent
 
@@ -18,9 +19,13 @@ class AuthorAbove : VcsCodeVisionLanguageContext {
 
     override fun isAccepted(element: PsiElement): Boolean {
         return element is DejavuSlotElement
-            || element is DejavuImplementElement
+            || element is DejavuDeclarationTemplate
 //            || element is YggdrasilClimbStatement
 //            || element is YggdrasilGrammarNode
+    }
+
+    override fun computeEffectiveRange(element: PsiElement): TextRange {
+        return super.computeEffectiveRange(element)
     }
 
     override fun isCustomFileAccepted(file: PsiFile): Boolean {

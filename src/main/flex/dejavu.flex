@@ -35,40 +35,40 @@ TEMPLATE_L = \{%{TEMPLATE_X}?
 TEMPLATE_R = {TEMPLATE_X}?%\}
 
 
-KW_TEMPLATE   = template
-KW_PROGRAM    = program
-KW_CLASS      = class
-KW_EXTENDS    = extends
-KW_INHERITS   = inherits
-KW_EXTERNAL   = external
-KW_SLOT       = slot
+KW_TEMPLATE = template
+KW_PROGRAM  = program
+KW_CLASS    = class
+KW_EXTENDS  = extends
+KW_INHERITS = inherits
+KW_EXTERNAL = external
+KW_SLOT     = slot
 
 KW_INCLUDE = include
 KW_IMPORT  = import
 KW_USING   = using
 
-KW_LET     = let
+KW_LET = let
 
 KW_INVOKE = invoke
 KW_THEN   = then
 
 
-KW_IF     = if
-KW_ELSE   = else
+KW_IF   = if
+KW_ELSE = else
 
 KW_LOOP  = loop
 KW_WHILE = while
 KW_UNTIL = until
 KW_IN    = in
 
-KW_AS      = as
+KW_AS = as
 
 
-KW_MATCH   = match
-KW_WHEN    = when
-KW_CASE    = case
+KW_MATCH = match
+KW_WHEN  = when
+KW_CASE  = case
 
-KW_END   = end
+KW_END = end
 
 
 WHITE_SPACE = [\s\t]+
@@ -138,7 +138,7 @@ WHITE_TEXT  = [^{]+
 }
 
 <ProgramContext> {
-    {INTEGER} { return INTEGER; }
+    {INTEGER}     { return INTEGER; }
     {TEXT_SINGLE} { return TEXT_SINGLE; }
     {TEXT_DOUBLE} { return TEXT_DOUBLE; }
 //    {REGULAR_RANGE} { return REGULAR_RANGE; }
@@ -147,42 +147,42 @@ WHITE_TEXT  = [^{]+
 
 <ProgramContext> {
 	{KW_TEMPLATE} { return KW_TEMPLATE; }
-	{KW_PROGRAM} { return KW_PROGRAM; }
+	{KW_PROGRAM}  { return KW_PROGRAM; }
 
-    {KW_CLASS} {return KW_CLASS; }
-    {KW_EXTENDS} {return KW_EXTENDS; }
+    {KW_CLASS}   { return KW_CLASS; }
+    {KW_EXTENDS} { return KW_EXTENDS; }
 
-	{KW_USING} {return KW_USING; }
+	{KW_USING}  { return KW_USING; }
     {KW_IMPORT} { return KW_IMPORT; }
-    {KW_AS} { return KW_AS; }
+    {KW_AS}     { return KW_AS; }
 
 
 	{KW_LET} { return KW_LET; }
 
-    {KW_IF} { return KW_IF; }
+    {KW_IF}   { return KW_IF; }
     {KW_ELSE} { return KW_ELSE; }
 
 	{KW_LOOP} { return KW_LOOP; }
-	{KW_IN} { return KW_IN; }
+	{KW_IN}   { return KW_IN; }
 
     {KW_WHILE} { return KW_WHILE; }
     {KW_UNTIL} { return KW_UNTIL; }
 
 
     {KW_MATCH} { return KW_MATCH; }
-    {KW_WHEN} { return KW_WHEN; }
-    {KW_CASE} { return KW_CASE; }
+    {KW_WHEN}  { return KW_WHEN; }
+    {KW_CASE}  { return KW_CASE; }
 
 	{KW_INVOKE} { return KW_INVOKE; }
 
     {KW_SLOT} { return KW_SLOT; }
-    {KW_END} { return KW_END; }
+    {KW_END}  { return KW_END; }
 }
 
 <ProgramContext> {
-    {ESCAPED} { return ESCAPED; }
+    {ESCAPED}    { return ESCAPED; }
     {SYMBOW_RAW} { return SYMBOW_RAW; }
-    {SYMBOL}  { return SYMBOL; }
+    {SYMBOL}     { return SYMBOL; }
 }
 // =====================================================================================================================
 [^] { return BAD_CHARACTER; }

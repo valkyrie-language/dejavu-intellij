@@ -7,11 +7,11 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase.pack
 import com.intellij.psi.tree.IElementType
 import dejavu.psi.DejavuTypes.*
-import dejavu.psi.ParserDefinition
+import dejavu.psi.DejavuParserDefinition
 
 class TokenHighlighter : SyntaxHighlighter {
     override fun getHighlightingLexer(): Lexer {
-        return ParserDefinition.createLexer()
+        return DejavuParserDefinition.createLexer()
     }
 
     override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> {
@@ -24,15 +24,15 @@ class TokenHighlighter : SyntaxHighlighter {
             KW_USING, KW_IMPORT, KW_AS,
             KW_CLASS, KW_LET,
             KW_IF, KW_ELSE,
-            KW_LOOP, KW_IN,
+            KW_LOOP, KW_IN, KW_WHILE, KW_UNTIL,
 //            KW_SLOT,
             KW_MATCH, KW_WHEN, KW_CASE,
             KW_MACRO, KW_INVOKE,
             KW_END,
-            -> HighlightColor.KEYWORD
+                -> HighlightColor.KEYWORD
             // operations
             TEMPLATE_L, TEMPLATE_R -> HighlightColor.SYM_BUILTIN
-            COLON,  -> HighlightColor.OPERATION
+            COLON -> HighlightColor.OPERATION
             BIND, OP_EQ, OP_NE, OP_THEN -> HighlightColor.OPERATION
             OP_OR -> HighlightColor.OPERATION
             // literals

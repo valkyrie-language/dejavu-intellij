@@ -7,7 +7,7 @@ import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
 import dejavu.psi.DejavuTypes.*
-import dejavu.psi.ParserDefinition
+import dejavu.psi.DejavuParserDefinition
 
 
 class ValkyrieBracketMatch : PairedBraceMatcher {
@@ -28,7 +28,7 @@ class ValkyrieBracketMatch : PairedBraceMatcher {
         )
 
         private val InsertPairBraceBefore = TokenSet.orSet(
-            ParserDefinition.commentTokens,
+            DejavuParserDefinition.commentTokens,
             TokenSet.create(
                 TokenType.WHITE_SPACE,
                 COMMA,

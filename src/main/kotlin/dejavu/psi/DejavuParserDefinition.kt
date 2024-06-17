@@ -1,6 +1,7 @@
 package dejavu.psi
 
 import com.intellij.lang.ASTNode
+import com.intellij.lang.ParserDefinition
 import com.intellij.lang.PsiParser
 import com.intellij.lexer.FlexAdapter
 import com.intellij.lexer.Lexer
@@ -12,10 +13,10 @@ import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 import dejavu.language.DejavuLanguage
-import dejavu.psi.parser.YggdrasilParser
 import dejavu.language.file.DejavuFileNode
+import dejavu.psi.parser.YggdrasilParser
 
-object ParserDefinition : com.intellij.lang.ParserDefinition {
+class DejavuParserDefinition : ParserDefinition {
     fun createLexer(): Lexer = FlexAdapter(_DejavuLexer(null))
     override fun createLexer(project: Project): Lexer = FlexAdapter(_DejavuLexer(null))
     override fun createParser(project: Project): PsiParser = YggdrasilParser()
